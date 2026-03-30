@@ -1,0 +1,9 @@
+.Catalog-ProductCardList-wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 313.6px);
+  width: fit-content;
+}

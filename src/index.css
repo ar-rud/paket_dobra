@@ -1,0 +1,22 @@
+#root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+@font-face {
+  font-family: "e-Ukraine";
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Regular.otf) format("opentype");
+  font-weight: 400;
+  font-style: regular;
+}
+@font-face {
+  font-family: "e-Ukraine";
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Medium.otf) format("opentype");
+  font-weight: 500;
+  font-style: medium;
+}
+
+* {
+  font-family: "e-Ukraine", sans-serif;
+}

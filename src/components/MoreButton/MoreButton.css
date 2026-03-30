@@ -1,0 +1,13 @@
+.MoreButton-button {
+    border-color: #273500;
+    border-width: 1px;
+    border-style: solid;
+    padding: 12px 24px;
+    
+    font-size: 16px;
+    font-weight: 400;
+    color: #273500;
+    background-color: #ffffff;
+    
+    height: 48px;
+}
