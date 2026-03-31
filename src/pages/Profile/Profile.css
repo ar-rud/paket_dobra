@@ -1,0 +1,15 @@
+.profile-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ececec;
+  padding: 24px 0;
+}
+
+.profile-page__content {
+  width: min(1220px, calc(100vw - 80px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 16px;
+  align-items: start;
+}

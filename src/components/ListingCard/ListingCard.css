@@ -1,0 +1,108 @@
+.listing-card {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.25rem 0;
+	border-bottom: 1px solid #f3f4f6;
+}
+
+.listing-card:last-child {
+	border-bottom: none;
+}
+
+.listing-card__content {
+	display: flex;
+	gap: 1.25rem;
+	align-items: center;
+}
+
+.listing-card__image {
+	width: 8rem;
+	height: 5rem;
+	object-fit: cover;
+	border-radius: 0.375rem;
+}
+
+.listing-card__image--sold {
+	opacity: 0.5;
+}
+
+.listing-card__details {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.listing-card__title {
+	font-weight: 600;
+}
+
+.listing-card__status {
+	font-size: 0.75rem;
+	color: #6b7280;
+}
+
+.listing-card__meta {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.75rem;
+}
+
+.listing-card__price {
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+
+.listing-card__text--default {
+	color: #111827;
+}
+
+.listing-card__text--muted {
+	color: #9ca3af;
+}
+
+.listing-card__actions {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.listing-card__icon-button {
+	border: none;
+	background: transparent;
+	padding: 0;
+	cursor: pointer;
+	color: #9ca3af;
+	transition: color 0.2s ease;
+}
+
+.listing-card__icon-button:hover {
+	color: #4b5563;
+}
+
+.listing-card__icon-button--danger:hover {
+	color: #ef4444;
+}
+
+.listing-card__icon {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+.listing-card__edit-button {
+	background-color: #ffffff;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #4b5563;
+	border: 1px solid #d1d5db;
+	border-radius: 0.25rem;
+	padding: 0.375rem 1rem;
+	font-family: inherit;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.listing-card__edit-button:hover {
+	background-color: #f9fafb;
+}

@@ -1,10 +1,9 @@
-import Catalog from "./pages/Catalog/Catalog.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
 
 import "./App.css";
 
 function App() {
-  // change for your page
-  return <Catalog />;
+  return <Profile />;
 }
 
 export default App;
