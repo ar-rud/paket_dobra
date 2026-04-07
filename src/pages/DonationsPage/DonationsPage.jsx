@@ -1,16 +1,13 @@
 import { useMemo, useState } from "react";
 
-import PageSwitcher from "../components/PageSwitcher/PageSwitcher.jsx";
-import MoreButton from "../components/MoreButton/MoreButton.jsx";
+import Header from "../../components/Header/Header.jsx";
+import HeroSection from "../../components/HeroSection/HeroSection.jsx";
+import CampaignCard from "../../components/CampaignCard/CampaignCard.jsx";
+import PageSwitcher from "../../components/PageSwitcher/PageSwitcher.jsx";
+import MoreButton from "../../components/MoreButton/MoreButton.jsx";
 
-
-
+import FiltersBar from "./FiltersBar/FiltersBar.jsx";
 import "./DonationsPage.css";
-
-import HeroSection from "../components/HeroSection/HeroSection.jsx";
-import FiltersBar from "../components/FiltersBar/FiltersBar.jsx";
-import CampaignCard from "../components/CampaignCard/CampaignCard.jsx";
-
 
 const campaigns = [
   {
@@ -107,7 +104,7 @@ const campaigns = [
 
 function DonationsPage() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [visibleCount, setVisibleCount] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(9);
 
   const typeOptions = [
     { value: "all", label: "Тип збору" },
@@ -138,6 +135,8 @@ function DonationsPage() {
 
   return (
     <main className="donations-page">
+      <Header />
+
       <section className="donations-page__top">
         <HeroSection
           title="Рій помсти 24/7: б'ємо ворога вдень та вночі"
@@ -163,17 +162,16 @@ function DonationsPage() {
           </div>
 
           <div className="donations-page__load-more">
-  <MoreButton onClick={onLoadMore}>Показати ще ↓</MoreButton>
-</div>
-
-
+            <MoreButton onClick={onLoadMore} disabled={visibleCount >= campaigns.length}>
+              Показати ще ↓
+            </MoreButton>
+          </div>
 
           <PageSwitcher
-  currentPage={currentPage}
-  totalPages={10}
-  onPageChange={setCurrentPage}
-/>
-
+            currentPage={currentPage}
+            totalPages={10}
+            onPageChange={setCurrentPage}
+          />
         </div>
       </section>
     </main>

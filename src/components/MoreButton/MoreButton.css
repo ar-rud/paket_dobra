@@ -1,13 +1,15 @@
 .MoreButton-button {
-    border-color: #273500;
-    border-width: 1px;
-    border-style: solid;
-    padding: 12px 24px;
-    
-    font-size: 16px;
-    font-weight: 400;
-    color: #273500;
-    background-color: #ffffff;
-    
-    height: 48px;
+  border: 1px solid #273500;
+  padding: 7px 14px;
+  font-size: 11px;
+  font-weight: 400;
+  color: #273500;
+  background-color: #ffffff;
+  min-height: 30px;
+  cursor: pointer;
+}
+
+.MoreButton-button:disabled {
+  opacity: 0.55;
+  cursor: default;
 }

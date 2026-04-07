@@ -8,31 +8,30 @@
 }
 
 .donations-page__content {
-  background: #2a3c00;
-  padding: 18px 0 8px;
+  background: #2c4400;
+  padding: 14px 0 24px;
 }
 
 .donations-page__container {
-  width: min(100% - 48px, 1220px);
+  width: min(100% - 72px, 1120px);
   margin: 0 auto;
 }
 
 .donations-page__filters {
-  margin-top: -2px;
+  margin-top: 0;
 }
 
 .donations-page__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px;
 }
 
 .donations-page__load-more {
   display: flex;
   justify-content: center;
-  margin: 36px 0 24px;
+  margin: 36px 0 22px;
 }
-
 
 @media (max-width: 980px) {
   .donations-page__grid {
@@ -42,7 +41,7 @@
 
 @media (max-width: 680px) {
   .donations-page__container {
-    width: min(100% - 24px, 1220px);
+    width: min(100% - 24px, 1240px);
   }
 
   .donations-page__grid {
