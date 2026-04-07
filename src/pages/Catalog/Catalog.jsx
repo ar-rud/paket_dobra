@@ -4,7 +4,7 @@ import ProductCard from "/src/components/ProductCard/ProductCard.jsx";
 import MoreButton from "/src/components/MoreButton/MoreButton.jsx";
 
 import Filters from "./Filters/Filters";
-import PaginationButtons from "../../components/PaginationButtons/PaginationButtons";
+import PaginationButtons from "./PaginationButtons/PaginationButtons";
 
 export default function Catalog(props) {
   const products = [
