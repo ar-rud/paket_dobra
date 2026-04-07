@@ -1,0 +1,107 @@
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.checkout-content {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.checkout-left {
+  flex: 2;
+}
+
+.checkout-right {
+  flex: 1;
+  max-width: 320px;
+}
+
+/* DELIVERY */
+.delivery-card {
+  background: white;
+  border: 1px solid #E5E5E5;
+  padding: 32px;
+  margin-bottom: 30px;
+}
+
+.delivery-option {
+  border: 1px solid #E5E5E5;
+  padding: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.delivery-option:hover {
+  border-color: black;
+}
+
+/* CONTACT */
+.contact-card {
+  background: white;
+  border: 1px solid #E5E5E5;
+  padding: 32px;
+}
+
+/* FORM */
+.form-group {
+  margin-top: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #E5E5E5;
+  font-size: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #E5E5E5;
+  font-size: 16px;
+}
+
+/* FOOTER */
+.checkout-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+/* BUTTONS */
+.btn-cancel {
+  background: white;
+  border: 1px solid black;
+  padding: 14px 40px;
+  cursor: pointer;
+}
+
+.btn-next {
+  background: black;
+  color: white;
+  border: none;
+  padding: 14px 60px;
+  min-width: 220px;
+  cursor: pointer;
+}
+
+/* REUSE */
+.product-summary-card {
+  padding: 20px;
+}
+
+.badge {
+  background: #faffd1;
+  border: 1px solid #d4e05b;
+  padding: 4px 8px;
+  font-size: 12px;
+}
