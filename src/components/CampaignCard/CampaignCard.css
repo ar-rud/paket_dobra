@@ -1,0 +1,83 @@
+.campaign-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #213100;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.campaign-card__image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 8.5;
+  overflow: hidden;
+}
+
+.campaign-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.campaign-card__content {
+  padding: 10px 12px 12px;
+}
+
+.campaign-card__tag {
+  display: inline-block;
+  background: #c7d63c;
+  color: #243000;
+  font-size: 9px;
+  line-height: 1;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+}
+
+.campaign-card__title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #182000;
+}
+
+.campaign-card__foundation {
+  margin: 0 0 14px;
+  font-size: 11px;
+  color: #445100;
+}
+
+.campaign-card__stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: #5b6630;
+  font-size: 9px;
+}
+
+.campaign-card__stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.campaign-card__stats strong {
+  font-size: 10px;
+  font-weight: 500;
+  color: #3b4709;
+}
+
+.campaign-card__progress {
+  width: 100%;
+  height: 10px;
+  background: #ddddda;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.campaign-card__progress-fill {
+  height: 100%;
+  background: #c4d61f;
+  border-radius: 999px;
+}

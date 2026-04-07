@@ -2,48 +2,43 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
   margin: 0;
-  padding: 18px 0;
+  padding: 6px 0 6px;
   background: #f3f3f2;
 }
 
 .filters-bar__left {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .filters-bar__right {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  margin-left: auto;
 }
 
 .filters-bar__select {
-  height: 44px;
-  min-width: 184px;
-  padding: 0 14px;
-  border: 1px solid #c8c8c5;
+  height: 24px;
+  min-width: 116px;
+  padding: 0 8px;
+  border: 1px solid #c2c2be;
   background: #f8f8f7;
   color: #3c3c35;
+  font-size: 8px;
 }
 
 .filters-bar__button {
-  height: 44px;
-  min-width: 120px;
-  border: 1px solid #b1b1ac;
+  height: 24px;
+  min-width: 72px;
+  border: 1px solid #9ea09a;
+  background: #f3f3f2;
+  color: #2a2a25;
   cursor: pointer;
   font-weight: 500;
-}
-
-.filters-bar__button--secondary {
-  background: #f3f3f2;
-  color: #2a2a25;
-}
-
-.filters-bar__button--primary {
-  background: #f3f3f2;
-  color: #2a2a25;
+  font-size: 8px;
 }
 
 @media (max-width: 940px) {

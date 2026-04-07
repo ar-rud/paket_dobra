@@ -1,9 +1,9 @@
 import "./MoreButton.css";
 
-export default function MoreButton(props) {
+export default function MoreButton({ children, onClick, disabled = false }) {
   return (
-    <button className="MoreButton-button" style={{ width: "200px" }}>
-      {props.children}
+    <button className="MoreButton-button" onClick={onClick} disabled={disabled} type="button">
+      {children}
     </button>
   );
 }
