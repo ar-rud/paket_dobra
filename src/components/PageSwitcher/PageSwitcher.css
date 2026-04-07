@@ -1,0 +1,41 @@
+.page-switcher {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.page-switcher__nav {
+  background: transparent;
+  border: none;
+  color: #b4c238;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.page-switcher__nav:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.page-switcher__pages {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.page-switcher__page {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: #b4c238;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.page-switcher__page--active {
+  background: #6d7613;
+  color: #ffffff;
+}
