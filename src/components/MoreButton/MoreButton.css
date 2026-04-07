@@ -9,6 +9,11 @@
   cursor: pointer;
 }
 
+.MoreButton-button--primary {
+  background-color: #273500;
+  color: #ffffff;
+}
+
 .MoreButton-button:disabled {
   opacity: 0.55;
   cursor: default;

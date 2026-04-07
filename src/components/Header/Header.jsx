@@ -20,7 +20,7 @@ export default function Header({
 }) {
   return (
     <header className={`header ${transparent ? "header--transparent" : ""}`.trim()}>
-      <div className="header__top">{topInfoText}</div>
+      {topInfoText ? <div className="header__top">{topInfoText}</div> : null}
 
       <div className="header__bar">
         <a className="header__logo" href="/" aria-label="На головну">
