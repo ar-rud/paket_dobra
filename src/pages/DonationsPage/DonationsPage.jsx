@@ -1,14 +1,14 @@
 import { useMemo, useState } from "react";
 
-import PageSwitcher from "../components/PageSwitcher/PageSwitcher.jsx";
-import MoreButton from "../components/MoreButton/MoreButton.jsx";
+import PageSwitcher from "../../components/PageSwitcher/PageSwitcher.jsx";
+import MoreButton from "../../components/MoreButton/MoreButton.jsx";
 
 
 
 import "./DonationsPage.css";
 
-import HeroSection from "../components/HeroSection/HeroSection.jsx";
-import FiltersBar from "../components/FiltersBar/FiltersBar.jsx";
+import HeroSection from "../../components/HeroSection/HeroSection.jsx";
+import FiltersBar from "./FiltersBar/FiltersBar.jsx";
 import CampaignCard from "../components/CampaignCard/CampaignCard.jsx";
 
 
