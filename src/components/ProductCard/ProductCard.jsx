@@ -14,7 +14,14 @@ export default function ProductCard(props) {
         alt={props.alt}
       ></ProductInfo>
       <div className="ProductCard-buttons">
-        <MoreButton>Детальніше</MoreButton>
+        <MoreButton
+          style={{
+            boxSizing: "border-box",
+            maxWidth: "200px",
+          }}
+        >
+          Детальніше
+        </MoreButton>
         <BasketButton></BasketButton>
       </div>
     </div>
