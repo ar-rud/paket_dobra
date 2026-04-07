@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+
 import Catalog from "./pages/Catalog/Catalog";
-import Checkout from "./pages/Checkout/Checkout";
-import Payment from "./pages/Payment/Payment";
-import Success from "./pages/Success/Success";
-import CardPayment from "./pages/Card/CardPayment";
+
+import Checkout from "./pages/Pay/Checkout/Checkout";
+import Payment from "./pages/Pay/Payment/Payment";
+import Success from "./pages/Pay/Success/Success";
+import CardPayment from "./pages/Pay/Card/CardPayment";
 
 import "./App.css";
 
