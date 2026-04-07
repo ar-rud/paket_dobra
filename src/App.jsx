@@ -2,6 +2,8 @@ import Catalog from "./pages/Catalog/Catalog.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Header from "./pages/Catalog/Header/Header.jsx";
 
+import CatalogOverview from "./pages/Catalog/CatalogOverview/CatalogOverview.jsx";
+
 import "./App.css";
 
 function App() {
@@ -9,7 +11,7 @@ function App() {
   return (
     <>
       <Header/>
-      <Catalog />
+      <CatalogOverview />
       <Footer />
     </>
   );
