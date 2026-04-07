@@ -1,17 +1,17 @@
 html {
-  font-size: 16px; /* default is 16px */
+  font-size: 16px;
 }
 
 .page-wrapper {
-  transform: scale(1.15); /* adjust like 1.1–1.3 */
+  transform: scale(1.15);
   transform-origin: top center;
-  width: 1200px;          /* base width of your layout */
+  width: 1200px;
   margin: 0 auto;
 }
 
 .payment-container {
-  max-width: none;   /* or 1300px depending on your design */
-  margin: 0 auto;      /* center horizontally */
+  max-width: none;
+  margin: 0 auto;
   padding: 40px 20px;
   width: 100%;
 }
@@ -28,10 +28,10 @@ html {
 
 .payment-right {
   flex: 1;
-  max-width: 320px; /* keeps right column tight like in PDF */
+  max-width: 320px;
 }
 
-/* Картка вибору оплати */
+
 .payment-method-card {
   padding: 32px;
 }
@@ -48,7 +48,7 @@ html {
   font-size: 12px;
 }
 
-/* Кнопки внизу */
+
 .payment-footer {
   display: flex;
   justify-content: space-between;
@@ -74,7 +74,16 @@ html {
   border-radius: 2px;
 }
 
-/* Сітка іконок */
+.btn-pay {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 14px 60px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
 .methods-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Три рівні колонки в ряд */
