@@ -1,6 +1,6 @@
 import Catalog from "./pages/Catalog/Catalog.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import Header from "./components/Header/Header.jsx";
+import Header from "./pages/Catalog/Header/Header.jsx";
 
 import "./App.css";
 
