@@ -25,7 +25,7 @@ export default function ImpactStatsSection() {
             <p className="impact-stats__value impact-stats__value--highlight">60%</p>
           </div>
           <div className="impact-stats__joined-card">
-            <p className="impact-stats__label">До методу донатів "купуй-продавай" доєдналось понад</p>
+            <p className="impact-stats__label impact-stats__label--light">До методу донатів "купуй-продавай" доєдналось понад</p>
             <p className="impact-stats__value impact-stats__value--light">2450</p>
           </div>
         </div>
