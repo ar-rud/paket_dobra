@@ -6,15 +6,16 @@ import cartIcon from "../../assets/images/Shopping cart.png";
 import searchIcon from "../../assets/images/search.png";
 
 const defaultLinks = [
-  { label: "Про нас", href: "#" },
-  { label: "Збори", href: "#" },
-  { label: "Статистика", href: "#" },
-  { label: "Блог", href: "#" },
+  { label: "Про нас", href: "/" },
+  { label: "Збори", href: "/donations" },
+  { label: "Статистика", href: "/" },
+  { label: "Блог", href: "/" },
 ];
 
 export default function Header({
   links = defaultLinks,
   ctaText = "Додати оголошення",
+  ctaHref = "/create-announcement",
   topInfoText = "Профіль/Замовлення",
   transparent = true,
 }) {
@@ -28,7 +29,7 @@ export default function Header({
         </a>
 
         <nav className="header__nav" aria-label="Головне меню">
-          <a href="#" className="header__grid-link" aria-label="Каталог">
+          <a href="/catalog" className="header__grid-link" aria-label="Каталог">
             <img src={gridIcon} alt="" className="header__icon-img" />
           </a>
 
@@ -48,9 +49,9 @@ export default function Header({
             <img src={cartIcon} alt="" className="header__icon-img" />
           </button>
 
-          <button type="button" className="header__cta">
+          <a href={ctaHref} className="header__cta">
             {ctaText}
-          </button>
+          </a>
 
           <button type="button" className="header__icon-btn" aria-label="Пошук">
             <img src={searchIcon} alt="" className="header__icon-img" />
