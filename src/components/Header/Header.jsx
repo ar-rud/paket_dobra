@@ -41,9 +41,9 @@ export default function Header({
         </nav>
 
         <div className="header__actions">
-          <button type="button" className="header__icon-btn" aria-label="Профіль">
+          <a href="/profile" className="header__icon-btn" aria-label="Профіль">
             <img src={userIcon} alt="" className="header__icon-img" />
-          </button>
+          </a>
 
           <button type="button" className="header__icon-btn" aria-label="Кошик">
             <img src={cartIcon} alt="" className="header__icon-img" />
