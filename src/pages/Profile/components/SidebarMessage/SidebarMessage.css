@@ -1,0 +1,35 @@
+.sidebar-message {
+	width: 100%;
+}
+
+.sidebar-message__button {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	justify-content: flex-start;
+	background: transparent;
+	border: none;
+	padding: 0;
+	color: #4f5836;
+	font-size: 11px;
+	line-height: 1;
+	font-weight: 500;
+	text-align: left;
+	transition: color 0.2s ease;
+	cursor: pointer;
+}
+
+.sidebar-message__button:hover {
+	color: #2c3900;
+}
+
+.sidebar-message__icon {
+	width: 17px;
+	height: 17px;
+	opacity: 0.9;
+}
+
+.sidebar-message__label {
+	line-height: 1;
+}

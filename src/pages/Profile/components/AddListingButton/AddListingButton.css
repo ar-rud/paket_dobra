@@ -1,0 +1,35 @@
+.add-listing-button {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 1;
+	font-weight: 500;
+	color: #2f390f;
+	background-color: #ffffff;
+	border: none;
+	padding: 0 14px;
+	height: 40px;
+	transition: color 0.2s ease;
+}
+
+.add-listing-button:hover {
+	color: #1d2600;
+}
+
+.add-listing-button__icon {
+	width: 18px;
+	height: 18px;
+	display: block;
+}
+
+.add-listing-button__label {
+	line-height: 1;
+}
+
+@media (max-width: 640px) {
+	.add-listing-button {
+		height: 40px;
+	}
+}

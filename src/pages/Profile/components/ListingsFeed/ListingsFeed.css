@@ -1,0 +1,20 @@
+.listings-feed {
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+}
+
+.listings-feed__list {
+	display: flex;
+	flex-direction: column;
+	padding: 0 0 6px;
+	background-color: #ffffff;
+	border: none;
+	box-shadow: 0 2px 4px rgba(24, 32, 0, 0.07);
+}
+
+@media (max-width: 640px) {
+	.listings-feed__list {
+		padding: 0 0 6px;
+	}
+}
