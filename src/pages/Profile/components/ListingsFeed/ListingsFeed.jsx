@@ -2,26 +2,36 @@ import DashboardToolbar from '../DashboardToolbar/DashboardToolbar.jsx';
 import ListingCard from '../ListingCard/ListingCard.jsx';
 import './ListingsFeed.css';
 
-export default function ListingsFeed({ tabs, addListingLabel, listingsData, statusPrefix, editLabel, pricePrefix, priceSuffix }) {
+export default function ListingsFeed({
+  tabs,
+  activeTabId,
+  onTabChange,
+  addListingLabel,
+  addListingIconSrc,
+  cards,
+  messageIconSrc,
+  deleteIconSrc,
+}) {
   return (
-    <div className="listings-feed">
-      <DashboardToolbar tabs={tabs} addListingLabel={addListingLabel} />
+    <section className="listings-feed">
+      <DashboardToolbar
+        tabs={tabs}
+        activeTabId={activeTabId}
+        onTabChange={onTabChange}
+        addListingLabel={addListingLabel}
+        addListingIconSrc={addListingIconSrc}
+      />
 
       <div className="listings-feed__list">
-        {listingsData.map((item) => (
-          <ListingCard 
-            key={item.id}
-            title={item.title}
-            price={item.price}
-            isSold={item.isSold}
-            image={item.image}
-            statusPrefix={statusPrefix}
-            editLabel={editLabel}
-            pricePrefix={pricePrefix}
-            priceSuffix={priceSuffix}
+        {cards.map((card) => (
+          <ListingCard
+            key={card.id}
+            {...card}
+            messageIconSrc={card.messageIconSrc ?? messageIconSrc}
+            deleteIconSrc={card.deleteIconSrc ?? deleteIconSrc}
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }

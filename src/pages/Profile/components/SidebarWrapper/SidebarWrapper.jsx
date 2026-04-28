@@ -1,23 +1,46 @@
 import UserIdentity from '../UserIdentity/UserIdentity.jsx';
+import SidebarMessage from '../SidebarMessage/SidebarMessage.jsx';
 import ImpactStats from '../ImpactStats/ImpactStats.jsx';
 import Rewards from '../SidebarRewards/SidebarRewards.jsx';
 import SidebarMenu from '../SidebarMenu/SidebarMenu.jsx';
 import './SidebarWrapper.css';
 
-export default function SidebarWrapper({ userIdentity, impactStats, rewards, menuLinks }) {
+export default function SidebarWrapper({ className = '', userIdentity, impactStats, rewards, menuLinks }) {
+  const rootClassName = className ? `sidebar-wrapper ${className}` : 'sidebar-wrapper';
+
   return (
-    <aside className="sidebar-wrapper">
-      <UserIdentity
-        avatarSrc={userIdentity.avatarSrc}
-        avatarAlt={userIdentity.avatarAlt}
-        name={userIdentity.name}
-        username={userIdentity.username}
-        levelLabel={userIdentity.levelLabel}
-        messageLabel={userIdentity.messageLabel}
-      />
-      <ImpactStats title={impactStats.title} value={impactStats.value} />
-      <Rewards title={rewards.title} levels={rewards.levels} />
-      <SidebarMenu menuLinks={menuLinks} />
+    <aside className={rootClassName}>
+      <div className="sidebar-wrapper__section sidebar-wrapper__section--identity">
+        <UserIdentity
+          avatarSrc={userIdentity.avatarSrc}
+          avatarAlt={userIdentity.avatarAlt}
+          name={userIdentity.name}
+          username={userIdentity.username}
+          levelLabel={userIdentity.levelLabel}
+        />
+      </div>
+
+      <div className="sidebar-wrapper__section sidebar-wrapper__section--message">
+        <SidebarMessage label={userIdentity.messageLabel} iconSrc={userIdentity.messageIconSrc} />
+      </div>
+
+      <div className="sidebar-wrapper__section sidebar-wrapper__section--stats">
+        <ImpactStats
+          title={impactStats.title}
+          value={impactStats.value}
+          arrowIconSrc={impactStats.arrowIconSrc}
+          chartLinePath={impactStats.chartLinePath}
+          chartAreaPath={impactStats.chartAreaPath}
+        />
+      </div>
+
+      <div className="sidebar-wrapper__section sidebar-wrapper__section--rewards">
+        <Rewards title={rewards.title} levels={rewards.levels} arrowIconSrc={rewards.arrowIconSrc} />
+      </div>
+
+      <div className="sidebar-wrapper__section sidebar-wrapper__section--menu">
+        <SidebarMenu menuLinks={menuLinks} />
+      </div>
     </aside>
   );
 }

@@ -4,12 +4,9 @@ export default function SidebarMenu({ menuLinks }) {
   return (
     <div className="sidebar-menu">
       {menuLinks.map((link) => (
-        <button
-          key={link.id}
-          className="sidebar-menu__item"
-        >
-          <span className="sidebar-menu__icon">{link.icon}</span>
-          {link.label}
+        <button key={link.id} type="button" className="sidebar-menu__item">
+          <img src={link.iconSrc} alt={link.iconAlt || ''} className="sidebar-menu__icon" />
+          <span className="sidebar-menu__label">{link.label}</span>
         </button>
       ))}
     </div>

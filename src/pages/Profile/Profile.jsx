@@ -1,163 +1,225 @@
+import { useState } from "react";
 import "./Profile.css";
 import SidebarWrapper from "./components/SidebarWrapper/SidebarWrapper.jsx";
 import ListingsFeed from "./components/ListingsFeed/ListingsFeed.jsx";
 
-export default function Profile() {
-  const tabs = [
-    { id: "active", label: "Оголошення", isActive: true },
-    { id: "drafts", label: "Чернетки", isActive: false },
-    { id: "orders", label: "Замовлення", isActive: false },
-  ];
+import addPlusIcon from "./images/add_plus_icon.svg";
+import binIcon from "./images/bin_icon.svg";
+import heartRewardIcon from "./images/heart_reward.png";
+import leaveIcon from "./images/leave_icon.svg";
+import messagesIcon from "./images/messages_icon.svg";
+import rightArrowIcon from "./images/right_arrow_icon.svg";
+import settingsIcon from "./images/settings_icon.svg";
+import supportIcon from "./images/support_icon.svg";
+import unknownRewardIcon from "./images/unknown_reward.svg";
+import userAvatar from "./images/user_avatar.png";
+import itemCup from "./images/item_cup.png";
+import itemPainting from "./images/item_painting.png";
+import itemPaintbrush from "./images/item_paintbrush.png";
+import itemToy from "./images/item_toy.png";
+import itemBall from "./images/item_massage_ball.png";
+import itemSportSuite from "./images/item_sport_suite.png";
+import itemLamp from "./images/item_lamp.png";
 
-  const listingsData = [
+const PROFILE_TABS = [
+  { id: "announcements", label: "Оголошення" },
+  { id: "drafts", label: "Чернетки" },
+  { id: "orders", label: "Замовлення" },
+];
+
+const USER_IDENTITY = {
+  avatarSrc: userAvatar,
+  avatarAlt: "Олександра Лисак",
+  name: "Олександра Лисак",
+  username: "@ollysak",
+  levelLabel: "1 level",
+  messageLabel: "Повідомлення",
+  messageIconSrc: messagesIcon,
+};
+
+const IMPACT_STATS = {
+  title: "Ваша допомога:",
+  value: "4 768грн",
+  arrowIconSrc: rightArrowIcon,
+};
+
+const REWARDS = {
+  title: "Нагороди:",
+  arrowIconSrc: rightArrowIcon,
+  levels: [
     {
-      id: 1,
+      id: "lvl-1",
+      label: "1 lvl",
+      unlocked: true,
+      iconSrc: heartRewardIcon,
+      iconAlt: "Нагорода 1 рівня",
+    },
+    {
+      id: "lvl-2",
+      label: "2 lvl",
+      unlocked: false,
+      iconSrc: unknownRewardIcon,
+      iconAlt: "Нагорода 2 рівня",
+    },
+    {
+      id: "lvl-3",
+      label: "3 lvl",
+      unlocked: false,
+      iconSrc: unknownRewardIcon,
+      iconAlt: "Нагорода 3 рівня",
+    },
+  ],
+};
+
+const MENU_LINKS = [
+  { id: "support", label: "Підтримка", iconSrc: supportIcon, iconAlt: "Підтримка" },
+  {
+    id: "settings",
+    label: "Налаштування",
+    iconSrc: settingsIcon,
+    iconAlt: "Налаштування",
+  },
+  { id: "logout", label: "Вийти", iconSrc: leaveIcon, iconAlt: "Вийти" },
+];
+
+const LISTINGS_BY_TAB = {
+  announcements: [
+    {
+      id: "listing-cup",
+      imageSrc: itemCup,
+      imageAlt: "Чашка ручної роботи",
       title: "Чашка ручної роботи",
-      price: "500",
-      isSold: false,
-      image:
-        "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+      subtitle: "Статус: продається",
+      priceText: "від 500 грн",
+      showMessageAction: true,
+      showDeleteAction: true,
+      primaryActionLabel: "Редагувати",
     },
     {
-      id: 2,
+      id: "listing-painting",
+      imageSrc: itemPainting,
+      imageAlt: 'Картина олійними фарбами "Весна"',
       title: 'Картина олійними фарбами "Весна"',
-      price: "700",
-      isSold: false,
-      image:
-        "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+      subtitle: "Статус: продається",
+      priceText: "від 700 грн",
+      showMessageAction: true,
+      showDeleteAction: true,
+      primaryActionLabel: "Редагувати",
     },
     {
-      id: 3,
+      id: "listing-paintbrush",
+      imageSrc: itemPaintbrush,
+      imageAlt: "Набір пензликів для малювання",
       title: "Набір пензликів для малювання",
-      price: "230",
-      isSold: false,
-      image:
-        "https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+      subtitle: "Статус: продається",
+      priceText: "від 230 грн",
+      showMessageAction: true,
+      showDeleteAction: true,
+      primaryActionLabel: "Редагувати",
     },
     {
-      id: 4,
+      id: "listing-toy",
+      imageSrc: itemToy,
+      imageAlt: "Дитяча іграшка WoodyToyss",
       title: "Дитяча іграшка WoodyToyss",
-      price: "350",
-      isSold: true,
-      image:
-        "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+      subtitle: "Статус: продано",
+      priceText: "від 350 грн",
+      showMessageAction: true,
+      showDeleteAction: true,
+      primaryActionLabel: "Редагувати",
+      muted: true,
+      imageMuted: true,
+      actionsDisabled: true,
     },
-  ];
-
-  const userIdentity = {
-    avatarSrc:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    avatarAlt: "Олександра Лисак",
-    name: "Олександра Лисак",
-    username: "@ollysak",
-    levelLabel: "1 level",
-    messageLabel: "Повідомлення",
-  };
-
-  const impactStats = {
-    title: "Ваша допомога:",
-    value: "4 768грн",
-  };
-
-  const rewards = {
-    title: "Нагороди:",
-    levels: [
-      { id: 1, label: "1 lvl", unlocked: true, icon: "💚" },
-      { id: 2, label: "2 lvl", unlocked: false, icon: "?" },
-      { id: 3, label: "3 lvl", unlocked: false, icon: "?" },
-    ],
-  };
-
-  const menuLinks = [
+  ],
+  drafts: [
     {
-      id: "support",
-      label: "Підтримка",
-      icon: (
-        <svg
-          className="sidebar-menu__icon-svg"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      ),
+      id: "draft-bike",
+      imagePlaceholder: true,
+      title: "Велосипед",
+      priceText: "00.00 грн",
+      showDeleteAction: true,
+      primaryActionLabel: "Редагувати",
     },
     {
-      id: "settings",
-      label: "Налаштування",
-      icon: (
-        <svg
-          className="sidebar-menu__icon-svg"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-        </svg>
-      ),
+      id: "draft-seat",
+      imagePlaceholder: true,
+      title: "Крісло дитяче автомобільне",
+      priceText: "$29.00",
+      showDeleteAction: true,
+      primaryActionLabel: "Редагувати",
+    },
+  ],
+  orders: [
+    {
+      id: "order-ball",
+      imageSrc: itemBall,
+      imageAlt: "Масажний м'яч UP & FORWARD",
+      title: "Масажний м'яч UP & FORWARD",
+      priceText: "350 грн",
+      showMessageAction: true,
+      primaryActionLabel: "Відслідкувати",
     },
     {
-      id: "logout",
-      label: "Вийти",
-      icon: (
-        <svg
-          className="sidebar-menu__icon-svg"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-          />
-        </svg>
-      ),
+      id: "order-suit",
+      imageSrc: itemSportSuite,
+      imageAlt: "Флісовий спортивний костюм",
+      title: "Флісовий спортивний костюм",
+      priceText: "1200 грн",
+      showMessageAction: true,
+      primaryActionLabel: "Відслідкувати",
     },
-  ];
+    {
+      id: "order-lamp",
+      imageSrc: itemLamp,
+      imageAlt: "Кольорова лампа захід сонця",
+      title: "Кольорова лампа захід сонця",
+      priceText: "450 грн",
+      showMessageAction: true,
+      primaryActionLabel: "Відслідкувати",
+    },
+  ],
+};
 
-  const addListingLabel = "Додати оголошення";
-  const statusPrefix = "Статус:";
-  const editLabel = "Редагувати";
-  const pricePrefix = "від";
-  const priceSuffix = "грн";
+export default function Profile() {
+  const [activeTabId, setActiveTabId] = useState(PROFILE_TABS[0].id);
 
   return (
     <div className="profile-page">
-      <main className="profile-page__content">
+      <div className="profile-page__container">
+        <nav className="profile-page__breadcrumbs" aria-label="breadcrumb">
+          <span className="profile-page__breadcrumb">Головна</span>
+          <img
+            className="profile-page__breadcrumb-arrow"
+            src={rightArrowIcon}
+            alt=""
+            aria-hidden="true"
+          />
+          <span className="profile-page__breadcrumb profile-page__breadcrumb--active">Профіль</span>
+        </nav>
+      </div>
+
+      <main className="profile-page__container profile-page__layout">
         <SidebarWrapper
-          userIdentity={userIdentity}
-          impactStats={impactStats}
-          rewards={rewards}
-          menuLinks={menuLinks}
+          className="profile-page__sidebar-column"
+          userIdentity={USER_IDENTITY}
+          impactStats={IMPACT_STATS}
+          rewards={REWARDS}
+          menuLinks={MENU_LINKS}
         />
-        <ListingsFeed
-          tabs={tabs}
-          addListingLabel={addListingLabel}
-          listingsData={listingsData}
-          statusPrefix={statusPrefix}
-          editLabel={editLabel}
-          pricePrefix={pricePrefix}
-          priceSuffix={priceSuffix}
-        />
+
+        <div className="profile-page__listings-column">
+          <ListingsFeed
+            tabs={PROFILE_TABS}
+            activeTabId={activeTabId}
+            onTabChange={setActiveTabId}
+            addListingLabel="Додати оголошення"
+            addListingIconSrc={addPlusIcon}
+            cards={LISTINGS_BY_TAB[activeTabId] ?? []}
+            messageIconSrc={messagesIcon}
+            deleteIconSrc={binIcon}
+          />
+        </div>
       </main>
     </div>
   );

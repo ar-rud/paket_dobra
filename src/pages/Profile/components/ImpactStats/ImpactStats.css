@@ -1,58 +1,59 @@
 .impact-stats {
-	background-color: #ffffff;
-	border-radius: 0.75rem;
-	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-	padding: 1.25rem;
-	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .impact-stats__header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 1rem;
 }
 
 .impact-stats__title {
-	font-weight: 600;
-	color: #1f2937;
+	margin: 0;
+	font-size: 11px;
+	line-height: 1.2;
+	font-weight: 500;
+	color: #273500;
 }
 
 .impact-stats__arrow {
-	width: 1.25rem;
-	height: 1.25rem;
-	color: #1f2937;
-	transition: transform 0.2s ease;
-}
-
-.impact-stats:hover .impact-stats__arrow {
-	transform: translateX(0.25rem);
+	width: 11px;
+	height: 11px;
+	opacity: 0.9;
 }
 
 .impact-stats__body {
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
+	gap: 12px;
 }
 
 .impact-stats__value {
-	font-size: 1.5rem;
-	font-weight: 700;
-	color: #6d7a1d;
+	font-size: 16px;
+	line-height: 1;
+	font-weight: 500;
+	color: #60720a;
+	white-space: nowrap;
 }
 
 .impact-stats__chart {
-	width: 5rem;
-	height: 2rem;
+	width: 58px;
+	height: 28px;
 	position: relative;
-	overflow: hidden;
-	display: flex;
-	align-items: flex-end;
+}
+
+.impact-stats__chart-image {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
 }
 
 .impact-stats__chart-svg {
 	width: 100%;
 	height: 100%;
-	position: absolute;
-	bottom: 0;
+	display: block;
 }
