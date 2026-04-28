@@ -18,6 +18,12 @@
   font-weight: 500;
   font-style: medium;
 }
+@font-face {
+  font-family: "e-Ukraine";
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Bold.otf) format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
 
 * {
   font-family: "e-Ukraine", sans-serif;

@@ -1,0 +1,62 @@
+.section-card.photo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+  background: #ffffff;
+  box-shadow:
+    0 4px 4px rgba(12, 12, 13, 0.1),
+    0 4px 4px rgba(12, 12, 13, 0.05);
+  border: none;
+  padding: 40px 40px 48px;
+}
+
+.section-card.photo-section .section-card__title.photo-section__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #121315;
+}
+
+.section-card.photo-section .section-card__body.photo-section__body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.photo-section__hint {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #717b54;
+}
+
+.photo-section__grid {
+  display: flex;
+  gap: 16px;
+}
+
+.photo-section__slot {
+  width: 87px;
+  height: 87px;
+  border: 1px solid #bdbdbd;
+  background: rgba(234, 234, 234, 0.5);
+  color: #bdbdbd;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.photo-section__plus {
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1;
+  transform: translateY(-2px);
+}

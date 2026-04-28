@@ -1,0 +1,48 @@
+.page-switcher {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 4px;
+}
+
+.page-switcher__nav {
+  background: transparent;
+  border: none;
+  color: #b4c238;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.page-switcher__nav:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.page-switcher__pages {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-switcher__page {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  color: #b4c238;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.page-switcher__dots {
+  color: #b4c238;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.page-switcher__page--active {
+  background: #6d7613;
+  color: #ffffff;
+}
