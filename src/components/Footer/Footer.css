@@ -39,7 +39,10 @@
 .Footer-moto {
   color: #eaebe6;
   font-size: 14px;
+  font-weight: 400;
   max-width: 150px;
+  margin-top: 24px;
+  margin-bottom: 32px;
 }
 
 .Footer-social-media-item {
@@ -124,7 +127,6 @@
 
   display: flex;
   flex-direction: column;
-  gap: 32px;
 }
 
 .Footer-logo-img {
@@ -145,4 +147,24 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+/* 1050px to be changed for proper value */
+@media (max-width: 1050px) {
+  .Footer-wrapper {
+    padding-top: 72px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .Footer-top {
+    flex-direction: column;
+    gap: 72px;
+  }
+
+  .Footer-bottom {
+    flex-wrap: wrap;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
 }

@@ -12,7 +12,7 @@ export default function ProductInfo(props) {
           src={props.imgUrl}
           alt={props.alt ? props.alt : urlToFileName(props.imgUrl)}
         />
-        <DonationPercent percentNumber="15"></DonationPercent>
+        <DonationPercent percentNumber={props.percentNumber}></DonationPercent>
       </div>
       <section className="ProductInfo-section">
         <p className="ProductInfo-name">{props.name}</p>

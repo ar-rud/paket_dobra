@@ -7,7 +7,7 @@ export default function Footer(props) {
         <section className="Footer-top-logo">
           <img
             className="Footer-logo-img"
-            src="/src/assets/images/logo.png"
+            src="/src/assets/images/logo-white.png"
             alt="logo"
           />
 

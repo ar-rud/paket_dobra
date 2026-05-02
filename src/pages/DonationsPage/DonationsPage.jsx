@@ -126,7 +126,7 @@ function DonationsPage() {
 
   const visibleCampaigns = useMemo(
     () => campaigns.slice(0, visibleCount),
-    [visibleCount]
+    [visibleCount],
   );
 
   const onLoadMore = () => {
@@ -134,9 +134,9 @@ function DonationsPage() {
   };
 
   return (
-    <main className="donations-page">
-      <Header />
-
+    // <main className="donations-page">
+    //   <Header />
+    <>
       <section className="donations-page__top">
         <HeroSection
           title="Рій помсти 24/7: б'ємо ворога вдень та вночі"
@@ -162,7 +162,10 @@ function DonationsPage() {
           </div>
 
           <div className="donations-page__load-more">
-            <MoreButton onClick={onLoadMore} disabled={visibleCount >= campaigns.length}>
+            <MoreButton
+              onClick={onLoadMore}
+              disabled={visibleCount >= campaigns.length}
+            >
               Показати ще ↓
             </MoreButton>
           </div>
@@ -174,7 +177,8 @@ function DonationsPage() {
           />
         </div>
       </section>
-    </main>
+    </>
+    // </main>
   );
 }
 

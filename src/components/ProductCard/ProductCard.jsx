@@ -12,6 +12,7 @@ export default function ProductCard(props) {
         name={props.name}
         price={props.price}
         alt={props.alt}
+        percentNumber={props.percentNumber}
       ></ProductInfo>
       <div className="ProductCard-buttons">
         <MoreButton
