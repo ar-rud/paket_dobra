@@ -4,13 +4,15 @@ import heartMedium from "../../assets/images/Group 1000005844.svg";
 import heartSmall from "../../assets/images/Group 1000005848.svg";
 import "./ImpactStatsSection.css";
 
-export default function ImpactStatsSection() {
+export default function ImpactStatsSection({ detailsHref = "/statistics" } = {}) {
   return (
     <section className="impact-stats">
       <div className="impact-stats__inner">
         <div className="impact-stats__intro">
           <h2 className="impact-stats__title">І допомагай тим, кому дуже потрібно</h2>
-          <MoreButton className="impact-stats__details-btn">Детальніше →</MoreButton>
+          <MoreButton className="impact-stats__details-btn" onClick={() => { window.location.href = detailsHref; }}>
+            Детальніше →
+          </MoreButton>
         </div>
 
         <div className="impact-stats__white-card">

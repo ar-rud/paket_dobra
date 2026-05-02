@@ -1,0 +1,41 @@
+.statistics-page {
+  min-height: 100vh;
+  background: #eaebe6;
+}
+
+.statistics-page__container {
+  width: min(100% - 72px, 1120px);
+  margin: 0 auto;
+}
+
+.statistics-page__breadcrumbs-wrap {
+  padding: 16px 0 10px;
+}
+
+.statistics-page__breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #9ca28c;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.statistics-page__breadcrumb--current {
+  color: #7f855f;
+}
+
+.statistics-page__breadcrumb-separator {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.statistics-page__reports {
+  padding: 18px 0 28px;
+}
+
+@media (max-width: 680px) {
+  .statistics-page__container {
+    width: min(100% - 24px, 1240px);
+  }
+}
