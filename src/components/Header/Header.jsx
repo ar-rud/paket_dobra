@@ -8,7 +8,7 @@ import searchIcon from "../../assets/images/search.png";
 const defaultLinks = [
   { label: "Про нас", href: "/" },
   { label: "Збори", href: "/donations" },
-  { label: "Статистика", href: "/" },
+  { label: "Статистика", href: "/statistics" },
   { label: "Блог", href: "/" },
 ];
 

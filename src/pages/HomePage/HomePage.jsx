@@ -60,7 +60,7 @@ export default function HomePage() {
     <main className="home-page">
       <Header topInfoText="" />
       <HomeHeroSection />
-      <ImpactStatsSection />
+    <ImpactStatsSection detailsHref="/statistics" />
 
       <section className="home-page__products">
         <div className="home-page__container">
