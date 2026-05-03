@@ -10,15 +10,17 @@ import CardPayment from "./pages/Pay/Card/CardPayment";
 import "./App.css";
 
 function App() {
-  const [page, setPage] = useState("checkout");
+  const [page, setPage] = useState("payment");
+  const [checkoutForm, setCheckoutForm] = useState(null);
 
   return (
     <div className="app-container">
       {page === "catalog" && <Catalog onNext={() => setPage("checkout")} />}
-      {page === "checkout" && <Checkout onNext={() => setPage("payment")} onBack={() => setPage("catalog")} />}
+      {page === "checkout" && <Checkout onNext={(formData) => { setCheckoutForm(formData); 
+        setPage("payment"); }} onBack={() => setPage("catalog")} />}
       {page === "payment" && <Payment onNext={() => setPage("card")} onBack={() => setPage("checkout")} />}
-      {page === "card" && <CardPayment onNext={() => setPage("success")} onBack={() => setPage("payment")} />}
-      {page === "success" && <Success onHome={() => setPage("catalog")} />}
+      {page === "card" && <CardPayment checkoutForm={checkoutForm} onNext={() => setPage("success")} onBack={() => setPage("payment")} />}
+      {page === "success" && <Success onHome={() => setPage("catalog")} onBack={() => setPage("card")}/>}
     </div>
   );
 }
