@@ -18,6 +18,7 @@ export default function Header({
   ctaHref = "/create-announcement",
   topInfoText = "Профіль/Замовлення",
   transparent = true,
+  onCartOpen = () => {},
 }) {
   return (
     <header className={`header ${transparent ? "header--transparent" : ""}`.trim()}>
@@ -45,7 +46,7 @@ export default function Header({
             <img src={userIcon} alt="" className="header__icon-img" />
           </a>
 
-          <button type="button" className="header__icon-btn" aria-label="Кошик">
+          <button type="button" className="header__icon-btn" aria-label="Кошик" onClick={onCartOpen}>
             <img src={cartIcon} alt="" className="header__icon-img" />
           </button>
 
