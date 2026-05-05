@@ -35,7 +35,7 @@
 @media (max-width: 900px) {
 	.sidebar-wrapper {
 		--sidebar-edge-gap: 12px;
-		width: min(360px, 100%);
+		width: 100%;
 		min-height: auto;
 		justify-content: flex-start;
 		gap: 22px;
