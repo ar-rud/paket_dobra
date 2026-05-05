@@ -13,27 +13,31 @@ export default function ImpactStats({
   chartAreaPath = DEFAULT_CHART_AREA_PATH,
 }) {
   return (
-    <div className="impact-stats">
-      <div className="impact-stats__header">
-        <h3 className="impact-stats__title">{title}</h3>
+    <div className="profile-impact-stats">
+      <div className="profile-impact-stats__header">
+        <h3 className="profile-impact-stats__title">{title}</h3>
         {arrowIconSrc ? (
-          <img src={arrowIconSrc} alt="" aria-hidden="true" className="impact-stats__arrow" />
+          <img src={arrowIconSrc} alt="" aria-hidden="true" className="profile-impact-stats__arrow" />
         ) : null}
       </div>
 
-      <div className="impact-stats__body">
-        <span className="impact-stats__value">{value}</span>
+      <div className="profile-impact-stats__body">
+        <span className="profile-impact-stats__value">{value}</span>
 
-        <div className="impact-stats__chart">
+        <div className="profile-impact-stats__chart">
           {chartImageSrc ? (
             <img
               src={chartImageSrc}
               alt=""
               aria-hidden="true"
-              className="impact-stats__chart-image"
+              className="profile-impact-stats__chart-image"
             />
           ) : (
-            <svg viewBox="0 0 100 40" className="impact-stats__chart-svg" preserveAspectRatio="none">
+            <svg
+              viewBox="0 0 100 40"
+              className="profile-impact-stats__chart-svg"
+              preserveAspectRatio="none"
+            >
               <path d={chartAreaPath} fill="#e5efb6" opacity="0.85" />
               <path d={chartLinePath} fill="none" stroke="#bfcd2d" strokeWidth="2" />
             </svg>
