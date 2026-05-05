@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./HeroBanner.css";
 
 /**
@@ -14,10 +13,11 @@ export default function HeroBanner({ variant = "light", leftContent, rightConten
     <header className="hero-banner" data-variant={variant}>
       {/* background pattern - stepped rectangles */}
       <div className="hero-banner__pattern" aria-hidden>
-        <svg className="hero-banner__svg" preserveAspectRatio="none" viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
-          <rect x="60" y="40" width="160" height="100" fill="var(--hero-pattern)" />
-          <rect x="480" y="60" width="190" height="80" fill="var(--hero-pattern)" />
-          <rect x="990" y="40" width="140" height="100" fill="var(--hero-pattern)" />
+        <svg className="hero-banner__svg" preserveAspectRatio="none" viewBox="0 0 1200 110" xmlns="http://www.w3.org/2000/svg">
+          <rect x="80" y="60" width="170" height="50" fill="var(--hero-pattern)" />
+          <rect x="150" y="30" width="150" height="80" fill="var(--hero-pattern)" />
+          <rect x="500" y="20" width="220" height="90" fill="var(--hero-pattern)" />
+          <rect x="980" y="70" width="150" height="40" fill="var(--hero-pattern)" />
         </svg>
       </div>
 
@@ -30,9 +30,3 @@ export default function HeroBanner({ variant = "light", leftContent, rightConten
     </header>
   );
 }
-
-HeroBanner.propTypes = {
-  variant: PropTypes.oneOf(["light", "solid"]),
-  leftContent: PropTypes.node,
-  rightContent: PropTypes.node,
-};
