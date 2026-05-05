@@ -69,7 +69,7 @@ export default function HomePage() {
       <HomeHeroSection />
       <CatalogOverview></CatalogOverview>
 
-      <ImpactStatsSection />
+    <ImpactStatsSection detailsHref="/statistics" />
 
       <section className="home-page__products">
         <div className="home-page__container">

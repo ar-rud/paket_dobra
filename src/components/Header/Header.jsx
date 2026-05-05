@@ -8,7 +8,7 @@ import searchIcon from "../../assets/images/search.png";
 const defaultLinks = [
   { label: "Про нас", href: "/" },
   { label: "Збори", href: "/donations" },
-  { label: "Статистика", href: "/" },
+  { label: "Статистика", href: "/statistics" },
   { label: "Блог", href: "/" },
 ];
 
@@ -41,9 +41,9 @@ export default function Header({
         </nav>
 
         <div className="header__actions">
-          <button type="button" className="header__icon-btn" aria-label="Профіль">
+          <a href="/profile" className="header__icon-btn" aria-label="Профіль">
             <img src={userIcon} alt="" className="header__icon-img" />
-          </button>
+          </a>
 
           <button type="button" className="header__icon-btn" aria-label="Кошик">
             <img src={cartIcon} alt="" className="header__icon-img" />
