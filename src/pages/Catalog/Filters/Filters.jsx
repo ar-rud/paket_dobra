@@ -17,7 +17,7 @@ export default function Filters(props) {
     });
   };
 
-  const onCategoryChange = onFilterChange("category");
+  const onTypeChange = onFilterChange("type");
   const onDonationPercentageChange = onFilterChange("donationPercentage");
   const onConditionChange = onFilterChange("condition");
   return (
@@ -33,7 +33,7 @@ export default function Filters(props) {
                   className="filter-checkbox"
                   type="checkbox"
                   name="clothes"
-                  onChange={(event) => onFilterChange('category'. event)}
+                  onChange={onTypeChange}
                 />
                 <span className="filter-text">Одяг</span>
               </label>
@@ -44,7 +44,7 @@ export default function Filters(props) {
                   className="filter-checkbox"
                   type="checkbox"
                   name="equipment"
-                  onChange={onCategoryChange}
+                  onChange={onTypeChange}
                 />
                 <span className="filter-text">Спорядження</span>
               </label>
@@ -55,7 +55,7 @@ export default function Filters(props) {
                   className="filter-checkbox"
                   type="checkbox"
                   name="other"
-                  onChange={onCategoryChange}
+                  onChange={onTypeChange}
                 />
                 <span className="filter-text">Інше</span>
               </label>

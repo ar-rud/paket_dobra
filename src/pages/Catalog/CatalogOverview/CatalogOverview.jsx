@@ -1,4 +1,5 @@
 import "./CatalogOverview.css";
+import { Link } from "react-router";
 
 export default function CatalogOverview(props) {
   let decoratingBlocks = [
@@ -43,45 +44,63 @@ export default function CatalogOverview(props) {
             повертайся!
           </p>
         </section>
-        <a
+        <Link
           className="CatalogOverview-item CatalogOverview-home-product"
-          href=""
+          to="/catalog/home"
         >
           Товари для дому
-        </a>
-        <a
+        </Link>
+        <Link
           className="CatalogOverview-item CatalogOverview-beauty-health"
-          href=""
+          to="/catalog/health-beauty"
         >
           Краса та здоровʼя
-        </a>
-        <a className="CatalogOverview-item CatalogOverview-clothes" href="">
+        </Link>
+        <Link
+          className="CatalogOverview-item CatalogOverview-clothes"
+          to="/catalog/clothes"
+        >
           Одяг та аксесуари
-        </a>
-        <a
+        </Link>
+        <Link
           className="CatalogOverview-item CatalogOverview-kids-product"
-          href=""
+          to="/catalog/kids"
         >
           Дитячі товари
-        </a>
-        <a className="CatalogOverview-item CatalogOverview-zoo-product" href="">
+        </Link>
+        <Link
+          className="CatalogOverview-item CatalogOverview-zoo-product"
+          to="/catalog/pets"
+        >
           Зоотовари
-        </a>
-        <a className="CatalogOverview-item CatalogOverview-hobby" href="">
+        </Link>
+        <Link
+          className="CatalogOverview-item CatalogOverview-hobby"
+          to="/catalog/hobbies"
+        >
           Хобі та розваги
-        </a>
-        <a className="CatalogOverview-item CatalogOverview-art" href="">
+        </Link>
+        <Link
+          className="CatalogOverview-item CatalogOverview-art"
+          to="/catalog/art-craft"
+        >
           Мистецтво та творчість
-        </a>
-        <a className="CatalogOverview-item CatalogOverview-service" href="">
+        </Link>
+        <Link
+          className="CatalogOverview-item CatalogOverview-service"
+          to="/catalog/services"
+        >
           Послуги
-        </a>
-        <a className="CatalogOverview-item CatalogOverview-book" href="">
+        </Link>
+        <Link className="CatalogOverview-item CatalogOverview-book" to="/catalog/books">
           Книги та освітні матеріали
-        </a>
-        <a className="CatalogOverview-item CatalogOverview-applience" href="">
+        </Link>
+        <Link
+          className="CatalogOverview-item CatalogOverview-applience"
+          to="/catalog/electronics"
+        >
           Електроніка та техніка
-        </a>
+        </Link>
         {/*https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n*/}
         {/*https://math.stackexchange.com/questions/23503/create-unique-number-from-2-numbers*/}
         {decoratingBlocks.map(([row, col]) => {
