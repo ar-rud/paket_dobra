@@ -12,9 +12,17 @@ export default function ProductCard(props) {
         name={props.name}
         price={props.price}
         alt={props.alt}
+        percentNumber={props.percentNumber}
       ></ProductInfo>
       <div className="ProductCard-buttons">
-        <MoreButton>Детальніше</MoreButton>
+        <MoreButton
+          style={{
+            boxSizing: "border-box",
+            maxWidth: "200px",
+          }}
+        >
+          Детальніше
+        </MoreButton>
         <BasketButton></BasketButton>
       </div>
     </div>

@@ -39,7 +39,7 @@ const reports = [
 export default function StatisticsPage() {
   return (
     <main className="statistics-page">
-      <Header topInfoText="" />
+      {/* <Header topInfoText="" /> */}
 
       <div className="statistics-page__container statistics-page__breadcrumbs-wrap">
         <nav className="statistics-page__breadcrumbs" aria-label="breadcrumb">

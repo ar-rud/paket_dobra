@@ -25,6 +25,34 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "e-Ukraine";
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Bold.otf) format("opentype");
+  font-weight: 600;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: "e-Ukraine";
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Light.otf) format("opentype");
+  font-weight: 300;
+  font-style: light;
+}
+
+@font-face {
+  font-family: "e-Ukraine";
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Bold.otf) format("opentype");
+  font-weight: 600;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: "e-Ukraine";
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Light.otf) format("opentype");
+  font-weight: 300;
+  font-style: light;
+}
+
 * {
   font-family: "e-Ukraine", sans-serif;
 }
