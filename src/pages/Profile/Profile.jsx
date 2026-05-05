@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Profile.css";
+import HeroBanner from "../../components/HeroBanner/HeroBanner.jsx";
 import SidebarWrapper from "./components/SidebarWrapper/SidebarWrapper.jsx";
 import ListingsFeed from "./components/ListingsFeed/ListingsFeed.jsx";
 
@@ -184,29 +185,35 @@ const LISTINGS_BY_TAB = {
 export default function Profile() {
   const [activeTabId, setActiveTabId] = useState(PROFILE_TABS[0].id);
 
+  const sidebarBreadcrumbs = (
+    <nav className="profile-breadcrumbs profile-page__sidebar-breadcrumbs" aria-label="breadcrumb">
+      <span className="profile-breadcrumbs__item">Головна</span>
+      <span className="profile-breadcrumbs__separator">&gt;</span>
+      <span className="profile-breadcrumbs__item profile-breadcrumbs__item--active">Профіль</span>
+    </nav>
+  );
+
+  const bannerRightContent = (
+    <h1 className="profile-banner-title">Донать, досягай нового рівня, отримуй нагороди!</h1>
+  );
+
   return (
     <div className="profile-page">
-      <div className="profile-page__container">
-        <nav className="profile-page__breadcrumbs" aria-label="breadcrumb">
-          <span className="profile-page__breadcrumb">Головна</span>
-          <img
-            className="profile-page__breadcrumb-arrow"
-            src={rightArrowIcon}
-            alt=""
-            aria-hidden="true"
-          />
-          <span className="profile-page__breadcrumb profile-page__breadcrumb--active">Профіль</span>
-        </nav>
+      <div className="profile-page__hero">
+        <HeroBanner variant="solid" leftContent={null} rightContent={bannerRightContent} />
       </div>
 
       <main className="profile-page__container profile-page__layout">
-        <SidebarWrapper
-          className="profile-page__sidebar-column"
-          userIdentity={USER_IDENTITY}
-          impactStats={IMPACT_STATS}
-          rewards={REWARDS}
-          menuLinks={MENU_LINKS}
-        />
+        <div className="profile-page__sidebar-column">
+          {sidebarBreadcrumbs}
+          <SidebarWrapper
+            className="profile-page__sidebar-card"
+            userIdentity={USER_IDENTITY}
+            impactStats={IMPACT_STATS}
+            rewards={REWARDS}
+            menuLinks={MENU_LINKS}
+          />
+        </div>
 
         <div className="profile-page__listings-column">
           <ListingsFeed
