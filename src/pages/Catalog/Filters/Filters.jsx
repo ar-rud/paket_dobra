@@ -1,20 +1,31 @@
 import "./Filters.css";
+import FilterItem from "./FilterItem/FilterItem.jsx";
+import { useSearchParams } from "react-router";
 
 export default function Filters(props) {
+  // let [searchParams, setSearchParams] = useSearchParams();
+
   const onFilterChange = (filterName) => (event) => {
-    let updatedFilter;
+    let updatedSearchParams;
     if (event.target.checked) {
-      updatedFilter = [...props.filters[filterName], event.target.name];
+      updatedSearchParams = [
+        ...props.searchParams.getAll(filterName),
+        event.target.name,
+      ];
     } else {
-      updatedFilter = [...props.filters[filterName]].filter(
+      updatedSearchParams = [...props.searchParams.getAll(filterName)].filter(
         (val) => val !== event.target.name,
       );
     }
+    const newParams = new URLSearchParams(props.searchParams);
 
-    props.setFilters({
-      ...props.filters,
-      [filterName]: updatedFilter,
+    newParams.delete(filterName);
+
+    updatedSearchParams.forEach((val) => {
+      newParams.append(filterName, val);
     });
+
+    props.setSearchParams(newParams);
   };
 
   const onTypeChange = onFilterChange("type");
@@ -24,44 +35,18 @@ export default function Filters(props) {
     <section className="Filters-wrapper">
       <h4 className="Filters-heading">Фільтри</h4>
       <form className="Filters-form">
-        <details className="Filters-item">
-          <summary className="Filters-item-name">Категорія товарів</summary>
-          <div className="filters-options-wrapper">
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="clothes"
-                  onChange={onTypeChange}
-                />
-                <span className="filter-text">Одяг</span>
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="equipment"
-                  onChange={onTypeChange}
-                />
-                <span className="filter-text">Спорядження</span>
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="other"
-                  onChange={onTypeChange}
-                />
-                <span className="filter-text">Інше</span>
-              </label>
-            </div>
-          </div>
-        </details>
+        <FilterItem
+          name="Категорія товарів"
+          filterKey="type"
+          type="checkbox-list"
+          onChange={onTypeChange}
+          options={{
+            clothes: "Одяг",
+            equipment: "Спорядження",
+            other: "Інше",
+          }}
+          searchParams={props.searchParams}
+        />
 
         <details className="Filters-item">
           <summary className="Filters-item-name">Тип послуг</summary>
@@ -72,111 +57,33 @@ export default function Filters(props) {
           <summary className="Filters-item-name">Розмір донату</summary>
         </details>
 
-        <details className="Filters-item">
-          <summary className="Filters-item-name">%, який піде на донат</summary>
-          <div className="filters-options-wrapper">
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="100"
-                  onChange={onDonationPercentageChange}
-                />
-                <span className="filter-text">100%</span>
-              </label>
-            </div>
+        <FilterItem
+          name="%, який піде на донат"
+          filterKey="donationPercentage"
+          type="checkbox-list"
+          onChange={onDonationPercentageChange}
+          options={{
+            100: "100%",
+            75: "75%",
+            50: "50%",
+            25: "25%",
+            15: "15%",
+          }}
+          searchParams={props.searchParams}
+        />
 
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="75"
-                  onChange={onDonationPercentageChange}
-                />
-                <span className="filter-text">75%</span>
-              </label>
-            </div>
-
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="50"
-                  onChange={onDonationPercentageChange}
-                />
-                <span className="filter-text">50%</span>
-              </label>
-            </div>
-
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="25"
-                  onChange={onDonationPercentageChange}
-                />
-                <span className="filter-text">25%</span>
-              </label>
-            </div>
-
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="15"
-                  onChange={onDonationPercentageChange}
-                />
-                <span className="filter-text">15%</span>
-              </label>
-            </div>
-          </div>
-        </details>
-
-        <details className="Filters-item">
-          <summary className="Filters-item-name">Стан товару</summary>
-          <div className="filters-options-wrapper">
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="new"
-                  onChange={onConditionChange}
-                />
-                <span className="filter-text">Нове</span>
-              </label>
-            </div>
-
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="used"
-                  onChange={onConditionChange}
-                />
-                <span className="filter-text">Вживане</span>
-              </label>
-            </div>
-
-            <div>
-              <label>
-                <input
-                  className="filter-checkbox"
-                  type="checkbox"
-                  name="restored"
-                  onChange={onConditionChange}
-                />
-                <span className="filter-text">Відновлене</span>
-              </label>
-            </div>
-          </div>
-        </details>
+        <FilterItem
+          name="Стан товару"
+          filterKey="condition"
+          type="checkbox-list"
+          onChange={onConditionChange}
+          options={{
+            new: "Нове",
+            used: "Вживане",
+            restored: "Відновлене",
+          }}
+          searchParams={props.searchParams}
+        />
 
         <details className="Filters-item">
           <summary className="Filters-item-name">Завершення збору</summary>

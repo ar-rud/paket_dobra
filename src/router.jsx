@@ -8,6 +8,11 @@ import StatisticsPage from "./pages/StatisticsPage/StatisticsPage.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Catalog from "./pages/Catalog/Catalog.jsx";
 
+import CardPayment from "./pages/Pay/Card/CardPayment.jsx"
+import Checkout from "./pages/Pay/Checkout/Checkout.jsx"
+import Payment from "./pages/Pay/Payment/Payment.jsx"
+import Success from "./pages/Pay/Success/Success.jsx"
+
 const validCategories = [
   "home",
   "health-beauty",
@@ -56,8 +61,20 @@ export const router = createBrowserRouter([
             element: <StatisticsPage />,
           },
           {
-            path: "profile",
-            element: <Profile />,
+            path: "card",
+            element: <CardPayment />,
+          },
+          {
+            path: "payment",
+            element: <Payment />,
+          },
+          {
+            path: "success",
+            element: <Success />,
+          },
+          {
+            path: "checkout",
+            element: <Checkout />,
           },
         ],
       },
