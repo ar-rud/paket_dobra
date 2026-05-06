@@ -1,16 +1,16 @@
-.impact-stats {
+.profile-impact-stats {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 }
 
-.impact-stats__header {
+.profile-impact-stats__header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.impact-stats__title {
+.profile-impact-stats__title {
 	margin: 0;
 	font-size: 11px;
 	line-height: 1.2;
@@ -18,20 +18,20 @@
 	color: #273500;
 }
 
-.impact-stats__arrow {
+.profile-impact-stats__arrow {
 	width: 11px;
 	height: 11px;
 	opacity: 0.9;
 }
 
-.impact-stats__body {
+.profile-impact-stats__body {
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
 	gap: 12px;
 }
 
-.impact-stats__value {
+.profile-impact-stats__value {
 	font-size: 16px;
 	line-height: 1;
 	font-weight: 500;
@@ -39,20 +39,20 @@
 	white-space: nowrap;
 }
 
-.impact-stats__chart {
+.profile-impact-stats__chart {
 	width: 58px;
 	height: 28px;
 	position: relative;
 }
 
-.impact-stats__chart-image {
+.profile-impact-stats__chart-image {
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
 	display: block;
 }
 
-.impact-stats__chart-svg {
+.profile-impact-stats__chart-svg {
 	width: 100%;
 	height: 100%;
 	display: block;

@@ -8,10 +8,10 @@ import StatisticsPage from "./pages/StatisticsPage/StatisticsPage.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Catalog from "./pages/Catalog/Catalog.jsx";
 
-import CardPayment from "./pages/Pay/Card/CardPayment.jsx"
-import Checkout from "./pages/Pay/Checkout/Checkout.jsx"
-import Payment from "./pages/Pay/Payment/Payment.jsx"
-import Success from "./pages/Pay/Success/Success.jsx"
+import CardPayment from "./pages/Pay/Card/CardPayment.jsx";
+import Checkout from "./pages/Pay/Checkout/Checkout.jsx";
+import Payment from "./pages/Pay/Payment/Payment.jsx";
+import Success from "./pages/Pay/Success/Success.jsx";
 
 const validCategories = [
   "home",
@@ -75,6 +75,10 @@ export const router = createBrowserRouter([
           {
             path: "checkout",
             element: <Checkout />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
           },
         ],
       },
