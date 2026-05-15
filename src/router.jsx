@@ -7,19 +7,25 @@ import CatalogOverview from "./pages/Catalog/CatalogOverview/CatalogOverview.jsx
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Catalog from "./pages/Catalog/Catalog.jsx";
+import ProductPage from "./pages/Catalog/ProductPage/ProductPage.jsx";
 
-const validCategories = [
-  "home",
-  "health-beauty",
-  "clothes",
-  "kids",
-  "pets",
-  "hobbies",
-  "art-craft",
-  "services",
-  "books",
-  "electronics",
-];
+import CardPayment from "./pages/Pay/Card/CardPayment.jsx";
+import Checkout from "./pages/Pay/Checkout/Checkout.jsx";
+import Payment from "./pages/Pay/Payment/Payment.jsx";
+import Success from "./pages/Pay/Success/Success.jsx";
+
+// const validCategories = [
+//   "home",
+//   "health-beauty",
+//   "clothes",
+//   "kids",
+//   "pets",
+//   "hobbies",
+//   "art-craft",
+//   "services",
+//   "books",
+//   "electronics",
+// ];
 
 export const router = createBrowserRouter([
   {
@@ -49,11 +55,32 @@ export const router = createBrowserRouter([
                 path: ":category",
                 element: <Catalog />,
               },
+
+              {
+                path: ":category/:id",
+                element: <ProductPage />,
+              },
             ],
           },
           {
             path: "statistics",
             element: <StatisticsPage />,
+          },
+          {
+            path: "card",
+            element: <CardPayment />,
+          },
+          {
+            path: "payment",
+            element: <Payment />,
+          },
+          {
+            path: "success",
+            element: <Success />,
+          },
+          {
+            path: "checkout",
+            element: <Checkout />,
           },
           {
             path: "profile",

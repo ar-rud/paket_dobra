@@ -9,8 +9,7 @@ import "./App.css";
 import Footer from "./components/Footer/Footer.jsx";
 import CatalogOverview from "./pages/Catalog/CatalogOverview/CatalogOverview.jsx";
 
-import { Outlet } from "react-router";
-
+import { Outlet, ScrollRestoration } from "react-router";
 import { useState } from "react";
 import Cart from "/src/components/Cart/Cart.jsx";
 
@@ -20,6 +19,7 @@ function App() {
   return (
     <>
       <Header topInfoText="" onCartOpen={() => setCartOpen(true)} />
+      <ScrollRestoration />
       <Outlet></Outlet>
       <Footer></Footer>
       {cartOpen && <Cart onClose={() => setCartOpen(false)} />}
