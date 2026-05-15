@@ -1,11 +1,9 @@
-import { useState } from "react";
 import Header from "../../components/Header/Header.jsx";
 import HomeHeroSection from "../../components/HomeHeroSection/HomeHeroSection.jsx";
 import ImpactStatsSection from "../../components/ImpactStatsSection/ImpactStatsSection.jsx";
 import ProductCard from "../../components/ProductCard/ProductCard.jsx";
 import CampaignCard from "../../components/CampaignCard/CampaignCard.jsx";
 import MoreButton from "../../components/MoreButton/MoreButton.jsx";
-import Cart from "../../components/Cart/Cart.jsx";
 import logo from "../../assets/images/logo.png";
 import "./HomePage.css";
 
@@ -64,13 +62,11 @@ const supportCampaigns = [
 ];
 
 export default function HomePage() {
-  const [cartOpen, setCartOpen] = useState(false);
 
   return (
-    <main className="home-page">
-      <Header topInfoText="" onCartOpen={() => setCartOpen(true)} />
+    <>
       <HomeHeroSection />
-    <ImpactStatsSection detailsHref="/statistics" />
+      <ImpactStatsSection detailsHref="/statistics" />
 
       <section className="home-page__products">
         <div className="home-page__container">
@@ -111,41 +107,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <footer className="home-page__footer">
-        <div className="home-page__footer-inner">
-          <div className="home-page__footer-brand">
-            <img src={logo} alt="Пакет добра" className="home-page__footer-logo" />
-            <p className="home-page__footer-note">
-              Платформа добрих покупок, що перетворює звичні речі на підтримку.
-            </p>
-          </div>
-
-          <div className="home-page__footer-links">
-            <div>
-              <h3>Меню</h3>
-              <a href="/">Про нас</a>
-              <a href="/catalog">Магазин</a>
-              <a href="/create-announcement">Оголошення</a>
-            </div>
-            <div>
-              <h3>Сервіси</h3>
-              <a href="/catalog">Рекомендації</a>
-              <a href="/donations">Підтримка</a>
-              <a href="/donations">Для донорів</a>
-            </div>
-            <div>
-              <h3>Інше</h3>
-              <a href="/">FAQ</a>
-              <a href="/">Політика</a>
-              <a href="/">Контакти</a>
-            </div>
-          </div>
-        </div>
-
-        <p className="home-page__footer-copy">Copyright © 2025 | Умови користування | Політика конфіденційності</p>
-      </footer>
-      {cartOpen && <Cart onClose={() => setCartOpen(false)} />}
-    </main>
+    </>
   );
 }

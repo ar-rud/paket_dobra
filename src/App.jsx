@@ -11,61 +11,20 @@ import CatalogOverview from "./pages/Catalog/CatalogOverview/CatalogOverview.jsx
 
 import { Outlet } from "react-router";
 
+import { useState } from "react";
+import Cart from "/src/components/Cart/Cart.jsx";
 
 function App() {
-  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
-
-  if (pathname === "/donations") {
-    return <DonationsPage />;
-  }
-
-  if (pathname === "/create-announcement") {
-    return <CreateAnnouncementPage />;
-  }
-
-  if (pathname === "/catalog") {
-    return (
-      <>
-        <main>
-          <Header topInfoText="" />
-          <section
-            style={{
-              background: "#eaebe6",
-              minHeight: "100vh",
-              padding: "32px 0 56px",
-            }}
-          >
-            <div
-              style={{ width: "min(100% - 32px, 1120px)", margin: "0 auto" }}
-            >
-              <Catalog />
-            </div>
-          </section>
-        </main>
-        <Footer></Footer>
-      </>
-    );
-  }
-
-  if (pathname === "/catalog/overview") {
-    return (
-      <>
-        <Header topInfoText="" />
-        <CatalogOverview></CatalogOverview>
-        <Footer></Footer>
-      </>
-    );
-  }
+  const [cartOpen, setCartOpen] = useState(false);
 
   return (
     <>
-      <Header topInfoText="" />
+      <Header topInfoText="" onCartOpen={() => setCartOpen(true)} />
       <Outlet></Outlet>
       <Footer></Footer>
+      {cartOpen && <Cart onClose={() => setCartOpen(false)} />}
     </>
   );
-
-  return <HomePage />;
 }
 
 export default App;
