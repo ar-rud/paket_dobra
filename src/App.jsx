@@ -15,14 +15,36 @@ import Cart from "/src/components/Cart/Cart.jsx";
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
+  const [cartPos, setCartPos] = useState({ top: 0, right: 0 });
+
+  const handleCartOpen = () => {
+    const btn = document.querySelector('[aria-label="Кошик"]');
+    if (btn) {
+      const rect = btn.getBoundingClientRect();
+      setCartPos({
+        top: rect.bottom + 10,
+        right: window.innerWidth - rect.right,
+      });
+    }
+    setCartOpen((v) => !v);
+  };
 
   return (
     <>
-      <Header topInfoText="" onCartOpen={() => setCartOpen(true)} />
+      <Header topInfoText="" onCartOpen={handleCartOpen} />
       <ScrollRestoration />
       <Outlet></Outlet>
       <Footer></Footer>
-      {cartOpen && <Cart onClose={() => setCartOpen(false)} />}
+      {cartOpen && (
+        <Cart
+          onClose={() => setCartOpen(false)}
+          anchorStyle={{
+            position: "fixed",
+            top: cartPos.top,
+            right: cartPos.right,
+          }}
+        />
+      )}
     </>
   );
 }
