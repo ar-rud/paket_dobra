@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import "./ProductPage.css";
-import { products } from "/src/pages/catalog/db.js";
-import { campaigns } from "/src/pages/Catalog/db.js";
+// import { products } from "/src/pages/catalog/db.js";
+// import { campaigns } from "/src/pages/Catalog/db.js";
 import ProductCard from "/src/components/ProductCard/ProductCard.jsx";
 
 export default function ProductPage(props) {
