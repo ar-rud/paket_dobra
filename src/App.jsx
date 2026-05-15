@@ -9,8 +9,7 @@ import "./App.css";
 import Footer from "./components/Footer/Footer.jsx";
 import CatalogOverview from "./pages/Catalog/CatalogOverview/CatalogOverview.jsx";
 
-import { Outlet } from "react-router";
-
+import { Outlet, ScrollRestoration } from "react-router";
 
 function App() {
   // const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
@@ -60,6 +59,7 @@ function App() {
   return (
     <>
       <Header topInfoText="" />
+      <ScrollRestoration />
       <Outlet></Outlet>
       <Footer></Footer>
     </>

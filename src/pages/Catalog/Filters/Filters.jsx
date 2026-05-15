@@ -25,7 +25,9 @@ export default function Filters(props) {
       newParams.append(filterName, val);
     });
 
-    props.setSearchParams(newParams);
+    // newParams.append(filterName, updatedSearchParams.join(","));
+
+    props.setSearchParams(newParams, { preventScrollReset: true });
   };
 
   const onTypeChange = onFilterChange("type");
