@@ -23,17 +23,6 @@
         { "month": "Трав", "amount": 1918 }
       ],
       "rewards": ["badge_level_1"]
-    },
-    {
-      "id": 2,
-      "firstName": "Іван",
-      "lastName": "Тестовий",
-      "username": "@ivan_test",
-      "avatarUrl": "/assets/avatars/user2.jpg",
-      "level": 3,
-      "totalDonated": 15000,
-      "donationHistory": [],
-      "rewards": []
     }
   ],
   "products": [
