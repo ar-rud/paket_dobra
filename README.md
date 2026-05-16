@@ -1,18 +1,39 @@
 # Paketdobra
 
-Student React project.
+Simple guide to run the project locally with the included JSON Server.
 
+## Prerequisites
 
-## How to run the project
- 
+- Node.js (recommended >= 18)
+- npm (comes with Node.js) or yarn
 
-### Prerequisites
-- [Node.js](https://nodejs.org/)
+## Quick start
 
-### How to run
-Run the following commands in your terminal:
+1. Clone the repository (replace the URL with the project repo):
+
+```bash
+git clone https://github.com/ar-rud/paket_dobra.git
+cd paket_dobra
+```
+
+2. Create a local environment file from the example and set values if needed:
+
+```bash
+cp .env.example .env
+```
+
+then edit `.env` to adjust `VITE_API_URL` or other variables
+
+3. Install dependencies:
+
 ```bash
 npm install
+```
 
-npm run dev
+## Run the site
+
+Start and the Vite dev server and the JSON Server.
+
+```bash
+npm run dev:full
 ```

@@ -1,0 +1,216 @@
+{
+  "globalStats": {
+    "donationsGrowthPercent": 50,
+    "onlineSystemPercent": 60,
+    "buySellMethodCount": 2450,
+    "totalDonatedBillions": 98.9,
+    "platformFeeAmount": 10
+  },
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Олександра",
+      "lastName": "Лисак",
+      "username": "@ollysak",
+      "avatarUrl": "/assets/avatars/user1.jpg",
+      "level": 1,
+      "totalDonated": 4768,
+      "donationHistory": [
+        { "month": "Січ", "amount": 300 },
+        { "month": "Лют", "amount": 550 },
+        { "month": "Бер", "amount": 1200 },
+        { "month": "Квіт", "amount": 800 },
+        { "month": "Трав", "amount": 1918 }
+      ],
+      "rewards": ["badge_level_1"]
+    },
+    {
+      "id": 2,
+      "firstName": "Іван",
+      "lastName": "Тестовий",
+      "username": "@ivan_test",
+      "avatarUrl": "/assets/avatars/user2.jpg",
+      "level": 3,
+      "totalDonated": 15000,
+      "donationHistory": [],
+      "rewards": []
+    }
+  ],
+  "products": [
+    {
+      "id": 101,
+      "sellerId": 1,
+      "title": "Рюкзак для походів NEO tools 30L",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів! Стан ідеальний, використовувався лише 2 рази.",
+      "price": 450,
+      "currency": "грн",
+      "donationPercentage": 15,
+      "images": [
+        "/assets/products/backpack_main.jpg",
+        "/assets/products/backpack_side.jpg",
+        "/assets/products/backpack_strap.jpg",
+        "/assets/products/backpack_back.jpg"
+      ],
+      "status": "ACTIVE",
+      "categoryId": 1,
+      "condition": "Вживаний",
+      "location": "м. Київ, вул. Світлична, 5",
+      "attributes": {
+        "Об'єм": "30 літрів",
+        "Колір": "Оливковий (камуфляжний)",
+        "Матеріал": "Водонепроникна нейлонова тканина",
+        "Особливості": "Багато кишень, відділ для гідратора"
+      },
+      "shippingMethods": ["Нова Пошта", "Укрпошта", "Самовивіз"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)", "Оплата при отриманні"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-10T08:00:00Z"
+    },
+    {
+      "id": 102,
+      "sellerId": 1,
+      "title": "Чашка ручної роботи",
+      "description": "Ексклюзивна керамічна чашка, зроблена власноруч. Об'єм 350 мл. Можна мити в посудомийці.",
+      "price": 500,
+      "currency": "грн",
+      "donationPercentage": 100,
+      "images": ["/assets/products/cup.jpg"],
+      "status": "ACTIVE",
+      "categoryId": 2,
+      "condition": "Новий",
+      "location": "м. Львів, вул. Франка, 12",
+      "attributes": {
+        "Об'єм": "350 мл",
+        "Матеріал": "Кераміка",
+        "Особливості": "Ручна робота, можна мити в ПМ"
+      },
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Повна передплата"],
+      "linkedCampaignId": 201,
+      "createdAt": "2024-11-12T10:30:00Z"
+    },
+    {
+      "id": 103,
+      "sellerId": 1,
+      "title": "Дитяча іграшка WoodyToys",
+      "description": "Екологічна дерев'яна іграшка для розвитку моторики. Є незначні подряпини.",
+      "price": 350,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/assets/products/toy.jpg"],
+      "status": "SOLD",
+      "categoryId": 3,
+      "condition": "Вживаний",
+      "location": "м. Київ, вул. Хрещатик, 1",
+      "attributes": {
+        "Матеріал": "Дерево",
+        "Вік": "Від 1 року"
+      },
+      "shippingMethods": ["Укрпошта", "Самовивіз"],
+      "paymentMethods": ["Готівка", "Безпечна оплата на сайті"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-10-20T14:15:00Z"
+    },
+    {
+      "id": 104,
+      "sellerId": 1,
+      "title": "Велосипед",
+      "description": "",
+      "price": 0,
+      "currency": "грн",
+      "donationPercentage": 0,
+      "images": [],
+      "status": "DRAFT",
+      "categoryId": 4,
+      "condition": "Вживаний",
+      "location": "",
+      "attributes": {},
+      "shippingMethods": [],
+      "paymentMethods": [],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-15T18:45:00Z"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": 201,
+      "title": "Рій помсти 24/7: б'ємо ворога вдень та вночі",
+      "organizationId": 301,
+      "targetAmount": 8000000,
+      "gatheredAmount": 7685379,
+      "imageUrl": "/assets/campaigns/drones.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 202,
+      "title": "Залізно поруч",
+      "organizationId": 302,
+      "targetAmount": 65000000,
+      "gatheredAmount": 47558379,
+      "imageUrl": "/assets/campaigns/cars.jpg",
+      "tag": "Технічне забезпечення"
+    }
+  ],
+  "organizations": [
+    {
+      "id": 301,
+      "name": "Фонд Сергія Prituli"
+    },
+    {
+      "id": 302,
+      "name": "Фонд \"Повернись живим\""
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Хобі та розваги",
+      "parentId": null
+    },
+    {
+      "id": 2,
+      "name": "Посуд та декор",
+      "parentId": null
+    },
+    {
+      "id": 3,
+      "name": "Дитячі товари",
+      "parentId": null
+    },
+    {
+      "id": 4,
+      "name": "Спорт",
+      "parentId": null
+    }
+  ],
+  "reports": [
+    {
+      "id": 1,
+      "title": "Грудень 2024",
+      "type": "Таблиця",
+      "downloadUrl": "https://dummy-storage.com/reports/dec2024_table.csv"
+    },
+    {
+      "id": 2,
+      "title": "Грудень 2024",
+      "type": "Фотозвіт",
+      "downloadUrl": "https://dummy-storage.com/reports/dec2024_photos.pdf"
+    },
+    {
+      "id": 3,
+      "title": "Грудень 2024",
+      "type": "Квитанції",
+      "downloadUrl": "https://dummy-storage.com/reports/dec2024_receipts.zip"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1001,
+      "buyerId": 2,
+      "items": [101],
+      "campaignId": 201,
+      "totalAmount": 450,
+      "createdAt": "2024-11-16T10:00:00Z"
+    }
+  ]
+}
