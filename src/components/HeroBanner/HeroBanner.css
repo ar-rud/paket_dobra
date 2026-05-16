@@ -2,6 +2,9 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  min-height: var(--hero-banner-min-height, 200px);
+  --hero-banner-padding-block: 2rem;
+  --hero-banner-padding-inline: 1.5rem;
 }
 .hero-banner[data-variant="light"]{
   background: #f8fbf0;
@@ -29,10 +32,12 @@
 .hero-banner__inner{
   position: relative;
   z-index: 10;
-  padding: 2rem 1.5rem;
+  padding: var(--hero-banner-padding-block) var(--hero-banner-padding-inline);
 }
 @media (min-width: 768px){
-  .hero-banner__inner{ padding: 2rem 3rem; }
+  .hero-banner{
+    --hero-banner-padding-inline: 3rem;
+  }
 }
 .hero-banner__row{
   display: flex;
