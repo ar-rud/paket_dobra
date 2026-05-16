@@ -1,5 +1,5 @@
-import Header from "../../components/Header/Header.jsx";
 import ImpactStatsSection from "../../components/ImpactStatsSection/ImpactStatsSection.jsx";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs.jsx";
 import ReportsSection from "./components/ReportsSection.jsx";
 import "./StatisticsPage.css";
 
@@ -39,18 +39,14 @@ const reports = [
 export default function StatisticsPage() {
   return (
     <main className="statistics-page">
-      {/* <Header topInfoText="" /> */}
-
       <div className="statistics-page__container statistics-page__breadcrumbs-wrap">
-        <nav className="statistics-page__breadcrumbs" aria-label="breadcrumb">
-          <span className="statistics-page__breadcrumb">Головна</span>
-          <span className="statistics-page__breadcrumb-separator" aria-hidden="true">
-            &gt;
-          </span>
-          <span className="statistics-page__breadcrumb statistics-page__breadcrumb--current">
-            Статистика
-          </span>
-        </nav>
+        <Breadcrumbs
+          variant="inline"
+          items={[
+            { label: "Головна", to: "/" },
+            { label: "Статистика", current: true },
+          ]}
+        />
       </div>
 
       <ImpactStatsSection />

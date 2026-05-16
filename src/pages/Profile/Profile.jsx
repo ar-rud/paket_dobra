@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Profile.css";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs.jsx";
 import HeroBanner from "../../components/HeroBanner/HeroBanner.jsx";
 import SidebarWrapper from "./components/SidebarWrapper/SidebarWrapper.jsx";
 import ListingsFeed from "./components/ListingsFeed/ListingsFeed.jsx";
@@ -109,13 +110,12 @@ export default function Profile() {
     return () => (mounted = false);
   }, []);
 
-  const sidebarBreadcrumbs = (
-    <nav className="profile-breadcrumbs profile-page__sidebar-breadcrumbs" aria-label="breadcrumb">
-      <span className="profile-breadcrumbs__item">Головна</span>
-      <span className="profile-breadcrumbs__separator">&gt;</span>
-      <span className="profile-breadcrumbs__item profile-breadcrumbs__item--active">Профіль</span>
-    </nav>
-  );
+  const breadcrumbItems = [
+    { label: "Головна", to: "/" },
+    { label: "Профіль", current: true },
+  ];
+
+  const bannerLeftContent = <Breadcrumbs variant="inline" items={breadcrumbItems} />;
 
   const bannerRightContent = (
     <h1 className="profile-banner-title">Донать, досягай нового рівня, отримуй нагороди!</h1>
@@ -128,12 +128,11 @@ export default function Profile() {
       data-has-error={error ? "true" : "false"}
     >
       <div className="profile-page__hero">
-        <HeroBanner variant="solid" leftContent={null} rightContent={bannerRightContent} />
+        <HeroBanner variant="solid" leftContent={bannerLeftContent} rightContent={bannerRightContent} />
       </div>
 
       <main className="profile-page__container profile-page__layout">
         <div className="profile-page__sidebar-column">
-          {sidebarBreadcrumbs}
           <SidebarWrapper
             className="profile-page__sidebar-card"
             userIdentity={userIdentity}
