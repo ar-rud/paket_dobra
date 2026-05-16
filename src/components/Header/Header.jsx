@@ -18,10 +18,13 @@ export default function Header({
   ctaHref = "/create-announcement",
   topInfoText = "Профіль/Замовлення",
   transparent = true,
+  overlay = false,
   onCartOpen = () => {},
 }) {
   return (
-    <header className={`header ${transparent ? "header--transparent" : ""}`.trim()}>
+    <header
+      className={`header ${transparent ? "header--transparent" : ""} ${overlay ? "header--overlay" : ""}`.trim()}
+    >
       {topInfoText ? <div className="header__top">{topInfoText}</div> : null}
 
       <div className="header__bar">
