@@ -32,34 +32,45 @@ export default function Header({
           <img src={logo} alt="Пакет добра" className="header__logo-img" />
         </a>
 
-        <nav className="header__nav" aria-label="Головне меню">
-          <a href="/catalog" className="header__grid-link" aria-label="Каталог">
-            <img src={gridIcon} alt="" className="header__icon-img" />
-          </a>
+        <div className="header__menu">
+          <div className="header__main-group">
+            <nav className="header__nav" aria-label="Головне меню">
+              <a href="/catalog" className="header__grid-link" aria-label="Каталог">
+                <img src={gridIcon} alt="" className="header__icon-img" />
+              </a>
 
-          {links.map((link) => (
-            <a key={link.label} href={link.href} className="header__nav-link">
-              {link.label}
+              {links.map((link) => (
+                <a key={link.label} href={link.href} className="header__nav-link">
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="header__utility-icons">
+              <a href="/profile" className="header__icon-btn" aria-label="Профіль">
+                <img src={userIcon} alt="" className="header__icon-img" />
+              </a>
+
+              <button
+                type="button"
+                className="header__icon-btn"
+                aria-label="Кошик"
+                onClick={onCartOpen}
+              >
+                <img src={cartIcon} alt="" className="header__icon-img" />
+              </button>
+            </div>
+          </div>
+
+          <div className="header__actions">
+            <a href={ctaHref} className="header__cta">
+              {ctaText}
             </a>
-          ))}
-        </nav>
 
-        <div className="header__actions">
-          <a href="/profile" className="header__icon-btn" aria-label="Профіль">
-            <img src={userIcon} alt="" className="header__icon-img" />
-          </a>
-
-          <button type="button" className="header__icon-btn" aria-label="Кошик" onClick={onCartOpen}>
-            <img src={cartIcon} alt="" className="header__icon-img" />
-          </button>
-
-          <a href={ctaHref} className="header__cta">
-            {ctaText}
-          </a>
-
-          <button type="button" className="header__icon-btn" aria-label="Пошук">
-            <img src={searchIcon} alt="" className="header__icon-img" />
-          </button>
+            <button type="button" className="header__icon-btn" aria-label="Пошук">
+              <img src={searchIcon} alt="" className="header__icon-img" />
+            </button>
+          </div>
         </div>
       </div>
     </header>
