@@ -6,7 +6,7 @@ export default function Breadcrumbs({
   items = [],
   ariaLabel = "breadcrumb",
   className = "",
-  variant = "bar",
+  variant = "inline",
   separatorSrc = triangleRight,
   separatorAlt = "",
 }) {
