@@ -12,7 +12,7 @@
       "firstName": "Олександра",
       "lastName": "Лисак",
       "username": "@ollysak",
-      "avatarUrl": "/assets/avatars/user1.jpg",
+      "avatarUrl": "/src/pages/Profile/images/user_avatar.png",
       "level": 1,
       "totalDonated": 4768,
       "donationHistory": [
@@ -22,13 +22,35 @@
         { "month": "Квіт", "amount": 800 },
         { "month": "Трав", "amount": 1918 }
       ],
-      "rewards": ["badge_level_1"]
+      "rewards": [
+        {
+          "id": "lvl-1",
+          "label": "1 lvl",
+          "unlocked": true,
+          "iconSrc": "/src/pages/Profile/images/heart_reward.png",
+          "iconAlt": "Нагорода 1 рівня"
+        },
+        {
+          "id": "lvl-2",
+          "label": "2 lvl",
+          "unlocked": false,
+          "iconSrc": "/src/pages/Profile/images/unknown_reward.svg",
+          "iconAlt": "Нагорода 2 рівня"
+        },
+        {
+          "id": "lvl-3",
+          "label": "3 lvl",
+          "unlocked": false,
+          "iconSrc": "/src/pages/Profile/images/unknown_reward.svg",
+          "iconAlt": "Нагорода 3 рівня"
+        }
+      ]
     }
   ],
   "products": [
     {
       "id": 101,
-      "sellerId": 1,
+      "sellerId": 2,
       "title": "Рюкзак для походів NEO tools 30L",
       "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів! Стан ідеальний, використовувався лише 2 рази.",
       "price": 450,
@@ -57,7 +79,7 @@
     },
     {
       "id": 102,
-      "sellerId": 1,
+      "sellerId": 2,
       "title": "Чашка ручної роботи",
       "description": "Ексклюзивна керамічна чашка, зроблена власноруч. Об'єм 350 мл. Можна мити в посудомийці.",
       "price": 500,
@@ -118,6 +140,101 @@
       "paymentMethods": [],
       "linkedCampaignId": null,
       "createdAt": "2024-11-15T18:45:00Z"
+    },
+    {
+      "id": 105,
+      "sellerId": 1,
+      "title": "Картина олійними фарбами \"Весна\"",
+      "description": "Картина олійними фарбами, авторська робота.",
+      "price": 700,
+      "currency": "грн",
+      "donationPercentage": 20,
+      "images": ["/src/pages/Profile/images/item_painting.png"],
+      "status": "ACTIVE",
+      "categoryId": 2,
+      "condition": "Новий",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Повна передплата"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-01T09:00:00Z"
+    },
+    {
+      "id": 106,
+      "sellerId": 1,
+      "title": "Набір пензликів для малювання",
+      "description": "Набір професійних пензликів для художників.",
+      "price": 230,
+      "currency": "грн",
+      "donationPercentage": 10,
+      "images": ["/src/pages/Profile/images/item_paintbrush.png"],
+      "status": "DRAFT",
+      "categoryId": 2,
+      "condition": "Новий",
+      "location": "м. Львів",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Онлайн-оплата карткою"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-05T12:00:00Z"
+    },
+    {
+      "id": 107,
+      "sellerId": 1,
+      "title": "Масажний м'яч UP & FORWARD",
+      "description": "Якісний масажний м'яч для відновлення після тренувань.",
+      "price": 350,
+      "currency": "грн",
+      "donationPercentage": 5,
+      "images": ["/src/pages/Profile/images/item_massage_ball.png"],
+      "status": "SOLD",
+      "categoryId": 4,
+      "condition": "Новий",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Укрпошта"],
+      "paymentMethods": ["Готівка"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-10-20T14:15:00Z"
+    },
+    {
+      "id": 108,
+      "sellerId": 1,
+      "title": "Флісовий спортивний костюм",
+      "description": "Теплий флісовий спортивний костюм, розмір M.",
+      "price": 1200,
+      "currency": "грн",
+      "donationPercentage": 0,
+      "images": ["/src/pages/Profile/images/item_sport_suite.png"],
+      "status": "SOLD",
+      "categoryId": 4,
+      "condition": "Вживаний",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Самовивіз"],
+      "paymentMethods": ["Готівка"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-10-21T11:00:00Z"
+    },
+    {
+      "id": 109,
+      "sellerId": 1,
+      "title": "Кольорова лампа захід сонця",
+      "description": "Декоративна лампа, створює атмосферу заходу сонця.",
+      "price": 450,
+      "currency": "грн",
+      "donationPercentage": 0,
+      "images": ["/src/pages/Profile/images/item_lamp.png"],
+      "status": "SOLD",
+      "categoryId": 2,
+      "condition": "Новий",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Онлайн-оплата карткою"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-10-22T16:30:00Z"
     }
   ],
   "campaigns": [
@@ -196,10 +313,18 @@
     {
       "id": 1001,
       "buyerId": 2,
-      "items": [101],
+      "items": [101, 102, 103],
       "campaignId": 201,
       "totalAmount": 450,
       "createdAt": "2024-11-16T10:00:00Z"
+    },
+    {
+      "id": 1002,
+      "buyerId": 2,
+      "items": [107, 108, 109],
+      "campaignId": null,
+      "totalAmount": 2000,
+      "createdAt": "2024-10-21T09:00:00Z"
     }
   ]
 }

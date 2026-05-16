@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './ListingCard.css';
 
 export default function ListingCard({
@@ -18,9 +19,15 @@ export default function ListingCard({
   messageActionAriaLabel = 'Повідомлення',
   deleteActionAriaLabel = 'Видалити',
 }) {
+  const [imageLoadFailed, setImageLoadFailed] = useState(false);
+
+  useEffect(() => {
+    setImageLoadFailed(false);
+  }, [imageSrc]);
+
   const textToneClassName = muted ? 'listing-card__text--muted' : 'listing-card__text--default';
   const imageClassName = imageMuted ? 'listing-card__image listing-card__image--muted' : 'listing-card__image';
-  const shouldShowPlaceholder = imagePlaceholder || !imageSrc;
+  const shouldShowPlaceholder = imagePlaceholder || !imageSrc || imageLoadFailed;
 
   return (
     <article className="listing-card">
@@ -29,7 +36,12 @@ export default function ListingCard({
           {shouldShowPlaceholder ? (
             <div className="listing-card__image-placeholder" aria-hidden="true"></div>
           ) : (
-            <img src={imageSrc} alt={imageAlt || title} className={imageClassName} />
+            <img
+              src={imageSrc}
+              alt={imageAlt || title}
+              className={imageClassName}
+              onError={() => setImageLoadFailed(true)}
+            />
           )}
         </div>
 

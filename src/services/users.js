@@ -12,4 +12,19 @@
 
 import apiCall from './api';
 
-// TODO: Add all user service methods here
+/**
+ * Fetch a single user by ID.
+ * @param {number|string} userId
+ * @returns {Promise<object|null>}
+ */
+export async function getUserById(userId) {
+	if (userId == null) {
+		throw new Error('getUserById: userId is required');
+	}
+
+	return apiCall(`/users/${userId}`);
+}
+
+export default {
+	getUserById,
+};

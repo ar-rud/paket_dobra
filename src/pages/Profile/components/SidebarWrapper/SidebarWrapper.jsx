@@ -35,7 +35,11 @@ export default function SidebarWrapper({ className = '', userIdentity, impactSta
       </div>
 
       <div className="sidebar-wrapper__section sidebar-wrapper__section--rewards">
-        <Rewards title={rewards.title} levels={rewards.levels} arrowIconSrc={rewards.arrowIconSrc} />
+        <Rewards
+          title={rewards?.title ?? ''}
+          levels={rewards?.levels ?? []}
+          arrowIconSrc={rewards?.arrowIconSrc ?? null}
+        />
       </div>
 
       <div className="sidebar-wrapper__section sidebar-wrapper__section--menu">

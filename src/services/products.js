@@ -11,4 +11,19 @@
 
 import apiCall from './api';
 
-// TODO: Add all product service methods here
+/**
+ * Fetch products belonging to a specific seller.
+ * @param {number|string} sellerId
+ * @returns {Promise<object[]>}
+ */
+export async function getProductsBySellerId(sellerId) {
+	if (sellerId == null) {
+		throw new Error('getProductsBySellerId: sellerId is required');
+	}
+
+	return apiCall(`/products?sellerId=${sellerId}`);
+}
+
+export default {
+	getProductsBySellerId,
+};
