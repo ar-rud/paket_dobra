@@ -1,8 +1,9 @@
 .header {
   width: 100%;
   color: #1f2b00;
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  top: 0;
+  z-index: 40;
 }
 
 .header--transparent {
@@ -11,21 +12,20 @@
 }
 
 .header--overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: sticky;
 }
 
 .header__top {
-  max-width: 1120px;
+  width: calc(100% - 24px);
   margin: 0 auto;
   padding: 7px 16px 5px;
   font-size: 13px;
   color: #a8a8a8;
+  box-sizing: border-box;
 }
 
 .header__bar {
-  width: min(100% - 24px, 1432px);
+  width: calc(100% - 24px);
   margin: 0 auto;
   min-height: 80px;
   padding: 0 13px;

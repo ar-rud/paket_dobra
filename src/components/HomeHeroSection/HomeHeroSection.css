@@ -6,7 +6,7 @@
 }
 
 .home-hero__layout {
-  width: min(100% - 24px, 1432px);
+  width: calc(100% - 24px);
   margin: 0 auto;
   position: relative;
   aspect-ratio: 1432 / 999;
