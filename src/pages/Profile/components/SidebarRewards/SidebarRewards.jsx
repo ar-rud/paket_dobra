@@ -1,4 +1,5 @@
 import './SidebarRewards.css';
+import defaultRewardIcon from '../../images/default_reward.svg';
 
 export default function SidebarRewards({ title, levels, arrowIconSrc }) {
   return (
@@ -18,6 +19,10 @@ export default function SidebarRewards({ title, levels, arrowIconSrc }) {
                 src={level.iconSrc}
                 alt={level.iconAlt}
                 className="sidebar-rewards__badge-icon"
+                onError={(e) => {
+                  console.warn('SidebarRewards: reward icon failed to load, using default:', e.currentTarget.src);
+                  e.currentTarget.src = defaultRewardIcon;
+                }}
               />
             </div>
 
