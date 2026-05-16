@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../Payment/Payment.css";
+import "../Payment/Payment.jsx";
 import "./CardPayment.css";
 
 const CardPayment = ({ onNext, onBack }) => {

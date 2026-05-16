@@ -1,0 +1,44 @@
+.user-identity {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.user-identity__avatar-frame {
+	width: 122px;
+	height: 122px;
+}
+
+.user-identity__avatar {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+.user-identity__name {
+	margin: 15px 0 0;
+	font-size: 13px;
+	line-height: 1.2;
+	font-weight: 500;
+	color: #2a3600;
+	text-align: center;
+}
+
+.user-identity__meta {
+	margin-top: 8px;
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	font-size: 11px;
+	line-height: 1;
+}
+
+.user-identity__username {
+	color: #808974;
+}
+
+.user-identity__level {
+	color: #768800;
+	font-weight: 500;
+}

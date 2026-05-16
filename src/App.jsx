@@ -1,27 +1,51 @@
-import React, { useState } from "react";
-
-import Catalog from "./pages/Catalog/Catalog";
-
-import Checkout from "./pages/Pay/Checkout/Checkout";
-import Payment from "./pages/Pay/Payment/Payment";
-import Success from "./pages/Pay/Success/Success";
-import CardPayment from "./pages/Pay/Card/CardPayment";
-
+import HomePage from "./pages/HomePage/HomePage.jsx";
+import DonationsPage from "./pages/DonationsPage/DonationsPage.jsx";
+import StatisticsPage from "./pages/StatisticsPage/StatisticsPage.jsx";
+import CreateAnnouncementPage from "./pages/CreateAnnouncementPage/CreateAnnouncementPage.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
+import Header from "./components/Header/Header.jsx";
+import Catalog from "./pages/Catalog/Catalog.jsx";
 import "./App.css";
+import Footer from "./components/Footer/Footer.jsx";
+import CatalogOverview from "./pages/Catalog/CatalogOverview/CatalogOverview.jsx";
+
+import { Outlet, ScrollRestoration } from "react-router";
+import { useState } from "react";
+import Cart from "/src/components/Cart/Cart.jsx";
 
 function App() {
-  const [page, setPage] = useState("payment");
-  const [checkoutForm, setCheckoutForm] = useState(null);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [cartPos, setCartPos] = useState({ top: 0, right: 0 });
+
+  const handleCartOpen = () => {
+    const btn = document.querySelector('[aria-label="Кошик"]');
+    if (btn) {
+      const rect = btn.getBoundingClientRect();
+      setCartPos({
+        top: rect.bottom + 10,
+        right: window.innerWidth - rect.right,
+      });
+    }
+    setCartOpen((v) => !v);
+  };
 
   return (
-    <div className="app-container">
-      {page === "catalog" && <Catalog onNext={() => setPage("checkout")} />}
-      {page === "checkout" && <Checkout onNext={(formData) => { setCheckoutForm(formData); 
-        setPage("payment"); }} onBack={() => setPage("catalog")} />}
-      {page === "payment" && <Payment onNext={() => setPage("card")} onBack={() => setPage("checkout")} />}
-      {page === "card" && <CardPayment checkoutForm={checkoutForm} onNext={() => setPage("success")} onBack={() => setPage("payment")} />}
-      {page === "success" && <Success onHome={() => setPage("catalog")} onBack={() => setPage("card")}/>}
-    </div>
+    <>
+      <Header topInfoText="" onCartOpen={handleCartOpen} />
+      <ScrollRestoration />
+      <Outlet></Outlet>
+      <Footer></Footer>
+      {cartOpen && (
+        <Cart
+          onClose={() => setCartOpen(false)}
+          anchorStyle={{
+            position: "fixed",
+            top: cartPos.top,
+            right: cartPos.right,
+          }}
+        />
+      )}
+    </>
   );
 }
 
