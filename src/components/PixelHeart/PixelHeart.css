@@ -1,12 +1,25 @@
 .pixel-heart {
   --heart-square-size: 147px;
+  --heart-column-count: 9;
   display: flex;
   flex-direction: column;
 }
 
+.pixel-heart--hero-figma {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.pixel-heart__figure-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .pixel-heart__row {
   display: grid;
-  grid-template-columns: repeat(9, var(--heart-square-size));
+  grid-template-columns: repeat(var(--heart-column-count), var(--heart-square-size));
 }
 
 .pixel-heart__square {

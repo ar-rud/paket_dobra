@@ -64,7 +64,7 @@ const supportCampaigns = [
 export default function HomePage() {
 
   return (
-    <>
+    <main className="home-page">
       <HomeHeroSection />
       <ImpactStatsSection detailsHref="/statistics" />
 
@@ -107,6 +107,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
