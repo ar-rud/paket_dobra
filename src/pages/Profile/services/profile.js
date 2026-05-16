@@ -1,12 +1,14 @@
 import { getUserById } from '/src/services/users';
 import { getProductsBySellerId } from '/src/services/products';
+import defaultRewardIcon from '../images/default_reward.svg';
+import defaultAvatar from '../images/default_avatar.svg';
 
 const SOLD_STATUS = 'SOLD';
 const DRAFT_STATUS = 'DRAFT';
 
 function mapUserIdentity(user) {
 	return {
-		avatarSrc: user.avatarUrl || null,
+		avatarSrc: user.avatarUrl || defaultAvatar,
 		avatarAlt: `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'Користувач',
 		name: `${user.firstName || ''} ${user.lastName || ''}`.trim() || user.username || 'Користувач',
 		username: user.username || '',
@@ -32,7 +34,7 @@ function mapRewards(userRewards) {
 			id: reward.id,
 			label: reward.label,
 			unlocked: !!reward.unlocked,
-			iconSrc: reward.iconSrc || null,
+			iconSrc: reward.iconSrc || defaultRewardIcon,
 			iconAlt: reward.iconAlt || reward.label || '',
 		}));
 

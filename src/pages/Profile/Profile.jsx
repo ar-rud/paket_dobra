@@ -75,7 +75,7 @@ export default function Profile() {
         if (!mounted || !profileData) return;
 
         setUserIdentity({
-          avatarSrc: profileData.userIdentity.avatarSrc || defaultAvatar,
+          avatarSrc: profileData.userIdentity.avatarSrc,
           avatarAlt: profileData.userIdentity.avatarAlt,
           name: profileData.userIdentity.name,
           username: profileData.userIdentity.username,
