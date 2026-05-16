@@ -1,13 +1,3 @@
-/**
- * Base API Configuration and Helper Functions
- * 
- * Handles:
- * - Base URL configuration
- * - Common HTTP headers and authentication
- * - Error handling and response parsing
- * - Request/response interceptors (future)
- */
-
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 /**
