@@ -24,6 +24,20 @@ export async function getProductsBySellerId(sellerId) {
 	return apiCall(`/products?sellerId=${sellerId}`);
 }
 
+/**
+ * Fetch a single product by ID.
+ * @param {number|string} productId
+ * @returns {Promise<object|null>}
+ */
+export async function getProductById(productId) {
+  if (productId == null) {
+    throw new Error('getProductById: productId is required');
+  }
+
+  return apiCall(`/products/${productId}`);
+}
+
 export default {
 	getProductsBySellerId,
+	getProductById,
 };
