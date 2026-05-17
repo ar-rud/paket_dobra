@@ -1,4 +1,8 @@
 .page-switcher {
+  --ps-accent: var(--accent-color, #273500);
+  --ps-accent-contrast: var(--accent-contrast-color, #ffffff);
+  --page-switcher-muted: var(--ps-accent-muted, var(--accent-muted-color, #b4c238));
+
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -10,9 +14,11 @@
 .page-switcher__nav {
   background: transparent;
   border: none;
-  color: #b4c238;
-  font-size: 10px;
+  color: var(--page-switcher-muted);
+  font-size: 14px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
 }
 
 .page-switcher__nav:disabled {
@@ -22,8 +28,10 @@
 
 .page-switcher__pages {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 8px;
+  justify-content: center;
 }
 
 .page-switcher__page {
@@ -31,18 +39,25 @@
   height: 20px;
   border: none;
   background: transparent;
-  color: #b4c238;
+  color: var(--page-switcher-muted);
   cursor: pointer;
-  font-size: 10px;
+  font-size: 13px;
+  white-space: nowrap;
 }
 
 .page-switcher__dots {
-  color: #b4c238;
-  font-size: 10px;
+  color: var(--page-switcher-muted);
+  font-size: 14px;
   line-height: 1;
 }
 
 .page-switcher__page--active {
-  background: #6d7613;
-  color: #ffffff;
+  background: var(--ps-accent-active, #6d7613);
+  color: var(--ps-accent-contrast);
+  border-radius: 3px;
+}
+
+.page-switcher,
+.page-switcher * {
+  white-space: nowrap;
 }
