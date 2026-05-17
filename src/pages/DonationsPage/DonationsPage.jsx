@@ -10,14 +10,11 @@ import {
   getUniqueFieldValues,
 } from "../../helpers/filterByFields.js";
 import { getCampaigns } from "../../services/campaigns.js";
-import ArrowDownIcon from "../../assets/images/arrow_down.svg?react";
 
-import FiltersBar from "./FiltersBar/FiltersBar.jsx";
+import FiltersBar from "./components/FiltersBar/FiltersBar.jsx";
 import "./DonationsPage.css";
 
-const INITIAL_VISIBLE_COUNT = 9;
-const LOAD_MORE_STEP = 3;
-const MAX_VISIBLE_PER_PAGE = 18;
+const PAGE_SIZE = 9;
 const DEFAULT_FILTERS = {
   category: "all",
   status: "all",
@@ -26,7 +23,6 @@ const DEFAULT_FILTERS = {
 
 function DonationsPage() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
   const [campaigns, setCampaigns] = useState([]);
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [appliedFilters, setAppliedFilters] = useState(DEFAULT_FILTERS);
@@ -42,7 +38,6 @@ function DonationsPage() {
 
         setCampaigns(data);
         setCurrentPage(1);
-        setVisibleCount(Math.min(INITIAL_VISIBLE_COUNT, data.length || 0));
       } catch (error) {
         console.error("Failed to load campaigns:", error);
       }
@@ -96,34 +91,17 @@ function DonationsPage() {
     [campaigns, appliedFilters],
   );
 
-  const pageCampaigns = useMemo(() => {
-    const startIndex = (currentPage - 1) * MAX_VISIBLE_PER_PAGE;
-    return filteredCampaigns.slice(startIndex, startIndex + MAX_VISIBLE_PER_PAGE);
-  }, [filteredCampaigns, currentPage]);
-
-  const visibleCampaigns = useMemo(
-    () => pageCampaigns.slice(0, visibleCount),
-    [pageCampaigns, visibleCount],
-  );
-
   const totalPages = useMemo(() => {
     if (filteredCampaigns.length === 0) return 1;
-
-    return Math.max(1, Math.ceil(filteredCampaigns.length / MAX_VISIBLE_PER_PAGE));
+    return Math.ceil(filteredCampaigns.length / PAGE_SIZE);
   }, [filteredCampaigns.length]);
 
-  useEffect(() => {
-    setVisibleCount(Math.min(INITIAL_VISIBLE_COUNT, pageCampaigns.length));
-  }, [currentPage, pageCampaigns.length]);
+  const visibleCampaigns = useMemo(() => {
+    const startIndex = (currentPage - 1) * PAGE_SIZE;
+    return filteredCampaigns.slice(startIndex, startIndex + PAGE_SIZE);
+  }, [filteredCampaigns, currentPage]);
 
   const onLoadMore = () => {
-    const pageMaxVisible = Math.min(MAX_VISIBLE_PER_PAGE, pageCampaigns.length);
-
-    if (visibleCount < pageMaxVisible) {
-      setVisibleCount((prev) => Math.min(prev + LOAD_MORE_STEP, pageMaxVisible));
-      return;
-    }
-
     if (currentPage < totalPages) {
       setCurrentPage((prev) => prev + 1);
     }
@@ -141,15 +119,16 @@ function DonationsPage() {
   const onApplyFilters = () => {
     setAppliedFilters({ ...filters });
     setCurrentPage(1);
-    setVisibleCount(INITIAL_VISIBLE_COUNT);
   };
 
   const onResetFilters = () => {
     setFilters({ ...DEFAULT_FILTERS });
     setAppliedFilters({ ...DEFAULT_FILTERS });
     setCurrentPage(1);
-    setVisibleCount(INITIAL_VISIBLE_COUNT);
   };
+
+  const hasEnoughItemsForPagination = filteredCampaigns.length > PAGE_SIZE;
+  const showMoreButton = currentPage < totalPages;
 
   return (
     <>
@@ -188,23 +167,23 @@ function DonationsPage() {
               <p className="donations-page__empty">За цими фільтрами зборів не знайдено.</p>
             )}
 
-            <div className="donations-page__load-more">
-              <MoreButton
-                onClick={onLoadMore}
-                disabled={
-                  visibleCampaigns.length === 0
-                  || (currentPage >= totalPages && visibleCount >= pageCampaigns.length)
-                }
-              >
-                {visibleCount < pageCampaigns.length ? "Показати ще ↓" : "Наступна сторінка ↓"}
-              </MoreButton>
-            </div>
+            {hasEnoughItemsForPagination && (
+              <div className="donations-page__pagination-container">
+                {showMoreButton && (
+                  <div className="donations-page__load-more">
+                    <MoreButton onClick={onLoadMore}>
+                      Показати ще ↓
+                    </MoreButton>
+                  </div>
+                )}
 
-            <PageSwitcher
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={onPageChange}
-            />
+                <PageSwitcher
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={onPageChange}
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>

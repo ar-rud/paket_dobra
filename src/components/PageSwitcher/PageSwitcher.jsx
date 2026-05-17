@@ -2,7 +2,15 @@ import "./PageSwitcher.css";
 import ArrowLeftIcon from "../../assets/images/arrow_left.svg?react";
 import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
 
-function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, hoverColor = "#99a235", onPageChange }) {
+function PageSwitcher({ 
+  currentPage, 
+  totalPages, 
+  totalItems, 
+  pageSize = 10, 
+  hoverColor = "#99a235", 
+  disabledColor = "#888888",
+  onPageChange 
+}) {
   const computedTotalPages = totalItems ? Math.max(1, Math.ceil(totalItems / pageSize)) : Math.max(1, totalPages || 1);
   const pages = [];
 
@@ -23,11 +31,28 @@ function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, hove
     }
   }
 
+  const handlePageChange = (page) => {
+    if (page !== currentPage) {
+      onPageChange(page);
+      
+      // Allow React to re-render the DOM with the new items before scrolling
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 50);
+    }
+  };
+
   return (
-    <div className="page-switcher" style={{ "--ps-hover-color": hoverColor }}>
+    <div 
+      className="page-switcher" 
+      style={{ 
+        "--ps-hover-color": hoverColor,
+        "--ps-disabled-color": disabledColor 
+      }}
+    >
       <button
         className="page-switcher__nav"
-        onClick={() => onPageChange(currentPage - 1)}
+        onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
         type="button"
       >
@@ -49,7 +74,7 @@ function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, hove
                   ? "page-switcher__page page-switcher__page--active"
                   : "page-switcher__page"
               }
-              onClick={() => onPageChange(page)}
+              onClick={() => handlePageChange(page)}
               type="button"
             >
               {page}
@@ -60,7 +85,7 @@ function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, hove
 
       <button
         className="page-switcher__nav"
-        onClick={() => onPageChange(currentPage + 1)}
+        onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === computedTotalPages}
         type="button"
       >
