@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import "./PageSwitcher.css";
 import ArrowLeftIcon from "../../assets/images/arrow_left.svg?react";
 import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
@@ -9,8 +10,12 @@ function PageSwitcher({
   pageSize = 10, 
   hoverColor = "#99a235", 
   disabledColor = "#888888",
-  onPageChange 
+  onPageChange,
+  scrollTargetSelector,
+  disableScroll = false,
+  disableScrollOnDesktop = false
 }) {
+  const switcherRef = useRef(null);
   const computedTotalPages = totalItems ? Math.max(1, Math.ceil(totalItems / pageSize)) : Math.max(1, totalPages || 1);
   const pages = [];
 
@@ -35,15 +40,60 @@ function PageSwitcher({
     if (page !== currentPage) {
       onPageChange(page);
       
-      // Allow React to re-render the DOM with the new items before scrolling
+      if (disableScroll) return;
+
+      const isMobile = window.matchMedia("(max-width: 480px)").matches;
+      
+      if (disableScrollOnDesktop && !isMobile) {
+        return;
+      }
+
       setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (switcherRef.current) {
+          let targetElement = null;
+
+          if (scrollTargetSelector) {
+            targetElement = document.querySelector(scrollTargetSelector);
+          } else {
+            const commonSelectors = [
+              ".Catalog-ProductCardList-wrapper",
+              ".donations-page__grid",
+              ".listings-feed__list",
+              ".reports-section__list"
+            ];
+            for (const selector of commonSelectors) {
+              const element = document.querySelector(selector);
+              if (element) {
+                targetElement = element;
+                break;
+              }
+            }
+          }
+
+          if (targetElement) {
+            const rect = targetElement.getBoundingClientRect();
+            const header = document.querySelector(".header");
+            const headerHeight = header ? header.offsetHeight : 0;
+
+            if (rect.top < headerHeight) {
+              const absoluteTargetTop = rect.top + window.scrollY;
+              window.scrollTo({
+                top: absoluteTargetTop - headerHeight,
+                behavior: "smooth"
+              });
+            }
+          } else {
+            // Document top fallback
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }
       }, 50);
     }
   };
 
   return (
     <div 
+      ref={switcherRef}
       className="page-switcher" 
       style={{ 
         "--ps-hover-color": hoverColor,

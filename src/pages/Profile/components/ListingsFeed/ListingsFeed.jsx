@@ -94,6 +94,7 @@ export default function ListingsFeed({
               totalItems={totalItems}
               pageSize={PAGE_SIZE}
               onPageChange={handlePageChange}
+              scrollTargetSelector=".listings-feed__list"
             />
           </div>
         </div>
