@@ -19,16 +19,7 @@
   gap: 8px;
   text-align: center;
   white-space: nowrap;
-}
-
-.MoreButton-button::after {
-  content: "";
-  width: 20px;
-  height: 20px;
-  flex: 0 0 20px;
-  background-color: currentColor;
-  -webkit-mask: url("../../assets/images/arrow_down.svg") center / contain no-repeat;
-  mask: url("../../assets/images/arrow_down.svg") center / contain no-repeat;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 .MoreButton-button--primary {
@@ -38,5 +29,20 @@
 
 .MoreButton-button:disabled {
   opacity: 0.55;
-  cursor: default;
+  cursor: not-allowed;
+}
+
+.MoreButton-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  color: inherit; 
+}
+
+.MoreButton-icon svg {
+  width: 100%;
+  height: 100%;
 }

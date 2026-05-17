@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import DashboardToolbar from '../DashboardToolbar/DashboardToolbar.jsx';
 import ListingCard from '../ListingCard/ListingCard.jsx';
 import PageSwitcher from '/src/components/PageSwitcher/PageSwitcher.jsx';
 import MoreButton from '/src/components/MoreButton/MoreButton.jsx';
+import ArrowDownIcon from '/src/assets/images/arrow_down.svg?react';
+
 import './ListingsFeed.css';
 
 const PAGE_SIZE = 4;
@@ -12,10 +14,10 @@ export default function ListingsFeed({
   activeTabId,
   onTabChange,
   addListingLabel,
-  addListingIconSrc,
+  addListingIcon,
   cards,
-  messageIconSrc,
-  deleteIconSrc,
+  messageIcon,
+  deleteIcon,
 }) {
   const totalItems = Array.isArray(cards) ? cards.length : 0;
   const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
@@ -24,7 +26,6 @@ export default function ListingsFeed({
   const [visiblePages, setVisiblePages] = useState(1);
   const [expanded, setExpanded] = useState(false);
 
-  // when tab or cards change reset pagination
   useEffect(() => {
     setCurrentPage(1);
     setVisiblePages(1);
@@ -34,10 +35,7 @@ export default function ListingsFeed({
   const handlePageChange = (page) => {
     const clamped = Math.max(1, Math.min(page, totalPages));
     setCurrentPage(clamped);
-    // ensure visibility for the selected page
-    // always set visiblePages to match the selected page so "Показати ще" can reappear
     setVisiblePages(clamped);
-    // selecting a page shows only that page's items
     setExpanded(false);
   };
 
@@ -48,7 +46,6 @@ export default function ListingsFeed({
     setCurrentPage(next);
   };
 
-  // decide which items to render
   let itemsToRender = [];
   if (expanded) {
     itemsToRender = cards.slice(0, visiblePages * PAGE_SIZE);
@@ -64,7 +61,7 @@ export default function ListingsFeed({
         activeTabId={activeTabId}
         onTabChange={onTabChange}
         addListingLabel={addListingLabel}
-        addListingIconSrc={addListingIconSrc}
+        addListingIcon={addListingIcon}
       />
 
       <div className="listings-feed__list">
@@ -72,8 +69,8 @@ export default function ListingsFeed({
           <ListingCard
             key={card.id}
             {...card}
-            messageIconSrc={card.messageIconSrc ?? messageIconSrc}
-            deleteIconSrc={card.deleteIconSrc ?? deleteIconSrc}
+            messageIcon={card.messageIcon ?? messageIcon}
+            deleteIcon={card.deleteIcon ?? deleteIcon}
           />
         ))}
       </div>
@@ -81,7 +78,12 @@ export default function ListingsFeed({
       <div className="listings-feed__pagination">
         {!expanded && visiblePages < totalPages ? (
           <div className="listings-feed__more">
-            <MoreButton onClick={handleShowMore}>Показати ще</MoreButton>
+            <MoreButton 
+              onClick={handleShowMore}
+              rightIcon={<ArrowDownIcon />}
+            >
+              Показати ще
+            </MoreButton>
           </div>
         ) : null}
 

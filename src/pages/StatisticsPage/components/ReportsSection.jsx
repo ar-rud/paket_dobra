@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import ReportRow from "./ReportRow.jsx";
 import PageSwitcher from "../../../components/PageSwitcher/PageSwitcher.jsx";
 import MoreButton from "../../../components/MoreButton/MoreButton.jsx";
-import arrowIcon from "../images/arrow_icon.svg";
+import ArrowDownIcon from "../../../assets/images/arrow_down.svg?react";
+
 import "./ReportsSection.css";
 
 const PAGE_SIZE = 6;
@@ -54,7 +55,7 @@ export default function ReportsSection({ reports, googleDriveUrl }) {
             aria-label="Перейти на диск"
           >
             Перейти на диск
-            <img src={arrowIcon} alt="" aria-hidden="true" className="reports-section__link-icon" />
+            <ArrowDownIcon className="reports-section__link-icon" aria-hidden="true" />
           </a>
         </div>
 
@@ -68,7 +69,12 @@ export default function ReportsSection({ reports, googleDriveUrl }) {
           <div className="reports-section__pagination">
             {!expanded && visiblePages < totalPages ? (
               <div className="reports-section__more">
-                <MoreButton onClick={handleShowMore}>Показати ще</MoreButton>
+                <MoreButton 
+                  onClick={handleShowMore}
+                  rightIcon={<ArrowDownIcon />}
+                >
+                  Показати ще
+                </MoreButton>
               </div>
             ) : null}
 

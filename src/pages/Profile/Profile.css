@@ -137,3 +137,22 @@
   justify-content: flex-end;
   text-align: right;
 }
+
+.sidebar-message__icon,
+.sidebar-menu__icon,
+.listing-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  color: inherit;
+}
+
+.sidebar-message__icon svg,
+.sidebar-menu__icon svg,
+.listing-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
