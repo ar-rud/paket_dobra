@@ -77,6 +77,16 @@
   color: #9da58b;
 }
 
+.price-section__price-input::-webkit-outer-spin-button,
+.price-section__price-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.price-section__price-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .price-section__currency {
   width: auto;
   height: auto;
@@ -88,12 +98,33 @@
   font-weight: 400;
   line-height: 20px;
   color: #121315;
+  position: relative;
+}
+
+.price-section__currency-select {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: #9da58b;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 0 20px 0 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.price-section__currency-select--selected {
+  color: #121315;
 }
 
 .price-section__currency-icon {
   width: 20px;
   height: 20px;
   object-fit: contain;
+  position: absolute;
+  right: 0;
+  pointer-events: none;
 }
 
 .price-section__chips {

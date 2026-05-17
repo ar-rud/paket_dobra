@@ -5,7 +5,7 @@ import { extractRecentDonationAmounts } from './statsHelper';
 import defaultRewardIcon from '../images/default_reward.svg';
 import defaultAvatar from '../images/default_avatar.svg';
 
-const SOLD_STATUS = 'SOLD';
+const ACTIVE_STATUS = 'ACTIVE';
 const DRAFT_STATUS = 'DRAFT';
 
 function mapUserIdentity(user) {
@@ -61,9 +61,7 @@ function mapProductsToListingsByTab(products) {
 			subtitle:
 				product.status === DRAFT_STATUS
 					? null
-					: product.status === SOLD_STATUS
-						? 'Статус: продано'
-						: 'Статус: продається',
+					: 'Статус: продається',
 			priceText: product.price ? `від ${product.price} ${product.currency || 'грн'}` : '0 грн',
 			showMessageAction: product.status !== DRAFT_STATUS,
 			showDeleteAction: true,
@@ -78,17 +76,9 @@ function mapProductsToListingsByTab(products) {
 			continue;
 		}
 
-		if (product.status === SOLD_STATUS) {
-			listings.announcements.push({
-				...baseCard,
-				muted: true,
-				imageMuted: true,
-				actionsDisabled: true,
-			});
-			continue;
+		if (product.status === ACTIVE_STATUS) {
+			listings.announcements.push(baseCard);
 		}
-
-		listings.announcements.push(baseCard);
 	}
 
 	return listings;
