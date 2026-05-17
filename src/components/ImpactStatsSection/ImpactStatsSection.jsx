@@ -1,5 +1,4 @@
 import MoreButton from "../MoreButton/MoreButton.jsx";
-import DonationPercent from "../DonationPercent/DonationPercent.jsx";
 import miniHeartsFrame from "../../assets/images/impact-mini-hearts.svg";
 import stairsBg from "../../assets/images/group1000005912.svg";
 import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
@@ -30,11 +29,9 @@ export default function ImpactStatsSection({ detailsHref = "/statistics" } = {})
 
         <div className="impact-stats__white-card">
           <p className="impact-stats__label">
-            За період війни
-            <br />
-            донати виросли
-            <br />
-            більше ніж на
+            <span>За період війни</span>
+            <span>донати виросли</span>
+            <span>більше ніж на</span>
           </p>
           <p className="impact-stats__value">50%</p>
           <img
@@ -48,11 +45,9 @@ export default function ImpactStatsSection({ detailsHref = "/statistics" } = {})
         <div className="impact-stats__rate-wrap">
           <div className="impact-stats__rate-card">
             <p className="impact-stats__label">
-              Відсоток донатів,
-              <br />
-              які надходять
-              <br />
-              з онлайн-системи
+              <span>Відсоток донатів,</span>
+              <span>які надходять</span>
+              <span>з онлайн-системи</span>
             </p>
 
             <p className="impact-stats__value impact-stats__value--highlight">
@@ -81,18 +76,11 @@ export default function ImpactStatsSection({ detailsHref = "/statistics" } = {})
 
         <div className="impact-stats__heart-card">
           <p className="impact-stats__label impact-stats__label--light">
-            З початку війни українці
-            <br />
-            переказали на потреби
-            <br />
-            ЗСУ понад
+            <span>З початку війни українці</span>
+            <span>переказали на потреби</span>
+            <span>ЗСУ понад</span>
           </p>
           <div className="impact-stats__heart-visual" aria-hidden="true">
-            <DonationPercent
-              className="impact-stats__badge impact-stats__badge--heart"
-              percentNumber="36.78"
-              suffix=""
-            />
           </div>
           <p className="impact-stats__money">
             98.9 <span>млрд</span>

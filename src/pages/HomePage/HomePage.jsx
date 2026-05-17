@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router";
-import Header from "../../components/Header/Header.jsx";
+import { useNavigate, useOutletContext } from "react-router";
 import HomeHeroSection from "../../components/HomeHeroSection/HomeHeroSection.jsx";
 import ImpactStatsSection from "../../components/ImpactStatsSection/ImpactStatsSection.jsx";
 import ProductCard from "../../components/ProductCard/ProductCard.jsx";
@@ -67,6 +66,7 @@ const fallbackSupportCampaigns = [
 
 export default function HomePage() {
   const navigate = useNavigate();
+  const { handleCartOpen } = useOutletContext();
   const [supportSlide, setSupportSlide] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
   const [supportCampaigns, setSupportCampaigns] = useState(fallbackSupportCampaigns);
@@ -141,7 +141,7 @@ export default function HomePage() {
   };
   return (
     <main className="home-page">
-      <HomeHeroSection />
+      <HomeHeroSection onCartOpen={handleCartOpen} />
       <CatalogOverview />
       <ImpactStatsSection detailsHref="/statistics" />
 
