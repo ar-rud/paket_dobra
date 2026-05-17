@@ -181,8 +181,8 @@
 .home-page__support-title--cta {
   color: #182000;
   max-width: 12.4ch;
-  font-size: clamp(26px, 7cqi, 38px);
-  line-height: 1.4;
+  font-size: clamp(28px, 7.8cqi, 42px);
+  line-height: 1.28;
   letter-spacing: 0;
   gap: 0;
   font-weight: 500;
@@ -209,8 +209,8 @@
 .home-page__support-text--cta {
   color: #273100;
   max-width: 23ch;
-  font-size: clamp(16px, 4.1cqi, 21px);
-  line-height: 1.5;
+  font-size: clamp(17px, 4.5cqi, 23px);
+  line-height: 1.42;
   gap: 0;
   font-weight: 400;
 }
@@ -226,8 +226,8 @@
 }
 
 .home-page__support-card--cta .home-page__support-card-content {
-  width: min(100%, calc(var(--support-card-width) - clamp(56px, 8vw, 96px)));
-  max-width: 392px;
+  width: calc(100% - clamp(40px, 6vw, 64px));
+  max-width: none;
   padding: clamp(18px, 1.8vw, 24px) 0 0;
   margin: 0 auto;
   gap: 0;
@@ -255,13 +255,28 @@
 }
 
 .home-page__support-card--cta .home-page__support-btn {
-  width: min(100%, calc(var(--support-card-width) - clamp(56px, 8vw, 96px)));
-  max-width: 392px;
+  width: calc(100% - clamp(40px, 6vw, 64px));
+  max-width: none;
   min-width: 0;
   margin: auto auto 0;
   padding: 18px 30px;
-  font-size: clamp(20px, 1.4vw, 24px);
-  line-height: 1.33;
+  font-size: clamp(21px, 5.2cqi, 26px);
+  line-height: 1.26;
+}
+
+@media (min-width: 1400px) {
+  .home-page__support-title--cta {
+    font-size: clamp(32px, 8.6cqi, 46px);
+  }
+
+  .home-page__support-text--cta {
+    font-size: clamp(19px, 5cqi, 24px);
+    line-height: 1.38;
+  }
+
+  .home-page__support-card--cta .home-page__support-btn {
+    font-size: clamp(22px, 5.6cqi, 28px);
+  }
 }
 
 
@@ -411,8 +426,8 @@
   }
 
   .home-page__support-card--cta .home-page__support-card-content {
-    width: min(100%, calc(var(--support-card-width) - 48px));
-    max-width: 360px;
+    width: calc(100% - 40px);
+    max-width: none;
     padding: 16px 0 0;
     margin: 0 auto;
     gap: 0;
@@ -431,8 +446,8 @@
   }
 
   .home-page__support-card--cta .home-page__support-btn {
-    width: min(100%, calc(var(--support-card-width) - 48px));
-    max-width: 360px;
+    width: calc(100% - 40px);
+    max-width: none;
     margin: auto auto 0;
     padding: 15px 22px;
 
