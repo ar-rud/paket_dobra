@@ -9,7 +9,7 @@ function CampaignCard({ title, category, foundation, collected, goal, image }) {
   return (
     <article className="campaign-card">
       <div className="campaign-card__image-wrapper">
-        <img className="campaign-card__image" src={image} alt={title} />
+        <img className="campaign-card__image" src={image} alt={title} draggable="false" />
       </div>
 
       <div className="campaign-card__content">
