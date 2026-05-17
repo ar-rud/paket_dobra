@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import SectionCard from "./SectionCard.jsx";
 import chevronDown from "../../../assets/images/chevron-down.svg";
+import { getAllCurrencies } from "../../../services/currencies";
 import "./PriceSection.css";
 
 const donationValues = [15, 25, 50, 75, 100];
@@ -7,12 +9,37 @@ const conditionValues = ["Нове", "Вживане", "Відновлене"];
 
 export default function PriceSection({
   price,
+  currency,
   donationPercent,
   condition,
   onPriceChange,
+  onCurrencyChange,
   onDonationPercentChange,
   onConditionChange,
 }) {
+  const [currencies, setCurrencies] = useState([]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadCurrencies() {
+      try {
+        const data = await getAllCurrencies();
+        if (!cancelled) {
+          setCurrencies(Array.isArray(data) ? data : []);
+        }
+      } catch (error) {
+        console.error("Failed to load currencies:", error);
+      }
+    }
+
+    loadCurrencies();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <SectionCard
       title="Дайте ціну товару"
@@ -30,11 +57,25 @@ export default function PriceSection({
               id="price-input"
               className="price-section__price-input"
               value={price}
+              type="number"
+              min="1"
+              step="1"
               onChange={(event) => onPriceChange(event.target.value)}
-              placeholder="$ 1,000.00"
+              placeholder="Вкажіть суму"
             />
             <span className="price-section__currency">
-              грн
+              <select
+                className={`price-section__currency-select ${currency ? "price-section__currency-select--selected" : ""}`}
+                value={currency}
+                onChange={(event) => onCurrencyChange(event.target.value)}
+              >
+                <option value="">Оберіть</option>
+                {currencies.map((item) => (
+                  <option key={item.id} value={item.label}>
+                    {item.label}
+                  </option>
+                ))}
+              </select>
               <img src={chevronDown} alt="" aria-hidden="true" className="price-section__currency-icon" />
             </span>
           </div>
@@ -48,7 +89,7 @@ export default function PriceSection({
                 key={value}
                 type="button"
                 className={
-                  donationPercent === value
+                  donationPercent != null && donationPercent === value
                     ? "price-section__chip price-section__chip--active"
                     : "price-section__chip"
                 }
@@ -68,7 +109,7 @@ export default function PriceSection({
                 key={value}
                 type="button"
                 className={
-                  condition === value
+                  condition && condition === value
                     ? "price-section__chip price-section__chip--active"
                     : "price-section__chip"
                 }
