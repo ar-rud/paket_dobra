@@ -1,78 +1,182 @@
-.page {
-  font-family: Arial, sans-serif;
-}
-
-.background-pattern {
-  position: absolute;
+.success-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(#cddc39 0 0),
-    linear-gradient(#8bc34a 0 0),
-    linear-gradient(#aed581 0 0),
-    linear-gradient(#dce775 0 0);
-  background-size: 120px 120px;
-  background-repeat: no-repeat;
-  background-position: 
-    10% 20%,
-    20% 10%,
-    80% 20%,
-    70% 10%;
-  opacity: 0.4;
+  min-height: 950px;
+  background-color: #ffffff;
+  padding: 0 20px 100px 20px;
+  overflow: hidden;
 }
 
-.success-card {
+/* СІТКА МОЗАЇКИ*/
+.grid-mosaic-container {
   position: relative;
-  background: #f5f5f5;
-  padding: 50px 60px;
-  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(9, 140px);
+  grid-template-rows: repeat(7, 140px);
+  width: 1260px;
+  height: 980px;
+
+  /* width: max-content;
+  height: max-content; */
+
+  gap: 2px;
+  
+  /* Підтягуємо сітку вгору під хедер, щоб верхні плитки зайшли під нього */
+  margin-top: -140px; 
+}
+
+.tile {
+  width: 140px;
+  height: 140px;
+  z-index: 1;
+}
+
+/* Кольори плиток */
+.tile-lime { background-color: #c9e13b; }
+.tile-lime-dark { background-color: #bed92a; }
+.tile-lime-light { background-color: #e4ee92; }
+.tile-khaki { background-color: #737e55; }
+.tile-gray { background-color: #b8c1b0; }
+
+/* КАРТКА ПОДЯКИ */
+.success-card {
+  grid-column: 3 / 8; 
+  grid-row: 3 / 6;    
+  
+  background: #ffffff;
+  padding: 60px 40px;
   text-align: center;
-  max-width: 600px;
-  width: 100%;
-  z-index: 2;
+  z-index: 2; /* Лягає поверх фону */
+  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.05);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .success-title {
-  color: #1b2b0f;
-  font-size: 36px;
+  color: #121e05;
+  font-size: 30px;
+  font-weight: 700;
   margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 .success-message {
-  color: #333;
+  color: #121e05;
   font-size: 18px;
-  margin-bottom: 30px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+/* ЦЕНТРОВАНА ФОРМА EMAIL */
+.email-form-container {
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+
 }
 
 .email-label {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 12px;
+  font-size: 14px;
+  color: #121e05;
+  line-height: 1.4;
+  margin-bottom: 16px;
+
 }
 
 .email-section {
   display: flex;
-  justify-content: center;
   gap: 12px;
-  margin-bottom: 30px;
+  width: 100%;
+
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+
+  border: 1px solid #121e05;
+  display: inline-block;
 }
 
 .email-input {
-  width: 280px;
-  padding: 12px;
-  border: 1px solid #999;
-  background: white;
+  width: 100%;
+  padding: 16px 40px 16px 16px;
+  border: 1px solid #121e05;
+  background: #ffffff;
+  font-size: 16px;
+  outline: none;
+
+
+}
+
+.chevron-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #121e05;
+  pointer-events: none;
 }
 
 .email-button {
-  padding: 12px 24px;
-  background: #1b2b0f;
-  color: white;
+  padding: 16px 28px;
+  background: #121e05;
+  color: #ffffff;
   border: none;
+  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
 }
 
-.footer-text {
-  font-size: 16px;
-  color: #555;
+
+
+
+
+
+
+
+
+.success-page-container {
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 950px;
+  background-color: #ffffff;
+  padding: 0 20px 100px 20px;
+  overflow: hidden;
 }
+
+
+.back-to-home-btn {
+  position: absolute;
+  top: 5px;
+  left: 40px;     
+  background: none;
+  border: none;
+  padding: 0;
+  
+
+  color: #b8c1b0;  
+  
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  transition: opacity 0.2s;
+}
+
+.back-to-home-btn:hover {
+  opacity: 0.8;
+}
+

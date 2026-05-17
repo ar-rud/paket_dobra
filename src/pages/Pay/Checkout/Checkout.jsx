@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router';
 import "./Checkout.css";
 
+import novaposhta from "./img/novaposhta.svg";
+import ukrposhta from "./img/ukrposhta.svg";
+
 import { useNovaPoshtaAPI } from "./useNovaPoshtaAPI";
 
 const DELIVERY_OPTIONS = [
@@ -10,21 +13,21 @@ const DELIVERY_OPTIONS = [
     name: "Укрпошта",
     price: "Безкоштовно",
     days: "Доставка протягом 2-5 днів",
-    icon: "/ukrposhta.svg",
+    icon: ukrposhta,
   },
   {
     id: "nova_branch",
     name: "Відділення Нова пошта",
     price: "Від 60 грн",
     days: "Доставка протягом 1-3 днів",
-    icon: "/novaposhta.svg",
+    icon: novaposhta,
   },
   {
     id: "nova_courier",
     name: "Курʼєр Нова пошта",
     price: "Від 95 грн",
     days: "Доставка протягом 1-3 днів",
-    icon: "/novaposhta.svg",
+    icon: novaposhta,
   },
 ];
 

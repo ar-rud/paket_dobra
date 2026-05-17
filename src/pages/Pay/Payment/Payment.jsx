@@ -3,6 +3,10 @@ import './Payment.css';
 
 import { useNavigate } from 'react-router';
 
+import gpay from './img/gpay.svg';
+import applepay from './img/applepay.svg';
+import visamaestro from './img/visamaestro.svg';
+
 const Payment = () => {
   const [selectedMethod, setSelectedMethod] = useState(null);
   const navigate = useNavigate();
@@ -24,19 +28,19 @@ const Payment = () => {
                   className={`method-item ${selectedMethod === 'gpay' ? 'selected' : ''}`}
                   onClick={() => setSelectedMethod('gpay')}
                 >
-                  <img src="/gpay.svg" />
+                  <img src={gpay} />
                 </div>
                 <div
                   className={`method-item ${selectedMethod === 'applepay' ? 'selected' : ''}`}
                   onClick={() => setSelectedMethod('applepay')}
                 >
-                  <img src="/applepay.svg" />
+                  <img src={applepay} />
                 </div>
                 <div
                   className={`method-item ${selectedMethod === 'visamaestro' ? 'selected' : ''}`}
                   onClick={() => setSelectedMethod('visamaestro')}
                 >
-                  <img src="/visamaestro.svg" />
+                  <img src={visamaestro} />
                 </div>
               </div>
             </div>
