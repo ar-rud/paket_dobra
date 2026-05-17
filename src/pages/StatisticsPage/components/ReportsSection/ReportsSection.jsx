@@ -83,6 +83,7 @@ export default function ReportsSection({ reports, googleDriveUrl }) {
               totalItems={totalItems}
               pageSize={PAGE_SIZE}
               onPageChange={handlePageChange}
+              disableScrollOnDesktop={true}
             />
           </div>
         </div>

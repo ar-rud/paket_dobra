@@ -181,6 +181,7 @@ function DonationsPage() {
                   currentPage={currentPage}
                   totalPages={totalPages}
                   onPageChange={onPageChange}
+                  scrollTargetSelector=".donations-page__grid"
                 />
               </div>
             )}

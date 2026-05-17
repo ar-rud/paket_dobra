@@ -112,9 +112,8 @@ export default function Catalog(props) {
               </MoreButton>
           </div>
           <PageSwitcher
-            // currentPage={currentPage}
             totalPages={10}
-            // onPageChange={setCurrentPage}
+            scrollTargetSelector=".Catalog-ProductCardList-wrapper"
           />
         </div>
       </div>
