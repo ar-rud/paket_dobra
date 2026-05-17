@@ -16,3 +16,16 @@
         min-height: auto;
     }
 }
+
+@media (max-width: 480px) {
+    .dashboard-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0;
+    }
+
+    .dashboard-toolbar > :last-child {
+        display: none !important;
+    }
+}
