@@ -14,12 +14,12 @@ export default function ImpactStats({
 }) {
   return (
     <div className="profile-impact-stats">
-      <div className="profile-impact-stats__header">
+      <button type="button" className="profile-impact-stats__header">
         <h3 className="profile-impact-stats__title">{title}</h3>
         {arrowIconSrc ? (
           <img src={arrowIconSrc} alt="" aria-hidden="true" className="profile-impact-stats__arrow" />
         ) : null}
-      </div>
+      </button>
 
       <div className="profile-impact-stats__body">
         <span className="profile-impact-stats__value">{value}</span>

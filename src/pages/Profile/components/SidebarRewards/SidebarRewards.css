@@ -5,9 +5,18 @@
 }
 
 .sidebar-rewards__header {
+	appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	background: transparent;
+	padding: 0;
+	width: 100%;
+	font: inherit;
+	color: inherit;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	cursor: pointer;
 }
 
 .sidebar-rewards__title {

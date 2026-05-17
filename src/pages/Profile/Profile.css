@@ -7,6 +7,12 @@
   --accent-color: #6b6b6b;
   --accent-contrast-color: #1f1f1f;
   --accent-muted-color: #9b9b9b;
+  --profile-active-text-color: #121800;
+  --profile-active-action-color: #273500;
+  --profile-inactive-text-color: #9D9D9D;
+  --profile-inactive-action-color: #9D9D9D;
+  --profile-active-button-bg: #ffffff;
+  --profile-inactive-button-bg: transparent;
   --ps-accent-active: #FAFCEB;
   --ps-accent-muted: #535862;
   --more-button-text-color: #273500;
@@ -15,11 +21,11 @@
   --muted-text-color: #bdbdbd;
   --profile-banner-gap: 8px;
   --profile-banner-overlap-base: 175px;
-  --profile-banner-overlap: 140px;
+  --profile-banner-overlap: 120px;
   --hero-banner-min-height: 175px;
   --profile-hero-inner-padding-top: 0px;
   --profile-hero-inner-padding-bottom: 24px;
-  --profile-sidebar-height-base: 826px;
+  --profile-sidebar-height-base: 825px;
   --profile-sidebar-height: calc(
     var(--profile-sidebar-height-base) +
     (var(--profile-banner-overlap) - var(--profile-banner-overlap-base))
@@ -60,8 +66,6 @@
   margin-top: calc(-1 * var(--profile-banner-overlap));
 }
 
-/* Make the layout fill most of the viewport so the listings column can
-   place the pager at its bottom (above the footer) without resizing cards. */
 .profile-page__layout {
   min-height: calc(100vh - 240px);
 }
