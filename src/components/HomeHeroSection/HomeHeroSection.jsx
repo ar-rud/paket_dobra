@@ -1,31 +1,56 @@
+import { useEffect, useState } from "react";
 import MoreButton from "../MoreButton/MoreButton.jsx";
 import PixelHeart from "../PixelHeart/PixelHeart.jsx";
 import { useNavigate } from "react-router";
+import { getRandomCampaigns } from "../../services/campaigns.js";
 import "./HomeHeroSection.css";
 
-const campaignCards = [
+const fallbackCampaignCards = [
   {
     id: "winter",
-    className: "home-hero__card home-hero__card--top",
     title: "Зимовий збір на такмед",
-    collected: "7 658 879$",
-    goal: "7 658 879$",
+    collected: 7658879,
+    goal: 7658879,
   },
   {
     id: "radio",
-    className: "home-hero__card home-hero__card--middle",
     title: "Почуй своїх: збір на радіозв'язок",
-    collected: "7 658 879$",
-    goal: "7 658 879$",
+    collected: 7658879,
+    goal: 7658879,
   },
   {
     id: "revenge",
-    className: "home-hero__card home-hero__card--bottom",
     title: "Рій помсти 24/7: б'ємо ворога вдень та вночі",
-    collected: "7 100 879$",
-    goal: "7 658 879$",
+    collected: 7100879,
+    goal: 7658879,
   },
 ];
+
+const heroCardClasses = [
+  "home-hero__card home-hero__card--top",
+  "home-hero__card home-hero__card--middle",
+  "home-hero__card home-hero__card--bottom",
+];
+
+function formatHeroAmount(value) {
+  if (typeof value === "number") {
+    return `${value.toLocaleString("uk-UA")}$`;
+  }
+
+  return value;
+}
+
+function getHeroProgressStyle(collected, goal) {
+  if (typeof collected !== "number" || typeof goal !== "number" || goal <= 0) {
+    return undefined;
+  }
+
+  const progressPercent = Math.min((collected / goal) * 100, 100);
+
+  return {
+    background: `linear-gradient(90deg, #cddc39 0 ${progressPercent}%, #fafceb ${progressPercent}% 100%)`,
+  };
+}
 
 function HomeHeroTitle() {
   return (
@@ -39,7 +64,30 @@ function HomeHeroTitle() {
 
 export default function HomeHeroSection() {
   const navigate = useNavigate();
+  const [campaignCards, setCampaignCards] = useState(fallbackCampaignCards);
   const goToDonations = () => navigate("/donations");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadHeroCampaigns = async () => {
+      try {
+        const campaigns = await getRandomCampaigns(3);
+
+        if (!isMounted || campaigns.length === 0) return;
+
+        setCampaignCards(campaigns);
+      } catch (error) {
+        console.error("Failed to load hero campaigns:", error);
+      }
+    };
+
+    loadHeroCampaigns();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <section className="home-hero">
@@ -71,24 +119,24 @@ export default function HomeHeroSection() {
             <PixelHeart className="home-hero__mosaic" variant="hero-figma" />
           </div>
           <div className="home-hero__cards">
-            {campaignCards.map((card) => (
-              <article key={card.id} className={card.className}>
+            {campaignCards.map((card, index) => (
+              <article key={card.id} className={heroCardClasses[index] ?? heroCardClasses[0]}>
                 <h3 className="home-hero__card-title">{card.title}</h3>
 
                 <div className="home-hero__numbers">
                   <p>
                     Зібрано:
                     <br />
-                    {card.collected}
+                    {formatHeroAmount(card.collected)}
                   </p>
                   <p>
                     Ціль:
                     <br />
-                    {card.goal}
+                    {formatHeroAmount(card.goal)}
                   </p>
                 </div>
 
-                <div className="home-hero__progress" />
+                <div className="home-hero__progress" style={getHeroProgressStyle(card.collected, card.goal)} />
                 <MoreButton className="home-hero__card-btn" onClick={goToDonations}>
                   Підтримати
                 </MoreButton>

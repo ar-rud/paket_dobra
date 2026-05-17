@@ -253,16 +253,101 @@
       "gatheredAmount": 47558379,
       "imageUrl": "/assets/campaigns/cars.jpg",
       "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 203,
+      "title": "Зброєносці",
+      "organizationId": 302,
+      "targetAmount": 7568879,
+      "gatheredAmount": 7568879,
+      "imageUrl": "/assets/campaigns/zbroyenostsi.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 204,
+      "title": "Почуй своїх",
+      "organizationId": 303,
+      "targetAmount": 14200000,
+      "gatheredAmount": 8594029,
+      "imageUrl": "/assets/campaigns/pochuy-svoyikh.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 205,
+      "title": "Блискавки ССО",
+      "organizationId": 303,
+      "targetAmount": "Безперервно",
+      "gatheredAmount": 7568879,
+      "imageUrl": "/assets/campaigns/blyskavky-sso.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 206,
+      "title": "Зимовий збір на такмед",
+      "organizationId": 303,
+      "targetAmount": "Доки стане грошей",
+      "gatheredAmount": 3458879,
+      "imageUrl": "/assets/campaigns/takmed.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 207,
+      "title": "ОКО ЗА ОКО 3",
+      "organizationId": 302,
+      "targetAmount": "Перемога",
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/oko-za-oko-3.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 208,
+      "title": "Адвент календар",
+      "organizationId": 303,
+      "targetAmount": "Скільки зможемо",
+      "gatheredAmount": 7568879,
+      "imageUrl": "/assets/campaigns/advent-calendar.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 209,
+      "title": "Формула зв'язку",
+      "organizationId": 302,
+      "targetAmount": 20000000,
+      "gatheredAmount": 1100,
+      "imageUrl": "/assets/campaigns/formula-zviazku.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 210,
+      "title": "Бережи тебе РЕБ!",
+      "organizationId": 303,
+      "targetAmount": "До перемоги",
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/reb.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 211,
+      "title": "Почуй своїх: збір на радіозв'язок",
+      "organizationId": 303,
+      "targetAmount": 7658879,
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/radio.jpg",
+      "tag": "Технічне забезпечення"
     }
   ],
   "organizations": [
     {
       "id": 301,
-      "name": "Фонд Сергія Prituli"
+      "name": "Фонд Добрі Серця"
     },
     {
       "id": 302,
       "name": "Фонд \"Повернись живим\""
+    },
+    {
+      "id": 303,
+      "name": "Фонд \"Сергія Притули\""
     }
   ],
   "categories": [

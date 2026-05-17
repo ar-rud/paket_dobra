@@ -11,10 +11,13 @@
 
 import apiCall from './api';
 
-const campaignImageFallbacks = {
-  201: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1200&q=80",
-  202: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
-};
+function getCampaignStatus(targetAmount, gatheredAmount) {
+  if (typeof targetAmount !== "number") {
+    return "active";
+  }
+
+  return gatheredAmount >= targetAmount ? "closed" : "active";
+}
 
 function shuffle(array) {
   const items = [...array];
@@ -27,23 +30,16 @@ function shuffle(array) {
   return items;
 }
 
-function resolveCampaignImage(campaign) {
-  if (campaign.imageUrl?.startsWith("http")) {
-    return campaign.imageUrl;
-  }
-
-  return campaignImageFallbacks[campaign.id] ?? campaignImageFallbacks[201];
-}
-
 function normalizeCampaign(campaign, organizationsMap) {
   return {
     id: campaign.id,
     title: campaign.title,
     category: campaign.tag,
     foundation: organizationsMap.get(campaign.organizationId) ?? "Організація",
+    status: getCampaignStatus(campaign.targetAmount, campaign.gatheredAmount),
     collected: campaign.gatheredAmount,
     goal: campaign.targetAmount,
-    image: resolveCampaignImage(campaign),
+    image: campaign.imageUrl,
   };
 }
 
