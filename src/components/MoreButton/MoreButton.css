@@ -2,6 +2,7 @@
   --mb-accent: var(--accent-color, #273500);
   --mb-contrast: var(--accent-contrast-color, #ffffff);
   --mb-text: var(--more-button-text-color, var(--control-text-color, var(--mb-accent)));
+  --mb-hover-color: var(--more-button-hover-color, #99a235);
 
   border: 1px solid currentColor;
   padding: 12px 24px;
@@ -19,11 +20,21 @@
   gap: 8px;
   text-align: center;
   white-space: nowrap;
-  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.MoreButton-button:not(:disabled):hover {
+  color: var(--mb-hover-color);
 }
 
 .MoreButton-button--primary {
   background-color: var(--mb-accent);
+  color: var(--mb-contrast);
+}
+
+.MoreButton-button--primary:not(:disabled):hover {
+  background-color: var(--mb-hover-color);
+  border-color: var(--mb-hover-color);
   color: var(--mb-contrast);
 }
 

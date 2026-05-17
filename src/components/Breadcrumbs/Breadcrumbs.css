@@ -52,15 +52,11 @@
   letter-spacing: -0.01em;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.18s ease;
 }
 
 .breadcrumbs__link {
   font-weight: 400;
-  transition: color 0.18s ease;
-}
-
-.breadcrumbs__link:hover {
-  color: #4f5b27;
 }
 
 .breadcrumbs__current {
@@ -94,6 +90,13 @@
   height: 24px;
   margin: 0 6px;
   opacity: 0.85;
+}
+
+.breadcrumbs__link:hover,
+.breadcrumbs__current:hover,
+.breadcrumbs--inline .breadcrumbs__link:hover,
+.breadcrumbs--inline .breadcrumbs__current:hover {
+  color: var(--color-hover-primary);
 }
 
 @media (max-width: 680px) {

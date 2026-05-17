@@ -54,9 +54,10 @@
   text-decoration: none;
   color: inherit;
   flex-shrink: 0;
+  transition: color 0.2s ease-in-out;
 }
 
-.header__logo-img {
+.header__logo-icon {
   height: 48px;
   width: auto;
   display: block;
@@ -103,6 +104,7 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  transition: color 0.2s ease-in-out;
 }
 
 .header__grid-link {
@@ -156,19 +158,26 @@
   cursor: pointer;
   padding: 4px;
   box-sizing: border-box;
+  transition: color 0.2s ease-in-out;
 }
 
-.header__icon-img {
+.header__icon-svg {
   width: 24px;
   height: 24px;
-  object-fit: contain;
   display: block;
+}
+
+.header__nav-link:hover,
+.header__grid-link:hover,
+.header__icon-btn:hover,
+.header__logo:hover {
+  color: #99a235;
 }
 
 .header__cta {
   width: 230px;
   min-height: 48px;
-  border: none;
+  border: 1px solid transparent;
   padding: 12px 24px;
   background: #1e2d00;
   color: #ffffff;
@@ -182,6 +191,13 @@
   text-decoration: none;
   box-sizing: border-box;
   white-space: nowrap;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.header__cta:hover {
+  background-color: #99a235;
+  color: #273500;
+  border-color: #99a235;
 }
 
 .header__actions .header__icon-btn {

@@ -2,6 +2,7 @@
   --ps-accent: var(--accent-color, #273500);
   --ps-accent-contrast: var(--accent-contrast-color, #ffffff);
   --page-switcher-muted: var(--ps-accent-muted, var(--accent-muted-color, #b4c238));
+  --ps-hover-color: var(--page-switcher-hover-color, #99a235);
 
   width: 100%;
   display: flex;
@@ -20,6 +21,11 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
+  transition: color 0.2s ease;
+}
+
+.page-switcher__nav:not(:disabled):hover {
+  color: var(--ps-hover-color);
 }
 
 .page-switcher__nav-icon {
@@ -59,6 +65,11 @@
   cursor: pointer;
   font-size: 13px;
   white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.page-switcher__page:not(.page-switcher__page--active):hover {
+  color: var(--ps-hover-color);
 }
 
 .page-switcher__dots {

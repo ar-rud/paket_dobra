@@ -2,7 +2,7 @@ import "./PageSwitcher.css";
 import ArrowLeftIcon from "../../assets/images/arrow_left.svg?react";
 import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
 
-function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, onPageChange }) {
+function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, hoverColor = "#99a235", onPageChange }) {
   const computedTotalPages = totalItems ? Math.max(1, Math.ceil(totalItems / pageSize)) : Math.max(1, totalPages || 1);
   const pages = [];
 
@@ -24,7 +24,7 @@ function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, onPa
   }
 
   return (
-    <div className="page-switcher">
+    <div className="page-switcher" style={{ "--ps-hover-color": hoverColor }}>
       <button
         className="page-switcher__nav"
         onClick={() => onPageChange(currentPage - 1)}
