@@ -92,3 +92,37 @@
 	color: #888;
 	padding: 5% 0;
 }
+
+@media (max-width: 480px) {
+	.profile-impact-stats {
+		padding: 2vw 0;
+	}
+	
+	.profile-impact-stats__title {
+		font-size: 4.5vw;
+	}
+
+	.profile-impact-stats__arrow {
+		width: 6vw;
+		height: 6vw;
+	}
+
+	.profile-impact-stats__body {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-end;
+		padding-top: 3vw;
+		gap: 3vw;
+		margin-top: 0;
+	}
+
+	.profile-impact-stats__value {
+		font-size: 6.5vw;
+		margin-bottom: 0;
+		line-height: 1;
+	}
+
+	.profile-impact-stats__chart {
+		width: 40vw;
+	}
+}

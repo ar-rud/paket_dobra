@@ -42,3 +42,21 @@
 	color: #768800;
 	font-weight: 500;
 }
+
+@media (max-width: 480px) {
+	.user-identity__avatar-frame {
+		width: 25vw;
+		height: 25vw;
+	}
+
+	.user-identity__name {
+		font-size: 5vw;
+		margin-top: 4vw;
+	}
+
+	.user-identity__meta {
+		font-size: 3.5vw;
+		gap: 2vw;
+		margin-top: 2vw;
+	}
+}
