@@ -6,7 +6,7 @@ import "./StatisticsPage.css";
 import { getReports } from "../../services/reports.js";
 
 export default function StatisticsPage() {
-  const [reports, setReports] = useState([]);
+  const [reportsData, setReportsData] = useState({ googleDriveUrl: "", reportList: [] });
 
   useEffect(() => {
     let isActive = true;
@@ -15,11 +15,14 @@ export default function StatisticsPage() {
       try {
         const nextReports = await getReports();
         if (isActive) {
-          setReports(Array.isArray(nextReports) ? nextReports : []);
+          setReportsData({
+            googleDriveUrl: nextReports?.googleDriveUrl ?? "",
+            reportList: Array.isArray(nextReports?.reportList) ? nextReports.reportList : [],
+          });
         }
       } catch {
         if (isActive) {
-          setReports([]);
+          setReportsData({ googleDriveUrl: "", reportList: [] });
         }
       }
     }
@@ -45,7 +48,7 @@ export default function StatisticsPage() {
 
       <ImpactStatsSection />
 
-      <ReportsSection reports={reports} />
+      <ReportsSection reports={reportsData.reportList} googleDriveUrl={reportsData.googleDriveUrl} />
     </main>
   );
 }

@@ -1,7 +1,11 @@
 import "./ReportRow.css";
 import downloadIcon from "../images/download_icon.svg";
+import { buildReportDownloadUrl, buildReportPreviewUrl } from "../../../services/reports.js";
 
-export default function ReportRow({ title, type, downloadUrl }) {
+export default function ReportRow({ title, type, driveFileId }) {
+  const downloadUrl = buildReportDownloadUrl(driveFileId);
+  const previewUrl = buildReportPreviewUrl(driveFileId);
+
   return (
     <article className="report-row" role="listitem">
       <div className="report-row__content">
@@ -19,7 +23,12 @@ export default function ReportRow({ title, type, downloadUrl }) {
           <img src={downloadIcon} alt="" aria-hidden="true" className="report-row__download-icon" />
         </a>
 
-        <a href={downloadUrl} className="report-row__view-button" target="_blank" rel="noreferrer">
+        <a
+          href={previewUrl}
+          className="report-row__view-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Переглянути
         </a>
       </div>
