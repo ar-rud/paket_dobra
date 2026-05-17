@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import "./ProductPage.css";
-// import { products } from "/src/pages/catalog/db.js";
-// import { campaigns } from "/src/pages/Catalog/db.js";
+import { products } from "/src/pages/catalog/db.js";
+import { campaigns } from "/src/pages/Catalog/db.js";
 import ProductCard from "/src/components/ProductCard/ProductCard.jsx";
 
 export default function ProductPage(props) {
@@ -138,7 +138,9 @@ export default function ProductPage(props) {
         <main className="product-page-section-main">
           <section className="product-page-section-description">
             <span className="product-page-description-span">Опис товару:</span>
-            <p className="product-page-description-text">{product.description}</p>
+            <p className="product-page-description-text">
+              {product.description}
+            </p>
           </section>
           <footer className="product-page-section-footer">
             <p className="product-page-section-footer-text">
