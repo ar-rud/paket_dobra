@@ -5,9 +5,18 @@
 }
 
 .profile-impact-stats__header {
+	appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	background: transparent;
+	padding: 0;
+	width: 100%;
+	font: inherit;
+	color: inherit;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	cursor: pointer;
 }
 
 .profile-impact-stats__title {
@@ -19,8 +28,8 @@
 }
 
 .profile-impact-stats__arrow {
-	width: 11px;
-	height: 11px;
+	width:20px;
+	height: 20px;
 	opacity: 0.9;
 }
 

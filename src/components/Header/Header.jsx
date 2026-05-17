@@ -1,9 +1,10 @@
 import "./Header.css";
-import logo from "../../assets/images/logo.png";
-import gridIcon from "../../assets/images/grid.png";
-import userIcon from "../../assets/images/account_circle.png";
-import cartIcon from "../../assets/images/Shopping cart.png";
-import searchIcon from "../../assets/images/search.png";
+import { Link } from "react-router";
+import LogoIcon from "../../assets/images/logo.svg?react";
+import GridIcon from "../../assets/images/catalog_grid.svg?react";
+import UserIcon from "../../assets/images/profile_icon.svg?react";
+import CartIcon from "../../assets/images/cart_icon.svg?react";
+import SearchIcon from "../../assets/images/search_icon.svg?react";
 
 const defaultLinks = [
   { label: "Про нас", href: "/" },
@@ -28,38 +29,49 @@ export default function Header({
       {topInfoText ? <div className="header__top">{topInfoText}</div> : null}
 
       <div className="header__bar">
-        <a className="header__logo" href="/" aria-label="На головну">
-          <img src={logo} alt="Пакет добра" className="header__logo-img" />
-        </a>
+        <Link className="header__logo" to="/" aria-label="На головну">
+          <LogoIcon className="header__logo-icon" />
+        </Link>
 
-        <nav className="header__nav" aria-label="Головне меню">
-          <a href="/catalog" className="header__grid-link" aria-label="Каталог">
-            <img src={gridIcon} alt="" className="header__icon-img" />
-          </a>
+        <div className="header__menu">
+          <div className="header__main-group">
+            <nav className="header__nav" aria-label="Головне меню">
+              <Link to="/catalog" className="header__grid-link" aria-label="Каталог">
+                <GridIcon className="header__icon-svg" />
+              </Link>
 
-          {links.map((link) => (
-            <a key={link.label} href={link.href} className="header__nav-link">
-              {link.label}
-            </a>
-          ))}
-        </nav>
+              {links.map((link) => (
+                <Link key={link.label} to={link.href} className="header__nav-link">
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
 
-        <div className="header__actions">
-          <a href="/profile" className="header__icon-btn" aria-label="Профіль">
-            <img src={userIcon} alt="" className="header__icon-img" />
-          </a>
+            <div className="header__utility-icons">
+              <Link to="/profile" className="header__icon-btn" aria-label="Профіль">
+                <UserIcon className="header__icon-svg" />
+              </Link>
 
-          <button type="button" className="header__icon-btn" aria-label="Кошик" onClick={onCartOpen}>
-            <img src={cartIcon} alt="" className="header__icon-img" />
-          </button>
+              <button
+                type="button"
+                className="header__icon-btn"
+                aria-label="Кошик"
+                onClick={onCartOpen}
+              >
+                <CartIcon className="header__icon-svg" />
+              </button>
+            </div>
+          </div>
 
-          <a href={ctaHref} className="header__cta">
-            {ctaText}
-          </a>
+          <div className="header__actions">
+            <Link to={ctaHref} className="header__cta">
+              {ctaText}
+            </Link>
 
-          <button type="button" className="header__icon-btn" aria-label="Пошук">
-            <img src={searchIcon} alt="" className="header__icon-img" />
-          </button>
+            <button type="button" className="header__icon-btn" aria-label="Пошук">
+              <SearchIcon className="header__icon-svg" />
+            </button>
+          </div>
         </div>
       </div>
     </header>

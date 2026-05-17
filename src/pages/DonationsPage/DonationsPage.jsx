@@ -5,6 +5,7 @@ import HeroSection from "../../components/HeroSection/HeroSection.jsx";
 import CampaignCard from "../../components/CampaignCard/CampaignCard.jsx";
 import PageSwitcher from "../../components/PageSwitcher/PageSwitcher.jsx";
 import MoreButton from "../../components/MoreButton/MoreButton.jsx";
+import ArrowDownIcon from "../../assets/images/arrow_down.svg?react";
 
 import FiltersBar from "./FiltersBar/FiltersBar.jsx";
 import "./DonationsPage.css";
@@ -134,8 +135,6 @@ function DonationsPage() {
   };
 
   return (
-    // <main className="donations-page">
-    //   <Header />
     <>
       <section className="donations-page__top">
         <HeroSection
@@ -165,8 +164,9 @@ function DonationsPage() {
             <MoreButton
               onClick={onLoadMore}
               disabled={visibleCount >= campaigns.length}
+              rightIcon={<ArrowDownIcon />}
             >
-              Показати ще ↓
+              Показати ще
             </MoreButton>
           </div>
 
@@ -178,7 +178,6 @@ function DonationsPage() {
         </div>
       </section>
     </>
-    // </main>
   );
 }
 

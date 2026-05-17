@@ -9,6 +9,20 @@
 	box-sizing: border-box;
 }
 
+.listing-card--active {
+	--listing-card-text-color: var(--profile-active-text-color, #121800);
+	--listing-card-action-color: var(--profile-active-action-color, #273500);
+	--listing-card-button-bg: var(--profile-active-button-bg, #ffffff);
+	--listing-card-button-border: var(--profile-active-action-color, #273500);
+}
+
+.listing-card--muted {
+	--listing-card-text-color: var(--profile-inactive-text-color, #9D9D9D);
+	--listing-card-action-color: var(--profile-inactive-action-color, #9D9D9D);
+	--listing-card-button-bg: var(--profile-inactive-button-bg, transparent);
+	--listing-card-button-border: var(--profile-inactive-action-color, #9D9D9D);
+}
+
 .listing-card:last-child {
 	border-bottom: none;
 }
@@ -93,11 +107,11 @@
 }
 
 .listing-card__text--default {
-	color: #1f2800;
+	color: var(--listing-card-text-color, var(--profile-active-text-color, #121800));
 }
 
 .listing-card__text--muted {
-	color: #aaaea1;
+	color: var(--listing-card-text-color, var(--profile-inactive-text-color, #9D9D9D));
 }
 
 .listing-card__actions {
@@ -120,6 +134,7 @@
 	align-items: center;
 	justify-content: center;
 	transition: opacity 0.2s ease;
+	color: var(--listing-card-action-color, var(--profile-active-action-color, #273500));
 }
 
 .listing-card__icon-button:hover {
@@ -127,7 +142,7 @@
 }
 
 .listing-card__icon-button:disabled {
-	opacity: 0.38;
+	opacity: 1;
 	cursor: not-allowed;
 }
 
@@ -139,15 +154,18 @@
 
 
 .listing-card__primary-button {
+	--lc-border: var(--listing-card-button-border, var(--profile-active-action-color, #273500));
+	--lc-text: var(--listing-card-action-color, var(--profile-active-action-color, #273500));
+
 	min-width: 94px;
 	height: 32px;
 	padding: 0 11px;
-	background-color: transparent;
+	background-color: var(--listing-card-button-bg, var(--profile-active-button-bg, #ffffff));
 	font-size: 12px;
 	line-height: 1;
 	font-weight: 500;
-	color: #2d3900;
-	border: 1px solid #7f8f56;
+	color: var(--lc-text);
+	border: 1px solid var(--lc-border);
 	cursor: pointer;
 	transition: opacity 0.2s ease;
 }
@@ -157,9 +175,9 @@
 }
 
 .listing-card__primary-button:disabled {
-	border-color: #c9cdc0;
-	color: #a3a89a;
-	background-color: #f1f2ee;
+	border-color: var(--profile-inactive-action-color, #9D9D9D);
+	color: var(--profile-inactive-action-color, #9D9D9D);
+	background-color: var(--profile-inactive-button-bg, transparent);
 	cursor: not-allowed;
 	opacity: 1;
 }

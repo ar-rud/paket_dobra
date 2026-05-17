@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import "./Profile.css";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs.jsx";
 import HeroBanner from "../../components/HeroBanner/HeroBanner.jsx";
 import SidebarWrapper from "./components/SidebarWrapper/SidebarWrapper.jsx";
 import ListingsFeed from "./components/ListingsFeed/ListingsFeed.jsx";
 
-import addPlusIcon from "./images/add_plus_icon.svg";
-import binIcon from "./images/bin_icon.svg";
-import leaveIcon from "./images/leave_icon.svg";
-import messagesIcon from "./images/messages_icon.svg";
-import rightArrowIcon from "./images/right_arrow_icon.svg";
-import settingsIcon from "./images/settings_icon.svg";
-import supportIcon from "./images/support_icon.svg";
-import defaultAvatar from "./images/default_avatar.svg";
+import AddPlusIcon from "./images/add_plus_icon.svg?react";
+import BinIcon from "./images/bin_icon.svg?react";
+import LeaveIcon from "./images/leave_icon.svg?react";
+import MessagesIcon from "./images/messages_icon.svg?react";
+import SettingsIcon from "./images/settings_icon.svg?react";
+import SupportIcon from "./images/support_icon.svg?react";
+
+import defaultAvatar from "./images/default_avatar.svg"; 
+import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
 
 import { getCurrentUserId } from "/src/services/session";
 import { getProfileData } from "./services/profile";
@@ -23,14 +25,14 @@ const PROFILE_TABS = [
 ];
 
 const MENU_LINKS = [
-  { id: "support", label: "Підтримка", iconSrc: supportIcon, iconAlt: "Підтримка" },
+  { id: "support", label: "Підтримка", icon: <SupportIcon />, iconAlt: "Підтримка" },
   {
     id: "settings",
     label: "Налаштування",
-    iconSrc: settingsIcon,
+    icon: <SettingsIcon />,
     iconAlt: "Налаштування",
   },
-  { id: "logout", label: "Вийти", iconSrc: leaveIcon, iconAlt: "Вийти" },
+  { id: "logout", label: "Вийти", icon: <LeaveIcon />, iconAlt: "Вийти" },
 ];
 
 export default function Profile() {
@@ -43,13 +45,13 @@ export default function Profile() {
     username: "",
     levelLabel: "",
     messageLabel: "Повідомлення",
-    messageIconSrc: messagesIcon,
+    messageIcon: <MessagesIcon />,
   });
 
   const [impactStats, setImpactStats] = useState({
     title: "Ваша допомога:",
     value: "0 грн",
-    arrowIconSrc: rightArrowIcon,
+    arrowIcon: <ArrowRightIcon />,
   });
 
   const [rewards, setRewards] = useState(null);
@@ -81,17 +83,17 @@ export default function Profile() {
           username: profileData.userIdentity.username,
           levelLabel: profileData.userIdentity.levelLabel,
           messageLabel: "Повідомлення",
-          messageIconSrc: messagesIcon,
+          messageIcon: <MessagesIcon />, // Updated
         });
 
         setImpactStats({
           title: profileData.impactStats.title,
           value: profileData.impactStats.value,
-          arrowIconSrc: rightArrowIcon,
+          arrowIcon: <ArrowRightIcon />,
         });
         setRewards(
           profileData.rewards
-            ? { ...profileData.rewards, arrowIconSrc: rightArrowIcon }
+            ? { ...profileData.rewards, arrowIcon: <ArrowRightIcon /> }
             : null,
         );
         setListingsByTab(profileData.listingsByTab);
@@ -109,13 +111,12 @@ export default function Profile() {
     return () => (mounted = false);
   }, []);
 
-  const sidebarBreadcrumbs = (
-    <nav className="profile-breadcrumbs profile-page__sidebar-breadcrumbs" aria-label="breadcrumb">
-      <span className="profile-breadcrumbs__item">Головна</span>
-      <span className="profile-breadcrumbs__separator">&gt;</span>
-      <span className="profile-breadcrumbs__item profile-breadcrumbs__item--active">Профіль</span>
-    </nav>
-  );
+  const breadcrumbItems = [
+    { label: "Головна", to: "/" },
+    { label: "Профіль", current: true },
+  ];
+
+  const bannerLeftContent = <Breadcrumbs variant="inline" items={breadcrumbItems} />;
 
   const bannerRightContent = (
     <h1 className="profile-banner-title">Донать, досягай нового рівня, отримуй нагороди!</h1>
@@ -128,12 +129,11 @@ export default function Profile() {
       data-has-error={error ? "true" : "false"}
     >
       <div className="profile-page__hero">
-        <HeroBanner variant="solid" leftContent={null} rightContent={bannerRightContent} />
+        <HeroBanner variant="solid" leftContent={bannerLeftContent} rightContent={bannerRightContent} />
       </div>
 
       <main className="profile-page__container profile-page__layout">
         <div className="profile-page__sidebar-column">
-          {sidebarBreadcrumbs}
           <SidebarWrapper
             className="profile-page__sidebar-card"
             userIdentity={userIdentity}
@@ -149,10 +149,10 @@ export default function Profile() {
             activeTabId={activeTabId}
             onTabChange={setActiveTabId}
             addListingLabel="Додати оголошення"
-            addListingIconSrc={addPlusIcon}
+            addListingIcon={<AddPlusIcon />}
             cards={listingsByTab[activeTabId] ?? []}
-            messageIconSrc={messagesIcon}
-            deleteIconSrc={binIcon}
+            messageIcon={<MessagesIcon />}
+            deleteIcon={<BinIcon />}
           />
         </div>
       </main>

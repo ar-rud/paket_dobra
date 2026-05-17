@@ -9,6 +9,6 @@
   position: absolute;
   top: 8px;
   right: 8px;
-
-
+  line-height: 1;
+  white-space: nowrap;
 }

@@ -1,15 +1,17 @@
 import './SidebarRewards.css';
 import defaultRewardIcon from '../../images/default_reward.svg';
 
-export default function SidebarRewards({ title, levels, arrowIconSrc }) {
+export default function SidebarRewards({ title, levels, arrowIcon }) {
   return (
     <div className="sidebar-rewards">
-      <div className="sidebar-rewards__header">
+      <button type="button" className="sidebar-rewards__header">
         <h3 className="sidebar-rewards__title">{title}</h3>
-        {arrowIconSrc ? (
-          <img src={arrowIconSrc} alt="" aria-hidden="true" className="sidebar-rewards__arrow" />
+        {arrowIcon ? (
+          <span className="sidebar-rewards__arrow" aria-hidden="true">
+            {arrowIcon}
+          </span>
         ) : null}
-      </div>
+      </button>
 
       <div className="sidebar-rewards__levels">
         {levels.map((level) => (

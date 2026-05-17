@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import "../Payment/Payment.css";
 import "../Payment/Payment.jsx";
 import "./CardPayment.css";
+import { useNavigate } from 'react-router';
 
 const CardPayment = ({ onNext, onBack }) => {
+  const navigate = useNavigate();
+
   const [cardNumber, setCardNumber] = useState('');
   const [expiry, setExpiry] = useState('');
   const [cvv, setCvv] = useState('');
@@ -104,15 +107,11 @@ const CardPayment = ({ onNext, onBack }) => {
             </div>
 
             <div className="payment-footer">
-              <button className="btn-cancel" onClick={onBack}>
-                Скасувати
-              </button>
-              
-
+              <button className="btn-cancel" onClick={() => navigate('/payment')}>Скасувати</button>
               <button
                 className="btn-pay"
                 disabled={!isFormValid}
-                onClick={() => isFormValid && onNext()}
+                onClick={() => navigate('/success')}
               >
                 Оплатити
               </button>

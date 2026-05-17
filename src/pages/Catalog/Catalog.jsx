@@ -2,12 +2,14 @@ import { useState } from "react";
 import "./Catalog.css";
 import ProductCard from "/src/components/ProductCard/ProductCard.jsx";
 import MoreButton from "/src/components/MoreButton/MoreButton.jsx";
+import ArrowDownIcon from "/src/assets/images/arrow_down.svg?react";
 
 import Filters from "./Filters/Filters";
 import PaginationButtons from "./PaginationButtons/PaginationButtons";
 import PageSwitcher from "../../components/PageSwitcher/PageSwitcher";
 import { useParams, useSearchParams } from "react-router";
 import HeroSection from "/src/components/HeroSection/HeroSection.jsx";
+import Breadcrumbs from "/src/components/Breadcrumbs/Breadcrumbs.jsx";
 
 import { products } from "./db.js";
 
@@ -49,8 +51,28 @@ export default function Catalog(props) {
     return filteredProducts;
   }
 
+  const catalogCategories = {
+    home: "Товари для дому",
+    "health-beauty": "Краса та здоровʼя",
+    clothes: "Одяг та аксесуари",
+    kids: "Дитячі товари",
+    pets: "Зоотовари",
+    hobbies: "Хобі та розваги",
+    "art-craft": "Мистецтво та творчість",
+    services: "Послуги",
+    books: "Книги та освітні матеріали",
+    electronics: "Електроніка та техніка",
+  };
+
+  const breadcrumbItems = [
+    { label: "Головна", to: "/" },
+    { label: "Каталог", to: "/catalog" },
+    { label: `${catalogCategories[params.category]}`, current: true },
+  ];
+
   return (
     <>
+      <Breadcrumbs className="Catalog-breadcrumbs" items={breadcrumbItems} />
       <HeroSection
         title={
           <>
@@ -85,24 +107,9 @@ export default function Catalog(props) {
             ))}
           </div>
           <div>
-            <MoreButton className="Catalog-moreButton-products">
-              Показати ще
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.0013 4.16675V15.8334M10.0013 15.8334L15.8346 10.0001M10.0013 15.8334L4.16797 10.0001"
-                  stroke="#181D27"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </MoreButton>
+            <MoreButton className="Catalog-moreButton-products" rightIcon={<ArrowDownIcon />}>
+                Показати ще
+              </MoreButton>
           </div>
           <PageSwitcher
             // currentPage={currentPage}

@@ -1,7 +1,18 @@
 import "./DonationPercent.css";
 
-export default function DonationPercent(props) {
+export default function DonationPercent({
+  percentNumber,
+  suffix = "%",
+  className = "",
+}) {
+  const componentClassName = ["DonatoinPercent-container", className]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div className="DonatoinPercent-container">{props.percentNumber}%</div>
+    <div className={componentClassName}>
+      {percentNumber}
+      {suffix}
+    </div>
   );
 }

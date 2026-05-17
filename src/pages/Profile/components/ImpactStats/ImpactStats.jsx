@@ -7,19 +7,21 @@ const DEFAULT_CHART_AREA_PATH = 'M0,34 C20,34 30,15 50,20 C70,25 80,5 100,0 L100
 export default function ImpactStats({
   title,
   value,
-  arrowIconSrc,
+  arrowIcon,
   chartImageSrc = defaultHelpAmountPlot,
   chartLinePath = DEFAULT_CHART_LINE_PATH,
   chartAreaPath = DEFAULT_CHART_AREA_PATH,
 }) {
   return (
     <div className="profile-impact-stats">
-      <div className="profile-impact-stats__header">
+      <button type="button" className="profile-impact-stats__header">
         <h3 className="profile-impact-stats__title">{title}</h3>
-        {arrowIconSrc ? (
-          <img src={arrowIconSrc} alt="" aria-hidden="true" className="profile-impact-stats__arrow" />
+        {arrowIcon ? (
+          <span className="profile-impact-stats__arrow" aria-hidden="true">
+            {arrowIcon}
+          </span>
         ) : null}
-      </div>
+      </button>
 
       <div className="profile-impact-stats__body">
         <span className="profile-impact-stats__value">{value}</span>

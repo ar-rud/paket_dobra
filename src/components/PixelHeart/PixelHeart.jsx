@@ -74,6 +74,53 @@ const heartLayouts = {
     ],
     [{ start: 4, tone: "pale" }],
   ],
+  impact: [
+    [
+      { start: 2, tone: "mid" },
+      { start: 6, tone: "mid" },
+    ],
+    [
+      { start: 1, tone: "mid" },
+      { start: 2, tone: "light" },
+      { start: 3, tone: "mid" },
+      { start: 5, tone: "light" },
+      { start: 6, tone: "mid" },
+      { start: 7, tone: "light" },
+    ],
+    [
+      { start: 0, tone: "mid" },
+      { start: 1, tone: "light" },
+      { start: 2, tone: "mid" },
+      { start: 3, tone: "light" },
+      { start: 4, tone: "mid" },
+      { start: 5, tone: "light" },
+      { start: 6, tone: "mid" },
+      { start: 7, tone: "light" },
+      { start: 8, tone: "mid" },
+    ],
+    [
+      { start: 1, tone: "light" },
+      { start: 2, tone: "mid" },
+      { start: 3, tone: "light" },
+      { start: 4, tone: "mid" },
+      { start: 5, tone: "light" },
+      { start: 6, tone: "mid" },
+      { start: 7, tone: "light" },
+    ],
+    [
+      { start: 2, tone: "mid" },
+      { start: 3, tone: "light" },
+      { start: 4, tone: "mid" },
+      { start: 5, tone: "light" },
+      { start: 6, tone: "mid" },
+    ],
+    [
+      { start: 3, tone: "mid" },
+      { start: 4, tone: "light" },
+      { start: 5, tone: "mid" },
+    ],
+    [{ start: 4, tone: "mid" }],
+  ],
 };
 
 export default function PixelHeart({ className = "", variant = "hero" }) {
