@@ -4,7 +4,8 @@ import ImpactStatsSection from "../../components/ImpactStatsSection/ImpactStatsS
 import ProductCard from "../../components/ProductCard/ProductCard.jsx";
 import CampaignCard from "../../components/CampaignCard/CampaignCard.jsx";
 import MoreButton from "../../components/MoreButton/MoreButton.jsx";
-import logo from "../../assets/images/logo.png";
+import LogoIcon from "../../assets/images/logo.svg?react";
+import { Link } from "react-router";
 import "./HomePage.css";
 
 import Footer from "../../components/Footer/Footer.jsx";
@@ -72,9 +73,9 @@ export default function HomePage() {
         <div className="home-page__container">
           <div className="home-page__section-head">
             <h2 className="home-page__section-title">Товари для тебе</h2>
-            <a href="/catalog" className="home-page__section-link">
+            <Link to="/catalog" className="home-page__section-link">
               Переглянути більше
-            </a>
+            </Link>
           </div>
 
           <div className="home-page__products-grid">

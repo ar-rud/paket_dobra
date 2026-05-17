@@ -8,6 +8,8 @@ const MoreButton = forwardRef(({
   type = "button",
   leftIcon,
   rightIcon,
+  hoverColor = "#99a235",
+  style,
   ...props
 }, ref) => {
   const buttonClassName = `MoreButton-button MoreButton-button--${variant} ${className}`.trim();
@@ -17,6 +19,7 @@ const MoreButton = forwardRef(({
       ref={ref}
       className={buttonClassName} 
       type={type} 
+      style={{ ...style, "--mb-hover-color": hoverColor }}
       {...props} 
     >
       {leftIcon && <span className="MoreButton-icon">{leftIcon}</span>}

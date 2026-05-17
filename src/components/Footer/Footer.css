@@ -1,11 +1,9 @@
 .Footer-wrapper {
   margin-top: 20px;
-
   background-color: #1f2900;
   padding-top: 72px;
   padding-left: 166px;
   padding-right: 166px;
-
   display: flex;
   flex-direction: column;
   gap: 72px;
@@ -52,7 +50,7 @@
 }
 
 .Footer-social-media-item:hover {
-  background-color: #d4dc8c;
+  background-color: #a0a56b;
 }
 
 .Footer-social-media-img {
@@ -60,6 +58,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #182000;
+}
+
+.Footer-social-media-img path {
+  fill: #182000;
 }
 
 .Footer-facebook {
@@ -97,7 +100,7 @@
 .Footer-top-menu-item-link:hover,
 .Footer-top-service-item-link:hover,
 .Footer-top-other-item-link:hover {
-  color: #bdc2b0;
+  color: #99a235;
 }
 
 .Footer-bottom * {
@@ -113,7 +116,7 @@
 }
 
 .Footer-bottom-item-link:hover {
-  color: #bdc2b0;
+  color: #99a235;
 }
 
 .Footer-bottom-copyright {
@@ -142,11 +145,21 @@
 
 .Footer-logo-img {
   width: 100px;
-  transition: opacity 0.2s ease-in-out;
+  color: #ffffff;
+  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.Footer-logo-img path {
+  transition: fill 0.2s ease-in-out;
 }
 
 .Footer-logo-img:hover {
   opacity: 0.8;
+  color: #99a235;
+}
+
+.Footer-logo-img:hover path {
+  fill: #99a235;
 }
 
 .Footer-top-menu,
