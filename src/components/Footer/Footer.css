@@ -100,7 +100,7 @@
 .Footer-top-menu-item-link:hover,
 .Footer-top-service-item-link:hover,
 .Footer-top-other-item-link:hover {
-  color: #99a235;
+  color: var(--color-hover-primary);
 }
 
 .Footer-bottom * {
@@ -116,7 +116,7 @@
 }
 
 .Footer-bottom-item-link:hover {
-  color: #99a235;
+  color: var(--color-hover-primary);
 }
 
 .Footer-bottom-copyright {
@@ -159,7 +159,7 @@
 }
 
 .Footer-logo-img:hover path {
-  fill: #99a235;
+  fill: var(--color-hover-primary);
 }
 
 .Footer-top-menu,

@@ -171,7 +171,7 @@
 .header__grid-link:hover,
 .header__icon-btn:hover,
 .header__logo:hover {
-  color: #99a235;
+  color: var(--color-hover-primary);
 }
 
 .header__cta {
@@ -195,9 +195,9 @@
 }
 
 .header__cta:hover {
-  background-color: #99a235;
+  background-color: var(--color-hover-primary);
   color: #273500;
-  border-color: #99a235;
+  border-color: var(--color-hover-primary);
 }
 
 .header__actions .header__icon-btn {

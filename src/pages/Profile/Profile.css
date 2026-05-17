@@ -25,12 +25,21 @@
   --hero-banner-min-height: 175px;
   --profile-hero-inner-padding-top: 0px;
   --profile-hero-inner-padding-bottom: 24px;
-  --profile-sidebar-height-base: 825px;
-  --profile-sidebar-height: calc(
-    var(--profile-sidebar-height-base) +
-    (var(--profile-banner-overlap) - var(--profile-banner-overlap-base))
-  );
   --profile-listings-offset: 16px;
+
+  --profile-card-height: 138px;
+  --profile-visible-cards: 4;
+  --profile-toolbar-height: 40px;
+
+  --profile-list-height: calc(var(--profile-card-height) * var(--profile-visible-cards));
+
+  --profile-sidebar-height: calc(
+    var(--profile-banner-overlap) +
+    var(--profile-listings-offset) +
+    var(--profile-toolbar-height) +
+    var(--profile-list-height)
+  );
+
   --profile-breadcrumbs-offset: calc(
     (
       var(--hero-banner-min-height) +
@@ -155,4 +164,21 @@
 .listing-card__icon svg {
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 900px) {
+  .profile-page__layout {
+    grid-template-columns: 1fr;
+    margin-top: calc(-1 * (var(--profile-banner-overlap) - 16px));
+    gap: 24px;
+  }
+  .profile-page__sidebar-column {
+    margin-top: 0;
+  }
+  .sidebar-wrapper.profile-page__sidebar-card {
+    min-height: auto;
+    max-height: none;
+    height: auto;
+    flex: 1 1 auto;
+  }
 }

@@ -12,10 +12,11 @@
 	padding: 0 14px;
 	height: 40px;
 	transition: color 0.2s ease;
+	text-decoration: none;
 }
 
 .add-listing-button:hover {
-	color: var(--profile-active-action-color, #273500);
+	color: var(--color-hover-primary);
 }
 
 .add-listing-button__icon {
