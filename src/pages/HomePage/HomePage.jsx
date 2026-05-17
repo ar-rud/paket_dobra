@@ -131,8 +131,12 @@ export default function HomePage() {
   };
 
   const handleSupportWheel = (event) => {
+    if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
+      return;
+    }
+
     event.preventDefault();
-    const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+    const delta = event.deltaX;
     setSupportSlide((currentSlide) => {
       if (delta > 0) return 1;
       if (delta < 0) return 0;
