@@ -86,23 +86,8 @@ export default function Catalog(props) {
           </div>
           <div>
             <MoreButton className="Catalog-moreButton-products">
-              Показати ще
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.0013 4.16675V15.8334M10.0013 15.8334L15.8346 10.0001M10.0013 15.8334L4.16797 10.0001"
-                  stroke="#181D27"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </MoreButton>
+                Показати ще
+              </MoreButton>
           </div>
           <PageSwitcher
             // currentPage={currentPage}
