@@ -3,6 +3,7 @@
   --ps-accent-contrast: var(--accent-contrast-color, #ffffff);
   --page-switcher-muted: var(--ps-accent-muted, var(--accent-muted-color, #b4c238));
   --ps-hover-color: var(--page-switcher-hover-color, #99a235);
+  --ps-disabled-color: var(--page-switcher-disabled-color, #888888);
 
   width: 100%;
   display: flex;
@@ -44,8 +45,9 @@
 }
 
 .page-switcher__nav:disabled {
-  opacity: 0.45;
+  color: var(--ps-disabled-color);
   cursor: default;
+  pointer-events: none;
 }
 
 .page-switcher__pages {

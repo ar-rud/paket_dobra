@@ -335,6 +335,33 @@
       "gatheredAmount": 7658879,
       "imageUrl": "/assets/campaigns/radio.jpg",
       "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 212,
+      "title": "Почуй своїх: збір на радіозв'язок",
+      "organizationId": 303,
+      "targetAmount": 7658879,
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/radio.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 213,
+      "title": "Почуй своїх: збір на радіозв'язок",
+      "organizationId": 303,
+      "targetAmount": 7658879,
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/radio.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 214,
+      "title": "Почуй своїх: збір на радіозв'язок",
+      "organizationId": 303,
+      "targetAmount": 7658879,
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/radio.jpg",
+      "tag": "Технічне забезпечення"
     }
   ],
   "organizations": [

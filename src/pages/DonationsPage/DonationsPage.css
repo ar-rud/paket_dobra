@@ -60,10 +60,16 @@
   row-gap: 36px;
 }
 
+.donations-page__pagination-container {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .donations-page__load-more {
   display: flex;
   justify-content: center;
-  margin: 40px 0 24px;
 }
 
 .donations-page__empty {
