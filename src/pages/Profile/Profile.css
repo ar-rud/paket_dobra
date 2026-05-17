@@ -49,6 +49,8 @@
       var(--profile-banner-overlap)
     ) / 2
   );
+  
+  --profile-hover-bg: color-mix(in srgb, var(--color-hover-primary) 10%, transparent);
 }
 
 .profile-page__container {
