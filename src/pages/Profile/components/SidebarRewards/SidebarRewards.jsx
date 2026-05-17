@@ -4,12 +4,12 @@ import defaultRewardIcon from '../../images/default_reward.svg';
 export default function SidebarRewards({ title, levels, arrowIconSrc }) {
   return (
     <div className="sidebar-rewards">
-      <div className="sidebar-rewards__header">
+      <button type="button" className="sidebar-rewards__header">
         <h3 className="sidebar-rewards__title">{title}</h3>
         {arrowIconSrc ? (
           <img src={arrowIconSrc} alt="" aria-hidden="true" className="sidebar-rewards__arrow" />
         ) : null}
-      </div>
+      </button>
 
       <div className="sidebar-rewards__levels">
         {levels.map((level) => (
