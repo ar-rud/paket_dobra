@@ -41,6 +41,14 @@
   box-sizing: border-box;
 }
 
+.impact-stats__white-card,
+.impact-stats__rate-card,
+.impact-stats__joined-card,
+.impact-stats__heart-card,
+.impact-stats__bar-card {
+  container-type: inline-size;
+}
+
 .impact-stats__intro {
   grid-area: intro;
 
@@ -61,8 +69,8 @@
 
   color: #121800;
 
-  font-size: clamp(38px, 2.9vw, 48px);
-  line-height: 1.35;
+  font-size: clamp(40px, 3.1vw, 52px);
+  line-height: 1.28;
 
   font-weight: 500;
 }
@@ -81,7 +89,7 @@
 
   background: transparent;
 
-  font-size: clamp(16px, 1.12vw, 19px);
+  font-size: clamp(16px, 1.18vw, 20px);
   font-weight: 400;
   line-height: 20px;
 
@@ -99,6 +107,10 @@
   line-height: 1.43;
 
   color: #565c18;
+}
+
+.impact-stats__label span {
+  display: block;
 }
 
 .impact-stats__value {
@@ -143,12 +155,13 @@
 
   margin: 0;
 
-  font-size: clamp(22px, 1.45vw, 22px);
+  font-size: clamp(16px, 10.8cqi, 22px);
   line-height: 1.14;
 
   font-weight: 400;
 
   color: #565c18;
+  white-space: nowrap;
 }
 
 .impact-stats__white-card .impact-stats__value {
@@ -164,7 +177,7 @@
   display: flex;
   align-items: center;
 
-  font-size: clamp(62px, 5.7vw, 84px);
+  font-size: clamp(42px, 28cqi, 84px);
   line-height: 1;
 
   font-weight: 700;
@@ -192,6 +205,7 @@
 .impact-stats__rate-wrap {
   grid-area: rate;
   width: 100%;
+  min-width: 0;
 
   display: grid;
 
@@ -226,15 +240,15 @@
 .impact-stats__rate-card .impact-stats__label {
   left: 6.03%;
   top: 4.02%;
-  width: 82%;
+  width: 78%;
   min-height: 30.15%;
   margin: 0;
-  font-size: clamp(22px, 1.45vw, 22px);
+  font-size: clamp(16px, 10.8cqi, 22px);
   line-height: 1.14;
   font-weight: 400;
   letter-spacing: 0;
   color: #71791f;
-  white-space: normal;
+  white-space: nowrap;
 }
 
 .impact-stats__rate-card .impact-stats__value {
@@ -245,7 +259,7 @@
   margin: 0;
   display: flex;
   align-items: center;
-  font-size: clamp(62px, 5.7vw, 84px);
+  font-size: clamp(42px, 28cqi, 84px);
   line-height: 1;
   font-weight: 700;
   color: #121800;
@@ -300,11 +314,11 @@
   position: absolute;
   left: 7.04%;
   top: 7.04%;
-  width: 86%;
+  width: 72%;
   min-height: 30.15%;
   margin: 0;
-  font-size: clamp(22px, 1.45vw, 22px);
-  line-height: 1.1;
+  font-size: clamp(14px, 9.8cqi, 20px);
+  line-height: 1.05;
   font-weight: 400;
   color: #fafceb;
 }
@@ -317,13 +331,14 @@
 .impact-stats__joined-card .impact-stats__value {
   position: absolute;
   left: 10.05%;
-  top: 56.2%;
+  right: 10.05%;
+  bottom: 10.05%;
   width: 84.42%;
-  min-height: 41.71%;
   display: flex;
-  align-items: flex-start;
+  justify-content: flex-end;
+  align-items: flex-end;
   margin: 0;
-  font-size: clamp(60px, 5.45vw, 82px);
+  font-size: clamp(38px, 27cqi, 82px);
   line-height: 1;
   font-weight: 700;
   color: #fafceb;
@@ -348,8 +363,8 @@
 .impact-stats__label--light {
   max-width: 49.06%;
 
-  font-size: clamp(14px, 0.98vw, 16px);
-  line-height: 1.43;
+  font-size: clamp(12px, 4cqi, 15px);
+  line-height: 1.28;
 
   font-weight: 400;
 
@@ -371,20 +386,21 @@
   bottom: 2.6%;
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   gap: clamp(6px, 0.55vw, 10px);
   width: 90%;
 
   color: #ffffff;
 
-  font-size: clamp(84px, 8.3vw, 138px);
+  font-size: clamp(64px, 22cqi, 138px);
   line-height: 1;
 
   font-weight: 700;
 }
 
 .impact-stats__money span {
-  font-size: clamp(46px, 4.65vw, 72px);
+  font-size: clamp(28px, 11cqi, 72px);
   line-height: 0.9;
 }
 
@@ -421,9 +437,9 @@
 
   margin: 0;
 
-  font-size: clamp(15px, 1.08vw, 17px);
+  font-size: clamp(13px, 3.8cqi, 16px);
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.2;
 
   color: #fafceb;
 }
@@ -450,7 +466,7 @@
 
   margin: 0;
 
-  font-size: clamp(5.1rem, 8vw, 8.4rem);
+  font-size: clamp(52px, 20cqi, 134px);
   line-height: 1;
 
   font-weight: 700;
@@ -458,32 +474,103 @@
   color: #fafceb;
 }
 
-.impact-stats__badge {
-  top: auto;
-  right: auto;
+@media (min-width: 1501px) {
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label {
+    width: 82%;
+    font-size: clamp(18px, 12cqi, 24px);
+    line-height: 1.12;
+  }
 
-  padding: 5px 8px;
+  .impact-stats__joined-card .impact-stats__label {
+    width: 70%;
+    font-size: clamp(14px, 9.8cqi, 19px);
+    line-height: 1.04;
+  }
 
-  background: #f86133;
+  .impact-stats__label--light {
+    max-width: 49%;
+    font-size: clamp(14px, 4.7cqi, 17px);
+    line-height: 1.34;
+  }
 
-  border-color: #f86133;
-
-  color: #fafceb;
-
-  font-size: clamp(12px, 0.9vw, 15px);
-}
-
-.impact-stats__badge--heart {
-  left: 157px;
-  top: 81px;
-  right: auto;
-  bottom: auto;
-  padding: 4px 7px;
+  .impact-stats__bar-card .impact-stats__label {
+    font-size: clamp(15px, 4.5cqi, 18px);
+    line-height: 1.26;
+  }
 }
 
 /* TABLET */
 
-@media (max-width: 1080px) {
+@media (max-width: 1500px) {
+  .impact-stats__title {
+    font-size: clamp(34px, 2.5vw, 44px);
+    line-height: 1.28;
+  }
+
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label {
+    width: 72%;
+    font-size: clamp(13px, 7.4cqi, 18px);
+    line-height: 1.08;
+    white-space: normal;
+  }
+
+  .impact-stats__white-card .impact-stats__value,
+  .impact-stats__rate-card .impact-stats__value {
+    top: 52%;
+    font-size: clamp(34px, 22cqi, 68px);
+  }
+
+  .impact-stats__rate-grid {
+    top: 44%;
+    height: 50%;
+  }
+
+  .impact-stats__joined-card .impact-stats__label {
+    width: 64%;
+    font-size: clamp(12px, 6.8cqi, 16px);
+    line-height: 1.04;
+  }
+
+  .impact-stats__joined-card .impact-stats__label span {
+    white-space: normal;
+  }
+
+  .impact-stats__joined-card .impact-stats__value {
+    right: 8%;
+    bottom: 8%;
+    width: 52%;
+    font-size: clamp(32px, 22cqi, 62px);
+  }
+
+  .impact-stats__label--light {
+    max-width: 40%;
+    font-size: clamp(10px, 2.7cqi, 13px);
+    line-height: 1.22;
+  }
+
+  .impact-stats__money {
+    width: 82%;
+    font-size: clamp(52px, 18cqi, 104px);
+  }
+
+  .impact-stats__money span {
+    font-size: clamp(24px, 8cqi, 54px);
+  }
+
+  .impact-stats__bar-card .impact-stats__label {
+    width: 138px;
+    font-size: clamp(11px, 2.7cqi, 14px);
+    line-height: 1.2;
+  }
+
+  .impact-stats__big-value {
+    font-size: clamp(46px, 16cqi, 106px);
+  }
+}
+
+@media (max-width: 1320px) {
   .impact-stats__inner {
     width: calc(100% - 40px);
     grid-template-areas:
@@ -500,6 +587,14 @@
       auto
       auto
       minmax(320px, auto);
+  }
+
+  .impact-stats__joined-card .impact-stats__label {
+    width: 72%;
+  }
+
+  .impact-stats__money {
+    width: 92%;
   }
 
   .impact-stats__white-card {
@@ -554,67 +649,122 @@
     width: calc(100% - 24px);
 
     grid-template-areas:
-      "intro"
-      "bar"
-      "white"
-      "rate"
-      "heart";
+      "intro intro"
+      "bar bar"
+      "white rate"
+      "white rate"
+      "white joined"
+      "heart heart";
 
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 
-    grid-template-rows: auto;
+    grid-template-rows:
+      auto
+      auto
+      minmax(120px, auto)
+      minmax(120px, auto)
+      minmax(120px, auto)
+      minmax(260px, auto);
+
+    gap: 8px;
   }
 
   .impact-stats__intro {
     padding: 0;
+    gap: 10px;
   }
 
   .impact-stats__title {
     width: auto;
     max-width: 100%;
-    font-size: clamp(2rem, 8vw, 2.5rem);
-    line-height: 1.2;
+    font-size: clamp(22px, 7.8vw, 32px);
+    line-height: 1.25;
   }
 
-  .impact-stats__white-card {
-    aspect-ratio: 199 / 424;
-
-    height: auto;
+  .impact-stats__details-btn {
+    font-size: 14px;
+    line-height: 18px;
   }
 
-  .impact-stats__rate-card {
-    width: 100%;
-
-    height: 199px;
+  .impact-stats__bar-card {
+    aspect-ratio: auto;
+    min-height: 82px;
+    background:
+      url("../../assets/images/impact-mini-hearts.svg")
+        15% center / auto 54% no-repeat,
+      #2b3a00;
   }
 
-  .impact-stats__joined-card {
-    width: 100%;
-  }
-
-  .impact-stats__bar-card,
-  .impact-stats__heart-card {
-    min-height: 0;
-  }
-
-  .impact-stats__heart-card {
-    width: 100%;
-    height: 424px;
+  .impact-stats__bar-card .impact-stats__label {
+    left: 10px;
+    top: 8px;
+    width: 42%;
+    font-size: 10px;
+    line-height: 1.15;
   }
 
   .impact-stats__big-value {
-    right: 12px;
-
-    font-size: clamp(3rem, 14vw, 5rem);
+    right: 10px;
+    font-size: clamp(46px, 18vw, 64px);
   }
 
-  .impact-stats__badge--heart {
-    left: auto;
-    right: 74px;
-    top: 158px;
+  .impact-stats__white-card {
+    aspect-ratio: auto;
+    min-height: 252px;
+  }
+
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label,
+  .impact-stats__joined-card .impact-stats__label {
+    font-size: 10px;
+    line-height: 1.15;
+    width: 78%;
+    white-space: normal;
+  }
+
+  .impact-stats__white-card .impact-stats__value,
+  .impact-stats__rate-card .impact-stats__value {
+    font-size: clamp(28px, 16vw, 42px);
+  }
+
+  .impact-stats__rate-card,
+  .impact-stats__joined-card {
+    aspect-ratio: auto;
+    min-height: 122px;
+  }
+
+  .impact-stats__joined-card .impact-stats__value {
+    font-size: clamp(28px, 15vw, 44px);
+  }
+
+  .impact-stats__heart-card {
+    aspect-ratio: auto;
+    min-height: 258px;
+    padding: 10px;
   }
 
   .impact-stats__label--light {
     max-width: 100%;
+    font-size: 10px;
+    line-height: 1.15;
+  }
+
+  .impact-stats__heart-visual {
+    left: 8%;
+    top: 24%;
+    width: 84%;
+    height: 54%;
+  }
+
+  .impact-stats__money {
+    left: 5%;
+    bottom: 6%;
+    gap: 4px;
+    width: 90%;
+    font-size: clamp(48px, 20vw, 68px);
+  }
+
+  .impact-stats__money span {
+    font-size: clamp(24px, 9vw, 40px);
   }
 }

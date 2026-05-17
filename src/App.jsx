@@ -11,11 +11,14 @@ import CatalogOverview from "./pages/Catalog/CatalogOverview/CatalogOverview.jsx
 
 import { Outlet, ScrollRestoration } from "react-router";
 import { useState } from "react";
+import { useLocation } from "react-router";
 import Cart from "/src/components/Cart/Cart.jsx";
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartPos, setCartPos] = useState({ top: 0, right: 0 });
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const handleCartOpen = () => {
     const btn = document.querySelector('[aria-label="Кошик"]');
@@ -31,9 +34,9 @@ function App() {
 
   return (
     <>
-      <Header topInfoText="" onCartOpen={handleCartOpen} />
+      {!isHomePage ? <Header topInfoText="" onCartOpen={handleCartOpen} /> : null}
       <ScrollRestoration />
-      <Outlet></Outlet>
+      <Outlet context={{ handleCartOpen }}></Outlet>
       <Footer></Footer>
       {cartOpen && (
         <Cart

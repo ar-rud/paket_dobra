@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MoreButton from "../MoreButton/MoreButton.jsx";
 import PixelHeart from "../PixelHeart/PixelHeart.jsx";
+import Header from "../Header/Header.jsx";
 import { useNavigate } from "react-router";
 import { getRandomCampaigns } from "../../services/campaigns.js";
 import "./HomeHeroSection.css";
@@ -32,6 +33,48 @@ const heroCardClasses = [
   "home-hero__card home-hero__card--bottom",
 ];
 
+function splitTitleIntoLines(title) {
+  const words = title.trim().split(/\s+/);
+
+  if (words.length <= 2) {
+    return [title];
+  }
+
+  const totalLength = words.join(" ").length;
+  const lineCount = totalLength > 34 ? 3 : 2;
+  const targetLength = totalLength / lineCount;
+  const lines = [];
+  let currentLine = [];
+  let currentLength = 0;
+
+  words.forEach((word, index) => {
+    const separatorLength = currentLine.length > 0 ? 1 : 0;
+    const nextLength = currentLength + separatorLength + word.length;
+    const remainingWords = words.length - index;
+    const remainingLines = lineCount - lines.length;
+    const shouldBreak =
+      currentLine.length > 0
+      && nextLength > targetLength
+      && remainingWords >= remainingLines;
+
+    if (shouldBreak) {
+      lines.push(currentLine.join(" "));
+      currentLine = [word];
+      currentLength = word.length;
+      return;
+    }
+
+    currentLine.push(word);
+    currentLength = nextLength;
+  });
+
+  if (currentLine.length > 0) {
+    lines.push(currentLine.join(" "));
+  }
+
+  return lines;
+}
+
 function formatHeroAmount(value) {
   if (typeof value === "number") {
     return `${value.toLocaleString("uk-UA")}$`;
@@ -62,7 +105,7 @@ function HomeHeroTitle() {
   );
 }
 
-export default function HomeHeroSection() {
+export default function HomeHeroSection({ onCartOpen = () => {} }) {
   const navigate = useNavigate();
   const [campaignCards, setCampaignCards] = useState(fallbackCampaignCards);
   const goToDonations = () => navigate("/donations");
@@ -91,6 +134,7 @@ export default function HomeHeroSection() {
 
   return (
     <section className="home-hero">
+      <Header topInfoText="" overlay onCartOpen={onCartOpen} />
       <div className="home-hero__layout">
         <div className="home-hero__content">
           <div className="home-hero__intro">
@@ -121,25 +165,36 @@ export default function HomeHeroSection() {
           <div className="home-hero__cards">
             {campaignCards.map((card, index) => (
               <article key={card.id} className={heroCardClasses[index] ?? heroCardClasses[0]}>
-                <h3 className="home-hero__card-title">{card.title}</h3>
+                <h3 className="home-hero__card-title">
+                  {splitTitleIntoLines(card.title).map((line) => (
+                    <span key={line} className="home-hero__card-title-line">
+                      {line}
+                    </span>
+                  ))}
+                </h3>
 
-                <div className="home-hero__numbers">
-                  <p>
-                    Зібрано:
-                    <br />
-                    {formatHeroAmount(card.collected)}
-                  </p>
-                  <p>
-                    Ціль:
-                    <br />
-                    {formatHeroAmount(card.goal)}
-                  </p>
+                <div className="home-hero__card-footer">
+                  <div className="home-hero__numbers">
+                    <p>
+                      Зібрано:
+                      <br />
+                      {formatHeroAmount(card.collected)}
+                    </p>
+                    <p>
+                      Ціль:
+                      <br />
+                      {formatHeroAmount(card.goal)}
+                    </p>
+                  </div>
+
+                  <div
+                    className="home-hero__progress"
+                    style={getHeroProgressStyle(card.collected, card.goal)}
+                  />
+                  <MoreButton className="home-hero__card-btn" onClick={goToDonations}>
+                    Підтримати
+                  </MoreButton>
                 </div>
-
-                <div className="home-hero__progress" style={getHeroProgressStyle(card.collected, card.goal)} />
-                <MoreButton className="home-hero__card-btn" onClick={goToDonations}>
-                  Підтримати
-                </MoreButton>
               </article>
             ))}
           </div>
