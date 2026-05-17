@@ -9,6 +9,7 @@ import PaginationButtons from "./PaginationButtons/PaginationButtons";
 import PageSwitcher from "../../components/PageSwitcher/PageSwitcher";
 import { useParams, useSearchParams } from "react-router";
 import HeroSection from "/src/components/HeroSection/HeroSection.jsx";
+import Breadcrumbs from "/src/components/Breadcrumbs/Breadcrumbs.jsx";
 
 import { products } from "./db.js";
 
@@ -50,8 +51,28 @@ export default function Catalog(props) {
     return filteredProducts;
   }
 
+  const catalogCategories = {
+    home: "Товари для дому",
+    "health-beauty": "Краса та здоровʼя",
+    clothes: "Одяг та аксесуари",
+    kids: "Дитячі товари",
+    pets: "Зоотовари",
+    hobbies: "Хобі та розваги",
+    "art-craft": "Мистецтво та творчість",
+    services: "Послуги",
+    books: "Книги та освітні матеріали",
+    electronics: "Електроніка та техніка",
+  };
+
+  const breadcrumbItems = [
+    { label: "Головна", to: "/" },
+    { label: "Каталог", to: "/catalog" },
+    { label: `${catalogCategories[params.category]}`, current: true },
+  ];
+
   return (
     <>
+      <Breadcrumbs className="Catalog-breadcrumbs" items={breadcrumbItems} />
       <HeroSection
         title={
           <>
