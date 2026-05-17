@@ -5,6 +5,9 @@
 }
 
 .tabs__button {
+	--tabs-text: var(--control-text-color, #2f390f);
+	--tabs-active-text: var(--control-text-active, #1e2700);
+
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
@@ -12,7 +15,7 @@
 	font-size: 12px;
 	line-height: 1;
 	font-weight: 500;
-	color: #2f390f;
+	color: var(--tabs-text);
 	transition: color 0.2s ease;
 	position: relative;
 	width: 128px;
@@ -23,16 +26,16 @@
 }
 
 .tabs__button--active {
-	color: #1e2700;
+	color: var(--tabs-active-text);
 	background-color: #ffffff;
 }
 
 .tabs__button--inactive {
-	color: #2f390f;
+	color: var(--tabs-text);
 }
 
 .tabs__button--inactive:hover {
-	color: #1e2700;
+	color: var(--tabs-active-text);
 }
 
 @media (max-width: 640px) {

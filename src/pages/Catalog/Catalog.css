@@ -23,6 +23,17 @@
   gap: 20px;
 }
 
+/* Use the same pager color theme as profile */
+.Catalog-listAndButton-wrapper {
+  --accent-color: #6b6b6b;
+  --accent-contrast-color: #1f1f1f;
+  --accent-muted-color: #9b9b9b;
+  --ps-accent-active: #f2f3e6;
+  --control-border-color: #d0d0d0;
+  --control-text-color: #6b6b6b;
+  --muted-text-color: #bdbdbd;
+}
+
 .Catalog-moreButton-products {
   align-items: center;
 }

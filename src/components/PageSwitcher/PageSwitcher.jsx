@@ -1,16 +1,23 @@
 import "./PageSwitcher.css";
 
-function PageSwitcher({ currentPage, totalPages, onPageChange }) {
+function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, onPageChange }) {
+  const computedTotalPages = totalItems ? Math.max(1, Math.ceil(totalItems / pageSize)) : Math.max(1, totalPages || 1);
   const pages = [];
 
-  for (let page = 1; page <= totalPages; page += 1) {
-    if (page <= 3 || page > totalPages - 3) {
+  if (computedTotalPages < 8) {
+    for (let page = 1; page <= computedTotalPages; page += 1) {
       pages.push(page);
-      continue;
     }
+  } else {
+    for (let page = 1; page <= computedTotalPages; page += 1) {
+      if (page <= 3 || page > computedTotalPages - 3) {
+        pages.push(page);
+        continue;
+      }
 
-    if (pages[pages.length - 1] !== "dots") {
-      pages.push("dots");
+      if (pages[pages.length - 1] !== 'dots') {
+        pages.push('dots');
+      }
     }
   }
 
@@ -51,7 +58,7 @@ function PageSwitcher({ currentPage, totalPages, onPageChange }) {
       <button
         className="page-switcher__nav"
         onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
+        disabled={currentPage === computedTotalPages}
         type="button"
       >
         Наступна →

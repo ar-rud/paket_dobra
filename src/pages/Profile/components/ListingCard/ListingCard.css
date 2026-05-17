@@ -93,11 +93,11 @@
 }
 
 .listing-card__text--default {
-	color: #1f2800;
+  color: var(--control-text-color, #1f2800);
 }
 
 .listing-card__text--muted {
-	color: #aaaea1;
+  color: var(--muted-text-color, #aaaea1);
 }
 
 .listing-card__actions {
@@ -139,6 +139,9 @@
 
 
 .listing-card__primary-button {
+	--lc-border: var(--control-border-color, #7f8f56);
+	--lc-text: var(--control-text-color, #2d3900);
+
 	min-width: 94px;
 	height: 32px;
 	padding: 0 11px;
@@ -146,8 +149,8 @@
 	font-size: 12px;
 	line-height: 1;
 	font-weight: 500;
-	color: #2d3900;
-	border: 1px solid #7f8f56;
+	color: var(--lc-text);
+	border: 1px solid var(--lc-border);
 	cursor: pointer;
 	transition: opacity 0.2s ease;
 }
@@ -157,9 +160,9 @@
 }
 
 .listing-card__primary-button:disabled {
-	border-color: #c9cdc0;
-	color: #a3a89a;
-	background-color: #f1f2ee;
+	border-color: var(--control-border-disabled, #c9cdc0);
+	color: var(--control-text-disabled, #a3a89a);
+	background-color: var(--control-bg-disabled, #f1f2ee);
 	cursor: not-allowed;
 	opacity: 1;
 }
