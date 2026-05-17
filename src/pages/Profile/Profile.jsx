@@ -52,6 +52,7 @@ export default function Profile() {
     title: "Ваша допомога:",
     value: "0 грн",
     arrowIcon: <ArrowRightIcon />,
+    dataPoints: [],
   });
 
   const [rewards, setRewards] = useState(null);
@@ -89,8 +90,10 @@ export default function Profile() {
         setImpactStats({
           title: profileData.impactStats.title,
           value: profileData.impactStats.value,
+          dataPoints: profileData.impactStats.dataPoints,
           arrowIcon: <ArrowRightIcon />,
         });
+        
         setRewards(
           profileData.rewards
             ? { ...profileData.rewards, arrowIcon: <ArrowRightIcon /> }

@@ -1,6 +1,7 @@
 import { getUserById } from '/src/services/users';
 import { getProductsBySellerId, getProductById } from '/src/services/products';
 import { getOrdersByBuyerId } from '/src/services/orders';
+import { extractRecentDonationAmounts } from './statsHelper';
 import defaultRewardIcon from '../images/default_reward.svg';
 import defaultAvatar from '../images/default_avatar.svg';
 
@@ -14,13 +15,6 @@ function mapUserIdentity(user) {
 		name: `${user.firstName || ''} ${user.lastName || ''}`.trim() || user.username || 'Користувач',
 		username: user.username || '',
 		levelLabel: user.level ? `${user.level} level` : '',
-	};
-}
-
-function mapImpactStats(user) {
-	return {
-		title: 'Ваша допомога:',
-		value: user.totalDonated ? `${user.totalDonated} грн` : '0 грн',
 	};
 }
 
@@ -106,7 +100,6 @@ async function mapOrdersToListings(orders = []) {
 	for (const order of orders) {
 		if (!order || !Array.isArray(order.items)) continue;
 
-		// fetch all product details for items in this order in parallel
 		const productPromises = order.items.map((itemId) =>
 			getProductById(itemId).catch(() => null),
 		);
@@ -140,6 +133,18 @@ async function mapOrdersToListings(orders = []) {
 	return listings;
 }
 
+function mapImpactStats(user) {
+	const totalSum = Array.isArray(user.donationHistory)
+		? user.donationHistory.reduce((sum, item) => sum + (item.amount || 0), 0)
+		: 0;
+
+	return {
+		title: 'Ваша допомога:',
+		value: `${totalSum} грн`,
+		dataPoints: extractRecentDonationAmounts(user.donationHistory, 4)
+	};
+}
+
 export async function getProfileData(userId) {
 	if (userId == null) {
 		throw new Error('getProfileData: userId is required');
@@ -159,10 +164,10 @@ export async function getProfileData(userId) {
 		userIdentity: mapUserIdentity(user),
 		impactStats: mapImpactStats(user),
 		rewards: mapRewards(user.rewards),
-								listingsByTab: {
-									...mapProductsToListingsByTab(Array.isArray(products) ? products : []),
-									orders: await mapOrdersToListings(Array.isArray(orders) ? orders : []),
-								},
+		listingsByTab: {
+			...mapProductsToListingsByTab(Array.isArray(products) ? products : []),
+			orders: await mapOrdersToListings(Array.isArray(orders) ? orders : []),
+		},
 	};
 }
 

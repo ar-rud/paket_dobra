@@ -1,16 +1,17 @@
 .profile-impact-stats {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
-	padding: 8px;
-	margin: 0 -8px;
+	gap: 6px;
+	padding: 2%;
+	margin: 0;
 	box-sizing: border-box;
 	border-radius: 4px;
+	width: 100%;
 	transition: background-color 0.2s ease;
 }
 
 .profile-impact-stats:hover {
-	background-color: var(--profile-hover-bg);
+	background-color: var(--profile-hover-bg, #f4f6ec);
 }
 
 .profile-impact-stats__header {
@@ -39,7 +40,7 @@
 }
 
 .profile-impact-stats:hover .profile-impact-stats__title {
-	color: var(--color-hover-primary);
+	color: var(--color-hover-primary, #bfcd2d);
 	transform: scale(1.02);
 }
 
@@ -51,33 +52,43 @@
 }
 
 .profile-impact-stats:hover .profile-impact-stats__arrow {
-	color: var(--color-hover-primary);
+	color: var(--color-hover-primary, #bfcd2d);
 }
 
 .profile-impact-stats__body {
 	display: flex;
-	align-items: flex-end;
+	flex-direction: row;
 	justify-content: space-between;
-	gap: 12px;
+	align-items: flex-end;
+	width: 100%;
+	margin-top: 2%;
 }
 
 .profile-impact-stats__value {
-	font-size: 16px;
+	font-size: 15px;
+	font-weight: 700;
+	color: #1a1a1a;
 	line-height: 1;
-	font-weight: 500;
-	color: #60720a;
-	white-space: nowrap;
-	transition: transform 0.2s ease, color 0.2s ease;
-	transform-origin: left center;
-}
-
-.profile-impact-stats:hover .profile-impact-stats__value {
-	color: var(--color-hover-primary);
-	transform: scale(1.02);
+	margin-bottom: 2%;
 }
 
 .profile-impact-stats__chart {
-	width: 58px;
-	height: 28px;
-	position: relative;
+	width: 45%; 
+	height: auto;
+	aspect-ratio: 2 / 1; 
+	flex-shrink: 0;
+	display: block;
+}
+
+.profile-impact-stats__chart-svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+	overflow: visible; 
+}
+
+.profile-impact-stats__no-data {
+	font-size: 12px;
+	color: #888;
+	padding: 5% 0;
 }
