@@ -1,10 +1,15 @@
+import { Link } from "react-router";
 import './AddListingButton.css';
 
-export default function AddListingButton({ label, iconSrc }) {
+export default function AddListingButton({ label, icon, to = "/create-announcement" }) {
   return (
-    <button type="button" className="add-listing-button">
-      {iconSrc ? <img src={iconSrc} alt="" aria-hidden="true" className="add-listing-button__icon" /> : null}
+    <Link className="add-listing-button" to={to}>
+      {icon ? (
+        <span className="add-listing-button__icon" aria-hidden="true">
+          {icon}
+        </span>
+      ) : null}
       <span className="add-listing-button__label">{label}</span>
-    </button>
+    </Link>
   );
 }

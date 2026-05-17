@@ -5,14 +5,15 @@ import HeroBanner from "../../components/HeroBanner/HeroBanner.jsx";
 import SidebarWrapper from "./components/SidebarWrapper/SidebarWrapper.jsx";
 import ListingsFeed from "./components/ListingsFeed/ListingsFeed.jsx";
 
-import addPlusIcon from "./images/add_plus_icon.svg";
-import binIcon from "./images/bin_icon.svg";
-import leaveIcon from "./images/leave_icon.svg";
-import messagesIcon from "./images/messages_icon.svg";
-import rightArrowIcon from "./images/right_arrow_icon.svg";
-import settingsIcon from "./images/settings_icon.svg";
-import supportIcon from "./images/support_icon.svg";
-import defaultAvatar from "./images/default_avatar.svg";
+import AddPlusIcon from "./images/add_plus_icon.svg?react";
+import BinIcon from "./images/bin_icon.svg?react";
+import LeaveIcon from "./images/leave_icon.svg?react";
+import MessagesIcon from "./images/messages_icon.svg?react";
+import SettingsIcon from "./images/settings_icon.svg?react";
+import SupportIcon from "./images/support_icon.svg?react";
+
+import defaultAvatar from "./images/default_avatar.svg"; 
+import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
 
 import { getCurrentUserId } from "/src/services/session";
 import { getProfileData } from "./services/profile";
@@ -24,14 +25,14 @@ const PROFILE_TABS = [
 ];
 
 const MENU_LINKS = [
-  { id: "support", label: "Підтримка", iconSrc: supportIcon, iconAlt: "Підтримка" },
+  { id: "support", label: "Підтримка", icon: <SupportIcon />, iconAlt: "Підтримка" },
   {
     id: "settings",
     label: "Налаштування",
-    iconSrc: settingsIcon,
+    icon: <SettingsIcon />,
     iconAlt: "Налаштування",
   },
-  { id: "logout", label: "Вийти", iconSrc: leaveIcon, iconAlt: "Вийти" },
+  { id: "logout", label: "Вийти", icon: <LeaveIcon />, iconAlt: "Вийти" },
 ];
 
 export default function Profile() {
@@ -44,13 +45,14 @@ export default function Profile() {
     username: "",
     levelLabel: "",
     messageLabel: "Повідомлення",
-    messageIconSrc: messagesIcon,
+    messageIcon: <MessagesIcon />,
   });
 
   const [impactStats, setImpactStats] = useState({
     title: "Ваша допомога:",
     value: "0 грн",
-    arrowIconSrc: rightArrowIcon,
+    arrowIcon: <ArrowRightIcon />,
+    dataPoints: [],
   });
 
   const [rewards, setRewards] = useState(null);
@@ -82,17 +84,19 @@ export default function Profile() {
           username: profileData.userIdentity.username,
           levelLabel: profileData.userIdentity.levelLabel,
           messageLabel: "Повідомлення",
-          messageIconSrc: messagesIcon,
+          messageIcon: <MessagesIcon />,
         });
 
         setImpactStats({
           title: profileData.impactStats.title,
           value: profileData.impactStats.value,
-          arrowIconSrc: rightArrowIcon,
+          dataPoints: profileData.impactStats.dataPoints,
+          arrowIcon: <ArrowRightIcon />,
         });
+        
         setRewards(
           profileData.rewards
-            ? { ...profileData.rewards, arrowIconSrc: rightArrowIcon }
+            ? { ...profileData.rewards, arrowIcon: <ArrowRightIcon /> }
             : null,
         );
         setListingsByTab(profileData.listingsByTab);
@@ -148,10 +152,10 @@ export default function Profile() {
             activeTabId={activeTabId}
             onTabChange={setActiveTabId}
             addListingLabel="Додати оголошення"
-            addListingIconSrc={addPlusIcon}
+            addListingIcon={<AddPlusIcon />}
             cards={listingsByTab[activeTabId] ?? []}
-            messageIconSrc={messagesIcon}
-            deleteIconSrc={binIcon}
+            messageIcon={<MessagesIcon />}
+            deleteIcon={<BinIcon />}
           />
         </div>
       </main>

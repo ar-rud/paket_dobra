@@ -2,6 +2,8 @@ import MoreButton from "../MoreButton/MoreButton.jsx";
 import DonationPercent from "../DonationPercent/DonationPercent.jsx";
 import miniHeartsFrame from "../../assets/images/impact-mini-hearts.svg";
 import stairsBg from "../../assets/images/group1000005912.svg";
+import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
+
 import "./ImpactStatsSection.css";
 
 export default function ImpactStatsSection({ detailsHref = "/statistics" } = {}) {
@@ -14,13 +16,15 @@ export default function ImpactStatsSection({ detailsHref = "/statistics" } = {})
             <span>тим, кому дуже</span>
             <span>потрібно</span>
           </h2>
+          
           <MoreButton
             className="impact-stats__details-btn"
             onClick={() => {
               window.location.href = detailsHref;
             }}
+            rightIcon={<ArrowRightIcon />}
           >
-            Детальніше →
+            Детальніше
           </MoreButton>
         </div>
 
@@ -34,11 +38,11 @@ export default function ImpactStatsSection({ detailsHref = "/statistics" } = {})
           </p>
           <p className="impact-stats__value">50%</p>
           <img
-          src={stairsBg}
-          alt=""
-          className="impact-stats__stairs"
-          aria-hidden="true"
-        />
+            src={stairsBg}
+            alt=""
+            className="impact-stats__stairs"
+            aria-hidden="true"
+          />
         </div>
 
         <div className="impact-stats__rate-wrap">

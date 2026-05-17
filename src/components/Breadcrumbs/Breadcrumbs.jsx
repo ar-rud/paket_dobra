@@ -6,7 +6,7 @@ export default function Breadcrumbs({
   items = [],
   ariaLabel = "breadcrumb",
   className = "",
-  variant = "bar",
+  variant = "inline",
   separatorSrc = triangleRight,
   separatorAlt = "",
 }) {
@@ -27,19 +27,14 @@ export default function Breadcrumbs({
 
             return (
               <li className="breadcrumbs__item" key={key}>
-                {item.to && !isCurrent ? (
-                  <Link className="breadcrumbs__link" to={item.to} title={item.title ?? item.label}>
-                    {item.label}
-                  </Link>
-                ) : (
-                  <span
-                    className="breadcrumbs__current"
-                    aria-current={isCurrent ? "page" : undefined}
-                    title={item.title ?? item.label}
-                  >
-                    {item.label}
-                  </span>
-                )}
+                <Link
+                  className={isCurrent ? "breadcrumbs__current" : "breadcrumbs__link"}
+                  to={item.to || "#"}
+                  title={item.title ?? item.label}
+                  aria-current={isCurrent ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
 
                 {index < items.length - 1 ? (
                   <img

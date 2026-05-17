@@ -1,18 +1,34 @@
+import React, { forwardRef } from "react";
 import "./MoreButton.css";
 
-export default function MoreButton({
+const MoreButton = forwardRef(({
   children,
-  onClick,
-  disabled = false,
   variant = "default",
   className = "",
   type = "button",
-}) {
+  leftIcon,
+  rightIcon,
+  hoverColor = "#99a235",
+  style,
+  ...props
+}, ref) => {
   const buttonClassName = `MoreButton-button MoreButton-button--${variant} ${className}`.trim();
 
   return (
-    <button className={buttonClassName} onClick={onClick} disabled={disabled} type={type}>
+    <button 
+      ref={ref}
+      className={buttonClassName} 
+      type={type} 
+      style={{ ...style, "--mb-hover-color": hoverColor }}
+      {...props} 
+    >
+      {leftIcon && <span className="MoreButton-icon">{leftIcon}</span>}
       {children}
+      {rightIcon && <span className="MoreButton-icon">{rightIcon}</span>}
     </button>
   );
-}
+});
+
+MoreButton.displayName = "MoreButton";
+
+export default MoreButton;

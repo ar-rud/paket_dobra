@@ -12,7 +12,7 @@
 	font-size: 12px;
 	line-height: 1;
 	font-weight: 500;
-	color: #2f390f;
+	color: #121800;
 	transition: color 0.2s ease;
 	position: relative;
 	width: 128px;
@@ -23,16 +23,15 @@
 }
 
 .tabs__button--active {
-	color: #1e2700;
 	background-color: #ffffff;
 }
 
 .tabs__button--inactive {
-	color: #2f390f;
+	color: #121800;
 }
 
 .tabs__button--inactive:hover {
-	color: #1e2700;
+	color: var(--color-hover-primary);
 }
 
 @media (max-width: 640px) {

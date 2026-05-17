@@ -1,7 +1,11 @@
 import "./ReportRow.css";
 import downloadIcon from "../images/download_icon.svg";
+import { buildReportDownloadUrl, buildReportPreviewUrl } from "../../../services/reports.js";
 
-export default function ReportRow({ title, type }) {
+export default function ReportRow({ title, type, driveFileId }) {
+  const downloadUrl = buildReportDownloadUrl(driveFileId);
+  const previewUrl = buildReportPreviewUrl(driveFileId);
+
   return (
     <article className="report-row" role="listitem">
       <div className="report-row__content">
@@ -10,13 +14,23 @@ export default function ReportRow({ title, type }) {
       </div>
 
       <div className="report-row__actions">
-        <button type="button" className="report-row__download" aria-label={`Завантажити ${title} ${type}`}>
+        <a
+          href={downloadUrl}
+          download
+          className="report-row__download"
+          aria-label={`Завантажити ${title} ${type}`}
+        >
           <img src={downloadIcon} alt="" aria-hidden="true" className="report-row__download-icon" />
-        </button>
+        </a>
 
-        <button type="button" className="report-row__view-button">
+        <a
+          href={previewUrl}
+          className="report-row__view-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Переглянути
-        </button>
+        </a>
       </div>
     </article>
   );

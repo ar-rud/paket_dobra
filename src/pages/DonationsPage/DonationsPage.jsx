@@ -10,6 +10,7 @@ import {
   getUniqueFieldValues,
 } from "../../helpers/filterByFields.js";
 import { getCampaigns } from "../../services/campaigns.js";
+import ArrowDownIcon from "../../assets/images/arrow_down.svg?react";
 
 import FiltersBar from "./FiltersBar/FiltersBar.jsx";
 import "./DonationsPage.css";
@@ -151,8 +152,6 @@ function DonationsPage() {
   };
 
   return (
-    // <main className="donations-page">
-    //   <Header />
     <>
       <section className="donations-page__top">
         <HeroSection
@@ -210,7 +209,6 @@ function DonationsPage() {
         </div>
       </section>
     </>
-    // </main>
   );
 }
 

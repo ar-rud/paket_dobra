@@ -1,5 +1,7 @@
 import { getUserById } from '/src/services/users';
-import { getProductsBySellerId } from '/src/services/products';
+import { getProductsBySellerId, getProductById } from '/src/services/products';
+import { getOrdersByBuyerId } from '/src/services/orders';
+import { extractRecentDonationAmounts } from './statsHelper';
 import defaultRewardIcon from '../images/default_reward.svg';
 import defaultAvatar from '../images/default_avatar.svg';
 
@@ -13,13 +15,6 @@ function mapUserIdentity(user) {
 		name: `${user.firstName || ''} ${user.lastName || ''}`.trim() || user.username || 'Користувач',
 		username: user.username || '',
 		levelLabel: user.level ? `${user.level} level` : '',
-	};
-}
-
-function mapImpactStats(user) {
-	return {
-		title: 'Ваша допомога:',
-		value: user.totalDonated ? `${user.totalDonated} грн` : '0 грн',
 	};
 }
 
@@ -72,7 +67,7 @@ function mapProductsToListingsByTab(products) {
 			priceText: product.price ? `від ${product.price} ${product.currency || 'грн'}` : '0 грн',
 			showMessageAction: product.status !== DRAFT_STATUS,
 			showDeleteAction: true,
-			primaryActionLabel: product.status === SOLD_STATUS ? 'Відслідкувати' : 'Редагувати',
+			primaryActionLabel: 'Редагувати',
 			muted: false,
 			imageMuted: false,
 			actionsDisabled: false,
@@ -90,7 +85,6 @@ function mapProductsToListingsByTab(products) {
 				imageMuted: true,
 				actionsDisabled: true,
 			});
-			listings.orders.push(baseCard);
 			continue;
 		}
 
@@ -100,14 +94,66 @@ function mapProductsToListingsByTab(products) {
 	return listings;
 }
 
+async function mapOrdersToListings(orders = []) {
+	const listings = [];
+
+	for (const order of orders) {
+		if (!order || !Array.isArray(order.items)) continue;
+
+		const productPromises = order.items.map((itemId) =>
+			getProductById(itemId).catch(() => null),
+		);
+
+		const products = await Promise.all(productPromises);
+
+		for (let i = 0; i < order.items.length; i++) {
+			const itemId = order.items[i];
+			const product = products[i] || null;
+
+			const firstImage = product && Array.isArray(product.images) ? product.images[0] : null;
+
+			listings.push({
+				id: `order-${order.id}-item-${itemId}`,
+				imageSrc: firstImage || null,
+				imagePlaceholder: !firstImage,
+				imageAlt: (product && (product.title || product.name)) || `Товар #${itemId}`,
+				title: (product && (product.title || product.name)) || `Товар #${itemId}`,
+				subtitle: null,
+				priceText: product && product.price ? `${product.price} ${product.currency || 'грн'}` : `${order.totalAmount} грн`,
+				showMessageAction: false,
+				showDeleteAction: false,
+				primaryActionLabel: 'Відслідкувати',
+				muted: false,
+				imageMuted: false,
+				actionsDisabled: false,
+			});
+		}
+	}
+
+	return listings;
+}
+
+function mapImpactStats(user) {
+	const totalSum = Array.isArray(user.donationHistory)
+		? user.donationHistory.reduce((sum, item) => sum + (item.amount || 0), 0)
+		: 0;
+
+	return {
+		title: 'Ваша допомога:',
+		value: `${totalSum} грн`,
+		dataPoints: extractRecentDonationAmounts(user.donationHistory, 4)
+	};
+}
+
 export async function getProfileData(userId) {
 	if (userId == null) {
 		throw new Error('getProfileData: userId is required');
 	}
 
-	const [user, products] = await Promise.all([
+	const [user, products, orders] = await Promise.all([
 		getUserById(userId),
 		getProductsBySellerId(userId),
+		getOrdersByBuyerId(userId),
 	]);
 
 	if (!user) {
@@ -118,7 +164,10 @@ export async function getProfileData(userId) {
 		userIdentity: mapUserIdentity(user),
 		impactStats: mapImpactStats(user),
 		rewards: mapRewards(user.rewards),
-		listingsByTab: mapProductsToListingsByTab(Array.isArray(products) ? products : []),
+		listingsByTab: {
+			...mapProductsToListingsByTab(Array.isArray(products) ? products : []),
+			orders: await mapOrdersToListings(Array.isArray(orders) ? orders : []),
+		},
 	};
 }
 

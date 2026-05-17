@@ -16,6 +16,7 @@ body {
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
+  --color-hover-primary: #99a235;
 }
 
 @font-face {

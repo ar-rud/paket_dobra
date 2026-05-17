@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import './Payment.css';
 
-const Payment = ({ onNext, onBack }) => {
+import { useNavigate } from 'react-router';
+
+const Payment = () => {
   const [selectedMethod, setSelectedMethod] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div className="page-wrapper">
       <div className="payment-container">
-        <div className="back-link" onClick={onBack}>&lt; Повернутись</div>
+        {/* <div className="back-link" onClick={onBack}>&lt; Повернутись</div> */}
         <h1 className="page-title">Оплата товару</h1>
 
         <div className="payment-content">
@@ -39,11 +42,11 @@ const Payment = ({ onNext, onBack }) => {
             </div>
 
             <div className="payment-footer">
-              <button className="btn-cancel" onClick={onBack}>Скасувати</button>
+              <button className="btn-cancel" onClick={() => navigate('/checkout')}>Скасувати</button>
               <button
                 className="btn-pay"
                 disabled={!selectedMethod}
-                onClick={() => selectedMethod && onNext()}
+                onClick={() => navigate('/card')}
               >
                 Оплатити
               </button>
@@ -51,7 +54,7 @@ const Payment = ({ onNext, onBack }) => {
           </div>
 
           <div className="payment-right">
-            {[460, 700].map((price, idx) => (
+            {[500, 700].map((price, idx) => (
               <div key={idx} className="product-summary-card">
                 <span className="badge">100% донату</span>
                 <h4>Рюкзак для походів NEO tools 30L</h4>

@@ -14,8 +14,8 @@ export default function ListingCard({
   showDeleteAction = false,
   primaryActionLabel,
   actionsDisabled = false,
-  messageIconSrc,
-  deleteIconSrc,
+  messageIcon,
+  deleteIcon,
   messageActionAriaLabel = 'Повідомлення',
   deleteActionAriaLabel = 'Видалити',
 }) {
@@ -26,11 +26,12 @@ export default function ListingCard({
   }, [imageSrc]);
 
   const textToneClassName = muted ? 'listing-card__text--muted' : 'listing-card__text--default';
+  const stateClassName = muted ? 'listing-card--muted' : 'listing-card--active';
   const imageClassName = imageMuted ? 'listing-card__image listing-card__image--muted' : 'listing-card__image';
   const shouldShowPlaceholder = imagePlaceholder || !imageSrc || imageLoadFailed;
 
   return (
-    <article className="listing-card">
+    <article className={`listing-card ${stateClassName}`}>
       <div className="listing-card__left">
         <div className="listing-card__media">
           {shouldShowPlaceholder ? (
@@ -55,25 +56,29 @@ export default function ListingCard({
         <p className={`listing-card__price ${textToneClassName}`}>{priceText}</p>
 
         <div className="listing-card__actions">
-          {showMessageAction && messageIconSrc ? (
+          {showMessageAction && messageIcon ? (
             <button
               type="button"
               className="listing-card__icon-button listing-card__icon-button--message"
               aria-label={messageActionAriaLabel}
               disabled={actionsDisabled}
             >
-              <img src={messageIconSrc} alt="" aria-hidden="true" className="listing-card__icon" />
+              <span className="listing-card__icon" aria-hidden="true">
+                {messageIcon}
+              </span>
             </button>
           ) : null}
 
-          {showDeleteAction && deleteIconSrc ? (
+          {showDeleteAction && deleteIcon ? (
             <button
               type="button"
               className="listing-card__icon-button listing-card__icon-button--delete"
               aria-label={deleteActionAriaLabel}
               disabled={actionsDisabled}
             >
-              <img src={deleteIconSrc} alt="" aria-hidden="true" className="listing-card__icon" />
+              <span className="listing-card__icon" aria-hidden="true">
+                {deleteIcon}
+              </span>
             </button>
           ) : null}
 

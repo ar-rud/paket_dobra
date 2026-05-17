@@ -4,18 +4,42 @@
   background-color: #ececec;
   color: #182000;
   padding-bottom: 48px;
+  --accent-color: #6b6b6b;
+  --accent-contrast-color: #1f1f1f;
+  --accent-muted-color: #9b9b9b;
+  --profile-active-text-color: #121800;
+  --profile-active-action-color: #273500;
+  --profile-inactive-text-color: #9D9D9D;
+  --profile-inactive-action-color: #9D9D9D;
+  --profile-active-button-bg: #ffffff;
+  --profile-inactive-button-bg: transparent;
+  --ps-accent-active: #FAFCEB;
+  --ps-accent-muted: #535862;
+  --more-button-text-color: #273500;
+  --control-border-color: #d0d0d0;
+  --control-text-color: #6b6b6b;
+  --muted-text-color: #bdbdbd;
   --profile-banner-gap: 8px;
   --profile-banner-overlap-base: 175px;
-  --profile-banner-overlap: 140px;
+  --profile-banner-overlap: 120px;
   --hero-banner-min-height: 175px;
   --profile-hero-inner-padding-top: 0px;
   --profile-hero-inner-padding-bottom: 24px;
-  --profile-sidebar-height-base: 783px;
-  --profile-sidebar-height: calc(
-    var(--profile-sidebar-height-base) +
-    (var(--profile-banner-overlap) - var(--profile-banner-overlap-base))
-  );
   --profile-listings-offset: 16px;
+
+  --profile-card-height: 138px;
+  --profile-visible-cards: 4;
+  --profile-toolbar-height: 40px;
+
+  --profile-list-height: calc(var(--profile-card-height) * var(--profile-visible-cards));
+
+  --profile-sidebar-height: calc(
+    var(--profile-banner-overlap) +
+    var(--profile-listings-offset) +
+    var(--profile-toolbar-height) +
+    var(--profile-list-height)
+  );
+
   --profile-breadcrumbs-offset: calc(
     (
       var(--hero-banner-min-height) +
@@ -25,6 +49,8 @@
       var(--profile-banner-overlap)
     ) / 2
   );
+  
+  --profile-hover-bg: color-mix(in srgb, var(--color-hover-primary) 10%, transparent);
 }
 
 .profile-page__container {
@@ -49,6 +75,10 @@
   gap: 30px;
   align-items: start;
   margin-top: calc(-1 * var(--profile-banner-overlap));
+}
+
+.profile-page__layout {
+  min-height: calc(100vh - 240px);
 }
 
 .profile-page__sidebar-column {
@@ -83,6 +113,8 @@
   padding-top: calc(var(--profile-banner-overlap) + var(--profile-listings-offset));
   min-width: 0;
   display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .profile-banner-title {
@@ -115,4 +147,40 @@
   align-items: center;
   justify-content: flex-end;
   text-align: right;
+}
+
+.sidebar-message__icon,
+.sidebar-menu__icon,
+.listing-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  color: inherit;
+}
+
+.sidebar-message__icon svg,
+.sidebar-menu__icon svg,
+.listing-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .profile-page__layout {
+    grid-template-columns: 1fr;
+    margin-top: calc(-1 * (var(--profile-banner-overlap) - 16px));
+    gap: 24px;
+  }
+  .profile-page__sidebar-column {
+    margin-top: 0;
+  }
+  .sidebar-wrapper.profile-page__sidebar-card {
+    min-height: auto;
+    max-height: none;
+    height: auto;
+    flex: 1 1 auto;
+  }
 }

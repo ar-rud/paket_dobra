@@ -16,11 +16,12 @@
       "level": 1,
       "totalDonated": 4768,
       "donationHistory": [
-        { "month": "Січ", "amount": 300 },
-        { "month": "Лют", "amount": 550 },
-        { "month": "Бер", "amount": 1200 },
-        { "month": "Квіт", "amount": 800 },
-        { "month": "Трав", "amount": 1918 }
+        { "date": "2025-11-01T00:00:00Z", "amount": 300 },
+        { "date": "2025-12-01T00:00:00Z", "amount": 300 },
+        { "date": "2026-01-01T00:00:00Z", "amount": 300 },
+        { "date": "2026-02-01T00:00:00Z", "amount": 550 },
+        { "date": "2026-03-01T00:00:00Z", "amount": 1200 },
+        { "date": "2026-04-01T00:00:00Z", "amount": 800 }
       ],
       "rewards": [
         {
@@ -372,26 +373,53 @@
       "parentId": null
     }
   ],
-  "reports": [
-    {
-      "id": 1,
-      "title": "Грудень 2024",
-      "type": "Таблиця",
-      "downloadUrl": "https://dummy-storage.com/reports/dec2024_table.csv"
-    },
-    {
-      "id": 2,
-      "title": "Грудень 2024",
-      "type": "Фотозвіт",
-      "downloadUrl": "https://dummy-storage.com/reports/dec2024_photos.pdf"
-    },
-    {
-      "id": 3,
-      "title": "Грудень 2024",
-      "type": "Квитанції",
-      "downloadUrl": "https://dummy-storage.com/reports/dec2024_receipts.zip"
-    }
-  ],
+  "reports": {
+    "googleDriveUrl": "https://drive.google.com/drive/folders/1PhsrX6FgzQ8aDZ6MnKkZhFZ6c7Y0ZxgE?usp=sharing", 
+    "reportList": [
+      {
+        "id": 1,
+        "title": "Грудень 2024",
+        "type": "Таблиця",
+        "driveFileId": "1U9w8f35aYYmzJURXTpT-1hGefD9aRAVv"
+      },
+      {
+        "id": 2,
+        "title": "Грудень 2024",
+        "type": "Фотозвіт",
+        "driveFileId": "1U9w8f35aYYmzJURXTpT-1hGefD9aRAVv"
+      },
+      {
+        "id": 3,
+        "title": "Грудень 2024",
+        "type": "Квитанції",
+        "driveFileId": "1U9w8f35aYYmzJURXTpT-1hGefD9aRAVv"
+      },
+      {
+        "id": 4,
+        "title": "Грудень 2024",
+        "type": "Квитанції",
+        "driveFileId": "1U9w8f35aYYmzJURXTpT-1hGefD9aRAVv"
+      },
+      {
+        "id": 5,
+        "title": "Грудень 2024",
+        "type": "Квитанції",
+        "driveFileId": "1U9w8f35aYYmzJURXTpT-1hGefD9aRAVv"
+      },
+      {
+        "id": 6,
+        "title": "Грудень 2024",
+        "type": "Квитанції",
+        "driveFileId": "1U9w8f35aYYmzJURXTpT-1hGefD9aRAVv"
+      },
+      {
+        "id": 7,
+        "title": "Грудень 2024",
+        "type": "Квитанції",
+        "driveFileId": "1U9w8f35aYYmzJURXTpT-1hGefD9aRAVv"
+      }
+    ]
+  },
   "orders": [
     {
       "id": 1001,
