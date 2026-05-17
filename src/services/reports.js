@@ -1,6 +1,6 @@
 /**
  * Reports Service
- * 
+ *
  * Handles report management:
  * - Fetch all reports
  * - Get report by ID
@@ -12,4 +12,15 @@
 
 import apiCall from './api';
 
-// TODO: Add all report service methods here
+export async function getReports() {
+	return apiCall('/reports');
+}
+
+export async function getReportById(reportId) {
+	return apiCall(`/reports/${reportId}`);
+}
+
+export default {
+	getReports,
+	getReportById,
+};
