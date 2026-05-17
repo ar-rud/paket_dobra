@@ -75,27 +75,29 @@ export default function ListingsFeed({
         ))}
       </div>
 
-      <div className="listings-feed__pagination">
-        {!expanded && visiblePages < totalPages ? (
-          <div className="listings-feed__more">
-            <MoreButton 
-              onClick={handleShowMore}
-              rightIcon={<ArrowDownIcon />}
-            >
-              Показати ще
-            </MoreButton>
-          </div>
-        ) : null}
+      {totalPages > 1 && (
+        <div className="listings-feed__pagination">
+          {!expanded && visiblePages < totalPages ? (
+            <div className="listings-feed__more">
+              <MoreButton 
+                onClick={handleShowMore}
+                rightIcon={<ArrowDownIcon />}
+              >
+                Показати ще
+              </MoreButton>
+            </div>
+          ) : null}
 
-        <div className="listings-feed__pages">
-          <PageSwitcher
-            currentPage={currentPage}
-            totalItems={totalItems}
-            pageSize={PAGE_SIZE}
-            onPageChange={handlePageChange}
-          />
+          <div className="listings-feed__pages">
+            <PageSwitcher
+              currentPage={currentPage}
+              totalItems={totalItems}
+              pageSize={PAGE_SIZE}
+              onPageChange={handlePageChange}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

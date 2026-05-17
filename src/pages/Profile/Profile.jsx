@@ -83,7 +83,7 @@ export default function Profile() {
           username: profileData.userIdentity.username,
           levelLabel: profileData.userIdentity.levelLabel,
           messageLabel: "Повідомлення",
-          messageIcon: <MessagesIcon />, // Updated
+          messageIcon: <MessagesIcon />,
         });
 
         setImpactStats({
