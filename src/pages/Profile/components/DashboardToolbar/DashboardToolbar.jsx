@@ -7,12 +7,12 @@ export default function DashboardToolbar({
   activeTabId,
   onTabChange,
   addListingLabel,
-  addListingIconSrc,
+  addListingIcon,
 }) {
   return (
     <div className="dashboard-toolbar">
       <Tabs tabs={tabs} activeTabId={activeTabId} onTabChange={onTabChange} />
-      <AddListingButton label={addListingLabel} iconSrc={addListingIconSrc} />
+      <AddListingButton label={addListingLabel} icon={addListingIcon} />
     </div>
   );
 }

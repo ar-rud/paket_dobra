@@ -28,7 +28,7 @@ export default function SidebarWrapper({ className = '', userIdentity, impactSta
         <ImpactStats
           title={impactStats.title}
           value={impactStats.value}
-          arrowIconSrc={impactStats.arrowIconSrc}
+          arrowIcon={impactStats.arrowIcon} 
           chartLinePath={impactStats.chartLinePath}
           chartAreaPath={impactStats.chartAreaPath}
         />
@@ -38,7 +38,7 @@ export default function SidebarWrapper({ className = '', userIdentity, impactSta
         <Rewards
           title={rewards?.title ?? ''}
           levels={rewards?.levels ?? []}
-          arrowIconSrc={rewards?.arrowIconSrc ?? null}
+          arrowIcon={rewards?.arrowIcon ?? null} 
         />
       </div>
 

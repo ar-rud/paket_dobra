@@ -1,4 +1,6 @@
 import "./PageSwitcher.css";
+import ArrowLeftIcon from "../../assets/images/arrow_left.svg?react";
+import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
 
 function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, onPageChange }) {
   const computedTotalPages = totalItems ? Math.max(1, Math.ceil(totalItems / pageSize)) : Math.max(1, totalPages || 1);
@@ -29,7 +31,8 @@ function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, onPa
         disabled={currentPage === 1}
         type="button"
       >
-        ← Попередня
+        <ArrowLeftIcon className="page-switcher__nav-icon" aria-hidden="true" />
+        Попередня
       </button>
 
       <div className="page-switcher__pages">
@@ -61,7 +64,8 @@ function PageSwitcher({ currentPage, totalPages, totalItems, pageSize = 10, onPa
         disabled={currentPage === computedTotalPages}
         type="button"
       >
-        Наступна →
+        Наступна
+        <ArrowRightIcon className="page-switcher__nav-icon" aria-hidden="true" />
       </button>
     </div>
   );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Catalog.css";
 import ProductCard from "/src/components/ProductCard/ProductCard.jsx";
 import MoreButton from "/src/components/MoreButton/MoreButton.jsx";
+import ArrowDownIcon from "/src/assets/images/arrow_down.svg?react";
 
 import Filters from "./Filters/Filters";
 import PaginationButtons from "./PaginationButtons/PaginationButtons";
@@ -85,7 +86,7 @@ export default function Catalog(props) {
             ))}
           </div>
           <div>
-            <MoreButton className="Catalog-moreButton-products">
+            <MoreButton className="Catalog-moreButton-products" rightIcon={<ArrowDownIcon />}>
                 Показати ще
               </MoreButton>
           </div>
