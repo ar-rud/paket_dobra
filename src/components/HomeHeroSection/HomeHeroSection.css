@@ -228,7 +228,7 @@
 @media (min-width: 1501px) {
   .home-hero__card-title {
     max-width: 90%;
-    font-size: clamp(26px, 11.4cqi, 36px);
+    font-size: clamp(24px, 10.6cqi, 33px);
     line-height: 1.16;
   }
 

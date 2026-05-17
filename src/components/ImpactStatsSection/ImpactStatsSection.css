@@ -531,6 +531,31 @@
   }
 }
 
+@media (min-width: 1800px) {
+  .impact-stats__title {
+    font-size: clamp(47px, 3.55vw, 62px);
+  }
+
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label {
+    font-size: clamp(18px, 11.8cqi, 24px);
+    line-height: 1.06;
+  }
+
+  .impact-stats__joined-card .impact-stats__label {
+    font-size: clamp(15px, 9.9cqi, 20px);
+  }
+
+  .impact-stats__label--light {
+    font-size: clamp(14px, 4.5cqi, 17px);
+    line-height: 1.2;
+  }
+
+  .impact-stats__bar-card .impact-stats__label {
+    font-size: clamp(14px, 4.5cqi, 17px);
+  }
+}
+
 /* TABLET */
 
 @media (max-width: 1700px) {
@@ -628,6 +653,47 @@
 
   .impact-stats__big-value {
     font-size: clamp(46px, 16cqi, 106px);
+  }
+}
+
+@media (min-width: 1321px) and (max-width: 1500px) {
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label {
+    width: 76%;
+    font-size: clamp(13px, 7.4cqi, 18px);
+    line-height: 1.08;
+  }
+
+  .impact-stats__white-card .impact-stats__value {
+    left: 50%;
+    top: 40%;
+    width: auto;
+    min-height: 0;
+    transform: translateX(-50%);
+    justify-content: center;
+    font-size: clamp(40px, 24cqi, 70px);
+  }
+
+  .impact-stats__rate-card .impact-stats__value {
+    top: 48%;
+    font-size: clamp(38px, 23cqi, 70px);
+  }
+
+  .impact-stats__joined-card .impact-stats__label {
+    width: 68%;
+    font-size: clamp(12px, 6.6cqi, 16px);
+    line-height: 1.05;
+  }
+
+  .impact-stats__label--light {
+    max-width: 42%;
+    font-size: clamp(10px, 2.55cqi, 13px);
+    line-height: 1.2;
+  }
+
+  .impact-stats__bar-card .impact-stats__label {
+    width: 144px;
+    font-size: clamp(11px, 2.55cqi, 14px);
   }
 }
 

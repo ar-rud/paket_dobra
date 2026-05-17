@@ -264,6 +264,66 @@
   line-height: 1.26;
 }
 
+@media (max-width: 1400px) {
+  .home-page__support-card--cta {
+    padding: 40px 20px 28px;
+  }
+
+  .home-page__support-card--cta .home-page__support-card-content {
+    width: calc(100% - 24px);
+    padding-top: 12px;
+  }
+
+  .home-page__support-card--cta .home-page__support-title,
+  .home-page__support-card--cta .home-page__support-text {
+    max-width: 100%;
+  }
+
+  .home-page__support-card--cta .home-page__support-title span,
+  .home-page__support-card--cta .home-page__support-text span {
+    white-space: normal;
+  }
+
+  .home-page__support-title--cta {
+    font-size: clamp(24px, 5.2cqi, 32px);
+    line-height: 1.22;
+  }
+
+  .home-page__support-text--cta {
+    font-size: clamp(15px, 3.1cqi, 18px);
+    line-height: 1.34;
+  }
+
+  .home-page__support-card--cta .home-page__support-btn {
+    width: calc(100% - 24px);
+    font-size: clamp(18px, 3.7cqi, 21px);
+  }
+}
+
+@media (min-width: 1501px) {
+  .home-page__support-card--intro {
+    grid-template-rows: minmax(280px, 52%) 1fr;
+  }
+
+  .home-page__support-intro-top {
+    padding: clamp(56px, 4.2vw, 76px) clamp(28px, 3vw, 40px) 16px clamp(40px, 4vw, 54px);
+  }
+
+  .home-page__support-intro-bottom {
+    padding: clamp(10px, 1.1vw, 16px) clamp(28px, 3vw, 40px) clamp(36px, 3.8vw, 48px) clamp(40px, 4vw, 54px);
+  }
+
+  .home-page__support-title {
+    font-size: clamp(36px, 2.8vw, 46px);
+    line-height: 1.06;
+  }
+
+  .home-page__support-text {
+    font-size: clamp(17px, 1.18vw, 20px);
+    line-height: 1.24;
+  }
+}
+
 @media (min-width: 1400px) {
   .home-page__support-title--cta {
     font-size: clamp(32px, 8.6cqi, 46px);
