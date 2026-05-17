@@ -7,7 +7,7 @@ import "./ReportsSection.css";
 
 const PAGE_SIZE = 6;
 
-export default function ReportsSection({ reports }) {
+export default function ReportsSection({ reports, googleDriveUrl }) {
   const reportList = Array.isArray(reports) ? reports : [];
   const totalItems = reportList.length;
   const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
@@ -46,7 +46,13 @@ export default function ReportsSection({ reports }) {
         <div className="reports-section__header">
           <h2 className="reports-section__title">Звітність</h2>
 
-          <a className="reports-section__link" href="/" aria-label="Перейти на диск">
+          <a
+            className="reports-section__link"
+            href={googleDriveUrl || "/"}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Перейти на диск"
+          >
             Перейти на диск
             <img src={arrowIcon} alt="" aria-hidden="true" className="reports-section__link-icon" />
           </a>
