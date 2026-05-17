@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import ReportRow from "./ReportRow.jsx";
-import PageSwitcher from "../../../components/PageSwitcher/PageSwitcher.jsx";
-import MoreButton from "../../../components/MoreButton/MoreButton.jsx";
-import ArrowDownIcon from "../../../assets/images/arrow_down.svg?react";
+import ReportRow from "../ReportRow/ReportRow.jsx";
+import PageSwitcher from "../../../../components/PageSwitcher/PageSwitcher.jsx";
+import MoreButton from "../../../../components/MoreButton/MoreButton.jsx";
+import ArrowDownIcon from "../../../../assets/images/arrow_down.svg?react";
 
 import "./ReportsSection.css";
 

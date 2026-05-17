@@ -1,6 +1,6 @@
 import "./ReportRow.css";
-import downloadIcon from "../images/download_icon.svg";
-import { buildReportDownloadUrl, buildReportPreviewUrl } from "../../../services/reports.js";
+import DownloadIcon from "../../images/download_icon.svg?react";
+import { buildReportDownloadUrl, buildReportPreviewUrl } from "../../../../services/reports.js";
 
 export default function ReportRow({ title, type, driveFileId }) {
   const downloadUrl = buildReportDownloadUrl(driveFileId);
@@ -20,7 +20,7 @@ export default function ReportRow({ title, type, driveFileId }) {
           className="report-row__download"
           aria-label={`Завантажити ${title} ${type}`}
         >
-          <img src={downloadIcon} alt="" aria-hidden="true" className="report-row__download-icon" />
+          <DownloadIcon aria-hidden="true" className="report-row__download-icon" />
         </a>
 
         <a

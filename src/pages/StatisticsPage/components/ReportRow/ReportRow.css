@@ -7,6 +7,11 @@
   gap: 16px;
   border-bottom: 1px solid #ecefe8;
   box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.report-row:hover {
+  background-color: color-mix(in srgb, var(--color-hover-primary, #bfcd2d) 15%, transparent);
 }
 
 .report-row:last-child {
@@ -54,12 +59,19 @@
   padding: 0;
   cursor: pointer;
   text-decoration: none;
+  color: #2d3900;
+  transition: color 0.2s ease;
+}
+
+.report-row__download:hover {
+  color: var(--color-hover-primary, #bfcd2d);
 }
 
 .report-row__download-icon {
   width: 16px;
   height: 16px;
   display: block;
+  transition: transform 0.2s ease;
 }
 
 .report-row__view-button {
@@ -77,6 +89,12 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.report-row__view-button:hover {
+  color: var(--color-hover-primary, #bfcd2d);
+  border-color: var(--color-hover-primary, #bfcd2d);
 }
 
 @media (max-width: 680px) {
