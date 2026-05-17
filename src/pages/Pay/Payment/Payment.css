@@ -3,9 +3,9 @@ html {
 }
 
 .page-wrapper {
-  transform: scale(1.15);
+  transform: none;
   transform-origin: top center;
-  width: 1200px;
+  width: 1300px;
   margin: 0 auto;
 }
 
@@ -24,20 +24,34 @@ html {
 
 .payment-left {
   flex: 2;
+  min-width: 0;
+  
 }
 
 .payment-right {
   flex: 1;
-  max-width: 320px;
+  max-width: 450px;
+  padding: 0 20px;
+  
 }
 
 
 .payment-method-card {
+  background: white;
   padding: 32px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+
 }
 
 .product-summary-card {
+  background: white;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
   padding: 20px;
+  margin-bottom: 16px;
+  width: calc(100% - 40px); /* враховує padding батька */
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 
 
@@ -55,6 +69,7 @@ html {
   align-items: center;
   margin-top: 40px;
   width: 100%;
+  margin-bottom: 180px;
 }
 
 .btn-cancel {

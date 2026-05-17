@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router';
 import "./Checkout.css";
 
 import { useNovaPoshtaAPI } from "./useNovaPoshtaAPI";
@@ -51,6 +52,7 @@ const formatPhone = (raw) => {
 };
 
 const Checkout = ({ onNext, onBack }) => {
+  const navigate = useNavigate();
 
   const { cities, branches, loadingCities, loadingBranches, searchCities, fetchBranches } = useNovaPoshtaAPI();
   const [selectedCity, setSelectedCity] = useState(null);
@@ -315,15 +317,13 @@ return (
 
             {/* FOOTER */}
             <div className="checkout-footer">
-              <button className="btn-cancel" onClick={onBack}>
-                Скасувати
-              </button>
+              <button className="btn-cancel" onClick={() => navigate('/catalog')}>Скасувати</button>
               <button
-                className={`btn-next ${!isValid ? "btn-next--disabled" : ""}`}
-                onClick={isValid ? () => onNext(form) : undefined}
-                disabled={!isValid}
+                className="btn-pay"
+                disabled={!selectedDelivery || !formValid}
+                onClick={() => navigate('/payment')}
               >
-                Перейти до оплати
+                Оплатити
               </button>
             </div>
 
