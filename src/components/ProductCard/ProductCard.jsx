@@ -23,6 +23,7 @@ export default function ProductCard(props) {
           style={{
             boxSizing: "border-box",
             maxWidth: "200px",
+            width: "100%",
           }}
           onClick={goToProduct}
         >

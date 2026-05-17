@@ -5,8 +5,8 @@ export default function BasketButton(props) {
     <button className="BasketButton-button">
       <img
         className="BasketButton-img"
-        src="/src/assets/images/basket-icon.png"
-        alt="basket-icon"
+        src="/src/assets/images/cart_icon_white.png"
+        alt="cart-icon"
       />
     </button>
   );
