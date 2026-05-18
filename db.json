@@ -501,7 +501,7 @@
       "currency": "грн",
       "donationPercentage": 50,
       "images": [
-        "/src/assets/images/football.jpg"
+        "/src/assets/images/zinchenko_football.jpg"
       ],
       "status": "ACTIVE",
       "categoryId": 6,
@@ -843,7 +843,7 @@
       "organizationId": 301,
       "targetAmount": 8000000,
       "gatheredAmount": 7685379,
-      "imageUrl": "/assets/campaigns/drones.jpg",
+      "imageUrl": "/uploads/campaigns/drones.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -852,7 +852,7 @@
       "organizationId": 302,
       "targetAmount": 65000000,
       "gatheredAmount": 47558379,
-      "imageUrl": "/assets/campaigns/cars.jpg",
+      "imageUrl": "/uploads/campaigns/cars.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -861,7 +861,7 @@
       "organizationId": 302,
       "targetAmount": 7568879,
       "gatheredAmount": 7568879,
-      "imageUrl": "/assets/campaigns/zbroyenostsi.jpg",
+      "imageUrl": "/uploads/campaigns/zbroyenostsi.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -870,7 +870,7 @@
       "organizationId": 303,
       "targetAmount": 14200000,
       "gatheredAmount": 8594029,
-      "imageUrl": "/assets/campaigns/pochuy-svoyikh.jpg",
+      "imageUrl": "/uploads/campaigns/pochuy_svoyikh.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -879,7 +879,7 @@
       "organizationId": 303,
       "targetAmount": "Безперервно",
       "gatheredAmount": 7568879,
-      "imageUrl": "/assets/campaigns/blyskavky-sso.jpg",
+      "imageUrl": "/uploads/campaigns/blyskavky_sso.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -888,7 +888,7 @@
       "organizationId": 303,
       "targetAmount": "Доки стане грошей",
       "gatheredAmount": 3458879,
-      "imageUrl": "/assets/campaigns/takmed.jpg",
+      "imageUrl": "/uploads/campaigns/takmed.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -897,7 +897,7 @@
       "organizationId": 302,
       "targetAmount": "Перемога",
       "gatheredAmount": 7658879,
-      "imageUrl": "/assets/campaigns/oko-za-oko-3.jpg",
+      "imageUrl": "/uploads/campaigns/oko_za_oko_3.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -906,7 +906,7 @@
       "organizationId": 303,
       "targetAmount": "Скільки зможемо",
       "gatheredAmount": 7568879,
-      "imageUrl": "/assets/campaigns/advent-calendar.jpg",
+      "imageUrl": "/uploads/campaigns/advent_calendar.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -915,7 +915,7 @@
       "organizationId": 302,
       "targetAmount": 20000000,
       "gatheredAmount": 1100,
-      "imageUrl": "/assets/campaigns/formula-zviazku.jpg",
+      "imageUrl": "/uploads/campaigns/formula_zviazku.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -924,7 +924,7 @@
       "organizationId": 303,
       "targetAmount": "До перемоги",
       "gatheredAmount": 7658879,
-      "imageUrl": "/assets/campaigns/reb.jpg",
+      "imageUrl": "/uploads/campaigns/reb.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -933,7 +933,7 @@
       "organizationId": 303,
       "targetAmount": 7658879,
       "gatheredAmount": 7658879,
-      "imageUrl": "/assets/campaigns/radio.jpg",
+      "imageUrl": "/uploads/campaigns/radio.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -942,7 +942,7 @@
       "organizationId": 303,
       "targetAmount": 7658879,
       "gatheredAmount": 7658879,
-      "imageUrl": "/assets/campaigns/radio.jpg",
+      "imageUrl": "/uploads/campaigns/radio.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -951,7 +951,7 @@
       "organizationId": 303,
       "targetAmount": 7658879,
       "gatheredAmount": 7658879,
-      "imageUrl": "/assets/campaigns/radio.jpg",
+      "imageUrl": "/uploads/campaigns/radio.jpg",
       "tag": "Технічне забезпечення"
     },
     {
@@ -960,7 +960,7 @@
       "organizationId": 303,
       "targetAmount": 7658879,
       "gatheredAmount": 7658879,
-      "imageUrl": "/assets/campaigns/radio.jpg",
+      "imageUrl": "/uploads/campaigns/radio.jpg",
       "tag": "Технічне забезпечення"
     }
   ],
