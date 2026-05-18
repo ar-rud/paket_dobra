@@ -45,3 +45,18 @@
 .sidebar-message__button:hover .sidebar-message__label {
 	transform: scale(1.02);
 }
+
+@media (max-width: 480px) {
+	.sidebar-message__button {
+		font-size: 4.5vw;
+		padding: 2vw 0;
+		gap: 3vw;
+		margin: 0;
+		width: 100%;
+	}
+
+	.sidebar-message__icon {
+		width: 6vw;
+		height: 6vw;
+	}
+}

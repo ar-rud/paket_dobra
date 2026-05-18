@@ -6,6 +6,26 @@
     "totalDonatedBillions": 98.9,
     "platformFeeAmount": 10
   },
+  "currencies": [
+    {
+      "id": 1,
+      "code": "UAH",
+      "label": "грн",
+      "symbol": "₴"
+    },
+    {
+      "id": 2,
+      "code": "USD",
+      "label": "USD",
+      "symbol": "$"
+    },
+    {
+      "id": 3,
+      "code": "EUR",
+      "label": "EUR",
+      "symbol": "€"
+    }
+  ],
   "users": [
     {
       "id": 1,
@@ -16,12 +36,30 @@
       "level": 1,
       "totalDonated": 4768,
       "donationHistory": [
-        { "date": "2025-11-01T00:00:00Z", "amount": 300 },
-        { "date": "2025-12-01T00:00:00Z", "amount": 300 },
-        { "date": "2026-01-01T00:00:00Z", "amount": 300 },
-        { "date": "2026-02-01T00:00:00Z", "amount": 550 },
-        { "date": "2026-03-01T00:00:00Z", "amount": 1200 },
-        { "date": "2026-04-01T00:00:00Z", "amount": 800 }
+        {
+          "date": "2025-11-01T00:00:00Z",
+          "amount": 300
+        },
+        {
+          "date": "2025-12-01T00:00:00Z",
+          "amount": 300
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "amount": 300
+        },
+        {
+          "date": "2026-02-01T00:00:00Z",
+          "amount": 550
+        },
+        {
+          "date": "2026-03-01T00:00:00Z",
+          "amount": 1200
+        },
+        {
+          "date": "2026-04-01T00:00:00Z",
+          "amount": 800
+        }
       ],
       "rewards": [
         {
@@ -72,7 +110,11 @@
         "Матеріал": "Водонепроникна нейлонова тканина",
         "Особливості": "Багато кишень, відділ для гідратора"
       },
-      "shippingMethods": ["Нова Пошта", "Укрпошта", "Самовивіз"],
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта",
+        "Самовивіз"
+      ],
       "paymentMethods": [
         "Онлайн-оплата карткою (Visa/MasterCard)",
         "Оплата при отриманні"
@@ -100,8 +142,12 @@
         "Матеріал": "Кераміка",
         "Особливості": "Ручна робота, можна мити в ПМ"
       },
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Повна передплата"],
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Повна передплата"
+      ],
       "linkedCampaignId": 201,
       "createdAt": "2024-11-12T10:30:00Z",
       "type": "other",
@@ -124,8 +170,14 @@
         "Матеріал": "Дерево",
         "Вік": "Від 1 року"
       },
-      "shippingMethods": ["Укрпошта", "Самовивіз"],
-      "paymentMethods": ["Готівка", "Безпечна оплата на сайті"],
+      "shippingMethods": [
+        "Укрпошта",
+        "Самовивіз"
+      ],
+      "paymentMethods": [
+        "Готівка",
+        "Безпечна оплата на сайті"
+      ],
       "linkedCampaignId": null,
       "createdAt": "2024-10-20T14:15:00Z",
       "type": "other",
@@ -160,14 +212,20 @@
       "price": 700,
       "currency": "грн",
       "donationPercentage": 20,
-      "images": ["/uploads/products/item_painting.png"],
+      "images": [
+        "/uploads/products/item_painting.png"
+      ],
       "status": "ACTIVE",
       "categoryId": 7,
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Повна передплата"],
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Повна передплата"
+      ],
       "linkedCampaignId": null,
       "createdAt": "2024-11-01T09:00:00Z",
       "type": "other",
@@ -181,14 +239,20 @@
       "price": 230,
       "currency": "грн",
       "donationPercentage": 10,
-      "images": ["/uploads/products/item_paintbrush.png"],
+      "images": [
+        "/uploads/products/item_paintbrush.png"
+      ],
       "status": "DRAFT",
       "categoryId": 7,
       "condition": "new",
       "location": "м. Львів",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Онлайн-оплата карткою"],
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою"
+      ],
       "linkedCampaignId": null,
       "createdAt": "2024-11-05T12:00:00Z",
       "type": "equipment",
@@ -202,14 +266,20 @@
       "price": 350,
       "currency": "грн",
       "donationPercentage": 5,
-      "images": ["/uploads/products/item_massage_ball.png"],
+      "images": [
+        "/uploads/products/item_massage_ball.png"
+      ],
       "status": "SOLD",
       "categoryId": 2,
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Укрпошта"],
-      "paymentMethods": ["Готівка"],
+      "shippingMethods": [
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Готівка"
+      ],
       "linkedCampaignId": null,
       "createdAt": "2024-10-20T14:15:00Z",
       "type": "equipment",
@@ -223,14 +293,20 @@
       "price": 1200,
       "currency": "грн",
       "donationPercentage": 0,
-      "images": ["/uploads/products/item_sport_suite.png"],
+      "images": [
+        "/uploads/products/item_sport_suite.png"
+      ],
       "status": "SOLD",
       "categoryId": 3,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Самовивіз"],
-      "paymentMethods": ["Готівка"],
+      "shippingMethods": [
+        "Самовивіз"
+      ],
+      "paymentMethods": [
+        "Готівка"
+      ],
       "linkedCampaignId": null,
       "createdAt": "2024-10-21T11:00:00Z",
       "type": "clothes",
@@ -244,14 +320,20 @@
       "price": 450,
       "currency": "грн",
       "donationPercentage": 0,
-      "images": ["/uploads/products/item_lamp.png"],
+      "images": [
+        "/uploads/products/item_lamp.png"
+      ],
       "status": "SOLD",
       "categoryId": 1,
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Онлайн-оплата карткою"],
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою"
+      ],
       "linkedCampaignId": null,
       "createdAt": "2024-10-22T16:30:00Z",
       "type": "other",
@@ -758,6 +840,46 @@
       "id": 4,
       "name": "Спорт",
       "parentId": null
+    },
+    {
+      "id": 5,
+      "name": "Одяг та аксесуари",
+      "parentId": null
+    },
+    {
+      "id": 6,
+      "name": "Електроніка та техніка",
+      "parentId": null
+    },
+    {
+      "id": 7,
+      "name": "Книги та освітні матеріали",
+      "parentId": null
+    },
+    {
+      "id": 8,
+      "name": "Товари для дому",
+      "parentId": null
+    },
+    {
+      "id": 9,
+      "name": "Здоров'я та краса",
+      "parentId": null
+    },
+    {
+      "id": 10,
+      "name": "Мистецтво та творчість",
+      "parentId": null
+    },
+    {
+      "id": 11,
+      "name": "Зоотовари",
+      "parentId": null
+    },
+    {
+      "id": 12,
+      "name": "Послуги",
+      "parentId": null
     }
   ],
   "reports": {
@@ -811,7 +933,11 @@
     {
       "id": 1001,
       "buyerId": 2,
-      "items": [101, 102, 103],
+      "items": [
+        101,
+        102,
+        103
+      ],
       "campaignId": 201,
       "totalAmount": 450,
       "createdAt": "2024-11-16T10:00:00Z"
@@ -819,10 +945,31 @@
     {
       "id": 1002,
       "buyerId": 1,
-      "items": [107, 108, 109],
+      "items": [
+        107,
+        108,
+        109
+      ],
       "campaignId": null,
       "totalAmount": 2000,
       "createdAt": "2024-10-21T09:00:00Z"
+    }
+  ],
+  "aiDescriptions": [
+    {
+      "id": 1,
+      "improvedDescription": "Червона новорічна ваза від бренду JUSK, висотою 30 см. Виготовлена з кераміки та чудово доповнить святковий інтер'єр.",
+      "manufacturerDescription": "Ваза JUSK виготовлена з високоякісної кераміки з глянцевим покриттям. Висота: 30 см."
+    },
+    {
+      "id": 2,
+      "improvedDescription": "Стильна декоративна ваза насиченого червоного кольору. Ідеально підходить для святкового декору або подарунка.",
+      "manufacturerDescription": "Керамічна ваза для декору інтер'єру. Стійка конструкція та якісне покриття."
+    },
+    {
+      "id": 3,
+      "improvedDescription": "Святкова керамічна ваза JUSK у новому стані. Має елегантний дизайн і чудово виглядає в сучасному інтер'єрі.",
+      "manufacturerDescription": "Матеріал: кераміка. Колір: червоний. Призначення: декоративне оформлення приміщень."
     }
   ]
 }

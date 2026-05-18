@@ -82,3 +82,30 @@
 		padding: 0;
 	}
 }
+
+@media (max-width: 480px) {
+	.listings-feed {
+		min-height: auto;
+	}
+
+	.listings-feed__list {
+		border-radius: 0; /* Remove rounded corners */
+		overflow: hidden;
+		box-shadow: 0 1vw 2vw rgba(24, 32, 0, 0.05);
+		background-color: #ffffff;
+	}
+
+	.listings-feed__pagination {
+		padding: 5vw 0;
+		gap: 4vw;
+		margin-bottom: 4vw;
+	}
+
+	.listings-feed__pages .page-switcher {
+		padding: 0 4vw;
+	}
+
+	.listings-feed__pages .page-switcher__pages {
+		gap: 2vw;
+	}
+}

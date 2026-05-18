@@ -75,9 +75,6 @@
   gap: 30px;
   align-items: start;
   margin-top: calc(-1 * var(--profile-banner-overlap));
-}
-
-.profile-page__layout {
   min-height: calc(100vh - 240px);
 }
 
@@ -176,11 +173,48 @@
   }
   .profile-page__sidebar-column {
     margin-top: 0;
+    width: 100%;
   }
   .sidebar-wrapper.profile-page__sidebar-card {
     min-height: auto;
     max-height: none;
     height: auto;
     flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-page__container {
+    width: 100%;
+    padding: 0 4vw;
+    box-sizing: border-box;
+  }
+  
+  .profile-page__hero .hero-banner__inner {
+    width: 100%;
+    padding: 4vw 0 6vw;
+    box-sizing: border-box;
+  }
+
+  .profile-page__layout {
+    margin-top: calc(-1 * var(--profile-banner-overlap) - 15vw);
+    gap: 6vw;
+  }
+
+  .profile-banner-title {
+    display: none;
+  }
+
+  .profile-page__hero .hero-banner__col--right {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .profile-page__hero .breadcrumbs {
+    display: none;
+  }
+
+  .profile-page__listings-column {
+    padding-top: 0;
   }
 }

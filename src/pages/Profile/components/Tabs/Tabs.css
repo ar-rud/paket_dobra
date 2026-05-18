@@ -45,3 +45,33 @@
 		height: 40px;
 	}
 }
+
+@media (max-width: 480px) {
+	.tabs {
+		width: 100%;
+		justify-content: flex-start;
+		gap: 3vw;
+		flex-wrap: nowrap;
+		margin-bottom: 6vw;
+	}
+
+	.tabs__button {
+		flex: 1 1 50%;
+		width: auto;
+		height: 11vw;
+		font-size: 3.8vw;
+		padding: 0;
+		border-radius: 0;
+		text-decoration: none;
+	}
+
+	.tabs__button--active {
+		display: none !important;
+	}
+
+	.tabs__button--inactive {
+		background-color: transparent;
+		color: #121800;
+		border: 1px solid #d0d0d0;
+	}
+}

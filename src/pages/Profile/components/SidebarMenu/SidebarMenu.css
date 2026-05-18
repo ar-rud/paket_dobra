@@ -46,3 +46,23 @@
 .sidebar-menu__item:hover .sidebar-menu__label {
 	transform: scale(1.02);
 }
+
+@media (max-width: 480px) {
+	.sidebar-menu {
+		gap: 3vw;
+	}
+
+	.sidebar-menu__item {
+		font-size: 4vw;
+		padding: 3vw;
+		margin: 0;
+		width: 100%;
+		border-radius: 2vw;
+	}
+
+	.sidebar-menu__icon {
+		width: 5vw;
+		height: 5vw;
+		flex-shrink: 0;
+	}
+}

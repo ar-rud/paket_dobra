@@ -75,31 +75,57 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-.sidebar-rewards__badge--unlocked {
-	background-color: #fafceb;
-}
-
-.sidebar-rewards__badge--locked {
-	background-color: #f3f4f0;
+	background-color: #f4f6ec;
 }
 
 .sidebar-rewards__badge-icon {
 	width: 24px;
-	height: 24px;
+	height: auto;
 }
 
 .sidebar-rewards__label {
 	font-size: 10px;
-	line-height: 1;
-	font-weight: 400;
-	color: #535862;
-	transition: transform 0.2s ease, color 0.2s ease;
-	transform-origin: center center;
+	color: #59624a;
 }
 
-.sidebar-rewards:hover .sidebar-rewards__label {
-	color: var(--color-hover-primary);
-	transform: scale(1.02);
+@media (max-width: 480px) {
+	.sidebar-rewards {
+		padding: 2vw 0;
+		gap: 4vw;
+		margin: 0;
+	}
+
+	.sidebar-rewards__title {
+		font-size: 4.5vw;
+	}
+
+	.sidebar-rewards__arrow {
+		width: 6vw;
+		height: 6vw;
+	}
+
+	.sidebar-rewards__levels {
+		padding-top: 2vw;
+	}
+
+	.sidebar-rewards__level {
+		gap: 2vw;
+	}
+
+	.sidebar-rewards__badge {
+		width: 18vw;
+		height: 18vw;
+		border-radius: 50%;
+		background-color: transparent;
+	}
+
+	.sidebar-rewards__badge-icon {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	.sidebar-rewards__label {
+		font-size: 3.5vw;
+	}
 }

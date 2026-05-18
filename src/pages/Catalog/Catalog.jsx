@@ -24,14 +24,12 @@ export default function Catalog(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [pagesToShow, setPagesToShow] = useState(1);
 
-  // The ONLY useEffect: Used strictly for connecting to an external system (your API)
   useEffect(() => {
     async function fetchProducts() {
       setIsLoading(true);
       try {
         const data = await getProductsByCategory(params.category);
         setProducts(data);
-        // Reset pagination when navigating to a totally new category page
         setCurrentPage(1);
         setPagesToShow(1);
       } catch (error) {
@@ -44,9 +42,6 @@ export default function Catalog(props) {
     fetchProducts();
   }, [params.category]);
 
-  // --- THE FIX: Event-Driven State Updates ---
-  // Instead of an effect watching searchParams, we update the state directly
-  // when the user triggers a filter change.
   const handleFilterChange = (newParams) => {
     setSearchParams(newParams, { preventScrollReset: true });
     setCurrentPage(1);
@@ -134,7 +129,6 @@ export default function Catalog(props) {
       <div className="Catalog-wrapper">
         <Filters
           searchParams={searchParams}
-          // Pass the new handler here instead of standard setSearchParams
           setSearchParams={handleFilterChange}
         />
 
