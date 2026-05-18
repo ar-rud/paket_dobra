@@ -1,6 +1,6 @@
 /**
  * Orders Service
- * 
+ *
  * Handles all order-related operations:
  * - Create new order
  * - Fetch order by ID
@@ -10,7 +10,7 @@
  * - Get order details with linked campaign
  */
 
-import apiCall from './api';
+import apiCall from './api'
 
 /**
  * Fetch orders placed by a specific buyer.
@@ -18,13 +18,13 @@ import apiCall from './api';
  * @returns {Promise<object[]>}
  */
 export async function getOrdersByBuyerId(buyerId) {
-	if (buyerId == null) {
-		throw new Error('getOrdersByBuyerId: buyerId is required');
-	}
+  if (buyerId == null) {
+    throw new Error('getOrdersByBuyerId: buyerId is required')
+  }
 
-	return apiCall(`/orders?buyerId=${buyerId}`);
+  return apiCall(`/orders?buyerId=${buyerId}`)
 }
 
 export default {
-	getOrdersByBuyerId,
-};
+  getOrdersByBuyerId,
+}

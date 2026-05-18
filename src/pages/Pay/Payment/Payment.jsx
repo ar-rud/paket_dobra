@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import './Payment.css';
+import React, { useState } from 'react'
+import './Payment.css'
 
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router'
 
-import gpay from './img/gpay.svg';
-import applepay from './img/applepay.svg';
-import visamaestro from './img/visamaestro.svg';
+import gpay from './img/gpay.svg'
+import applepay from './img/applepay.svg'
+import visamaestro from './img/visamaestro.svg'
 
 const Payment = () => {
-  const [selectedMethod, setSelectedMethod] = useState(null);
-  const navigate = useNavigate();
+  const [selectedMethod, setSelectedMethod] = useState(null)
+  const navigate = useNavigate()
 
   return (
     <div className="page-wrapper">
@@ -46,7 +46,9 @@ const Payment = () => {
             </div>
 
             <div className="payment-footer">
-              <button className="btn-cancel" onClick={() => navigate('/checkout')}>Скасувати</button>
+              <button className="btn-cancel" onClick={() => navigate('/checkout')}>
+                Скасувати
+              </button>
               <button
                 className="btn-pay"
                 disabled={!selectedMethod}
@@ -69,7 +71,7 @@ const Payment = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Payment;
+export default Payment

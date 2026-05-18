@@ -1,6 +1,12 @@
 @keyframes dropDown {
-  from { transform: translateY(-12px); opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
+  from {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Обгортка — позиціонується відносно кнопки */
@@ -9,10 +15,15 @@
   display: inline-block;
 }
 
-
 @keyframes slideInRight {
-  from { transform: translateX(100%); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* Дропдаун-панель */
@@ -34,8 +45,8 @@
 
 /* Стрілка-трикутник вгорі */
 .cart-dropdown::before {
-  content: "";
-  
+  content: '';
+
   top: -7px;
   right: 14px;
   width: 13px;
@@ -224,7 +235,9 @@
   font-weight: 500;
   cursor: pointer;
   letter-spacing: 0.01em;
-  transition: background 0.15s, opacity 0.15s;
+  transition:
+    background 0.15s,
+    opacity 0.15s;
 }
 
 .cart-checkout:hover:not(:disabled) {

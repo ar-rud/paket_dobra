@@ -17,14 +17,14 @@
   display: grid;
 
   grid-template-areas:
-    "intro white rate heart"
-    "bar white rate heart";
+    'intro white rate heart'
+    'bar white rate heart';
 
- grid-template-columns:
-  minmax(280px, 425fr)
-  minmax(150px, 199fr)
-  minmax(150px, 199fr)
-  minmax(320px, 424fr);
+  grid-template-columns:
+    minmax(280px, 425fr)
+    minmax(150px, 199fr)
+    minmax(150px, 199fr)
+    minmax(320px, 424fr);
 
   grid-template-rows:
     minmax(260px, auto)
@@ -284,7 +284,7 @@
 }
 
 .impact-stats__rate-square {
-  border: 1px solid rgba(255,255,255,0.7);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   background: #cddc39;
 }
 
@@ -293,7 +293,7 @@
   aspect-ratio: 1 / 1;
   height: auto;
   background:
-    url("../../assets/images/impact-joined-bg.svg") left bottom / 100% 100% no-repeat,
+    url('../../assets/images/impact-joined-bg.svg') left bottom / 100% 100% no-repeat,
     #2f4600;
 
   padding: 0;
@@ -375,7 +375,7 @@
   top: 14.5%;
   width: 86.5%;
   height: 68.5%;
-  background: url("../../assets/images/impact-heart-bg.svg") left top / 100% 100% no-repeat;
+  background: url('../../assets/images/impact-heart-bg.svg') left top / 100% 100% no-repeat;
 }
 
 .impact-stats__money {
@@ -413,8 +413,7 @@
   min-height: 114px;
 
   background:
-    url("../../assets/images/impact-mini-hearts.svg")
-      center center / 92% auto no-repeat,
+    url('../../assets/images/impact-mini-hearts.svg') center center / 92% auto no-repeat,
     #2b3a00;
 
   position: relative;
@@ -696,9 +695,9 @@
   .impact-stats__inner {
     width: calc(100% - 40px);
     grid-template-areas:
-      "intro intro white"
-      "bar rate white"
-      "heart heart heart";
+      'intro intro white'
+      'bar rate white'
+      'heart heart heart';
 
     grid-template-columns:
       minmax(0, 1fr)
@@ -771,11 +770,11 @@
     width: calc(100% - 24px);
 
     grid-template-areas:
-      "intro intro"
-      "bar bar"
-      "white rate"
-      "white rate"
-      "heart heart";
+      'intro intro'
+      'bar bar'
+      'white rate'
+      'white rate'
+      'heart heart';
 
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 
@@ -810,8 +809,7 @@
     aspect-ratio: auto;
     min-height: 82px;
     background:
-      url("../../assets/images/impact-mini-hearts.svg")
-        15% center / auto 54% no-repeat,
+      url('../../assets/images/impact-mini-hearts.svg') 15% center / auto 54% no-repeat,
       #2b3a00;
   }
 
@@ -932,11 +930,11 @@
     max-width: none;
 
     grid-template-areas:
-      "intro intro"
-      "bar bar"
-      "white rate"
-      "white rate"
-      "heart heart";
+      'intro intro'
+      'bar bar'
+      'white rate'
+      'white rate'
+      'heart heart';
 
     grid-template-columns: 1fr 1fr;
     grid-template-rows:
@@ -977,8 +975,7 @@
 
   .impact-stats--stats-only .impact-stats__bar-card {
     background:
-      url("../../assets/images/impact-mini-hearts.svg")
-        35% 68% / 58% auto no-repeat,
+      url('../../assets/images/impact-mini-hearts.svg') 35% 68% / 58% auto no-repeat,
       #2b3a00;
   }
 

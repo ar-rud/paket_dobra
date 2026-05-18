@@ -1,10 +1,7 @@
-import "./CatalogOverview.css";
-import { Link } from "react-router";
+import './CatalogOverview.css'
+import { Link } from 'react-router'
 
-export default function CatalogOverview({
-  variant = "catalog",
-  fillerHoverColor,
-}) {
+export default function CatalogOverview({ variant = 'catalog', fillerHoverColor }) {
   const decoratingBlocks = [
     [1, 1],
     [1, 5],
@@ -33,31 +30,23 @@ export default function CatalogOverview({
     [5, 4],
     [5, 8],
     [5, 9],
-  ];
+  ]
 
   return (
     <div
       className={`CatalogOverview-wrapper CatalogOverview-wrapper--${variant}`}
       style={
-        fillerHoverColor
-          ? { "--catalog-overview-filler-hover-color": fillerHoverColor }
-          : undefined
+        fillerHoverColor ? { '--catalog-overview-filler-hover-color': fillerHoverColor } : undefined
       }
     >
       <div className="CatalogOverview-grid">
         <section className="CatalogOverview-section">
-          <h2 className="CatalogOverview-section-heading">
-            Обирай те, що необхідно
-          </h2>
+          <h2 className="CatalogOverview-section-heading">Обирай те, що необхідно</h2>
           <p className="CatalogOverview-section-text">
-            У нас ти можеш знайти багато речей, але якщо не підбереш, все одно
-            повертайся!
+            У нас ти можеш знайти багато речей, але якщо не підбереш, все одно повертайся!
           </p>
         </section>
-        <Link
-          className="CatalogOverview-item CatalogOverview-home-product"
-          to="/catalog/home"
-        >
+        <Link className="CatalogOverview-item CatalogOverview-home-product" to="/catalog/home">
           Товари для дому
         </Link>
         <Link
@@ -66,49 +55,28 @@ export default function CatalogOverview({
         >
           Краса та здоровʼя
         </Link>
-        <Link
-          className="CatalogOverview-item CatalogOverview-clothes"
-          to="/catalog/clothes"
-        >
+        <Link className="CatalogOverview-item CatalogOverview-clothes" to="/catalog/clothes">
           Одяг та аксесуари
         </Link>
-        <Link
-          className="CatalogOverview-item CatalogOverview-kids-product"
-          to="/catalog/kids"
-        >
+        <Link className="CatalogOverview-item CatalogOverview-kids-product" to="/catalog/kids">
           Дитячі товари
         </Link>
-        <Link
-          className="CatalogOverview-item CatalogOverview-zoo-product"
-          to="/catalog/pets"
-        >
+        <Link className="CatalogOverview-item CatalogOverview-zoo-product" to="/catalog/pets">
           Зоотовари
         </Link>
-        <Link
-          className="CatalogOverview-item CatalogOverview-hobby"
-          to="/catalog/hobbies"
-        >
+        <Link className="CatalogOverview-item CatalogOverview-hobby" to="/catalog/hobbies">
           Хобі та розваги
         </Link>
-        <Link
-          className="CatalogOverview-item CatalogOverview-art"
-          to="/catalog/art-craft"
-        >
+        <Link className="CatalogOverview-item CatalogOverview-art" to="/catalog/art-craft">
           Мистецтво та творчість
         </Link>
-        <Link
-          className="CatalogOverview-item CatalogOverview-service"
-          to="/catalog/services"
-        >
+        <Link className="CatalogOverview-item CatalogOverview-service" to="/catalog/services">
           Послуги
         </Link>
         <Link className="CatalogOverview-item CatalogOverview-book" to="/catalog/books">
           Книги та освітні матеріали
         </Link>
-        <Link
-          className="CatalogOverview-item CatalogOverview-applience"
-          to="/catalog/electronics"
-        >
+        <Link className="CatalogOverview-item CatalogOverview-applience" to="/catalog/electronics">
           Електроніка та техніка
         </Link>
         {decoratingBlocks.map(([row, col]) => {
@@ -121,9 +89,9 @@ export default function CatalogOverview({
                 gridColumn: col,
               }}
             ></div>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }

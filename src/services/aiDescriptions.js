@@ -1,13 +1,13 @@
-import apiCall from "./api";
+import apiCall from './api'
 
 function getRandomItem(items) {
-  const randomIndex = Math.floor(Math.random() * items.length);
+  const randomIndex = Math.floor(Math.random() * items.length)
 
-  return items[randomIndex];
+  return items[randomIndex]
 }
 
 export async function getRandomAiDescription() {
-  const descriptions = await apiCall("/aiDescriptions");
+  const descriptions = await apiCall('/aiDescriptions')
 
-  return getRandomItem(descriptions);
+  return getRandomItem(descriptions)
 }

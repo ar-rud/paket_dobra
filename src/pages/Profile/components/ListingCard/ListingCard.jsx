@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import './ListingCard.css';
+import { useEffect, useState } from 'react'
+import './ListingCard.css'
 
 export default function ListingCard({
   imageSrc,
@@ -19,16 +19,18 @@ export default function ListingCard({
   messageActionAriaLabel = 'Повідомлення',
   deleteActionAriaLabel = 'Видалити',
 }) {
-  const [imageLoadFailed, setImageLoadFailed] = useState(false);
+  const [imageLoadFailed, setImageLoadFailed] = useState(false)
 
   useEffect(() => {
-    setImageLoadFailed(false);
-  }, [imageSrc]);
+    setImageLoadFailed(false)
+  }, [imageSrc])
 
-  const textToneClassName = muted ? 'listing-card__text--muted' : 'listing-card__text--default';
-  const stateClassName = muted ? 'listing-card--muted' : 'listing-card--active';
-  const imageClassName = imageMuted ? 'listing-card__image listing-card__image--muted' : 'listing-card__image';
-  const shouldShowPlaceholder = imagePlaceholder || !imageSrc || imageLoadFailed;
+  const textToneClassName = muted ? 'listing-card__text--muted' : 'listing-card__text--default'
+  const stateClassName = muted ? 'listing-card--muted' : 'listing-card--active'
+  const imageClassName = imageMuted
+    ? 'listing-card__image listing-card__image--muted'
+    : 'listing-card__image'
+  const shouldShowPlaceholder = imagePlaceholder || !imageSrc || imageLoadFailed
 
   return (
     <article className={`listing-card ${stateClassName}`}>
@@ -48,7 +50,9 @@ export default function ListingCard({
 
         <div className="listing-card__details">
           <h4 className={`listing-card__title ${textToneClassName}`}>{title}</h4>
-          {subtitle ? <p className={`listing-card__subtitle ${textToneClassName}`}>{subtitle}</p> : null}
+          {subtitle ? (
+            <p className={`listing-card__subtitle ${textToneClassName}`}>{subtitle}</p>
+          ) : null}
         </div>
       </div>
 
@@ -94,5 +98,5 @@ export default function ListingCard({
         </div>
       </div>
     </article>
-  );
+  )
 }

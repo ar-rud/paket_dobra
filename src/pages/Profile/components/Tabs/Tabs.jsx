@@ -1,4 +1,4 @@
-import './Tabs.css';
+import './Tabs.css'
 
 export default function Tabs({ tabs, activeTabId, onTabChange }) {
   return (
@@ -16,5 +16,5 @@ export default function Tabs({ tabs, activeTabId, onTabChange }) {
         </button>
       ))}
     </div>
-  );
+  )
 }

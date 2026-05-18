@@ -1,4 +1,4 @@
-import './SidebarMessage.css';
+import './SidebarMessage.css'
 
 export default function SidebarMessage({ label, icon }) {
   return (
@@ -12,5 +12,5 @@ export default function SidebarMessage({ label, icon }) {
         <span className="sidebar-message__label">{label}</span>
       </button>
     </div>
-  );
+  )
 }

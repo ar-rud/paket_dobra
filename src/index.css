@@ -23,54 +23,54 @@ body {
 }
 
 @font-face {
-  font-family: "e-Ukraine";
-  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Regular.otf) format("opentype");
+  font-family: 'e-Ukraine';
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Regular.otf) format('opentype');
   font-weight: 400;
   font-style: regular;
 }
 
 @font-face {
-  font-family: "e-Ukraine";
-  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Medium.otf) format("opentype");
+  font-family: 'e-Ukraine';
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Medium.otf) format('opentype');
   font-weight: 500;
   font-style: medium;
 }
 
 @font-face {
-  font-family: "e-Ukraine";
-  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Bold.otf) format("opentype");
+  font-family: 'e-Ukraine';
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Bold.otf) format('opentype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "e-Ukraine";
-  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Bold.otf) format("opentype");
+  font-family: 'e-Ukraine';
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Bold.otf) format('opentype');
   font-weight: 600;
   font-style: bold;
 }
 
 @font-face {
-  font-family: "e-Ukraine";
-  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Light.otf) format("opentype");
+  font-family: 'e-Ukraine';
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Light.otf) format('opentype');
   font-weight: 300;
   font-style: light;
 }
 
 @font-face {
-  font-family: "e-Ukraine";
-  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Bold.otf) format("opentype");
+  font-family: 'e-Ukraine';
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Bold.otf) format('opentype');
   font-weight: 600;
   font-style: bold;
 }
 
 @font-face {
-  font-family: "e-Ukraine";
-  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Light.otf) format("opentype");
+  font-family: 'e-Ukraine';
+  src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Light.otf) format('opentype');
   font-weight: 300;
   font-style: light;
 }
 
 * {
-  font-family: "e-Ukraine", sans-serif;
+  font-family: 'e-Ukraine', sans-serif;
 }

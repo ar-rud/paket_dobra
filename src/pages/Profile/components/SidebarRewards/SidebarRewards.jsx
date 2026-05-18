@@ -1,5 +1,5 @@
-import './SidebarRewards.css';
-import defaultRewardIcon from '../../images/default_reward.svg';
+import './SidebarRewards.css'
+import defaultRewardIcon from '../../images/default_reward.svg'
 
 export default function SidebarRewards({ title, levels, arrowIcon }) {
   return (
@@ -16,14 +16,19 @@ export default function SidebarRewards({ title, levels, arrowIcon }) {
       <div className="sidebar-rewards__levels">
         {levels.map((level) => (
           <div key={level.id} className="sidebar-rewards__level">
-            <div className={`sidebar-rewards__badge ${level.unlocked ? 'sidebar-rewards__badge--unlocked' : 'sidebar-rewards__badge--locked'}`}>
+            <div
+              className={`sidebar-rewards__badge ${level.unlocked ? 'sidebar-rewards__badge--unlocked' : 'sidebar-rewards__badge--locked'}`}
+            >
               <img
                 src={level.iconSrc}
                 alt={level.iconAlt}
                 className="sidebar-rewards__badge-icon"
                 onError={(e) => {
-                  console.warn('SidebarRewards: reward icon failed to load, using default:', e.currentTarget.src);
-                  e.currentTarget.src = defaultRewardIcon;
+                  console.warn(
+                    'SidebarRewards: reward icon failed to load, using default:',
+                    e.currentTarget.src,
+                  )
+                  e.currentTarget.src = defaultRewardIcon
                 }}
               />
             </div>
@@ -33,5 +38,5 @@ export default function SidebarRewards({ title, levels, arrowIcon }) {
         ))}
       </div>
     </div>
-  );
+  )
 }

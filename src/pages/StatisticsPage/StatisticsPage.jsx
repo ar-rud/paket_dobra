@@ -1,38 +1,38 @@
-import { useEffect, useState } from "react";
-import ImpactStatsSection from "../../components/ImpactStatsSection/ImpactStatsSection.jsx";
-import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs.jsx";
-import ReportsSection from "./components/ReportsSection/ReportsSection.jsx";
-import "./StatisticsPage.css";
-import { getReports } from "../../services/reports.js";
+import { useEffect, useState } from 'react'
+import ImpactStatsSection from '../../components/ImpactStatsSection/ImpactStatsSection.jsx'
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs.jsx'
+import ReportsSection from './components/ReportsSection/ReportsSection.jsx'
+import './StatisticsPage.css'
+import { getReports } from '../../services/reports.js'
 
 export default function StatisticsPage() {
-  const [reportsData, setReportsData] = useState({ googleDriveUrl: "", reportList: [] });
+  const [reportsData, setReportsData] = useState({ googleDriveUrl: '', reportList: [] })
 
   useEffect(() => {
-    let isActive = true;
+    let isActive = true
 
     async function loadReports() {
       try {
-        const nextReports = await getReports();
+        const nextReports = await getReports()
         if (isActive) {
           setReportsData({
-            googleDriveUrl: nextReports?.googleDriveUrl ?? "",
+            googleDriveUrl: nextReports?.googleDriveUrl ?? '',
             reportList: Array.isArray(nextReports?.reportList) ? nextReports.reportList : [],
-          });
+          })
         }
       } catch {
         if (isActive) {
-          setReportsData({ googleDriveUrl: "", reportList: [] });
+          setReportsData({ googleDriveUrl: '', reportList: [] })
         }
       }
     }
 
-    loadReports();
+    loadReports()
 
     return () => {
-      isActive = false;
-    };
-  }, []);
+      isActive = false
+    }
+  }, [])
 
   return (
     <main className="statistics-page">
@@ -40,15 +40,18 @@ export default function StatisticsPage() {
         <Breadcrumbs
           variant="inline"
           items={[
-            { label: "Головна", to: "/" },
-            { label: "Статистика", current: true },
+            { label: 'Головна', to: '/' },
+            { label: 'Статистика', current: true },
           ]}
         />
       </div>
 
       <ImpactStatsSection showDetailsButton={false} />
 
-      <ReportsSection reports={reportsData.reportList} googleDriveUrl={reportsData.googleDriveUrl} />
+      <ReportsSection
+        reports={reportsData.reportList}
+        googleDriveUrl={reportsData.googleDriveUrl}
+      />
     </main>
-  );
+  )
 }

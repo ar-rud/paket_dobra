@@ -42,7 +42,7 @@
 /* SECTION CARDS */
 .section-card {
   background: white;
-  border: 1px solid #E5E5E5;
+  border: 1px solid #e5e5e5;
   padding: 32px;
   margin-bottom: 24px;
 }
@@ -64,7 +64,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  border: 1px solid #E5E5E5;
+  border: 1px solid #e5e5e5;
   padding: 16px;
   margin-top: 12px;
   cursor: pointer;
@@ -150,7 +150,7 @@
 .select-wrapper select {
   width: 100%;
   padding: 14px;
-  border: 1px solid #E5E5E5;
+  border: 1px solid #e5e5e5;
   font-size: 15px;
   outline: none;
   transition: border-color 0.15s ease;
@@ -186,7 +186,7 @@
 /* PHONE */
 .phone-wrapper {
   display: flex;
-  border: 1px solid #E5E5E5;
+  border: 1px solid #e5e5e5;
   transition: border-color 0.15s ease;
 }
 
@@ -204,7 +204,7 @@
   align-items: center;
   gap: 6px;
   padding: 0 12px;
-  border-right: 1px solid #E5E5E5;
+  border-right: 1px solid #e5e5e5;
   background: #fafafa;
   cursor: pointer;
   white-space: nowrap;
@@ -238,7 +238,7 @@
 .email-wrapper {
   display: flex;
   align-items: center;
-  border: 1px solid #E5E5E5;
+  border: 1px solid #e5e5e5;
   transition: border-color 0.15s ease;
 }
 
@@ -269,7 +269,7 @@
 /* SELECT */
 .select-wrapper {
   position: relative;
-  border: 1px solid #E5E5E5;
+  border: 1px solid #e5e5e5;
   transition: border-color 0.15s ease;
 }
 
@@ -353,7 +353,7 @@
 /* RIGHT PANEL */
 .product-summary-card {
   padding: 20px 0;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .product-summary-card:last-child {

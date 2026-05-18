@@ -1,4 +1,4 @@
-import './SidebarMenu.css';
+import './SidebarMenu.css'
 
 export default function SidebarMenu({ menuLinks }) {
   return (
@@ -14,5 +14,5 @@ export default function SidebarMenu({ menuLinks }) {
         </button>
       ))}
     </div>
-  );
+  )
 }

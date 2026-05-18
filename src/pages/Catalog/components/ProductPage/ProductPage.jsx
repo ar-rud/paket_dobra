@@ -1,56 +1,53 @@
-import { useCart } from "/src/contexts/CartContext";
-import { useOutletContext } from "react-router";
+import { useCart } from '/src/contexts/CartContext'
+import { useOutletContext } from 'react-router'
 
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router'
+import './ProductPage.css'
 
-import { useState, useEffect } from "react";
-import { useParams } from "react-router";
-import "./ProductPage.css";
-
-import { getProductById } from "/src/services/products";
-import { getCampaigns } from "/src/services/campaigns";
-import Breadcrumbs from "/src/components/Breadcrumbs/Breadcrumbs.jsx";
-
+import { getProductById } from '/src/services/products'
+import { getCampaigns } from '/src/services/campaigns'
+import Breadcrumbs from '/src/components/Breadcrumbs/Breadcrumbs.jsx'
 
 export default function ProductPage(props) {
+  const { addItem } = useCart()
+  const { handleCartOpen } = useOutletContext()
 
-  const { addItem } = useCart();
-  const { handleCartOpen } = useOutletContext();
+  const params = useParams()
+  const productId = params.id
 
-  const params = useParams();
-  const productId = params.id;
-
-  const [product, setProduct] = useState(null);
-  const [campaigns, setCampaigns] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [product, setProduct] = useState(null)
+  const [campaigns, setCampaigns] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     async function fetchData() {
-      setIsLoading(true);
+      setIsLoading(true)
       try {
         // Fetch product and use your existing getCampaigns service
         const [productData, campaignsData] = await Promise.all([
           getProductById(productId),
           getCampaigns(),
-        ]);
+        ])
 
-        setProduct(productData);
-        setCampaigns(campaignsData);
+        setProduct(productData)
+        setCampaigns(campaignsData)
       } catch (error) {
-        console.error("Failed to fetch product page data:", error);
+        console.error('Failed to fetch product page data:', error)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
     }
 
-    fetchData();
-  }, [productId]);
+    fetchData()
+  }, [productId])
 
   if (isLoading) {
     return (
       <div className="product-page-wrapper">
         <p>Завантаження товару...</p>
       </div>
-    );
+    )
   }
 
   if (!product) {
@@ -58,49 +55,46 @@ export default function ProductPage(props) {
       <div className="product-page-wrapper">
         <p>Товар не знайдено</p>
       </div>
-    );
+    )
   }
 
-  const productPriceAddPercent =
-    10 ** Math.floor(product.price / 100).toString().length;
+  const productPriceAddPercent = 10 ** Math.floor(product.price / 100).toString().length
 
   const mainImage =
     product.images && product.images.length > 0
       ? product.images[0]
-      : "/src/assets/images/vector.svg";
+      : '/src/assets/images/vector.svg'
 
-  const extraImages = product.images || [];
+  const extraImages = product.images || []
 
   const conditionMap = {
-    new: "Новий",
-    used: "Вживаний",
-    restored: "Відреставрований",
-  };
+    new: 'Новий',
+    used: 'Вживаний',
+    restored: 'Відреставрований',
+  }
 
   const catalogCategories = {
-    home: "Товари для дому",
-    "health-beauty": "Краса та здоровʼя",
-    clothes: "Одяг та аксесуари",
-    kids: "Дитячі товари",
-    pets: "Зоотовари",
-    hobbies: "Хобі та розваги",
-    "art-craft": "Мистецтво та творчість",
-    services: "Послуги",
-    books: "Книги та освітні матеріали",
-    electronics: "Електроніка та техніка",
-  };
+    home: 'Товари для дому',
+    'health-beauty': 'Краса та здоровʼя',
+    clothes: 'Одяг та аксесуари',
+    kids: 'Дитячі товари',
+    pets: 'Зоотовари',
+    hobbies: 'Хобі та розваги',
+    'art-craft': 'Мистецтво та творчість',
+    services: 'Послуги',
+    books: 'Книги та освітні матеріали',
+    electronics: 'Електроніка та техніка',
+  }
 
   const breadcrumbItems = [
-    { label: "Головна", to: "/" },
-    { label: "Каталог", to: "/catalog" },
+    { label: 'Головна', to: '/' },
+    { label: 'Каталог', to: '/catalog' },
     {
       label: `${catalogCategories[params.category]}`,
       to: `/catalog/${params.category}`,
     },
     { label: `${product.title}`, current: true },
-  ];
-
-
+  ]
 
   const handleAddToCart = () => {
     addItem({
@@ -109,14 +103,13 @@ export default function ProductPage(props) {
       price: product.price,
       donation: productPriceAddPercent,
       image: mainImage,
-      note: product.linkedCampaignId === null
-        ? "*При оформленні оберіть фонд на який піде донат."
-        : null,
-    });
-    handleCartOpen(); // відкрити кошик
-  };
-
-
+      note:
+        product.linkedCampaignId === null
+          ? '*При оформленні оберіть фонд на який піде донат.'
+          : null,
+    })
+    handleCartOpen() // відкрити кошик
+  }
 
   return (
     <>
@@ -126,11 +119,7 @@ export default function ProductPage(props) {
         <aside className="product-page-aisde-wrapper">
           <div className="product-page-images-top">
             <div className="product-page-image-main-wrapper">
-              <img
-                className="product-page-image-main"
-                src={mainImage}
-                alt="product img"
-              />
+              <img className="product-page-image-main" src={mainImage} alt="product img" />
             </div>
           </div>
 
@@ -171,12 +160,11 @@ export default function ProductPage(props) {
                   />
                   <div className="product-page-section-foundation-text-wrapper">
                     <p className="product-page-section-foundation-text">
-                      Продавець цього не обрав фонд для спрямування коштів від
-                      покупки. Маєте шанс підтримати важливу вам ініціативу!
+                      Продавець цього не обрав фонд для спрямування коштів від покупки. Маєте шанс
+                      підтримати важливу вам ініціативу!
                     </p>
                     <p className="product-page-section-foundation-text">
-                      Відмовляючись від вибору, кошти буде спрямовано на
-                      нагальні збори.
+                      Відмовляючись від вибору, кошти буде спрямовано на нагальні збори.
                     </p>
                   </div>
                 </div>
@@ -221,27 +209,18 @@ export default function ProductPage(props) {
                 {product.attributes &&
                   Object.entries(product.attributes).map(([key, value]) => (
                     <li key={key} className="product-page-info-item">
-                      <span
-                        className="product-page-section-span"
-                        style={{ display: "inline" }}
-                      >
+                      <span className="product-page-section-span" style={{ display: 'inline' }}>
                         {key}:
-                      </span>{" "}
+                      </span>{' '}
                       {value}
                     </li>
                   ))}
                 {product.condition && (
                   <li className="product-page-info-item">
-                    <span
-                      className="product-page-section-span"
-                      style={{ display: "inline" }}
-                    >
+                    <span className="product-page-section-span" style={{ display: 'inline' }}>
                       Стан:
-                    </span>{" "}
-                    <p
-                      className="product-page-section-text"
-                      style={{ display: "inline" }}
-                    >
+                    </span>{' '}
+                    <p className="product-page-section-text" style={{ display: 'inline' }}>
                       {conditionMap[product.condition] || product.condition}
                     </p>
                   </li>
@@ -255,41 +234,29 @@ export default function ProductPage(props) {
                   Спосіб доставки
                 </span>
                 <ul className="product-page-info-list product-page-section-text">
-                  {product.shippingMethods?.filter((m) => m !== "Самовивіз")
-                    .length > 0 && (
+                  {product.shippingMethods?.filter((m) => m !== 'Самовивіз').length > 0 && (
                     <li className="product-page-info-item">
-                      <span
-                        className="product-page-section-span"
-                        style={{ display: "inline" }}
-                      >
+                      <span className="product-page-section-span" style={{ display: 'inline' }}>
                         Доставка:
-                      </span>{" "}
-                      {product.shippingMethods
-                        .filter((m) => m !== "Самовивіз")
-                        .join(", ")}
+                      </span>{' '}
+                      {product.shippingMethods.filter((m) => m !== 'Самовивіз').join(', ')}
                     </li>
                   )}
-                  {product.shippingMethods?.includes("Самовивіз") &&
-                    product.location && (
-                      <li className="product-page-info-item">
-                        <span
-                          className="product-page-section-span"
-                          style={{ display: "inline" }}
-                        >
-                          Самovивіз:
-                        </span>{" "}
-                        {product.location}
-                      </li>
-                    )}
+                  {product.shippingMethods?.includes('Самовивіз') && product.location && (
+                    <li className="product-page-info-item">
+                      <span className="product-page-section-span" style={{ display: 'inline' }}>
+                        Самovивіз:
+                      </span>{' '}
+                      {product.location}
+                    </li>
+                  )}
                 </ul>
               </section>
             )}
 
             {product.paymentMethods?.length > 0 && (
               <section className="product-page-section-info">
-                <span className="product-page-info-heading product-page-section-span">
-                  Оплата
-                </span>
+                <span className="product-page-info-heading product-page-section-span">Оплата</span>
                 <ul className="product-page-info-list product-page-section-text">
                   {product.paymentMethods.map((method, index) => (
                     <li key={index} className="product-page-info-item">
@@ -301,18 +268,16 @@ export default function ProductPage(props) {
             )}
             <footer className="product-page-section-footer">
               <p className="product-page-section-footer-text">
-                Кошти від продажу цього товару йдуть на підтримку армії, зокрема
-                на проєкт закупівлі дронів та розвідувального обладнання для
-                підвищення безпеки військових на передовій.
+                Кошти від продажу цього товару йдуть на підтримку армії, зокрема на проєкт закупівлі
+                дронів та розвідувального обладнання для підвищення безпеки військових на передовій.
               </p>
               <p className="product-page-section-footer-text-green">
-                *Частина коштів (5% від оплаченої суми) піде на обслуговування
-                платформи.
+                *Частина коштів (5% від оплаченої суми) піде на обслуговування платформи.
               </p>
             </footer>
           </main>
         </section>
       </div>
     </>
-  );
+  )
 }

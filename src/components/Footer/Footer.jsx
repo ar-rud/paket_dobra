@@ -1,9 +1,9 @@
-import "./Footer.css";
-import { Link } from "react-router";
-import LogoWhiteIcon from "../../assets/images/logo.svg?react";
-import FacebookIcon from "../../assets/images/facebook_logo.svg?react";
-import InstagramIcon from "../../assets/images/instagram_logo.svg?react";
-import YoutubeIcon from "../../assets/images/youtube_logo.svg?react";
+import './Footer.css'
+import { Link } from 'react-router'
+import LogoWhiteIcon from '../../assets/images/logo.svg?react'
+import FacebookIcon from '../../assets/images/facebook_logo.svg?react'
+import InstagramIcon from '../../assets/images/instagram_logo.svg?react'
+import YoutubeIcon from '../../assets/images/youtube_logo.svg?react'
 
 export default function Footer(props) {
   return (
@@ -16,14 +16,38 @@ export default function Footer(props) {
 
           <p className="Footer-moto">Підтримуй добро купуй та змінюй!</p>
           <div className="Footer-social-media-wrapper">
-            <a className="Footer-social-media-item" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FacebookIcon className="Footer-social-media-img Footer-facebook" aria-label="facebook" />
+            <a
+              className="Footer-social-media-item"
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FacebookIcon
+                className="Footer-social-media-img Footer-facebook"
+                aria-label="facebook"
+              />
             </a>
-            <a className="Footer-social-media-item" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <InstagramIcon className="Footer-social-media-img Footer-instagram" aria-label="instagram" />
+            <a
+              className="Footer-social-media-item"
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon
+                className="Footer-social-media-img Footer-instagram"
+                aria-label="instagram"
+              />
             </a>
-            <a className="Footer-social-media-item" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-              <YoutubeIcon className="Footer-social-media-img Footer-youtube" aria-label="youtube" />
+            <a
+              className="Footer-social-media-item"
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <YoutubeIcon
+                className="Footer-social-media-img Footer-youtube"
+                aria-label="youtube"
+              />
             </a>
           </div>
         </section>
@@ -116,5 +140,5 @@ export default function Footer(props) {
         </li>
       </ul>
     </footer>
-  );
+  )
 }

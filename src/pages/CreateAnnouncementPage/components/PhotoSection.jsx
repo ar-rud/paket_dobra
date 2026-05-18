@@ -1,54 +1,54 @@
-import { useId, useRef } from "react";
-import SectionCard from "./SectionCard.jsx";
-import "./PhotoSection.css";
+import { useId, useRef } from 'react'
+import SectionCard from './SectionCard.jsx'
+import './PhotoSection.css'
 
 function trimTrailingEmpty(items) {
-  const next = [...items];
+  const next = [...items]
   while (next.length > 0 && !next[next.length - 1]) {
-    next.pop();
+    next.pop()
   }
-  return next;
+  return next
 }
 
 function readFileAsDataUrl(file) {
   return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = () => reject(new Error("Не вдалося прочитати файл"));
-    reader.readAsDataURL(file);
-  });
+    const reader = new FileReader()
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = () => reject(new Error('Не вдалося прочитати файл'))
+    reader.readAsDataURL(file)
+  })
 }
 
 export default function PhotoSection({ images = [], onImagesChange }) {
-  const inputRef = useRef(null);
-  const inputId = useId();
-  const activeSlotRef = useRef(0);
+  const inputRef = useRef(null)
+  const inputId = useId()
+  const activeSlotRef = useRef(0)
 
   function openFilePicker(slotIndex) {
-    activeSlotRef.current = slotIndex;
-    inputRef.current?.click();
+    activeSlotRef.current = slotIndex
+    inputRef.current?.click()
   }
 
   async function handleFileChange(event) {
-    const file = event.target.files?.[0];
-    if (!file) return;
+    const file = event.target.files?.[0]
+    if (!file) return
 
     try {
-      const imageDataUrl = await readFileAsDataUrl(file);
-      const nextImages = [...images];
-      nextImages[activeSlotRef.current] = imageDataUrl;
-      onImagesChange?.(trimTrailingEmpty(nextImages));
+      const imageDataUrl = await readFileAsDataUrl(file)
+      const nextImages = [...images]
+      nextImages[activeSlotRef.current] = imageDataUrl
+      onImagesChange?.(trimTrailingEmpty(nextImages))
     } catch (error) {
-      console.error("Failed to process image file:", error);
+      console.error('Failed to process image file:', error)
     } finally {
-      event.target.value = "";
+      event.target.value = ''
     }
   }
 
   function handleRemoveImage(slotIndex) {
-    const nextImages = [...images];
-    nextImages[slotIndex] = null;
-    onImagesChange?.(trimTrailingEmpty(nextImages));
+    const nextImages = [...images]
+    nextImages[slotIndex] = null
+    onImagesChange?.(trimTrailingEmpty(nextImages))
   }
 
   return (
@@ -69,14 +69,16 @@ export default function PhotoSection({ images = [], onImagesChange }) {
       />
       <div className="photo-section__grid">
         {[0, 1, 2, 3].map((slotIndex) => {
-          const imageSrc = images[slotIndex];
+          const imageSrc = images[slotIndex]
 
           return (
             <div key={slotIndex} className="photo-section__slot-wrapper">
               <button
                 type="button"
                 className="photo-section__slot"
-                aria-label={imageSrc ? `Змінити фото ${slotIndex + 1}` : `Додати фото ${slotIndex + 1}`}
+                aria-label={
+                  imageSrc ? `Змінити фото ${slotIndex + 1}` : `Додати фото ${slotIndex + 1}`
+                }
                 onClick={() => openFilePicker(slotIndex)}
               >
                 {imageSrc ? (
@@ -101,9 +103,9 @@ export default function PhotoSection({ images = [], onImagesChange }) {
                 </button>
               ) : null}
             </div>
-          );
+          )
         })}
       </div>
     </SectionCard>
-  );
+  )
 }

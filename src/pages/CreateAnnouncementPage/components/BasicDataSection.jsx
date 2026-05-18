@@ -1,29 +1,29 @@
-import { useEffect, useState } from "react";
-import SectionCard from "./SectionCard.jsx";
-import "./BasicDataSection.css";
-import { getAllCategories } from "../../../services/categories";
+import { useEffect, useState } from 'react'
+import SectionCard from './SectionCard.jsx'
+import './BasicDataSection.css'
+import { getAllCategories } from '../../../services/categories'
 
 export default function BasicDataSection({ name, category, onNameChange, onCategoryChange }) {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    let cancelled = false;
+    let cancelled = false
 
     async function load() {
       try {
-        const data = await getAllCategories();
-        if (!cancelled) setCategories(data || []);
+        const data = await getAllCategories()
+        if (!cancelled) setCategories(data || [])
       } catch (err) {
-        console.error("Failed to load categories:", err);
+        console.error('Failed to load categories:', err)
       }
     }
 
-    load();
+    load()
 
     return () => {
-      cancelled = true;
-    };
-  }, []);
+      cancelled = true
+    }
+  }, [])
 
   return (
     <SectionCard
@@ -67,5 +67,5 @@ export default function BasicDataSection({ name, category, onNameChange, onCateg
         </div>
       </div>
     </SectionCard>
-  );
+  )
 }

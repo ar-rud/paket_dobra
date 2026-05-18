@@ -1,4 +1,4 @@
-import "./HeroSection.css";
+import './HeroSection.css'
 
 function HeroSection({ title, description, buttonText }) {
   return (
@@ -14,7 +14,7 @@ function HeroSection({ title, description, buttonText }) {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default HeroSection;
+export default HeroSection

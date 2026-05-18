@@ -1,6 +1,6 @@
-import Tabs from '../Tabs/Tabs.jsx';
-import AddListingButton from '../AddListingButton/AddListingButton.jsx';
-import './DashboardToolbar.css';
+import Tabs from '../Tabs/Tabs.jsx'
+import AddListingButton from '../AddListingButton/AddListingButton.jsx'
+import './DashboardToolbar.css'
 
 export default function DashboardToolbar({
   tabs,
@@ -14,5 +14,5 @@ export default function DashboardToolbar({
       <Tabs tabs={tabs} activeTabId={activeTabId} onTabChange={onTabChange} />
       <AddListingButton label={addListingLabel} icon={addListingIcon} />
     </div>
-  );
+  )
 }

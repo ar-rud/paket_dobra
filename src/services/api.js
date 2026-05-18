@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
 
 /**
  * Generic API call handler
@@ -8,21 +8,21 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
  * @throws {Error} - On API errors
  */
 export async function apiCall(endpoint, options = {}) {
-  const url = `${API_URL}${endpoint}`;
-  
+  const url = `${API_URL}${endpoint}`
+
   const response = await fetch(url, {
     headers: {
       'Content-Type': 'application/json',
       ...options.headers,
     },
     ...options,
-  });
+  })
 
   if (!response.ok) {
-    throw new Error(`API Error: ${response.status} ${response.statusText}`);
+    throw new Error(`API Error: ${response.status} ${response.statusText}`)
   }
 
-  return response.json();
+  return response.json()
 }
 
-export default apiCall;
+export default apiCall

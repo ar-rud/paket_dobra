@@ -47,7 +47,8 @@
   width: 32px;
 }
 
-.red-circle, .blue-circle {
+.red-circle,
+.blue-circle {
   width: 18px;
   height: 18px;
   border-radius: 50%;
