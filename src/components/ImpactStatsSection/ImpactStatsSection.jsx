@@ -5,7 +5,7 @@ import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
 
 import "./ImpactStatsSection.css";
 
-export default function ImpactStatsSection({ detailsHref = "/statistics" } = {}) {
+export default function ImpactStatsSection({ detailsHref = "/statistics", showDetailsButton = true } = {}) {
   return (
     <section className="impact-stats">
       <div className="impact-stats__inner">
@@ -16,15 +16,17 @@ export default function ImpactStatsSection({ detailsHref = "/statistics" } = {})
             <span>потрібно</span>
           </h2>
           
-          <MoreButton
-            className="impact-stats__details-btn"
-            onClick={() => {
-              window.location.href = detailsHref;
-            }}
-            rightIcon={<ArrowRightIcon />}
-          >
-            Детальніше
-          </MoreButton>
+          {showDetailsButton && (
+            <MoreButton
+              className="impact-stats__details-btn"
+              onClick={() => {
+                window.location.href = detailsHref;
+              }}
+              rightIcon={<ArrowRightIcon />}
+            >
+              Детальніше
+            </MoreButton>
+          )}
         </div>
 
         <div className="impact-stats__white-card">
