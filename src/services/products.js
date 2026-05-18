@@ -79,10 +79,20 @@ export async function deleteProduct(productId) {
   return apiCall(`/products/${productId}`, { method: 'DELETE' })
 }
 
+/**
+ * Fetch all products (useful for home page featured lists).
+ * @returns {Promise<object[]>}
+ */
+export async function getAllProducts() {
+  // If you are using json-server, you can even do "/products?_limit=4" to only fetch 4!
+  return apiCall('/products')
+}
+
 export default {
   getProductsBySellerId,
   getProductById,
   getProductsByCategory,
+  getAllProducts,
 
   saveDraft,
   saveProduct,

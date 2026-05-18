@@ -8,6 +8,7 @@ import './ProductPage.css'
 import { getProductById } from '/src/services/products'
 import { getCampaigns } from '/src/services/campaigns'
 import Breadcrumbs from '/src/components/Breadcrumbs/Breadcrumbs.jsx'
+import FeaturedProductsSection from '/src/components/FeaturedProductsSection/FeaturedProductsSection.jsx'
 
 export default function ProductPage(props) {
   const { addItem } = useCart()
@@ -278,6 +279,7 @@ export default function ProductPage(props) {
           </main>
         </section>
       </div>
+      <FeaturedProductsSection title="Схожі пропозиції" />
     </>
   )
 }
