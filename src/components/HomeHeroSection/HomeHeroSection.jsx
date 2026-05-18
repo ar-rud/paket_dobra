@@ -1,97 +1,95 @@
-import { useEffect, useState } from "react";
-import MoreButton from "../MoreButton/MoreButton.jsx";
-import PixelHeart from "../PixelHeart/PixelHeart.jsx";
-import { useNavigate } from "react-router";
-import { getRandomCampaigns } from "../../services/campaigns.js";
-import "./HomeHeroSection.css";
+import { useEffect, useState } from 'react'
+import MoreButton from '../MoreButton/MoreButton.jsx'
+import PixelHeart from '../PixelHeart/PixelHeart.jsx'
+import { useNavigate } from 'react-router'
+import { getRandomCampaigns } from '../../services/campaigns.js'
+import './HomeHeroSection.css'
 
 const fallbackCampaignCards = [
   {
-    id: "winter",
-    title: "Зимовий збір на такмед",
+    id: 'winter',
+    title: 'Зимовий збір на такмед',
     collected: 7658879,
     goal: 7658879,
   },
   {
-    id: "radio",
+    id: 'radio',
     title: "Почуй своїх: збір на радіозв'язок",
     collected: 7658879,
     goal: 7658879,
   },
   {
-    id: "revenge",
+    id: 'revenge',
     title: "Рій помсти 24/7: б'ємо ворога вдень та вночі",
     collected: 7100879,
     goal: 7658879,
   },
-];
+]
 
 const heroCardClasses = [
-  "home-hero__card home-hero__card--top",
-  "home-hero__card home-hero__card--middle",
-  "home-hero__card home-hero__card--bottom",
-];
+  'home-hero__card home-hero__card--top',
+  'home-hero__card home-hero__card--middle',
+  'home-hero__card home-hero__card--bottom',
+]
 
 function splitTitleIntoLines(title) {
-  const words = title.trim().split(/\s+/);
+  const words = title.trim().split(/\s+/)
 
   if (words.length <= 2) {
-    return [title];
+    return [title]
   }
 
-  const totalLength = words.join(" ").length;
-  const lineCount = totalLength > 34 ? 3 : 2;
-  const targetLength = totalLength / lineCount;
-  const lines = [];
-  let currentLine = [];
-  let currentLength = 0;
+  const totalLength = words.join(' ').length
+  const lineCount = totalLength > 34 ? 3 : 2
+  const targetLength = totalLength / lineCount
+  const lines = []
+  let currentLine = []
+  let currentLength = 0
 
   words.forEach((word, index) => {
-    const separatorLength = currentLine.length > 0 ? 1 : 0;
-    const nextLength = currentLength + separatorLength + word.length;
-    const remainingWords = words.length - index;
-    const remainingLines = lineCount - lines.length;
+    const separatorLength = currentLine.length > 0 ? 1 : 0
+    const nextLength = currentLength + separatorLength + word.length
+    const remainingWords = words.length - index
+    const remainingLines = lineCount - lines.length
     const shouldBreak =
-      currentLine.length > 0
-      && nextLength > targetLength
-      && remainingWords >= remainingLines;
+      currentLine.length > 0 && nextLength > targetLength && remainingWords >= remainingLines
 
     if (shouldBreak) {
-      lines.push(currentLine.join(" "));
-      currentLine = [word];
-      currentLength = word.length;
-      return;
+      lines.push(currentLine.join(' '))
+      currentLine = [word]
+      currentLength = word.length
+      return
     }
 
-    currentLine.push(word);
-    currentLength = nextLength;
-  });
+    currentLine.push(word)
+    currentLength = nextLength
+  })
 
   if (currentLine.length > 0) {
-    lines.push(currentLine.join(" "));
+    lines.push(currentLine.join(' '))
   }
 
-  return lines;
+  return lines
 }
 
 function formatHeroAmount(value) {
-  if (typeof value === "number") {
-    return `${value.toLocaleString("uk-UA")}$`;
+  if (typeof value === 'number') {
+    return `${value.toLocaleString('uk-UA')}$`
   }
 
-  return value;
+  return value
 }
 
 function getHeroProgressStyle(collected, goal) {
-  if (typeof collected !== "number" || typeof goal !== "number" || goal <= 0) {
-    return undefined;
+  if (typeof collected !== 'number' || typeof goal !== 'number' || goal <= 0) {
+    return undefined
   }
 
-  const progressPercent = Math.min((collected / goal) * 100, 100);
+  const progressPercent = Math.min((collected / goal) * 100, 100)
 
   return {
     background: `linear-gradient(90deg, #cddc39 0 ${progressPercent}%, #fafceb ${progressPercent}% 100%)`,
-  };
+  }
 }
 
 function HomeHeroTitle() {
@@ -101,35 +99,35 @@ function HomeHeroTitle() {
       <span className="home-hero__title-line">добро,купуй</span>
       <span className="home-hero__title-line">та змінюй!</span>
     </h1>
-  );
+  )
 }
 
 export default function HomeHeroSection({ onCartOpen = () => {} }) {
-  const navigate = useNavigate();
-  const [campaignCards, setCampaignCards] = useState(fallbackCampaignCards);
-  const goToDonations = () => navigate("/donations");
+  const navigate = useNavigate()
+  const [campaignCards, setCampaignCards] = useState(fallbackCampaignCards)
+  const goToDonations = () => navigate('/donations')
 
   useEffect(() => {
-    let isMounted = true;
+    let isMounted = true
 
     const loadHeroCampaigns = async () => {
       try {
-        const campaigns = await getRandomCampaigns(3);
+        const campaigns = await getRandomCampaigns(3)
 
-        if (!isMounted || campaigns.length === 0) return;
+        if (!isMounted || campaigns.length === 0) return
 
-        setCampaignCards(campaigns);
+        setCampaignCards(campaigns)
       } catch (error) {
-        console.error("Failed to load hero campaigns:", error);
+        console.error('Failed to load hero campaigns:', error)
       }
-    };
+    }
 
-    loadHeroCampaigns();
+    loadHeroCampaigns()
 
     return () => {
-      isMounted = false;
-    };
-  }, []);
+      isMounted = false
+    }
+  }, [])
 
   return (
     <section className="home-hero">
@@ -147,9 +145,7 @@ export default function HomeHeroSection({ onCartOpen = () => {} }) {
           </div>
 
           <div className="home-hero__cta">
-            <p className="home-hero__hint">
-              Переглянь інші збори, які чекають на твою допомогу
-            </p>
+            <p className="home-hero__hint">Переглянь інші збори, які чекають на твою допомогу</p>
             <MoreButton className="home-hero__button" onClick={goToDonations}>
               Переглянути інші
             </MoreButton>
@@ -201,12 +197,15 @@ export default function HomeHeroSection({ onCartOpen = () => {} }) {
             <p className="home-hero__hint home-hero__hint--mobile">
               Переглянь інші збори, які чекають на твою допомогу
             </p>
-            <MoreButton className="home-hero__button home-hero__button--mobile" onClick={goToDonations}>
+            <MoreButton
+              className="home-hero__button home-hero__button--mobile"
+              onClick={goToDonations}
+            >
               Переглянути
             </MoreButton>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import { Link } from "react-router";
-import './AddListingButton.css';
+import { Link } from 'react-router'
+import './AddListingButton.css'
 
-export default function AddListingButton({ label, icon, to = "/create-announcement" }) {
+export default function AddListingButton({ label, icon, to = '/create-announcement' }) {
   return (
     <Link className="add-listing-button" to={to}>
       {icon ? (
@@ -11,5 +11,5 @@ export default function AddListingButton({ label, icon, to = "/create-announceme
       ) : null}
       <span className="add-listing-button__label">{label}</span>
     </Link>
-  );
+  )
 }

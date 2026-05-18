@@ -1,138 +1,130 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router';
-import "./Checkout.css";
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router'
+import './Checkout.css'
 
-import novaposhta from "./img/novaposhta.svg";
-import ukrposhta from "./img/ukrposhta.svg";
+import novaposhta from './img/novaposhta.svg'
+import ukrposhta from './img/ukrposhta.svg'
 
-import { useNovaPoshtaAPI } from "./useNovaPoshtaAPI";
+import { useNovaPoshtaAPI } from './useNovaPoshtaAPI'
 
 const DELIVERY_OPTIONS = [
   {
-    id: "ukrposhta",
-    name: "Укрпошта",
-    price: "Безкоштовно",
-    days: "Доставка протягом 2-5 днів",
+    id: 'ukrposhta',
+    name: 'Укрпошта',
+    price: 'Безкоштовно',
+    days: 'Доставка протягом 2-5 днів',
     icon: ukrposhta,
   },
   {
-    id: "nova_branch",
-    name: "Відділення Нова пошта",
-    price: "Від 60 грн",
-    days: "Доставка протягом 1-3 днів",
+    id: 'nova_branch',
+    name: 'Відділення Нова пошта',
+    price: 'Від 60 грн',
+    days: 'Доставка протягом 1-3 днів',
     icon: novaposhta,
   },
   {
-    id: "nova_courier",
-    name: "Курʼєр Нова пошта",
-    price: "Від 95 грн",
-    days: "Доставка протягом 1-3 днів",
+    id: 'nova_courier',
+    name: 'Курʼєр Нова пошта',
+    price: 'Від 95 грн',
+    days: 'Доставка протягом 1-3 днів',
     icon: novaposhta,
   },
-];
+]
 
-
-
-const PHONE_REGEX = /^\+380 \d{2} \d{3} \d{2} \d{2}$/;
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_REGEX = /^\+380 \d{2} \d{3} \d{2} \d{2}$/
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const formatPhone = (raw) => {
-  const digits = raw.replace(/\D/g, "");
+  const digits = raw.replace(/\D/g, '')
 
-  const normalized = digits.startsWith("380")
-    ? digits
-    : "380" + digits.replace(/^0/, "");
+  const normalized = digits.startsWith('380') ? digits : '380' + digits.replace(/^0/, '')
 
-  const d = normalized.slice(3);
+  const d = normalized.slice(3)
 
-  let result = "+380";
-  if (d.length > 0) result += " " + d.slice(0, 2);
-  if (d.length > 2) result += " " + d.slice(2, 5);
-  if (d.length > 5) result += " " + d.slice(5, 7);
-  if (d.length > 7) result += " " + d.slice(7, 9);
+  let result = '+380'
+  if (d.length > 0) result += ' ' + d.slice(0, 2)
+  if (d.length > 2) result += ' ' + d.slice(2, 5)
+  if (d.length > 5) result += ' ' + d.slice(5, 7)
+  if (d.length > 7) result += ' ' + d.slice(7, 9)
 
-  return result;
-};
+  return result
+}
 
 const Checkout = ({ onNext, onBack }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const { cities, branches, loadingCities, loadingBranches, searchCities, fetchBranches } = useNovaPoshtaAPI();
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [selectedDelivery, setSelectedDelivery] = useState(null);
-
-
-
+  const { cities, branches, loadingCities, loadingBranches, searchCities, fetchBranches } =
+    useNovaPoshtaAPI()
+  const [selectedCity, setSelectedCity] = useState(null)
+  const [selectedDelivery, setSelectedDelivery] = useState(null)
 
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    patronymic: "",
-    phone: "",
-    email: "",
+    firstName: '',
+    lastName: '',
+    patronymic: '',
+    phone: '',
+    email: '',
     // region: "",
-    city: "",
-    branch: "",
-  });
+    city: '',
+    branch: '',
+  })
 
-  const [touched, setTouched] = useState({});
+  const [touched, setTouched] = useState({})
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setForm((prev) => ({
       ...prev,
-      [name]: name === "phone" ? formatPhone(value) : value,
-    }));
-    setTouched((prev) => ({ ...prev, [name]: true }));
-  };
+      [name]: name === 'phone' ? formatPhone(value) : value,
+    }))
+    setTouched((prev) => ({ ...prev, [name]: true }))
+  }
 
   const handleBlur = (e) => {
-    setTouched((prev) => ({ ...prev, [e.target.name]: true }));
-  };
+    setTouched((prev) => ({ ...prev, [e.target.name]: true }))
+  }
 
   const handleCitySearch = (e) => {
-    const val = e.target.value;
-    setForm(prev => ({ ...prev, city: val, branch: "" }));
-    setSelectedCity(null);
-    clearTimeout(window._npTimer);
-    window._npTimer = setTimeout(() => searchCities(val), 400);
-  };
+    const val = e.target.value
+    setForm((prev) => ({ ...prev, city: val, branch: '' }))
+    setSelectedCity(null)
+    clearTimeout(window._npTimer)
+    window._npTimer = setTimeout(() => searchCities(val), 400)
+  }
 
   const handleCitySelect = (city) => {
-    setForm(prev => ({ ...prev, city: city.Present, branch: "" }));
-    setSelectedCity(city);
-    fetchBranches(city.DeliveryCity);
-  };
+    setForm((prev) => ({ ...prev, city: city.Present, branch: '' }))
+    setSelectedCity(city)
+    fetchBranches(city.DeliveryCity)
+  }
 
   const handleBranchSelect = (e) => {
-    setForm(prev => ({ ...prev, branch: e.target.value }));
-    setTouched(prev => ({ ...prev, branch: true }));
-  };
+    setForm((prev) => ({ ...prev, branch: e.target.value }))
+    setTouched((prev) => ({ ...prev, branch: true }))
+  }
 
   const errors = {
-    firstName: !form.firstName.trim() ? "Введіть імʼя" : "",
-    lastName: !form.lastName.trim() ? "Введіть прізвище" : "",
-    patronymic: !form.patronymic.trim() ? "Введіть по-батькові" : "",
-    phone: !PHONE_REGEX.test(form.phone) ? "Невірний номер телефону" : "",
-    email: !EMAIL_REGEX.test(form.email) ? "Невірний email" : "",
+    firstName: !form.firstName.trim() ? 'Введіть імʼя' : '',
+    lastName: !form.lastName.trim() ? 'Введіть прізвище' : '',
+    patronymic: !form.patronymic.trim() ? 'Введіть по-батькові' : '',
+    phone: !PHONE_REGEX.test(form.phone) ? 'Невірний номер телефону' : '',
+    email: !EMAIL_REGEX.test(form.email) ? 'Невірний email' : '',
     // region: !form.region ? "Оберіть область" : "",
-    city: !form.city ? "Оберіть місто" : "",
-    branch: !form.branch ? "Оберіть відділення" : "",
-  };
+    city: !form.city ? 'Оберіть місто' : '',
+    branch: !form.branch ? 'Оберіть відділення' : '',
+  }
 
-  const formValid = Object.values(errors).every((e) => e === "");
-  const isValid = selectedDelivery !== null && formValid;
+  const formValid = Object.values(errors).every((e) => e === '')
+  const isValid = selectedDelivery !== null && formValid
 
   const getInputClass = (name) => {
-    if (!touched[name]) return "";
-    return errors[name] ? "input-error" : "input-success";
-  };
+    if (!touched[name]) return ''
+    return errors[name] ? 'input-error' : 'input-success'
+  }
 
-
-return (
+  return (
     <div className="page-wrapper">
       <div className="checkout-container">
-
         <div className="back-link" onClick={onBack}>
           ‹ Повернутись
         </div>
@@ -140,10 +132,8 @@ return (
         <h1 className="page-title">Оформлення замовлення</h1>
 
         <div className="checkout-content">
-
           {/* LEFT */}
           <div className="checkout-left">
-
             {/* DELIVERY */}
             <div className="section-card">
               <h3 className="section-title">Служба доставки</h3>
@@ -152,7 +142,7 @@ return (
               {DELIVERY_OPTIONS.map((option) => (
                 <div
                   key={option.id}
-                  className={`delivery-option ${selectedDelivery === option.id ? "delivery-option--selected" : ""}`}
+                  className={`delivery-option ${selectedDelivery === option.id ? 'delivery-option--selected' : ''}`}
                   onClick={() => setSelectedDelivery(option.id)}
                 >
                   <div className="radio-circle">
@@ -181,7 +171,7 @@ return (
                   value={form.firstName}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={getInputClass("firstName")}
+                  className={getInputClass('firstName')}
                 />
                 {touched.firstName && errors.firstName && (
                   <span className="field-error">{errors.firstName}</span>
@@ -196,7 +186,7 @@ return (
                   value={form.lastName}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={getInputClass("lastName")}
+                  className={getInputClass('lastName')}
                 />
                 {touched.lastName && errors.lastName && (
                   <span className="field-error">{errors.lastName}</span>
@@ -211,7 +201,7 @@ return (
                   value={form.patronymic}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={getInputClass("patronymic")}
+                  className={getInputClass('patronymic')}
                 />
                 {touched.patronymic && errors.patronymic && (
                   <span className="field-error">{errors.patronymic}</span>
@@ -220,7 +210,7 @@ return (
 
               <div className="form-group">
                 <label className="field-label">Номер телефону</label>
-                <div className={`phone-wrapper ${getInputClass("phone")}`}>
+                <div className={`phone-wrapper ${getInputClass('phone')}`}>
                   <div className="phone-prefix">
                     {/*<span className="flag">🇺🇦</span>*/}
                     <span className="country-code">UKR</span>
@@ -242,7 +232,7 @@ return (
 
               <div className="form-group">
                 <label className="field-label">Вкажіть пошту</label>
-                <div className={`email-wrapper ${getInputClass("email")}`}>
+                <div className={`email-wrapper ${getInputClass('email')}`}>
                   <span className="email-icon">✉</span>
                   <input
                     name="email"
@@ -267,7 +257,7 @@ return (
                   value={form.city}
                   onChange={handleCitySearch}
                   onBlur={() => setTouched((prev) => ({ ...prev, city: true }))}
-                  className={getInputClass("city")}
+                  className={getInputClass('city')}
                   autoComplete="off"
                 />
                 {loadingCities && <span className="field-hint">Пошук...</span>}
@@ -284,15 +274,15 @@ return (
                     ))}
                   </div>
                 )}
-                {touched.city && errors.city && (
-                  <span className="field-error">{errors.city}</span>
-                )}
+                {touched.city && errors.city && <span className="field-error">{errors.city}</span>}
               </div>
 
               {/* ВІДДІЛЕННЯ — селект з НП */}
               <div className="form-group">
                 <label className="field-label">Відділення</label>
-                <div className={`select-wrapper ${getInputClass("branch")} ${!selectedCity ? "select-disabled" : ""}`}>
+                <div
+                  className={`select-wrapper ${getInputClass('branch')} ${!selectedCity ? 'select-disabled' : ''}`}
+                >
                   <select
                     name="branch"
                     value={form.branch}
@@ -301,7 +291,7 @@ return (
                     disabled={!selectedCity}
                   >
                     <option value="">
-                      {loadingBranches ? "Завантаження..." : "Оберіть відділення"}
+                      {loadingBranches ? 'Завантаження...' : 'Оберіть відділення'}
                     </option>
                     {branches.map((b) => (
                       <option key={b.Ref} value={b.Description}>
@@ -315,12 +305,13 @@ return (
                   <span className="field-error">{errors.branch}</span>
                 )}
               </div>
-
             </div>
 
             {/* FOOTER */}
             <div className="checkout-footer">
-              <button className="btn-cancel" onClick={() => navigate('/catalog')}>Скасувати</button>
+              <button className="btn-cancel" onClick={() => navigate('/catalog')}>
+                Скасувати
+              </button>
               <button
                 className="btn-pay"
                 disabled={!selectedDelivery || !formValid}
@@ -329,14 +320,13 @@ return (
                 Оплатити
               </button>
             </div>
-
           </div>
 
           {/* RIGHT */}
           <div className="checkout-right">
             {[
-              { name: "Рюкзак для походів NEO tools 30L", price: 460 },
-              { name: "Бездротова портативна Bluetooth колонка", price: 700 },
+              { name: 'Рюкзак для походів NEO tools 30L', price: 460 },
+              { name: 'Бездротова портативна Bluetooth колонка', price: 700 },
             ].map((item, idx) => (
               <div key={idx} className="product-summary-card">
                 <span className="badge">100% донату</span>
@@ -345,11 +335,10 @@ return (
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Checkout;
+export default Checkout

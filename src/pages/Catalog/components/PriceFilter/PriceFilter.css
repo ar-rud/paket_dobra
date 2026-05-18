@@ -51,6 +51,6 @@
   -webkit-appearance: none;
   margin: 0;
 }
-.PriceFilter-input[type="number"] {
+.PriceFilter-input[type='number'] {
   -moz-appearance: textfield;
 }

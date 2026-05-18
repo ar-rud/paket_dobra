@@ -1,6 +1,6 @@
 /**
  * Users Service
- * 
+ *
  * Handles all user-related operations:
  * - Fetch user profile by ID
  * - Update user profile
@@ -10,8 +10,8 @@
  * - Get user's orders
  */
 
-import apiCall from './api';
-import { getCurrentUserId } from './session';
+import apiCall from './api'
+import { getCurrentUserId } from './session'
 
 /**
  * Fetch a single user by ID.
@@ -19,11 +19,11 @@ import { getCurrentUserId } from './session';
  * @returns {Promise<object|null>}
  */
 export async function getUserById(userId) {
-	if (userId == null) {
-		throw new Error('getUserById: userId is required');
-	}
+  if (userId == null) {
+    throw new Error('getUserById: userId is required')
+  }
 
-	return apiCall(`/users/${userId}`);
+  return apiCall(`/users/${userId}`)
 }
 
 /**
@@ -31,10 +31,10 @@ export async function getUserById(userId) {
  * @returns {Promise<object|null>}
  */
 export async function getCurrentUserProfile() {
-	return getUserById(getCurrentUserId());
+  return getUserById(getCurrentUserId())
 }
 
 export default {
-	getUserById,
-	getCurrentUserProfile,
-};
+  getUserById,
+  getCurrentUserProfile,
+}

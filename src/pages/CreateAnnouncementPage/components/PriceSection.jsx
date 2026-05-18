@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import SectionCard from "./SectionCard.jsx";
-import chevronDown from "../../../assets/images/chevron-down.svg";
-import { getAllCurrencies } from "../../../services/currencies";
-import "./PriceSection.css";
+import { useEffect, useState } from 'react'
+import SectionCard from './SectionCard.jsx'
+import chevronDown from '../../../assets/images/chevron-down.svg'
+import { getAllCurrencies } from '../../../services/currencies'
+import './PriceSection.css'
 
-const donationValues = [15, 25, 50, 75, 100];
-const conditionValues = ["Нове", "Вживане", "Відновлене"];
+const donationValues = [15, 25, 50, 75, 100]
+const conditionValues = ['Нове', 'Вживане', 'Відновлене']
 
 export default function PriceSection({
   price,
@@ -17,28 +17,28 @@ export default function PriceSection({
   onDonationPercentChange,
   onConditionChange,
 }) {
-  const [currencies, setCurrencies] = useState([]);
+  const [currencies, setCurrencies] = useState([])
 
   useEffect(() => {
-    let cancelled = false;
+    let cancelled = false
 
     async function loadCurrencies() {
       try {
-        const data = await getAllCurrencies();
+        const data = await getAllCurrencies()
         if (!cancelled) {
-          setCurrencies(Array.isArray(data) ? data : []);
+          setCurrencies(Array.isArray(data) ? data : [])
         }
       } catch (error) {
-        console.error("Failed to load currencies:", error);
+        console.error('Failed to load currencies:', error)
       }
     }
 
-    loadCurrencies();
+    loadCurrencies()
 
     return () => {
-      cancelled = true;
-    };
-  }, []);
+      cancelled = true
+    }
+  }, [])
 
   return (
     <SectionCard
@@ -65,7 +65,7 @@ export default function PriceSection({
             />
             <span className="price-section__currency">
               <select
-                className={`price-section__currency-select ${currency ? "price-section__currency-select--selected" : ""}`}
+                className={`price-section__currency-select ${currency ? 'price-section__currency-select--selected' : ''}`}
                 value={currency}
                 onChange={(event) => onCurrencyChange(event.target.value)}
               >
@@ -76,7 +76,12 @@ export default function PriceSection({
                   </option>
                 ))}
               </select>
-              <img src={chevronDown} alt="" aria-hidden="true" className="price-section__currency-icon" />
+              <img
+                src={chevronDown}
+                alt=""
+                aria-hidden="true"
+                className="price-section__currency-icon"
+              />
             </span>
           </div>
         </div>
@@ -90,8 +95,8 @@ export default function PriceSection({
                 type="button"
                 className={
                   donationPercent != null && donationPercent === value
-                    ? "price-section__chip price-section__chip--active"
-                    : "price-section__chip"
+                    ? 'price-section__chip price-section__chip--active'
+                    : 'price-section__chip'
                 }
                 onClick={() => onDonationPercentChange(value)}
               >
@@ -110,8 +115,8 @@ export default function PriceSection({
                 type="button"
                 className={
                   condition && condition === value
-                    ? "price-section__chip price-section__chip--active"
-                    : "price-section__chip"
+                    ? 'price-section__chip price-section__chip--active'
+                    : 'price-section__chip'
                 }
                 onClick={() => onConditionChange(value)}
               >
@@ -122,5 +127,5 @@ export default function PriceSection({
         </div>
       </div>
     </SectionCard>
-  );
+  )
 }

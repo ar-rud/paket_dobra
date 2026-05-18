@@ -1,148 +1,148 @@
-import { useEffect, useRef, useState } from "react";
-import { useNavigate, useOutletContext } from "react-router";
-import HomeHeroSection from "../../components/HomeHeroSection/HomeHeroSection.jsx";
-import ImpactStatsSection from "../../components/ImpactStatsSection/ImpactStatsSection.jsx";
-import ProductCard from "../../components/ProductCard/ProductCard.jsx";
-import CampaignCard from "../../components/CampaignCard/CampaignCard.jsx";
-import MoreButton from "../../components/MoreButton/MoreButton.jsx";
-import LogoIcon from "../../assets/images/logo.svg?react";
-import { Link } from "react-router";
-import { getRandomCampaigns } from "../../services/campaigns.js";
-import "./HomePage.css";
+import { useEffect, useRef, useState } from 'react'
+import { useNavigate, useOutletContext } from 'react-router'
+import HomeHeroSection from '../../components/HomeHeroSection/HomeHeroSection.jsx'
+import ImpactStatsSection from '../../components/ImpactStatsSection/ImpactStatsSection.jsx'
+import ProductCard from '../../components/ProductCard/ProductCard.jsx'
+import CampaignCard from '../../components/CampaignCard/CampaignCard.jsx'
+import MoreButton from '../../components/MoreButton/MoreButton.jsx'
+import LogoIcon from '../../assets/images/logo.svg?react'
+import { Link } from 'react-router'
+import { getRandomCampaigns } from '../../services/campaigns.js'
+import './HomePage.css'
 
-import Footer from "../../components/Footer/Footer.jsx";
+import Footer from '../../components/Footer/Footer.jsx'
 
-import CatalogOverview from "../Catalog/components/CatalogOverview/CatalogOverview.jsx";
+import CatalogOverview from '../Catalog/components/CatalogOverview/CatalogOverview.jsx'
 
 const featuredProducts = [
   {
     id: 1,
-    imgUrl: "/src/assets/images/backpack.png",
-    name: "Рюкзак для походів NEO tools 30L",
-    price: "450",
+    imgUrl: '/src/assets/images/backpack.png',
+    name: 'Рюкзак для походів NEO tools 30L',
+    price: '450',
   },
   {
     id: 2,
-    imgUrl: "/src/assets/images/thermal-underwear.png",
-    name: "Комплект термобілизни ESDY чорний",
-    price: "700",
+    imgUrl: '/src/assets/images/thermal-underwear.png',
+    name: 'Комплект термобілизни ESDY чорний',
+    price: '700',
   },
   {
     id: 3,
-    imgUrl: "/src/assets/images/weights.png",
+    imgUrl: '/src/assets/images/weights.png',
     name: "Обтяжувачі для рук та ніг Sister's Aroma",
-    price: "400",
+    price: '400',
   },
   {
     id: 4,
-    imgUrl: "/src/assets/images/stickers.jpg",
-    name: "Дитячі кеди Liverpool Manchester фіолетові",
-    price: "350",
+    imgUrl: '/src/assets/images/stickers.jpg',
+    name: 'Дитячі кеди Liverpool Manchester фіолетові',
+    price: '350',
   },
-];
+]
 
 const fallbackSupportCampaigns = [
   {
     id: 1,
     title: "Рій помсти 24/7: б'ємо ворога вдень та вночі",
-    category: "Технічне забезпечення",
+    category: 'Технічне забезпечення',
     foundation: 'Фонд "Сергія Притули"',
     collected: 7568879,
     goal: 8000000,
     image:
-      "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1200&q=80",
+      'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 2,
-    title: "Зброєносці",
-    category: "Технічне забезпечення",
+    title: 'Зброєносці',
+    category: 'Технічне забезпечення',
     foundation: 'Фонд "Повернись живим"',
     collected: 7568879,
     goal: 7568879,
     image:
-      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
+      'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80',
   },
-];
+]
 
 export default function HomePage() {
-  const navigate = useNavigate();
-  const { handleCartOpen } = useOutletContext();
-  const [supportSlide, setSupportSlide] = useState(0);
-  const [dragOffset, setDragOffset] = useState(0);
-  const [supportCampaigns, setSupportCampaigns] = useState(fallbackSupportCampaigns);
+  const navigate = useNavigate()
+  const { handleCartOpen } = useOutletContext()
+  const [supportSlide, setSupportSlide] = useState(0)
+  const [dragOffset, setDragOffset] = useState(0)
+  const [supportCampaigns, setSupportCampaigns] = useState(fallbackSupportCampaigns)
   const dragStateRef = useRef({
     isDragging: false,
     startX: 0,
-  });
+  })
 
   useEffect(() => {
-    let isMounted = true;
+    let isMounted = true
 
     const loadSupportCampaigns = async () => {
       try {
-        const campaigns = await getRandomCampaigns(2);
+        const campaigns = await getRandomCampaigns(2)
 
-        if (!isMounted || campaigns.length === 0) return;
+        if (!isMounted || campaigns.length === 0) return
 
-        setSupportCampaigns(campaigns);
+        setSupportCampaigns(campaigns)
       } catch (error) {
-        console.error("Failed to load support campaigns:", error);
+        console.error('Failed to load support campaigns:', error)
       }
-    };
+    }
 
-    loadSupportCampaigns();
+    loadSupportCampaigns()
 
     return () => {
-      isMounted = false;
-    };
-  }, []);
+      isMounted = false
+    }
+  }, [])
 
   const handleSupportPointerDown = (event) => {
-    if (event.button !== 0) return;
+    if (event.button !== 0) return
 
-    event.preventDefault();
+    event.preventDefault()
 
     dragStateRef.current = {
       isDragging: true,
       startX: event.clientX,
-    };
-  };
+    }
+  }
 
   const handleSupportPointerMove = (event) => {
-    const dragState = dragStateRef.current;
+    const dragState = dragStateRef.current
 
-    if (!dragState.isDragging) return;
+    if (!dragState.isDragging) return
 
-    event.preventDefault();
-    setDragOffset(event.clientX - dragState.startX);
-  };
+    event.preventDefault()
+    setDragOffset(event.clientX - dragState.startX)
+  }
 
   const stopSupportDragging = () => {
-    if (!dragStateRef.current.isDragging) return;
+    if (!dragStateRef.current.isDragging) return
 
     if (dragOffset <= -80) {
-      setSupportSlide(1);
+      setSupportSlide(1)
     } else if (dragOffset >= 80) {
-      setSupportSlide(0);
+      setSupportSlide(0)
     }
 
-    dragStateRef.current.isDragging = false;
-    setDragOffset(0);
-  };
+    dragStateRef.current.isDragging = false
+    setDragOffset(0)
+  }
 
   const handleSupportWheel = (event) => {
     if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
-      return;
+      return
     }
 
-    event.preventDefault();
-    const delta = event.deltaX;
+    event.preventDefault()
+    const delta = event.deltaX
     setSupportSlide((currentSlide) => {
-      if (delta > 0) return 1;
-      if (delta < 0) return 0;
-      return currentSlide;
-    });
-  };
+      if (delta > 0) return 1
+      if (delta < 0) return 0
+      return currentSlide
+    })
+  }
   return (
     <main className="home-page">
       <HomeHeroSection onCartOpen={handleCartOpen} />
@@ -187,7 +187,10 @@ export default function HomePage() {
               onWheel={handleSupportWheel}
               onDragStart={(event) => event.preventDefault()}
             >
-              <article className="home-page__support-card home-page__support-card--intro" role="listitem">
+              <article
+                className="home-page__support-card home-page__support-card--intro"
+                role="listitem"
+              >
                 <div className="home-page__support-intro-top">
                   <h2 className="home-page__support-title">
                     <span>Потрібна ваша</span>
@@ -210,7 +213,10 @@ export default function HomePage() {
                 </div>
               ))}
 
-              <article className="home-page__support-card home-page__support-card--cta" role="listitem">
+              <article
+                className="home-page__support-card home-page__support-card--cta"
+                role="listitem"
+              >
                 <div className="home-page__support-card-content">
                   <h2 className="home-page__support-title home-page__support-title--cta">
                     <span>Не знайшли той,</span>
@@ -229,7 +235,7 @@ export default function HomePage() {
 
                 <MoreButton
                   className="home-page__support-btn"
-                  onClick={() => navigate("/donations")}
+                  onClick={() => navigate('/donations')}
                 >
                   Переглянути інші
                 </MoreButton>
@@ -239,5 +245,5 @@ export default function HomePage() {
         </div>
       </section>
     </main>
-  );
+  )
 }

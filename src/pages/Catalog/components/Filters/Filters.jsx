@@ -1,29 +1,26 @@
-import "./Filters.css";
-import FilterItem from "../FilterItem/FilterItem.jsx";
+import './Filters.css'
+import FilterItem from '../FilterItem/FilterItem.jsx'
 
 export default function Filters(props) {
   const onFilterChange = (filterName) => (event) => {
-    let updatedSearchParams;
+    let updatedSearchParams
     if (event.target.checked) {
-      updatedSearchParams = [
-        ...props.searchParams.getAll(filterName),
-        event.target.name,
-      ];
+      updatedSearchParams = [...props.searchParams.getAll(filterName), event.target.name]
     } else {
       updatedSearchParams = [...props.searchParams.getAll(filterName)].filter(
         (val) => val !== event.target.name,
-      );
+      )
     }
-    const newParams = new URLSearchParams(props.searchParams);
+    const newParams = new URLSearchParams(props.searchParams)
 
-    newParams.delete(filterName);
+    newParams.delete(filterName)
 
     updatedSearchParams.forEach((val) => {
-      newParams.append(filterName, val);
-    });
+      newParams.append(filterName, val)
+    })
 
-    props.setSearchParams(newParams);
-  };
+    props.setSearchParams(newParams)
+  }
 
   return (
     <section className="Filters-wrapper">
@@ -33,11 +30,11 @@ export default function Filters(props) {
           name="Категорія товарів"
           filterKey="type"
           type="checkbox-list"
-          onChange={onFilterChange("type")}
+          onChange={onFilterChange('type')}
           options={{
-            clothes: "Одяг",
-            equipment: "Спорядження",
-            other: "Інше",
+            clothes: 'Одяг',
+            equipment: 'Спорядження',
+            other: 'Інше',
           }}
           searchParams={props.searchParams}
         />
@@ -46,11 +43,11 @@ export default function Filters(props) {
           name="Тип послуг"
           filterKey="serviceType"
           type="checkbox-list"
-          onChange={onFilterChange("serviceType")}
+          onChange={onFilterChange('serviceType')}
           options={{
-            consultation: "Консультація",
-            training: "Тренування",
-            other: "Інше", // The new "Other" option
+            consultation: 'Консультація',
+            training: 'Тренування',
+            other: 'Інше', // The new "Other" option
           }}
           searchParams={props.searchParams}
         />
@@ -66,13 +63,13 @@ export default function Filters(props) {
           name="%, який піде на донат"
           filterKey="donationPercentage"
           type="checkbox-list"
-          onChange={onFilterChange("donationPercentage")}
+          onChange={onFilterChange('donationPercentage')}
           options={{
-            100: "100%",
-            75: "75%",
-            50: "50%",
-            25: "25%",
-            15: "15%",
+            100: '100%',
+            75: '75%',
+            50: '50%',
+            25: '25%',
+            15: '15%',
           }}
           searchParams={props.searchParams}
         />
@@ -81,11 +78,11 @@ export default function Filters(props) {
           name="Стан товару"
           filterKey="condition"
           type="checkbox-list"
-          onChange={onFilterChange("condition")}
+          onChange={onFilterChange('condition')}
           options={{
-            new: "Нове",
-            used: "Вживане",
-            restored: "Відновлене",
+            new: 'Нове',
+            used: 'Вживане',
+            restored: 'Відновлене',
           }}
           searchParams={props.searchParams}
         />
@@ -94,10 +91,10 @@ export default function Filters(props) {
           name="Завершення збору"
           filterKey="campaignStatus"
           type="checkbox-list"
-          onChange={onFilterChange("campaignStatus")}
+          onChange={onFilterChange('campaignStatus')}
           options={{
-            active: "Активні",
-            closed: "Завершені",
+            active: 'Активні',
+            closed: 'Завершені',
           }}
           searchParams={props.searchParams}
         />
@@ -106,11 +103,11 @@ export default function Filters(props) {
           name="Тип проєкту"
           filterKey="projectType"
           type="checkbox-list"
-          onChange={onFilterChange("projectType")}
+          onChange={onFilterChange('projectType')}
           options={{
-            tech: "Технічне забезпечення",
-            medicine: "Медицина",
-            transport: "Транспорт",
+            tech: 'Технічне забезпечення',
+            medicine: 'Медицина',
+            transport: 'Транспорт',
           }}
           searchParams={props.searchParams}
         />
@@ -119,12 +116,12 @@ export default function Filters(props) {
           name="Організація"
           filterKey="organization"
           type="checkbox-list"
-          onChange={onFilterChange("organization")}
+          onChange={onFilterChange('organization')}
           options={{
-            savelife: "Повернись живим",
-            prytula: "Фонд Притули",
-            dobrisertsya: "Добрі Серця", // Updated English key for clarity
-            none: "Без фонду",
+            savelife: 'Повернись живим',
+            prytula: 'Фонд Притули',
+            dobrisertsya: 'Добрі Серця', // Updated English key for clarity
+            none: 'Без фонду',
           }}
           searchParams={props.searchParams}
         />
@@ -133,17 +130,17 @@ export default function Filters(props) {
           name="Регіон"
           filterKey="region"
           type="checkbox-list"
-          onChange={onFilterChange("region")}
+          onChange={onFilterChange('region')}
           options={{
-            online: "Онлайн",
-            kyiv: "Київ",
-            lviv: "Львів",
-            odesa: "Одеса",
-            other: "Інше місто",
+            online: 'Онлайн',
+            kyiv: 'Київ',
+            lviv: 'Львів',
+            odesa: 'Одеса',
+            other: 'Інше місто',
           }}
           searchParams={props.searchParams}
         />
       </form>
     </section>
-  );
+  )
 }

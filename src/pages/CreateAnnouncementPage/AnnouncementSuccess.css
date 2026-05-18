@@ -27,11 +27,21 @@
   z-index: 1;
 }
 
-.tile-lime { background-color: #c9e13b; }
-.tile-lime-dark { background-color: #bed92a; }
-.tile-lime-light { background-color: #e4ee92; }
-.tile-khaki { background-color: #737e55; }
-.tile-gray { background-color: #b8c1b0; }
+.tile-lime {
+  background-color: #c9e13b;
+}
+.tile-lime-dark {
+  background-color: #bed92a;
+}
+.tile-lime-light {
+  background-color: #e4ee92;
+}
+.tile-khaki {
+  background-color: #737e55;
+}
+.tile-gray {
+  background-color: #b8c1b0;
+}
 
 .success-card {
   grid-column: 3 / 8;

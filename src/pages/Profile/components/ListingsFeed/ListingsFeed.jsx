@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
-import DashboardToolbar from '../DashboardToolbar/DashboardToolbar.jsx';
-import ListingCard from '../ListingCard/ListingCard.jsx';
-import PageSwitcher from '/src/components/PageSwitcher/PageSwitcher.jsx';
-import MoreButton from '/src/components/MoreButton/MoreButton.jsx';
-import ArrowDownIcon from '/src/assets/images/arrow_down.svg?react';
+import DashboardToolbar from '../DashboardToolbar/DashboardToolbar.jsx'
+import ListingCard from '../ListingCard/ListingCard.jsx'
+import PageSwitcher from '/src/components/PageSwitcher/PageSwitcher.jsx'
+import MoreButton from '/src/components/MoreButton/MoreButton.jsx'
+import ArrowDownIcon from '/src/assets/images/arrow_down.svg?react'
 
-import './ListingsFeed.css';
+import './ListingsFeed.css'
 
-const PAGE_SIZE = 4;
+const PAGE_SIZE = 4
 
 export default function ListingsFeed({
   tabs,
@@ -19,35 +19,35 @@ export default function ListingsFeed({
   messageIcon,
   deleteIcon,
 }) {
-  const totalItems = Array.isArray(cards) ? cards.length : 0;
-  const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+  const totalItems = Array.isArray(cards) ? cards.length : 0
+  const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE))
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pagesShown, setPagesShown] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1)
+  const [pagesShown, setPagesShown] = useState(1)
 
   useEffect(() => {
-    setCurrentPage(1);
-    setPagesShown(1);
-  }, [activeTabId, totalItems]);
+    setCurrentPage(1)
+    setPagesShown(1)
+  }, [activeTabId, totalItems])
 
   const handlePageChange = (page) => {
-    const clamped = Math.max(1, Math.min(page, totalPages));
-    setCurrentPage(clamped);
-    setPagesShown(1);
-  };
+    const clamped = Math.max(1, Math.min(page, totalPages))
+    setCurrentPage(clamped)
+    setPagesShown(1)
+  }
 
   const handleShowMore = () => {
     if (currentPage + pagesShown - 1 < totalPages) {
-      setPagesShown((prev) => prev + 1);
+      setPagesShown((prev) => prev + 1)
     }
-  };
+  }
 
-  const startIdx = (currentPage - 1) * PAGE_SIZE;
-  const endIdx = startIdx + pagesShown * PAGE_SIZE;
-  const itemsToRender = cards.slice(startIdx, endIdx);
+  const startIdx = (currentPage - 1) * PAGE_SIZE
+  const endIdx = startIdx + pagesShown * PAGE_SIZE
+  const itemsToRender = cards.slice(startIdx, endIdx)
 
-  const maxVisiblePage = currentPage + pagesShown - 1;
-  const canShowMore = maxVisiblePage < totalPages;
+  const maxVisiblePage = currentPage + pagesShown - 1
+  const canShowMore = maxVisiblePage < totalPages
 
   return (
     <section className="listings-feed">
@@ -74,10 +74,7 @@ export default function ListingsFeed({
         <div className="listings-feed__pagination">
           {canShowMore ? (
             <div className="listings-feed__more">
-              <MoreButton 
-                onClick={handleShowMore}
-                rightIcon={<ArrowDownIcon />}
-              >
+              <MoreButton onClick={handleShowMore} rightIcon={<ArrowDownIcon />}>
                 Показати ще
               </MoreButton>
             </div>
@@ -95,5 +92,5 @@ export default function ListingsFeed({
         </div>
       )}
     </section>
-  );
+  )
 }

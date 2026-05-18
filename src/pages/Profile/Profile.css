@@ -9,11 +9,11 @@
   --accent-muted-color: #9b9b9b;
   --profile-active-text-color: #121800;
   --profile-active-action-color: #273500;
-  --profile-inactive-text-color: #9D9D9D;
-  --profile-inactive-action-color: #9D9D9D;
+  --profile-inactive-text-color: #9d9d9d;
+  --profile-inactive-action-color: #9d9d9d;
   --profile-active-button-bg: #ffffff;
   --profile-inactive-button-bg: transparent;
-  --ps-accent-active: #FAFCEB;
+  --ps-accent-active: #fafceb;
   --ps-accent-muted: #535862;
   --more-button-text-color: #273500;
   --control-border-color: #d0d0d0;
@@ -34,22 +34,19 @@
   --profile-list-height: calc(var(--profile-card-height) * var(--profile-visible-cards));
 
   --profile-sidebar-height: calc(
-    var(--profile-banner-overlap) +
-    var(--profile-listings-offset) +
-    var(--profile-toolbar-height) +
-    var(--profile-list-height)
+    var(--profile-banner-overlap) + var(--profile-listings-offset) + var(--profile-toolbar-height) +
+      var(--profile-list-height)
   );
 
   --profile-breadcrumbs-offset: calc(
     (
-      var(--hero-banner-min-height) +
-      var(--profile-hero-inner-padding-top) +
-      var(--profile-hero-inner-padding-bottom) +
-      var(--profile-banner-gap) -
-      var(--profile-banner-overlap)
-    ) / 2
+        var(--hero-banner-min-height) + var(--profile-hero-inner-padding-top) +
+          var(--profile-hero-inner-padding-bottom) + var(--profile-banner-gap) -
+          var(--profile-banner-overlap)
+      ) /
+      2
   );
-  
+
   --profile-hover-bg: color-mix(in srgb, var(--color-hover-primary) 10%, transparent);
 }
 
@@ -189,7 +186,7 @@
     padding: 0 4vw;
     box-sizing: border-box;
   }
-  
+
   .profile-page__hero .hero-banner__inner {
     width: 100%;
     padding: 4vw 0 6vw;

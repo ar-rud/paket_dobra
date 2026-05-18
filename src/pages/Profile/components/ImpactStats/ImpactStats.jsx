@@ -1,14 +1,9 @@
-import './ImpactStats.css';
-import { generateGraphPaths } from '../../services/generateGraphPaths';
+import './ImpactStats.css'
+import { generateGraphPaths } from '../../services/generateGraphPaths'
 
-export default function ImpactStats({
-  title,
-  value,
-  arrowIcon,
-  dataPoints = [],
-}) {
-  const { linePath, areaPath } = generateGraphPaths(dataPoints);
-  const hasData = dataPoints.length > 1;
+export default function ImpactStats({ title, value, arrowIcon, dataPoints = [] }) {
+  const { linePath, areaPath } = generateGraphPaths(dataPoints)
+  const hasData = dataPoints.length > 1
 
   return (
     <div className="profile-impact-stats">
@@ -35,10 +30,10 @@ export default function ImpactStats({
               <path d={linePath} fill="none" stroke="#bfcd2d" strokeWidth="2" />
             </svg>
           ) : (
-             <div className="profile-impact-stats__no-data">Немає даних</div>
+            <div className="profile-impact-stats__no-data">Немає даних</div>
           )}
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -422,7 +422,8 @@
   }
 
   .home-page__support-intro-bottom {
-    padding: clamp(10px, 1.1vw, 16px) clamp(28px, 3vw, 40px) clamp(36px, 3.8vw, 48px) clamp(40px, 4vw, 54px);
+    padding: clamp(10px, 1.1vw, 16px) clamp(28px, 3vw, 40px) clamp(36px, 3.8vw, 48px)
+      clamp(40px, 4vw, 54px);
   }
 
   .home-page__support-title {
@@ -450,7 +451,6 @@
     font-size: clamp(22px, 5.6cqi, 28px);
   }
 }
-
 
 .home-page__support-card > .campaign-card {
   height: 100%;
@@ -523,7 +523,10 @@
     --support-gap: 16px;
     --support-side-pad: 24px;
     --support-peek: 72px;
-    --support-card-width: min(360px, calc((100vw - var(--support-side-pad) - var(--support-peek) - var(--support-gap)) / 2));
+    --support-card-width: min(
+      360px,
+      calc((100vw - var(--support-side-pad) - var(--support-peek) - var(--support-gap)) / 2)
+    );
     --support-card-height: calc(var(--support-card-width) * 595 / 424);
   }
 

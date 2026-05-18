@@ -6,7 +6,7 @@
   --accent-color: #6b6b6b;
   --accent-contrast-color: #1f1f1f;
   --accent-muted-color: #9b9b9b;
-  --ps-accent-active: #FAFCEB;
+  --ps-accent-active: #fafceb;
   --ps-accent-muted: #535862;
   --more-button-text-color: #273500;
 }
@@ -21,7 +21,7 @@
 
 .reports-section__title {
   margin: 0;
-  color: #2B3A00;
+  color: #2b3a00;
   font-size: 18px;
   line-height: 1.2;
   font-weight: 500;
@@ -31,7 +31,7 @@
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  color: #2B3A00;
+  color: #2b3a00;
   font-size: 13px;
   line-height: 1.2;
   font-weight: 400;

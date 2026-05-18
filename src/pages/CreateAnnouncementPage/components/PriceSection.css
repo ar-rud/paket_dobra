@@ -83,7 +83,7 @@
   margin: 0;
 }
 
-.price-section__price-input[type="number"] {
+.price-section__price-input[type='number'] {
   -moz-appearance: textfield;
 }
 

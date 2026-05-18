@@ -108,7 +108,9 @@
     width: calc(100% - 24px);
   }
 
-  .breadcrumbs { --breadcrumbs-font-size: 14px; }
+  .breadcrumbs {
+    --breadcrumbs-font-size: 14px;
+  }
 
   .breadcrumbs__separator {
     width: 22px;

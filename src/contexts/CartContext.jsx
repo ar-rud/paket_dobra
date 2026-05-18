@@ -1,32 +1,29 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from 'react'
 
-
-const CartContext = createContext(null);
+const CartContext = createContext(null)
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(() => {
-    const saved = localStorage.getItem("cart");
-    return saved ? JSON.parse(saved) : [];
-  });
+    const saved = localStorage.getItem('cart')
+    return saved ? JSON.parse(saved) : []
+  })
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(items));
-  }, [items]);
+    localStorage.setItem('cart', JSON.stringify(items))
+  }, [items])
 
   const addItem = (product) => {
     setItems((prev) => {
-      if (prev.find((i) => i.id === product.id)) return prev; // не дублювати
-      return [...prev, product];
-    });
-  };
+      if (prev.find((i) => i.id === product.id)) return prev // не дублювати
+      return [...prev, product]
+    })
+  }
 
-  const removeItem = (id) => setItems((prev) => prev.filter((i) => i.id !== id));
+  const removeItem = (id) => setItems((prev) => prev.filter((i) => i.id !== id))
 
   return (
-    <CartContext.Provider value={{ items, addItem, removeItem }}>
-      {children}
-    </CartContext.Provider>
-  );
+    <CartContext.Provider value={{ items, addItem, removeItem }}>{children}</CartContext.Provider>
+  )
 }
 
-export const useCart = () => useContext(CartContext);
+export const useCart = () => useContext(CartContext)

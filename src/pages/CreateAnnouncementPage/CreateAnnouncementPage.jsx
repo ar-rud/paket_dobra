@@ -1,57 +1,57 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
-import BasicDataSection from "./components/BasicDataSection.jsx";
-import PhotoSection from "./components/PhotoSection.jsx";
-import PriceSection from "./components/PriceSection.jsx";
-import DescriptionSection from "./components/DescriptionSection.jsx";
-import DonationHelpSection from "./components/DonationHelpSection.jsx";
-import MoreButton from "../../components/MoreButton/MoreButton.jsx";
-import "./CreateAnnouncementPage.css";
-import { saveProduct, deleteProduct } from "../../services/products";
-import { getCurrentUserProfile } from "../../services/users";
+import { useState } from 'react'
+import { useNavigate } from 'react-router'
+import BasicDataSection from './components/BasicDataSection.jsx'
+import PhotoSection from './components/PhotoSection.jsx'
+import PriceSection from './components/PriceSection.jsx'
+import DescriptionSection from './components/DescriptionSection.jsx'
+import DonationHelpSection from './components/DonationHelpSection.jsx'
+import MoreButton from '../../components/MoreButton/MoreButton.jsx'
+import './CreateAnnouncementPage.css'
+import { saveProduct, deleteProduct } from '../../services/products'
+import { getCurrentUserProfile } from '../../services/users'
 
-const DEFAULT_LOCATION = "";
+const DEFAULT_LOCATION = ''
 
 function normalizeCondition(condition) {
   const map = {
-    "Нове": "Новий",
-    "Вживане": "Вживаний",
-    "Відновлене": "Відновлений",
-  };
+    Нове: 'Новий',
+    Вживане: 'Вживаний',
+    Відновлене: 'Відновлений',
+  }
 
-  return map[condition] || condition || null;
+  return map[condition] || condition || null
 }
 
 export default function CreateAnnouncementPage() {
-  const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("");
-  const [currency, setCurrency] = useState("");
-  const [donationPercent, setDonationPercent] = useState(null);
-  const [condition, setCondition] = useState("");
-  const [description, setDescription] = useState("");
-  const [donateToFund, setDonateToFund] = useState(false);
-  const [selectedOrganization, setSelectedOrganization] = useState("");
+  const navigate = useNavigate()
+  const [name, setName] = useState('')
+  const [category, setCategory] = useState('')
+  const [price, setPrice] = useState('')
+  const [currency, setCurrency] = useState('')
+  const [donationPercent, setDonationPercent] = useState(null)
+  const [condition, setCondition] = useState('')
+  const [description, setDescription] = useState('')
+  const [donateToFund, setDonateToFund] = useState(false)
+  const [selectedOrganization, setSelectedOrganization] = useState('')
 
-  const [images, setImages] = useState([]);
-  const [draftId, setDraftId] = useState(null);
-  const [submittingStatus, setSubmittingStatus] = useState(null);
+  const [images, setImages] = useState([])
+  const [draftId, setDraftId] = useState(null)
+  const [submittingStatus, setSubmittingStatus] = useState(null)
 
   const isFormComplete =
     name.trim().length > 0 &&
-    category !== "" &&
+    category !== '' &&
     Number(price) >= 1 &&
-    currency !== "" &&
+    currency !== '' &&
     donationPercent != null &&
-    condition !== "" &&
+    condition !== '' &&
     description.trim().length > 0 &&
     images.filter(Boolean).length > 0 &&
-    (!donateToFund || selectedOrganization !== "");
+    (!donateToFund || selectedOrganization !== '')
 
   async function buildProductPayload(status) {
-    const currentUser = await getCurrentUserProfile();
-    const normalizedImages = images.filter(Boolean);
+    const currentUser = await getCurrentUserProfile()
+    const normalizedImages = images.filter(Boolean)
 
     return {
       id: draftId ?? undefined,
@@ -73,29 +73,29 @@ export default function CreateAnnouncementPage() {
       createdAt: new Date().toISOString(),
       donateToFund: donateToFund || false,
       organizationId: donateToFund ? selectedOrganization || null : null,
-    };
+    }
   }
 
   async function handleSave(status) {
     if (!isFormComplete) {
-      return;
+      return
     }
 
     try {
-      setSubmittingStatus(status);
-      const product = await buildProductPayload(status);
-      const result = await saveProduct(product);
-      const savedProductId = result.id ?? result?.product?.id ?? null;
-      setDraftId(savedProductId);
-      if (status === "ACTIVE") {
-        navigate("/announcement-success", {
+      setSubmittingStatus(status)
+      const product = await buildProductPayload(status)
+      const result = await saveProduct(product)
+      const savedProductId = result.id ?? result?.product?.id ?? null
+      setDraftId(savedProductId)
+      if (status === 'ACTIVE') {
+        navigate('/announcement-success', {
           state: { announcementId: savedProductId },
-        });
+        })
       }
     } catch (err) {
-      console.error(`Save product with status ${status} failed`, err);
+      console.error(`Save product with status ${status} failed`, err)
     } finally {
-      setSubmittingStatus(null);
+      setSubmittingStatus(null)
     }
   }
 
@@ -124,10 +124,7 @@ export default function CreateAnnouncementPage() {
           onConditionChange={setCondition}
         />
 
-        <DescriptionSection
-          description={description}
-          onDescriptionChange={setDescription}
-        />
+        <DescriptionSection description={description} onDescriptionChange={setDescription} />
 
         <DonationHelpSection
           donateToFund={donateToFund}
@@ -142,7 +139,7 @@ export default function CreateAnnouncementPage() {
           <MoreButton
             className="create-announcement-page__action create-announcement-page__action--draft"
             disabled={submittingStatus !== null || !isFormComplete}
-            onClick={() => handleSave("DRAFT")}
+            onClick={() => handleSave('DRAFT')}
           >
             Зберегти чернетку
           </MoreButton>
@@ -152,12 +149,12 @@ export default function CreateAnnouncementPage() {
             onClick={async () => {
               try {
                 if (draftId) {
-                  await deleteProduct(draftId);
-                  setDraftId(null);
+                  await deleteProduct(draftId)
+                  setDraftId(null)
                 }
-                navigate(-1);
+                navigate(-1)
               } catch (err) {
-                console.error('Cancel / delete draft failed', err);
+                console.error('Cancel / delete draft failed', err)
               }
             }}
           >
@@ -169,11 +166,11 @@ export default function CreateAnnouncementPage() {
           variant="primary"
           className="create-announcement-page__action create-announcement-page__action--publish create-announcement-page__action--primary"
           disabled={submittingStatus !== null || !isFormComplete}
-          onClick={() => handleSave("ACTIVE")}
+          onClick={() => handleSave('ACTIVE')}
         >
           Опублікувати
         </MoreButton>
       </div>
     </div>
-  );
+  )
 }

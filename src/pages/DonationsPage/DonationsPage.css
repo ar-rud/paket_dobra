@@ -92,8 +92,8 @@
   }
 
   .donations-page__filters-strip {
-  padding: 18px 28px;
-}
+    padding: 18px 28px;
+  }
 
   .donations-page {
     --donations-shell-width: min(100% - 48px, 1440px);
@@ -118,8 +118,8 @@
   }
 
   .donations-page__filters-strip {
-  padding: 18px 16px;
-}
+    padding: 18px 16px;
+  }
 
   .donations-page {
     --donations-shell-width: min(100% - 24px, 1440px);

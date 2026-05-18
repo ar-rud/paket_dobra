@@ -1,23 +1,29 @@
-import React from "react";
-import "./Success.css";
+import React from 'react'
+import './Success.css'
 
 const Success = () => {
   return (
     <div className="success-page-container">
       {/* КНОПКА ПОВЕРНЕННЯ, ЯКУ Я ЗАБУВ */}
       <button className="back-to-home-btn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
           <polyline points="15 18 9 12 15 6" />
         </svg>
         На головну
       </button>
 
       <div className="grid-mosaic-container">
-        
         {/* Вушка серця, що частково ховаються під хедер */}
         <div className="tile tile-lime" style={{ gridColumn: 3, gridRow: 1 }}></div>
         <div className="tile tile-khaki" style={{ gridColumn: 7, gridRow: 1 }}></div>
-        
+
         {/* Ряд 2 */}
         <div className="tile tile-lime" style={{ gridColumn: 2, gridRow: 2 }}></div>
         <div className="tile tile-lime-dark" style={{ gridColumn: 3, gridRow: 2 }}></div>
@@ -25,7 +31,7 @@ const Success = () => {
         <div className="tile tile-lime" style={{ gridColumn: 6, gridRow: 2 }}></div>
         <div className="tile tile-khaki" style={{ gridColumn: 7, gridRow: 2 }}></div>
         <div className="tile tile-khaki" style={{ gridColumn: 8, gridRow: 2 }}></div>
-        
+
         {/* Ряд 3 */}
         <div className="tile tile-lime-light" style={{ gridColumn: 1, gridRow: 3 }}></div>
         <div className="tile tile-lime-light" style={{ gridColumn: 2, gridRow: 3 }}></div>
@@ -40,31 +46,33 @@ const Success = () => {
         <div className="tile tile-gray" style={{ gridColumn: 4, gridRow: 6 }}></div>
         <div className="tile tile-gray" style={{ gridColumn: 5, gridRow: 6 }}></div>
         <div className="tile tile-gray" style={{ gridColumn: 6, gridRow: 6 }}></div>
-        
+
         {/* Ряд 6 */}
         <div className="tile tile-gray" style={{ gridColumn: 5, gridRow: 7 }}></div>
 
         {/* Білий контейнер на 5 квадратів */}
         <div className="success-card">
           <h1 className="success-title">Оплата пройшла успішно!</h1>
-          
+
           <p className="success-message">
             Ми щиро вдячні вам за підтримку. Кожна гривня важлива та сприяє змінам!
           </p>
 
           <div className="email-form-container">
-            <p className="email-label">
-              Введіть пошту, якщо бажаєте отримати звіт з цієї покупки
-            </p>
+            <p className="email-label">Введіть пошту, якщо бажаєте отримати звіт з цієї покупки</p>
 
             <div className="email-section">
               <div className="input-wrapper">
-                <input
-                  type="email"
-                  placeholder="✉ Email address"
-                  className="email-input"
-                />
-                <svg className="chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <input type="email" placeholder="✉ Email address" className="email-input" />
+                <svg
+                  className="chevron-icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </div>
@@ -72,10 +80,9 @@ const Success = () => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Success;
+export default Success

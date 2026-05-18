@@ -1,50 +1,49 @@
-import React, { useState } from "react";
-import "../Payment/Payment.css";
-import "../Payment/Payment.jsx";
-import "./CardPayment.css";
-import { useNavigate } from 'react-router';
+import React, { useState } from 'react'
+import '../Payment/Payment.css'
+import '../Payment/Payment.jsx'
+import './CardPayment.css'
+import { useNavigate } from 'react-router'
 
 const CardPayment = ({ onNext, onBack }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiry, setExpiry] = useState('');
-  const [cvv, setCvv] = useState('');
+  const [cardNumber, setCardNumber] = useState('')
+  const [expiry, setExpiry] = useState('')
+  const [cvv, setCvv] = useState('')
 
   const handleCardNumber = (e) => {
-    const v = e.target.value.replace(/\D/g, '').slice(0, 16);
-    setCardNumber(v.match(/.{1,4}/g)?.join(' ') || v);
-  };
+    const v = e.target.value.replace(/\D/g, '').slice(0, 16)
+    setCardNumber(v.match(/.{1,4}/g)?.join(' ') || v)
+  }
 
   const handleCardKeyDown = (e) => {
     if (e.key === 'Backspace' && cardNumber.endsWith(' ')) {
-      e.preventDefault();
-      setCardNumber(prev => prev.slice(0, -2));
+      e.preventDefault()
+      setCardNumber((prev) => prev.slice(0, -2))
     }
-  };
+  }
 
   const handleExpiry = (e) => {
-    let raw = e.target.value.replace(/\D/g, '').slice(0, 4);
-    if (!raw) { setExpiry(''); return; }
-    let mm = raw.slice(0, 2);
-    if (parseInt(mm[0]) > 1) mm = '0' + mm[0];
-    if (mm.length === 2 && parseInt(mm) > 12) mm = '12';
-    setExpiry(raw.length > 2 ? mm + '/' + raw.slice(2) : mm);
-  };
+    let raw = e.target.value.replace(/\D/g, '').slice(0, 4)
+    if (!raw) {
+      setExpiry('')
+      return
+    }
+    let mm = raw.slice(0, 2)
+    if (parseInt(mm[0]) > 1) mm = '0' + mm[0]
+    if (mm.length === 2 && parseInt(mm) > 12) mm = '12'
+    setExpiry(raw.length > 2 ? mm + '/' + raw.slice(2) : mm)
+  }
 
   const handleExpiryKeyDown = (e) => {
     if (e.key === 'Backspace' && expiry.endsWith('/')) {
-      e.preventDefault();
-      setExpiry(prev => prev.slice(0, -1));
+      e.preventDefault()
+      setExpiry((prev) => prev.slice(0, -1))
     }
-  };
-
-
+  }
 
   const isFormValid =
-    cardNumber.replace(/\s/g, '').length === 16 &&
-    expiry.length === 5 &&
-    cvv.length === 3;
+    cardNumber.replace(/\s/g, '').length === 16 && expiry.length === 5 && cvv.length === 3
 
   return (
     <div className="page-wrapper">
@@ -96,7 +95,6 @@ const CardPayment = ({ onNext, onBack }) => {
                     onChange={(e) => setCvv(e.target.value.replace(/\D/g, '').slice(0, 3))}
                     maxLength={3}
                   />
-
                 </div>
               </div>
 
@@ -107,7 +105,9 @@ const CardPayment = ({ onNext, onBack }) => {
             </div>
 
             <div className="payment-footer">
-              <button className="btn-cancel" onClick={() => navigate('/payment')}>Скасувати</button>
+              <button className="btn-cancel" onClick={() => navigate('/payment')}>
+                Скасувати
+              </button>
               <button
                 className="btn-pay"
                 disabled={!isFormValid}
@@ -115,7 +115,6 @@ const CardPayment = ({ onNext, onBack }) => {
               >
                 Оплатити
               </button>
-
             </div>
           </div>
 
@@ -132,7 +131,7 @@ const CardPayment = ({ onNext, onBack }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CardPayment;
+export default CardPayment

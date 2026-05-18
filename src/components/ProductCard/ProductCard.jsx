@@ -1,17 +1,17 @@
-import "./ProductCard.css";
+import './ProductCard.css'
 
-import MoreButton from "/src/components/MoreButton/MoreButton.jsx";
-import BasketButton from "/src/components/BasketButton/BasketButton.jsx";
+import MoreButton from '/src/components/MoreButton/MoreButton.jsx'
+import BasketButton from '/src/components/BasketButton/BasketButton.jsx'
 
-import { useNavigate } from "react-router";
+import { useNavigate } from 'react-router'
 
-import floatToCurrency from "/src/helpers/floatToCurrency.js";
-import urlToFileName from "/src/helpers/urlToFileName.js";
-import DonationPercent from "/src/components/DonationPercent/DonationPercent.jsx";
+import floatToCurrency from '/src/helpers/floatToCurrency.js'
+import urlToFileName from '/src/helpers/urlToFileName.js'
+import DonationPercent from '/src/components/DonationPercent/DonationPercent.jsx'
 
 export default function ProductCard(props) {
-  const navigate = useNavigate();
-  const goToProduct = () => navigate(`/catalog/${props.category}/${props.id}`);
+  const navigate = useNavigate()
+  const goToProduct = () => navigate(`/catalog/${props.category}/${props.id}`)
   return (
     <div className="ProductCard-container">
       {/* <ProductInfo
@@ -28,23 +28,19 @@ export default function ProductCard(props) {
             src={props.imgUrl}
             alt={props.alt ? props.alt : urlToFileName(props.imgUrl)}
           />
-          <DonationPercent
-            percentNumber={props.percentNumber}
-          ></DonationPercent>
+          <DonationPercent percentNumber={props.percentNumber}></DonationPercent>
         </div>
         <section className="ProductInfo-section">
           <p className="ProductInfo-name">{props.name}</p>
-          <p className="ProductInfo-price">
-            Від {floatToCurrency(props.price)} грн
-          </p>
+          <p className="ProductInfo-price">Від {floatToCurrency(props.price)} грн</p>
         </section>
       </div>
       <div className="ProductCard-buttons">
         <MoreButton
           style={{
-            boxSizing: "border-box",
-            maxWidth: "200px",
-            width: "100%",
+            boxSizing: 'border-box',
+            maxWidth: '200px',
+            width: '100%',
           }}
           onClick={goToProduct}
         >
@@ -53,5 +49,5 @@ export default function ProductCard(props) {
         <BasketButton></BasketButton>
       </div>
     </div>
-  );
+  )
 }

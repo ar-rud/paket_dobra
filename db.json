@@ -109,15 +109,8 @@
         "Матеріал": "Водонепроникна нейлонова тканина",
         "Особливості": "Багато кишень, відділ для гідратора"
       },
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта",
-        "Самовивіз"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)",
-        "Оплата при отриманні"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта", "Самовивіз"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)", "Оплата при отриманні"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-10T08:00:00Z",
       "type": "equipment",
@@ -142,12 +135,8 @@
         "Матеріал": "Кераміка",
         "Особливості": "Ручна робота, можна мити в ПМ"
       },
-      "shippingMethods": [
-        "Нова Пошта"
-      ],
-      "paymentMethods": [
-        "Повна передплата"
-      ],
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Повна передплата"],
       "linkedCampaignId": 201,
       "createdAt": "2024-11-12T10:30:00Z",
       "type": "other",
@@ -171,14 +160,8 @@
         "Матеріал": "Дерево",
         "Вік": "Від 1 року"
       },
-      "shippingMethods": [
-        "Укрпошта",
-        "Самовивіз"
-      ],
-      "paymentMethods": [
-        "Готівка",
-        "Безпечна оплата на сайті"
-      ],
+      "shippingMethods": ["Укрпошта", "Самовивіз"],
+      "paymentMethods": ["Готівка", "Безпечна оплата на сайті"],
       "linkedCampaignId": null,
       "createdAt": "2024-10-20T14:15:00Z",
       "type": "other",
@@ -215,20 +198,14 @@
       "price": 700,
       "currency": "грн",
       "donationPercentage": 20,
-      "images": [
-        "/uploads/products/item_painting.png"
-      ],
+      "images": ["/uploads/products/item_painting.png"],
       "status": "ACTIVE",
       "categoryId": 7,
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта"
-      ],
-      "paymentMethods": [
-        "Повна передплата"
-      ],
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Повна передплата"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-01T09:00:00Z",
       "type": "other",
@@ -243,20 +220,14 @@
       "price": 230,
       "currency": "грн",
       "donationPercentage": 10,
-      "images": [
-        "/uploads/products/item_paintbrush.png"
-      ],
+      "images": ["/uploads/products/item_paintbrush.png"],
       "status": "DRAFT",
       "categoryId": 7,
       "condition": "new",
       "location": "м. Львів",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою"
-      ],
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Онлайн-оплата карткою"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-05T12:00:00Z",
       "type": "equipment",
@@ -271,20 +242,14 @@
       "price": 350,
       "currency": "грн",
       "donationPercentage": 5,
-      "images": [
-        "/uploads/products/item_massage_ball.png"
-      ],
+      "images": ["/uploads/products/item_massage_ball.png"],
       "status": "SOLD",
       "categoryId": 2,
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Готівка"
-      ],
+      "shippingMethods": ["Укрпошта"],
+      "paymentMethods": ["Готівка"],
       "linkedCampaignId": null,
       "createdAt": "2024-10-20T14:15:00Z",
       "type": "equipment",
@@ -299,20 +264,14 @@
       "price": 1200,
       "currency": "грн",
       "donationPercentage": 0,
-      "images": [
-        "/uploads/products/item_sport_suite.png"
-      ],
+      "images": ["/uploads/products/item_sport_suite.png"],
       "status": "SOLD",
       "categoryId": 3,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Самовивіз"
-      ],
-      "paymentMethods": [
-        "Готівка"
-      ],
+      "shippingMethods": ["Самовивіз"],
+      "paymentMethods": ["Готівка"],
       "linkedCampaignId": null,
       "createdAt": "2024-10-21T11:00:00Z",
       "type": "clothes",
@@ -327,20 +286,14 @@
       "price": 450,
       "currency": "грн",
       "donationPercentage": 0,
-      "images": [
-        "/uploads/products/item_lamp.png"
-      ],
+      "images": ["/uploads/products/item_lamp.png"],
       "status": "SOLD",
       "categoryId": 1,
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою"
-      ],
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Онлайн-оплата карткою"],
       "linkedCampaignId": null,
       "createdAt": "2024-10-22T16:30:00Z",
       "type": "other",
@@ -355,21 +308,14 @@
       "price": 400,
       "currency": "грн",
       "donationPercentage": 25,
-      "images": [
-        "/src/assets/images/weights.png"
-      ],
+      "images": ["/src/assets/images/weights.png"],
       "status": "ACTIVE",
       "categoryId": 6,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "equipment",
@@ -384,21 +330,14 @@
       "price": 700,
       "currency": "грн",
       "donationPercentage": 75,
-      "images": [
-        "/src/assets/images/thermal-underwear.png"
-      ],
+      "images": ["/src/assets/images/thermal-underwear.png"],
       "status": "ACTIVE",
       "categoryId": 6,
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "clothes",
@@ -413,21 +352,14 @@
       "price": 62,
       "currency": "грн",
       "donationPercentage": 25,
-      "images": [
-        "/src/assets/images/cubes.png"
-      ],
+      "images": ["/src/assets/images/cubes.png"],
       "status": "ACTIVE",
       "categoryId": 6,
       "condition": "restored",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "other",
@@ -442,21 +374,14 @@
       "price": 650,
       "currency": "грн",
       "donationPercentage": 15,
-      "images": [
-        "/src/assets/images/candles.png"
-      ],
+      "images": ["/src/assets/images/candles.png"],
       "status": "ACTIVE",
       "categoryId": 6,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "other",
@@ -471,21 +396,14 @@
       "price": 250,
       "currency": "грн",
       "donationPercentage": 100,
-      "images": [
-        "/src/assets/images/stickers.jpg"
-      ],
+      "images": ["/src/assets/images/stickers.jpg"],
       "status": "ACTIVE",
       "categoryId": 6,
       "condition": "restored",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "other",
@@ -500,21 +418,14 @@
       "price": 50000,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/zinchenko_football.jpg"
-      ],
+      "images": ["/src/assets/images/zinchenko_football.jpg"],
       "status": "ACTIVE",
       "categoryId": 6,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "equipment",
@@ -529,21 +440,14 @@
       "price": 100,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/vector.svg"
-      ],
+      "images": ["/src/assets/images/vector.svg"],
       "status": "ACTIVE",
       "categoryId": 1,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
@@ -558,21 +462,14 @@
       "price": 100,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/vector.svg"
-      ],
+      "images": ["/src/assets/images/vector.svg"],
       "status": "ACTIVE",
       "categoryId": 2,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
@@ -587,21 +484,14 @@
       "price": 100,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/vector.svg"
-      ],
+      "images": ["/src/assets/images/vector.svg"],
       "status": "ACTIVE",
       "categoryId": 3,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
@@ -616,21 +506,14 @@
       "price": 100,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/vector.svg"
-      ],
+      "images": ["/src/assets/images/vector.svg"],
       "status": "ACTIVE",
       "categoryId": 4,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
@@ -645,21 +528,14 @@
       "price": 100,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/vector.svg"
-      ],
+      "images": ["/src/assets/images/vector.svg"],
       "status": "ACTIVE",
       "categoryId": 5,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
@@ -674,21 +550,14 @@
       "price": 100,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/vector.svg"
-      ],
+      "images": ["/src/assets/images/vector.svg"],
       "status": "ACTIVE",
       "categoryId": 6,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
@@ -703,21 +572,14 @@
       "price": 100,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/vector.svg"
-      ],
+      "images": ["/src/assets/images/vector.svg"],
       "status": "ACTIVE",
       "categoryId": 7,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
@@ -732,21 +594,14 @@
       "price": 100,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/vector.svg"
-      ],
+      "images": ["/src/assets/images/vector.svg"],
       "status": "ACTIVE",
       "categoryId": 8,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
@@ -761,21 +616,14 @@
       "price": 100,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/vector.svg"
-      ],
+      "images": ["/src/assets/images/vector.svg"],
       "status": "ACTIVE",
       "categoryId": 9,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
@@ -790,21 +638,14 @@
       "price": 100,
       "currency": "грн",
       "donationPercentage": 50,
-      "images": [
-        "/src/assets/images/vector.svg"
-      ],
+      "images": ["/src/assets/images/vector.svg"],
       "status": "ACTIVE",
       "categoryId": 10,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою (Visa/MasterCard)"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
@@ -1091,11 +932,7 @@
     {
       "id": 1001,
       "buyerId": 2,
-      "items": [
-        101,
-        102,
-        103
-      ],
+      "items": [101, 102, 103],
       "campaignId": 201,
       "totalAmount": 450,
       "createdAt": "2024-11-16T10:00:00Z"
@@ -1103,11 +940,7 @@
     {
       "id": 1002,
       "buyerId": 1,
-      "items": [
-        107,
-        108,
-        109
-      ],
+      "items": [107, 108, 109],
       "campaignId": null,
       "totalAmount": 2000,
       "createdAt": "2024-10-21T09:00:00Z"

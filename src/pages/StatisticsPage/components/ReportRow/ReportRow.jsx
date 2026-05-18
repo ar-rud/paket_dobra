@@ -1,10 +1,10 @@
-import "./ReportRow.css";
-import DownloadIcon from "../../images/download_icon.svg?react";
-import { buildReportDownloadUrl, buildReportPreviewUrl } from "../../../../services/reports.js";
+import './ReportRow.css'
+import DownloadIcon from '../../images/download_icon.svg?react'
+import { buildReportDownloadUrl, buildReportPreviewUrl } from '../../../../services/reports.js'
 
 export default function ReportRow({ title, type, driveFileId }) {
-  const downloadUrl = buildReportDownloadUrl(driveFileId);
-  const previewUrl = buildReportPreviewUrl(driveFileId);
+  const downloadUrl = buildReportDownloadUrl(driveFileId)
+  const previewUrl = buildReportPreviewUrl(driveFileId)
 
   return (
     <article className="report-row" role="listitem">
@@ -33,5 +33,5 @@ export default function ReportRow({ title, type, driveFileId }) {
         </a>
       </div>
     </article>
-  );
+  )
 }

@@ -26,7 +26,7 @@
   font-size: 24px;
   line-height: 1.22;
   font-weight: 700;
-  font-family: "e-Ukraine", sans-serif;
+  font-family: 'e-Ukraine', sans-serif;
   color: #1e2a00;
 }
 
@@ -63,7 +63,7 @@
 
 .hero__right::before,
 .hero__right::after {
-  content: "";
+  content: '';
   height: 100%;
   background: #dbe58f;
 }

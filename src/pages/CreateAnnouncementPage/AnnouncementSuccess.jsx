@@ -1,44 +1,51 @@
-import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router";
-import { getProductById, saveProduct } from "../../services/products";
-import "./AnnouncementSuccess.css";
+import React, { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router'
+import { getProductById, saveProduct } from '../../services/products'
+import './AnnouncementSuccess.css'
 
 const AnnouncementSuccess = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate()
+  const location = useLocation()
+  const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const announcementId = location.state?.announcementId ?? null;
+  const announcementId = location.state?.announcementId ?? null
 
   async function handleReceiveReport() {
     try {
-      setIsSubmitting(true);
+      setIsSubmitting(true)
 
       if (announcementId && email.trim()) {
-        const product = await getProductById(announcementId);
+        const product = await getProductById(announcementId)
 
         if (product) {
           await saveProduct({
             ...product,
             reportEmail: email.trim(),
-          });
+          })
         }
       }
 
-      navigate("/profile");
+      navigate('/profile')
     } catch (error) {
-      console.error("Failed to save announcement email", error);
-      navigate("/profile");
+      console.error('Failed to save announcement email', error)
+      navigate('/profile')
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
   }
 
   return (
     <div className="success-page-container">
-      <button className="back-to-home-btn" type="button" onClick={() => navigate("/")}>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+      <button className="back-to-home-btn" type="button" onClick={() => navigate('/')}>
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
           <polyline points="15 18 9 12 15 6" />
         </svg>
         На головну
@@ -90,7 +97,15 @@ const AnnouncementSuccess = () => {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                 />
-                <svg className="chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  className="chevron-icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </div>
@@ -107,7 +122,7 @@ const AnnouncementSuccess = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AnnouncementSuccess;
+export default AnnouncementSuccess

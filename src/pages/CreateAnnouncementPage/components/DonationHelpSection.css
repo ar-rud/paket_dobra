@@ -81,7 +81,9 @@
 /* checkmark (hidden by default, animated when checked) */
 .donation-help__checkbox-custom {
   position: relative;
-  transition: background-color 0.18s ease, border-color 0.18s ease;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease;
 }
 .donation-help__checkbox-custom::after {
   display: none;
@@ -90,7 +92,9 @@
 .donation-help__checkbox-input:checked + .donation-help__checkbox-custom {
   /* Prefer a provided JPG (check-square (1).jpg) if present, fall back to bundled SVG */
   /* try component-local JPG first, then assets JPG, then bundled SVG */
-  background-image: url("/src/pages/CreateAnnouncementPage/components/check-square%20(1).jpg"), url("/src/assets/images/check-square%20(1).jpg"), url("/src/assets/images/check-mark.svg");
+  background-image:
+    url('/src/pages/CreateAnnouncementPage/components/check-square%20(1).jpg'),
+    url('/src/assets/images/check-square%20(1).jpg'), url('/src/assets/images/check-mark.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px 20px;
@@ -99,18 +103,22 @@
 
 /* loading spinner shown while toggling */
 .donation-help__checkbox-custom.is-loading::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 2px;
   border-radius: 3px;
-  border: 2px solid rgba(112,134,47,0.12);
+  border: 2px solid rgba(112, 134, 47, 0.12);
   border-top-color: #70862f;
   animation: dhs-spin 0.9s linear infinite;
 }
 
 @keyframes dhs-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .donation-help__checkbox-label {

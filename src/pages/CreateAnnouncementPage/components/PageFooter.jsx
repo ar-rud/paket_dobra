@@ -1,4 +1,4 @@
-import "./PageFooter.css";
+import './PageFooter.css'
 
 export default function PageFooter() {
   return (
@@ -25,5 +25,5 @@ export default function PageFooter() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

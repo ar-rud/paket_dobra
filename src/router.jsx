@@ -1,19 +1,19 @@
-import { createBrowserRouter } from "react-router";
-import App from "./App.jsx";
-import HomePage from "./pages/HomePage/HomePage.jsx";
-import DonationsPage from "./pages/DonationsPage/DonationsPage.jsx";
-import AnnouncementSuccess from "./pages/CreateAnnouncementPage/AnnouncementSuccess.jsx";
-import CreateAnnouncementPage from "./pages/CreateAnnouncementPage/CreateAnnouncementPage.jsx";
-import CatalogOverview from "/src/pages/Catalog/components/CatalogOverview/CatalogOverview.jsx";
-import StatisticsPage from "./pages/StatisticsPage/StatisticsPage.jsx";
-import Profile from "./pages/Profile/Profile.jsx";
-import Catalog from "./pages/Catalog/Catalog.jsx";
-import ProductPage from "/src/pages/Catalog/components/ProductPage/ProductPage.jsx";
+import { createBrowserRouter } from 'react-router'
+import App from './App.jsx'
+import HomePage from './pages/HomePage/HomePage.jsx'
+import DonationsPage from './pages/DonationsPage/DonationsPage.jsx'
+import AnnouncementSuccess from './pages/CreateAnnouncementPage/AnnouncementSuccess.jsx'
+import CreateAnnouncementPage from './pages/CreateAnnouncementPage/CreateAnnouncementPage.jsx'
+import CatalogOverview from '/src/pages/Catalog/components/CatalogOverview/CatalogOverview.jsx'
+import StatisticsPage from './pages/StatisticsPage/StatisticsPage.jsx'
+import Profile from './pages/Profile/Profile.jsx'
+import Catalog from './pages/Catalog/Catalog.jsx'
+import ProductPage from '/src/pages/Catalog/components/ProductPage/ProductPage.jsx'
 
-import CardPayment from "./pages/Pay/Card/CardPayment.jsx";
-import Checkout from "./pages/Pay/Checkout/Checkout.jsx";
-import Payment from "./pages/Pay/Payment/Payment.jsx";
-import Success from "./pages/Pay/Success/Success.jsx";
+import CardPayment from './pages/Pay/Card/CardPayment.jsx'
+import Checkout from './pages/Pay/Checkout/Checkout.jsx'
+import Payment from './pages/Pay/Payment/Payment.jsx'
+import Success from './pages/Pay/Success/Success.jsx'
 
 // const validCategories = [
 //   "home",
@@ -30,7 +30,7 @@ import Success from "./pages/Pay/Success/Success.jsx";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
       {
@@ -40,19 +40,19 @@ export const router = createBrowserRouter([
             element: <HomePage />,
           },
           {
-            path: "donations",
+            path: 'donations',
             element: <DonationsPage />,
           },
           {
-            path: "create-announcement",
+            path: 'create-announcement',
             element: <CreateAnnouncementPage />,
           },
           {
-            path: "announcement-success",
+            path: 'announcement-success',
             element: <AnnouncementSuccess />,
           },
           {
-            path: "catalog",
+            path: 'catalog',
             // element: <CatalogOverview />,
             children: [
               {
@@ -65,42 +65,42 @@ export const router = createBrowserRouter([
                 ),
               },
               {
-                path: ":category",
+                path: ':category',
                 element: <Catalog />,
               },
 
               {
-                path: ":category/:id",
+                path: ':category/:id',
                 element: <ProductPage />,
               },
             ],
           },
           {
-            path: "statistics",
+            path: 'statistics',
             element: <StatisticsPage />,
           },
           {
-            path: "card",
+            path: 'card',
             element: <CardPayment />,
           },
           {
-            path: "payment",
+            path: 'payment',
             element: <Payment />,
           },
           {
-            path: "success",
+            path: 'success',
             element: <Success />,
           },
           {
-            path: "checkout",
+            path: 'checkout',
             element: <Checkout />,
           },
           {
-            path: "profile",
+            path: 'profile',
             element: <Profile />,
           },
         ],
       },
     ],
   },
-]);
+])

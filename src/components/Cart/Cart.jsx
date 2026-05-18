@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router";
-import { useEffect, useRef } from "react";
-import { useCart } from "/src/contexts/CartContext";
-import "./Cart.css";
+import { useNavigate } from 'react-router'
+import { useEffect, useRef } from 'react'
+import { useCart } from '/src/contexts/CartContext'
+import './Cart.css'
 
 const TrashIcon = () => (
   <svg width="15" height="17" viewBox="0 0 18 20" fill="none">
@@ -13,14 +13,14 @@ const TrashIcon = () => (
       strokeLinejoin="round"
     />
   </svg>
-);
+)
 
 export default function Cart({ onClose, onCheckout }) {
-  const { items, removeItem } = useCart();
-  const dropdownRef = useRef(null);
-  const navigate = useNavigate();
+  const { items, removeItem } = useCart()
+  const dropdownRef = useRef(null)
+  const navigate = useNavigate()
 
-  const total = items.reduce((sum, i) => sum + i.price + i.donation, 0);
+  const total = items.reduce((sum, i) => sum + i.price + i.donation, 0)
 
   useEffect(() => {
     const handler = (e) => {
@@ -29,18 +29,15 @@ export default function Cart({ onClose, onCheckout }) {
         !dropdownRef.current.contains(e.target) &&
         !e.target.closest('[aria-label="Кошик"]')
       ) {
-        onClose();
+        onClose()
       }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, [onClose]);
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [onClose])
 
   return (
-
- 
-      <div className="cart-dropdown" ref={dropdownRef}>
-
+    <div className="cart-dropdown" ref={dropdownRef}>
       <div className="cart-header">
         <span className="cart-title">У вашій корзині:</span>
         <button className="cart-close" onClick={onClose} aria-label="Закрити">
@@ -49,16 +46,12 @@ export default function Cart({ onClose, onCheckout }) {
       </div>
 
       <div className="cart-items">
-        {items.length === 0 && (
-          <p className="cart-empty">Кошик порожній</p>
-        )}
+        {items.length === 0 && <p className="cart-empty">Кошик порожній</p>}
         {items.map((item) => (
           <div className="cart-item" key={item.id}>
             <div className="cart-item__row">
               <div className="cart-item__thumb">
-                {item.image
-                  ? <img src={item.image} alt={item.name} />
-                  : "📦"}
+                {item.image ? <img src={item.image} alt={item.name} /> : '📦'}
               </div>
               <div className="cart-item__info">
                 <p className="cart-item__name">{item.name}</p>
@@ -75,9 +68,7 @@ export default function Cart({ onClose, onCheckout }) {
                 <TrashIcon />
               </button>
             </div>
-            {item.note && (
-              <p className="cart-item__note">{item.note}</p>
-            )}
+            {item.note && <p className="cart-item__note">{item.note}</p>}
           </div>
         ))}
       </div>
@@ -91,15 +82,14 @@ export default function Cart({ onClose, onCheckout }) {
           className="cart-checkout"
           disabled={items.length === 0}
           onClick={() => {
-            onClose();
-            onCheckout?.();
-            navigate("/checkout");
+            onClose()
+            onCheckout?.()
+            navigate('/checkout')
           }}
         >
           Оформити замовлення
         </button>
       </div>
-
     </div>
-  );
+  )
 }

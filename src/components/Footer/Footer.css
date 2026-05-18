@@ -146,7 +146,9 @@
 .Footer-logo-img {
   width: 100px;
   color: #ffffff;
-  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition:
+    opacity 0.2s ease-in-out,
+    color 0.2s ease-in-out;
 }
 
 .Footer-logo-img path {

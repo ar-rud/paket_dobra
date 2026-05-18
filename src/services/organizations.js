@@ -1,6 +1,6 @@
 /**
  * Organizations Service
- * 
+ *
  * Handles organization/foundation related operations:
  * - Fetch all organizations
  * - Get organization by ID
@@ -9,7 +9,7 @@
  * - Create organization (admin)
  */
 
-import apiCall from './api';
+import apiCall from './api'
 
 // TODO: Add all organization service methods here
 /**
@@ -17,11 +17,11 @@ import apiCall from './api';
  * Returns an array of organization objects.
  */
 export async function getAllOrganizations() {
-	try {
-		const organizations = await apiCall('/organizations');
-		return organizations;
-	} catch (error) {
-		console.error('Failed to fetch organizations:', error);
-		throw error;
-	}
+  try {
+    const organizations = await apiCall('/organizations')
+    return organizations
+  } catch (error) {
+    console.error('Failed to fetch organizations:', error)
+    throw error
+  }
 }
