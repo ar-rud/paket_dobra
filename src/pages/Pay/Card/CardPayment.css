@@ -8,8 +8,6 @@
   min-width: 200px;
 } */
 
-
-
 .product-summary-card h4 {
   margin-left: 15px;
 }
@@ -17,7 +15,6 @@
 .product-summary-card .price {
   margin-left: 15px;
 }
-
 
 .product-summary-card .badge {
   background: #faffd1;
@@ -27,15 +24,12 @@
   margin-left: 15px;
 }
 
-
 .product-summary-card {
   background: #fff;
   border: 1px solid #e0e0d8;
   padding: 16px;
   margin-bottom: 12px;
 }
-
-
 
 .back-to-home-btn {
   background: none;
@@ -57,20 +51,16 @@
   opacity: 0.8;
 }
 
-
 .payment-container {
   position: relative;
   max-width: none;
   margin: 0 auto;
   padding: 40px 20px;
-
-
 }
 
 .payment-left {
   flex: 1;
   margin-right: 20px;
-
 }
 
 .card-form {
@@ -78,22 +68,6 @@
   padding: 32px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .methods-grid {
   display: grid;
@@ -104,7 +78,7 @@
 
 .method-item {
   background: white;
-  border: 1px solid #E5E5E5;
+  border: 1px solid #e5e5e5;
   height: 120px;
   display: flex;
   align-items: center;
@@ -117,18 +91,12 @@
   border-color: #000000;
 }
 
-
 .method-item.selected {
   border: 1px solid #0a4e1f;
 }
-
-
-
-
 
 .payment-method-card {
   background: white;
   padding: 32px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
-
 }

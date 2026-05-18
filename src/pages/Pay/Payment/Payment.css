@@ -127,10 +127,6 @@ body {
   border: 1px solid #0a4e1f;
 }
 
-
-
-
-
 .product-summary-card h4 {
   margin-left: 15px;
 }
@@ -138,10 +134,6 @@ body {
 .product-summary-card .price {
   margin-left: 15px;
 }
-
-
-
-
 
 .back-to-home-btn {
   background: none;
@@ -162,4 +154,3 @@ body {
 .back-to-home-btn:hover {
   opacity: 0.8;
 }
-

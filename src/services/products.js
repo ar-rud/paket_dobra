@@ -88,9 +88,8 @@ export async function getAllProducts() {
   return apiCall('/products')
 }
 
-
 export async function getProducts() {
-  return apiCall("/products");
+  return apiCall('/products')
 }
 
 export default {

@@ -1,49 +1,45 @@
-import React from "react";
+import React from 'react'
 // import "../Payment/Payment.css";
 // import {Payment} "../Payment/Payment";
-import "./CardPayment.css";
-import { useNavigate } from 'react-router';
-import { useState, useEffect } from "react";
-import { getProducts } from "/src/services/products";
+import './CardPayment.css'
+import { useNavigate } from 'react-router'
+import { useState, useEffect } from 'react'
+import { getProducts } from '/src/services/products'
 
-
-import gpay from '../Payment/img/gpay.svg';
-import applepay from '../Payment/img/applepay.svg';
-import visamaestro from '../Payment/img/visamaestro.svg';
+import gpay from '../Payment/img/gpay.svg'
+import applepay from '../Payment/img/applepay.svg'
+import visamaestro from '../Payment/img/visamaestro.svg'
 
 const CardPayment = ({ onNext, onBack }) => {
-
-  const [selectedMethod, setSelectedMethod] = useState(
-    () => localStorage.getItem('selectedMethod')
-  );
+  const [selectedMethod, setSelectedMethod] = useState(() => localStorage.getItem('selectedMethod'))
 
   const handleSelect = (method) => {
-    setSelectedMethod(method);
-    localStorage.setItem('selectedMethod', method);
-  };
+    setSelectedMethod(method)
+    localStorage.setItem('selectedMethod', method)
+  }
 
-  const [adProducts, setAdProducts] = useState([]);
-
-  useEffect(() => {
-    getProducts().then((all) => {
-      const active = all.filter((p) => p.status === "ACTIVE");
-      const shuffled = active.sort(() => Math.random() - 0.5).slice(0, 2);
-      setAdProducts(shuffled);
-    });
-  }, []);
+  const [adProducts, setAdProducts] = useState([])
 
   useEffect(() => {
     getProducts().then((all) => {
-      console.log('all products:', all);
-      const active = all.filter((p) => p.status === "ACTIVE");
-      console.log('active:', active);
-      const shuffled = active.sort(() => Math.random() - 0.5).slice(0, 2);
-      console.log('shuffled:', shuffled);
-      setAdProducts(shuffled);
-    });
-  }, []);
+      const active = all.filter((p) => p.status === 'ACTIVE')
+      const shuffled = active.sort(() => Math.random() - 0.5).slice(0, 2)
+      setAdProducts(shuffled)
+    })
+  }, [])
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    getProducts().then((all) => {
+      console.log('all products:', all)
+      const active = all.filter((p) => p.status === 'ACTIVE')
+      console.log('active:', active)
+      const shuffled = active.sort(() => Math.random() - 0.5).slice(0, 2)
+      console.log('shuffled:', shuffled)
+      setAdProducts(shuffled)
+    })
+  }, [])
+
+  const navigate = useNavigate()
 
   const [cardNumber, setCardNumber] = useState('')
   const [expiry, setExpiry] = useState('')
@@ -85,42 +81,36 @@ const CardPayment = ({ onNext, onBack }) => {
 
   return (
     <>
-
       <button className="back-to-home-btn" onClick={() => navigate('/')}>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
           <polyline points="15 18 9 12 15 6" />
         </svg>
         Повернутись
       </button>
 
       <div className="page-wrapper">
-
-
-
         <div className="payment-container">
-
-
-          
-
           <h1 className="page-title">Оплата товару</h1>
 
           <div className="payment-content">
             {/* LEFT SIDE */}
             <div className="payment-left">
-
               <div className="payment-method-card">
                 <h3>Спосіб оплати</h3>
                 <p>Оберіть спосіб оплати</p>
 
                 <div className="methods-grid">
-                  <div
-                    className={`method-item ${selectedMethod === 'gpay' ? 'selected' : ''}`}
-                  >
+                  <div className={`method-item ${selectedMethod === 'gpay' ? 'selected' : ''}`}>
                     <img src={gpay} />
                   </div>
-                  <div
-                    className={`method-item ${selectedMethod === 'applepay' ? 'selected' : ''}`}
-                  >
+                  <div className={`method-item ${selectedMethod === 'applepay' ? 'selected' : ''}`}>
                     <img src={applepay} />
                   </div>
                   <div
@@ -130,9 +120,6 @@ const CardPayment = ({ onNext, onBack }) => {
                   </div>
                 </div>
               </div>
-
-
-
 
               <div className="card-form">
                 <h3>Інформація про платіжну картку</h3>
@@ -172,7 +159,6 @@ const CardPayment = ({ onNext, onBack }) => {
                       onChange={(e) => setCvv(e.target.value.replace(/\D/g, '').slice(0, 3))}
                       maxLength={3}
                     />
-
                   </div>
                 </div>
 
@@ -183,7 +169,9 @@ const CardPayment = ({ onNext, onBack }) => {
               </div>
 
               <div className="payment-footer">
-                <button className="btn-cancel" onClick={() => navigate('/payment')}>Скасувати</button>
+                <button className="btn-cancel" onClick={() => navigate('/payment')}>
+                  Скасувати
+                </button>
                 <button
                   className="btn-pay"
                   disabled={!isFormValid}
@@ -191,7 +179,6 @@ const CardPayment = ({ onNext, onBack }) => {
                 >
                   Оплатити
                 </button>
-
               </div>
             </div>
 
@@ -209,7 +196,7 @@ const CardPayment = ({ onNext, onBack }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 export default CardPayment

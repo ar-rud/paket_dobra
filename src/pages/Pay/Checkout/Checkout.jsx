@@ -1,9 +1,9 @@
-import React from "react";
-import { useNavigate } from 'react-router';
-import "./Checkout.css";
-import { useCart } from "/src/contexts/CartContext";
-import { useState, useEffect } from "react";
-import { getProducts } from "/src/services/products";
+import React from 'react'
+import { useNavigate } from 'react-router'
+import './Checkout.css'
+import { useCart } from '/src/contexts/CartContext'
+import { useState, useEffect } from 'react'
+import { getProducts } from '/src/services/products'
 
 import novaposhta from './img/novaposhta.svg'
 import ukrposhta from './img/ukrposhta.svg'
@@ -54,25 +54,24 @@ const formatPhone = (raw) => {
 }
 
 const Checkout = ({ onNext, onBack }) => {
-
-  const [adProducts, setAdProducts] = useState([]);
+  const [adProducts, setAdProducts] = useState([])
 
   useEffect(() => {
     getProducts().then((all) => {
-      const active = all.filter((p) => p.status === "ACTIVE");
-      const shuffled = active.sort(() => Math.random() - 0.5).slice(0, 2);
-      setAdProducts(shuffled);
-    });
-  }, []);
+      const active = all.filter((p) => p.status === 'ACTIVE')
+      const shuffled = active.sort(() => Math.random() - 0.5).slice(0, 2)
+      setAdProducts(shuffled)
+    })
+  }, [])
 
-  const { items } = useCart();
+  const { items } = useCart()
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const { cities, branches, loadingCities, loadingBranches, searchCities, fetchBranches } = useNovaPoshtaAPI();
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [selectedDelivery, setSelectedDelivery] = useState(null);
-
+  const { cities, branches, loadingCities, loadingBranches, searchCities, fetchBranches } =
+    useNovaPoshtaAPI()
+  const [selectedCity, setSelectedCity] = useState(null)
+  const [selectedDelivery, setSelectedDelivery] = useState(null)
 
   const [form, setForm] = useState({
     firstName: '',
@@ -138,27 +137,28 @@ const Checkout = ({ onNext, onBack }) => {
     return errors[name] ? 'input-error' : 'input-success'
   }
 
-
   return (
-    <>  
-
+    <>
       <div className="page-wrapper">
         <button className="back-to-home-btn" onClick={() => navigate('/')}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+          >
             <polyline points="15 18 9 12 15 6" />
           </svg>
           Повернутись
         </button>
         <div className="checkout-container">
-
-
           <h1 className="page-title">Оформлення замовлення</h1>
 
           <div className="checkout-content">
-
             {/* LEFT */}
             <div className="checkout-left">
-
               {/* DELIVERY */}
               <div className="section-card">
                 <h3 className="section-title">Служба доставки</h3>
@@ -167,7 +167,7 @@ const Checkout = ({ onNext, onBack }) => {
                 {DELIVERY_OPTIONS.map((option) => (
                   <div
                     key={option.id}
-                    className={`delivery-option ${selectedDelivery === option.id ? "delivery-option--selected" : ""}`}
+                    className={`delivery-option ${selectedDelivery === option.id ? 'delivery-option--selected' : ''}`}
                     onClick={() => setSelectedDelivery(option.id)}
                   >
                     <div className="radio-circle">
@@ -196,7 +196,7 @@ const Checkout = ({ onNext, onBack }) => {
                     value={form.firstName}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={getInputClass("firstName")}
+                    className={getInputClass('firstName')}
                   />
                   {touched.firstName && errors.firstName && (
                     <span className="field-error">{errors.firstName}</span>
@@ -211,7 +211,7 @@ const Checkout = ({ onNext, onBack }) => {
                     value={form.lastName}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={getInputClass("lastName")}
+                    className={getInputClass('lastName')}
                   />
                   {touched.lastName && errors.lastName && (
                     <span className="field-error">{errors.lastName}</span>
@@ -226,7 +226,7 @@ const Checkout = ({ onNext, onBack }) => {
                     value={form.patronymic}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={getInputClass("patronymic")}
+                    className={getInputClass('patronymic')}
                   />
                   {touched.patronymic && errors.patronymic && (
                     <span className="field-error">{errors.patronymic}</span>
@@ -235,7 +235,7 @@ const Checkout = ({ onNext, onBack }) => {
 
                 <div className="form-group">
                   <label className="field-label">Номер телефону</label>
-                  <div className={`phone-wrapper ${getInputClass("phone")}`}>
+                  <div className={`phone-wrapper ${getInputClass('phone')}`}>
                     <div className="phone-prefix">
                       {/*<span className="flag">🇺🇦</span>*/}
                       <span className="country-code">UKR</span>
@@ -257,7 +257,7 @@ const Checkout = ({ onNext, onBack }) => {
 
                 <div className="form-group">
                   <label className="field-label">Вкажіть пошту</label>
-                  <div className={`email-wrapper ${getInputClass("email")}`}>
+                  <div className={`email-wrapper ${getInputClass('email')}`}>
                     <span className="email-icon">✉</span>
                     <input
                       name="email"
@@ -282,7 +282,7 @@ const Checkout = ({ onNext, onBack }) => {
                     value={form.city}
                     onChange={handleCitySearch}
                     onBlur={() => setTouched((prev) => ({ ...prev, city: true }))}
-                    className={getInputClass("city")}
+                    className={getInputClass('city')}
                     autoComplete="off"
                   />
                   {loadingCities && <span className="field-hint">Пошук...</span>}
@@ -307,7 +307,9 @@ const Checkout = ({ onNext, onBack }) => {
                 {/* ВІДДІЛЕННЯ */}
                 <div className="form-group">
                   <label className="field-label">Відділення</label>
-                  <div className={`select-wrapper ${getInputClass("branch")} ${!selectedCity ? "select-disabled" : ""}`}>
+                  <div
+                    className={`select-wrapper ${getInputClass('branch')} ${!selectedCity ? 'select-disabled' : ''}`}
+                  >
                     <select
                       name="branch"
                       value={form.branch}
@@ -316,7 +318,7 @@ const Checkout = ({ onNext, onBack }) => {
                       disabled={!selectedCity}
                     >
                       <option value="">
-                        {loadingBranches ? "Завантаження..." : "Оберіть відділення"}
+                        {loadingBranches ? 'Завантаження...' : 'Оберіть відділення'}
                       </option>
                       {branches.map((b) => (
                         <option key={b.Ref} value={b.Description}>
@@ -330,12 +332,13 @@ const Checkout = ({ onNext, onBack }) => {
                     <span className="field-error">{errors.branch}</span>
                   )}
                 </div>
-
               </div>
 
               {/* FOOTER */}
               <div className="checkout-footer">
-                <button className="btn-cancel" onClick={() => navigate('/catalog')}>Скасувати</button>
+                <button className="btn-cancel" onClick={() => navigate('/catalog')}>
+                  Скасувати
+                </button>
                 <button
                   className="btn-pay"
                   disabled={!selectedDelivery || !formValid}
@@ -344,7 +347,6 @@ const Checkout = ({ onNext, onBack }) => {
                   Оплатити
                 </button>
               </div>
-
             </div>
 
             {/* RIGHT */}
@@ -357,12 +359,11 @@ const Checkout = ({ onNext, onBack }) => {
                 </div>
               ))}
             </div>
-
           </div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 export default Checkout

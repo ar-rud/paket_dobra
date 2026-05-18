@@ -356,7 +356,7 @@
 .product-summary-card {
   margin-left: -10px;
   padding: 20px 40px;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .product-summary-card:last-child {
@@ -386,11 +386,6 @@
   color: #333;
   margin-left: 15px;
 }
-
-
-
-
-
 
 .back-to-home-btn {
   background: none;
