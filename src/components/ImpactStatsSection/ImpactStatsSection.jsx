@@ -1,11 +1,38 @@
+import { useState, useEffect } from "react";
 import MoreButton from "../MoreButton/MoreButton.jsx";
 import miniHeartsFrame from "../../assets/images/impact-mini-hearts.svg";
 import stairsBg from "../../assets/images/group1000005912.svg";
 import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
+import { getGlobalStats } from "../../services/statistics.js";
 
 import "./ImpactStatsSection.css";
 
 export default function ImpactStatsSection({ detailsHref = "/statistics", showDetailsButton = true } = {}) {
+  const [stats, setStats] = useState({
+    donationsGrowthPercent: 50,
+    onlineSystemPercent: 60,
+    buySellMethodCount: 2450,
+    totalDonatedBillions: 98.9,
+    smallDonatesPart: 80
+  });
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadStats = async () => {
+      const data = await getGlobalStats();
+      if (isMounted && data) {
+        setStats(data);
+      }
+    };
+
+    loadStats();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <section className={`impact-stats${showDetailsButton ? "" : " impact-stats--stats-only"}`}>
       <div className="impact-stats__inner">
@@ -35,7 +62,7 @@ export default function ImpactStatsSection({ detailsHref = "/statistics", showDe
             <span>донати виросли</span>
             <span>більше ніж на</span>
           </p>
-          <p className="impact-stats__value">50%</p>
+          <p className="impact-stats__value">{stats.donationsGrowthPercent}%</p>
           <img
             src={stairsBg}
             alt=""
@@ -53,7 +80,7 @@ export default function ImpactStatsSection({ detailsHref = "/statistics", showDe
             </p>
 
             <p className="impact-stats__value impact-stats__value--highlight">
-              60%
+              {stats.onlineSystemPercent}%
             </p>
 
             <div className="impact-stats__rate-grid">
@@ -72,7 +99,7 @@ export default function ImpactStatsSection({ detailsHref = "/statistics", showDe
               <span>&quot;купуй-продавай&quot;</span>
               <span>доєдналось понад</span>
             </p>
-            <p className="impact-stats__value impact-stats__value--light">2450</p>
+            <p className="impact-stats__value impact-stats__value--light">{stats.buySellMethodCount}</p>
           </div>
         </div>
 
@@ -85,7 +112,7 @@ export default function ImpactStatsSection({ detailsHref = "/statistics", showDe
           <div className="impact-stats__heart-visual" aria-hidden="true">
           </div>
           <p className="impact-stats__money">
-            98.9 <span>млрд</span>
+            {stats.totalDonatedBillions} <span>млрд</span>
           </p>
         </div>
 
@@ -95,7 +122,9 @@ export default function ImpactStatsSection({ detailsHref = "/statistics", showDe
             <span>складають понад</span>
           </p>
           <div className="impact-stats__bar-bottom">
-            <p className="impact-stats__big-value">80%</p>
+            <p className="impact-stats__big-value">
+              {stats.smallDonatesPart}%
+            </p>
           </div>
         </div>
       </div>
