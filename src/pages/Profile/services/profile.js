@@ -7,6 +7,7 @@ import defaultAvatar from '../images/default_avatar.svg';
 
 const ACTIVE_STATUS = 'ACTIVE';
 const DRAFT_STATUS = 'DRAFT';
+const SOLD_STATUS = 'SOLD';
 
 function mapUserIdentity(user) {
 	return {
@@ -61,13 +62,15 @@ function mapProductsToListingsByTab(products) {
 			subtitle:
 				product.status === DRAFT_STATUS
 					? null
+					: product.status === SOLD_STATUS
+					? 'Статус: продано'
 					: 'Статус: продається',
 			priceText: product.price ? `від ${product.price} ${product.currency || 'грн'}` : '0 грн',
 			showMessageAction: product.status !== DRAFT_STATUS,
 			showDeleteAction: true,
 			primaryActionLabel: 'Редагувати',
-			muted: false,
-			imageMuted: false,
+			muted: product.status === SOLD_STATUS,
+			imageMuted: product.status === SOLD_STATUS,
 			actionsDisabled: false,
 		};
 
@@ -76,10 +79,15 @@ function mapProductsToListingsByTab(products) {
 			continue;
 		}
 
-		if (product.status === ACTIVE_STATUS) {
+		if (product.status === ACTIVE_STATUS || product.status === SOLD_STATUS) {
 			listings.announcements.push(baseCard);
 		}
 	}
+
+	listings.announcements.sort((a, b) => {
+		if (a.muted === b.muted) return 0;
+		return a.muted ? 1 : -1;
+	});
 
 	return listings;
 }
