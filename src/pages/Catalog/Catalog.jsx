@@ -13,7 +13,7 @@ import Breadcrumbs from "/src/components/Breadcrumbs/Breadcrumbs.jsx";
 import { getProductsByCategory } from "/src/services/products";
 import { getCampaigns } from "/src/services/campaigns";
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 6;
 
 export default function Catalog(props) {
   const params = useParams();
