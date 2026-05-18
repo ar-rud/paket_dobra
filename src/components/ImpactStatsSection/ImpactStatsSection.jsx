@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import MoreButton from "../MoreButton/MoreButton.jsx";
 import miniHeartsFrame from "../../assets/images/impact-mini-hearts.svg";
-import stairsBg from "../../assets/images/group1000005912.svg";
+import stairsBg from "../../assets/images/impact_stats_stairs.svg";
 import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
 import { getGlobalStats } from "../../services/statistics.js";
 
