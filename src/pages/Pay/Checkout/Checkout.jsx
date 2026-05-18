@@ -74,12 +74,6 @@ const Checkout = ({ onNext, onBack }) => {
   const [selectedDelivery, setSelectedDelivery] = useState(null);
 
 
-
-  const { cities, branches, loadingCities, loadingBranches, searchCities, fetchBranches } =
-    useNovaPoshtaAPI()
-  const [selectedCity, setSelectedCity] = useState(null)
-  const [selectedDelivery, setSelectedDelivery] = useState(null)
-
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
