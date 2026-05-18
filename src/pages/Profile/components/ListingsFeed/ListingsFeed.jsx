@@ -23,36 +23,31 @@ export default function ListingsFeed({
   const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [visiblePages, setVisiblePages] = useState(1);
-  const [expanded, setExpanded] = useState(false);
+  const [pagesShown, setPagesShown] = useState(1);
 
   useEffect(() => {
     setCurrentPage(1);
-    setVisiblePages(1);
-    setExpanded(false);
+    setPagesShown(1);
   }, [activeTabId, totalItems]);
 
   const handlePageChange = (page) => {
     const clamped = Math.max(1, Math.min(page, totalPages));
     setCurrentPage(clamped);
-    setVisiblePages(clamped);
-    setExpanded(false);
+    setPagesShown(1);
   };
 
   const handleShowMore = () => {
-    const next = Math.min(visiblePages + 1, totalPages);
-    setVisiblePages(next);
-    setExpanded(true);
-    setCurrentPage(next);
+    if (currentPage + pagesShown - 1 < totalPages) {
+      setPagesShown((prev) => prev + 1);
+    }
   };
 
-  let itemsToRender = [];
-  if (expanded) {
-    itemsToRender = cards.slice(0, visiblePages * PAGE_SIZE);
-  } else {
-    const start = (currentPage - 1) * PAGE_SIZE;
-    itemsToRender = cards.slice(start, start + PAGE_SIZE);
-  }
+  const startIdx = (currentPage - 1) * PAGE_SIZE;
+  const endIdx = startIdx + pagesShown * PAGE_SIZE;
+  const itemsToRender = cards.slice(startIdx, endIdx);
+
+  const maxVisiblePage = currentPage + pagesShown - 1;
+  const canShowMore = maxVisiblePage < totalPages;
 
   return (
     <section className="listings-feed">
@@ -75,27 +70,30 @@ export default function ListingsFeed({
         ))}
       </div>
 
-      <div className="listings-feed__pagination">
-        {!expanded && visiblePages < totalPages ? (
-          <div className="listings-feed__more">
-            <MoreButton 
-              onClick={handleShowMore}
-              rightIcon={<ArrowDownIcon />}
-            >
-              Показати ще
-            </MoreButton>
-          </div>
-        ) : null}
+      {totalPages > 1 && (
+        <div className="listings-feed__pagination">
+          {canShowMore ? (
+            <div className="listings-feed__more">
+              <MoreButton 
+                onClick={handleShowMore}
+                rightIcon={<ArrowDownIcon />}
+              >
+                Показати ще
+              </MoreButton>
+            </div>
+          ) : null}
 
-        <div className="listings-feed__pages">
-          <PageSwitcher
-            currentPage={currentPage}
-            totalItems={totalItems}
-            pageSize={PAGE_SIZE}
-            onPageChange={handlePageChange}
-          />
+          <div className="listings-feed__pages">
+            <PageSwitcher
+              currentPage={currentPage}
+              totalItems={totalItems}
+              pageSize={PAGE_SIZE}
+              onPageChange={handlePageChange}
+              scrollTargetSelector=".listings-feed__list"
+            />
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

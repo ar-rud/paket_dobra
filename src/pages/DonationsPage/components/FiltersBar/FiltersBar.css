@@ -1,0 +1,113 @@
+.filters-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: calc(100% - (var(--donations-filters-inset) * 2));
+  margin: 0 auto;
+  min-height: 48px;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.filters-bar__left {
+  display: flex;
+  gap: 24px;
+  width: min(100%, 651px);
+  min-width: 0;
+  flex-wrap: nowrap;
+  flex: 0 1 651px;
+}
+
+.filters-bar__right {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  flex: 0 0 auto;
+  justify-content: flex-end;
+}
+
+.filters-bar__select {
+  height: 48px;
+  min-width: 0;
+  flex: 0 0 auto;
+  padding: 0 12px;
+  border: 1px solid #9d9d9d;
+  background: #ffffff;
+  color: #9d9d9d;
+  font-size: 14px;
+  line-height: 20px;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+.filters-bar__left .filters-bar__select:nth-child(1) {
+  width: min(100%, 169px);
+}
+
+.filters-bar__left .filters-bar__select:nth-child(2) {
+  width: min(100%, 249px);
+}
+
+.filters-bar__left .filters-bar__select:nth-child(3) {
+  width: min(100%, 185px);
+}
+
+.filters-bar__button {
+  height: 48px;
+  padding: 0 24px;
+  border: 1px solid #9d9d9d;
+  background: #ffffff;
+  color: #9d9d9d;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  box-sizing: border-box;
+}
+
+.filters-bar__button--secondary {
+  width: 124px;
+}
+
+.filters-bar__button--primary {
+  width: 160px;
+}
+
+@media (max-width: 940px) {
+  .filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .filters-bar__left {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
+    flex-basis: auto;
+  }
+
+  .filters-bar__right {
+    justify-content: flex-end;
+  }
+
+  .filters-bar__left .filters-bar__select:nth-child(1),
+  .filters-bar__left .filters-bar__select:nth-child(2),
+  .filters-bar__left .filters-bar__select:nth-child(3) {
+    width: auto;
+    flex: 1 1 220px;
+  }
+}
+
+@media (max-width: 680px) {
+  .filters-bar__right {
+    width: 100%;
+  }
+
+  .filters-bar__button--secondary,
+  .filters-bar__button--primary {
+    width: 100%;
+  }
+}

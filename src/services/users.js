@@ -11,6 +11,7 @@
  */
 
 import apiCall from './api';
+import { getCurrentUserId } from './session';
 
 /**
  * Fetch a single user by ID.
@@ -25,6 +26,15 @@ export async function getUserById(userId) {
 	return apiCall(`/users/${userId}`);
 }
 
+/**
+ * Fetch the current user using the persisted session user id.
+ * @returns {Promise<object|null>}
+ */
+export async function getCurrentUserProfile() {
+	return getUserById(getCurrentUserId());
+}
+
 export default {
 	getUserById,
+	getCurrentUserProfile,
 };

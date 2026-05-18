@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import ReportRow from "./ReportRow.jsx";
-import PageSwitcher from "../../../components/PageSwitcher/PageSwitcher.jsx";
-import MoreButton from "../../../components/MoreButton/MoreButton.jsx";
-import ArrowDownIcon from "../../../assets/images/arrow_down.svg?react";
+import ReportRow from "../ReportRow/ReportRow.jsx";
+import PageSwitcher from "../../../../components/PageSwitcher/PageSwitcher.jsx";
+import MoreButton from "../../../../components/MoreButton/MoreButton.jsx";
+import ArrowDownIcon from "../../../../assets/images/arrow_down.svg?react";
+import TriangleRifht from "../../../../assets/images/triangle_right.svg?react";
 
 import "./ReportsSection.css";
 
@@ -54,8 +55,8 @@ export default function ReportsSection({ reports, googleDriveUrl }) {
             rel="noopener noreferrer"
             aria-label="Перейти на диск"
           >
-            Перейти на диск
-            <ArrowDownIcon className="reports-section__link-icon" aria-hidden="true" />
+            На диск
+            <TriangleRifht className="reports-section__link-icon" aria-hidden="true" />
           </a>
         </div>
 
@@ -83,6 +84,7 @@ export default function ReportsSection({ reports, googleDriveUrl }) {
               totalItems={totalItems}
               pageSize={PAGE_SIZE}
               onPageChange={handlePageChange}
+              disableScrollOnDesktop={true}
             />
           </div>
         </div>

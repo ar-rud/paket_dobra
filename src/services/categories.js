@@ -12,4 +12,18 @@
 
 import apiCall from './api';
 
-// TODO: Add all category service methods here
+/**
+ * Fetch all categories from the API.
+ * Returns an array of category objects as stored in the DB.
+ */
+export async function getAllCategories() {
+	try {
+		const categories = await apiCall('/categories');
+		return categories;
+	} catch (error) {
+		console.error('Failed to fetch categories:', error);
+		throw error;
+	}
+}
+
+// Additional category service methods can be added here (getById, create, update, delete)

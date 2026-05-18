@@ -21,17 +21,11 @@ export default function SidebarWrapper({ className = '', userIdentity, impactSta
       </div>
 
       <div className="sidebar-wrapper__section sidebar-wrapper__section--message">
-        <SidebarMessage label={userIdentity.messageLabel} iconSrc={userIdentity.messageIconSrc} />
+        <SidebarMessage label={userIdentity.messageLabel} icon={userIdentity.messageIcon} />
       </div>
 
       <div className="sidebar-wrapper__section sidebar-wrapper__section--stats">
-        <ImpactStats
-          title={impactStats.title}
-          value={impactStats.value}
-          arrowIcon={impactStats.arrowIcon} 
-          chartLinePath={impactStats.chartLinePath}
-          chartAreaPath={impactStats.chartAreaPath}
-        />
+        <ImpactStats {...impactStats} />
       </div>
 
       <div className="sidebar-wrapper__section sidebar-wrapper__section--rewards">

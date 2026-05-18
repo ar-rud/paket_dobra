@@ -1,7 +1,30 @@
+import { useEffect, useState } from "react";
 import SectionCard from "./SectionCard.jsx";
 import "./BasicDataSection.css";
+import { getAllCategories } from "../../../services/categories";
 
 export default function BasicDataSection({ name, category, onNameChange, onCategoryChange }) {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      try {
+        const data = await getAllCategories();
+        if (!cancelled) setCategories(data || []);
+      } catch (err) {
+        console.error("Failed to load categories:", err);
+      }
+    }
+
+    load();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <SectionCard
       title="Вкажіть основні дані"
@@ -34,10 +57,12 @@ export default function BasicDataSection({ name, category, onNameChange, onCateg
             value={category}
             onChange={(event) => onCategoryChange(event.target.value)}
           >
-            <option value="">Місто</option>
-            <option value="home">Дім</option>
-            <option value="electronics">Електроніка</option>
-            <option value="clothes">Одяг</option>
+            <option value="">Оберіть категорію</option>
+            {categories.map((cat) => (
+              <option key={cat.id} value={String(cat.id)}>
+                {cat.name}
+              </option>
+            ))}
           </select>
         </div>
       </div>

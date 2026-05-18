@@ -50,3 +50,18 @@
 		padding-bottom: 0;
 	}
 }
+
+@media (max-width: 480px) {
+	.sidebar-wrapper {
+		border-radius: 0;
+		gap: 6vw;
+		padding: 6vw 4vw 8vw;
+		border: none;
+		background-color: #ffffff;
+		box-shadow: 0 1vw 2vw rgba(24, 32, 0, 0.05);
+	}
+
+	.sidebar-wrapper__section {
+		padding: 0;
+	}
+}

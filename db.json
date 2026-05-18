@@ -1,11 +1,31 @@
 {
   "globalStats": {
-    "donationsGrowthPercent": 50,
-    "onlineSystemPercent": 60,
-    "buySellMethodCount": 2450,
-    "totalDonatedBillions": 98.9,
-    "platformFeeAmount": 10
+    "donationsGrowthPercent": 60,
+    "onlineSystemPercent": 75,
+    "buySellMethodCount": 2490,
+    "totalDonatedBillions": 99.9,
+    "smallDonatesPart": 90
   },
+  "currencies": [
+    {
+      "id": 1,
+      "code": "UAH",
+      "label": "грн",
+      "symbol": "₴"
+    },
+    {
+      "id": 2,
+      "code": "USD",
+      "label": "USD",
+      "symbol": "$"
+    },
+    {
+      "id": 3,
+      "code": "EUR",
+      "label": "EUR",
+      "symbol": "€"
+    }
+  ],
   "users": [
     {
       "id": 1,
@@ -16,11 +36,30 @@
       "level": 1,
       "totalDonated": 4768,
       "donationHistory": [
-        { "month": "Січ", "amount": 300 },
-        { "month": "Лют", "amount": 550 },
-        { "month": "Бер", "amount": 1200 },
-        { "month": "Квіт", "amount": 800 },
-        { "month": "Трав", "amount": 1918 }
+        {
+          "date": "2025-11-01T00:00:00Z",
+          "amount": 300
+        },
+        {
+          "date": "2025-12-01T00:00:00Z",
+          "amount": 300
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "amount": 300
+        },
+        {
+          "date": "2026-02-01T00:00:00Z",
+          "amount": 550
+        },
+        {
+          "date": "2026-03-01T00:00:00Z",
+          "amount": 1200
+        },
+        {
+          "date": "2026-04-01T00:00:00Z",
+          "amount": 800
+        }
       ],
       "rewards": [
         {
@@ -45,6 +84,7 @@
       ]
     }
   ],
+
   "products": [
     {
       "id": 101,
@@ -61,8 +101,8 @@
         "/assets/products/backpack_back.jpg"
       ],
       "status": "ACTIVE",
-      "categoryId": 1,
-      "condition": "Вживаний",
+      "categoryId": 6,
+      "condition": "used",
       "location": "м. Київ, вул. Світлична, 5",
       "attributes": {
         "Об'єм": "30 літрів",
@@ -70,10 +110,19 @@
         "Матеріал": "Водонепроникна нейлонова тканина",
         "Особливості": "Багато кишень, відділ для гідратора"
       },
-      "shippingMethods": ["Нова Пошта", "Укрпошта", "Самовивіз"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)", "Оплата при отриманні"],
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта",
+        "Самовивіз"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)",
+        "Оплата при отриманні"
+      ],
       "linkedCampaignId": null,
-      "createdAt": "2024-11-10T08:00:00Z"
+      "createdAt": "2024-11-10T08:00:00Z",
+      "type": "equipment",
+      "category": "hobbies"
     },
     {
       "id": 102,
@@ -85,18 +134,24 @@
       "donationPercentage": 100,
       "images": [],
       "status": "ACTIVE",
-      "categoryId": 2,
-      "condition": "Новий",
+      "categoryId": 1,
+      "condition": "new",
       "location": "м. Львів, вул. Франка, 12",
       "attributes": {
         "Об'єм": "350 мл",
         "Матеріал": "Кераміка",
         "Особливості": "Ручна робота, можна мити в ПМ"
       },
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Повна передплата"],
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Повна передплата"
+      ],
       "linkedCampaignId": 201,
-      "createdAt": "2024-11-12T10:30:00Z"
+      "createdAt": "2024-11-12T10:30:00Z",
+      "type": "other",
+      "category": "home"
     },
     {
       "id": 103,
@@ -107,18 +162,26 @@
       "currency": "грн",
       "donationPercentage": 50,
       "images": [],
-      "status": "SOLD",
-      "categoryId": 3,
-      "condition": "Вживаний",
+      "status": "ACTIVE",
+      "categoryId": 4,
+      "condition": "used",
       "location": "м. Київ, вул. Хрещатик, 1",
       "attributes": {
         "Матеріал": "Дерево",
         "Вік": "Від 1 року"
       },
-      "shippingMethods": ["Укрпошта", "Самовивіз"],
-      "paymentMethods": ["Готівка", "Безпечна оплата на сайті"],
+      "shippingMethods": [
+        "Укрпошта",
+        "Самовивіз"
+      ],
+      "paymentMethods": [
+        "Готівка",
+        "Безпечна оплата на сайті"
+      ],
       "linkedCampaignId": null,
-      "createdAt": "2024-10-20T14:15:00Z"
+      "createdAt": "2024-10-20T14:15:00Z",
+      "type": "other",
+      "category": "kids"
     },
     {
       "id": 104,
@@ -130,14 +193,16 @@
       "donationPercentage": 0,
       "images": [],
       "status": "DRAFT",
-      "categoryId": 4,
-      "condition": "Вживаний",
+      "categoryId": 6,
+      "condition": "used",
       "location": "",
       "attributes": {},
       "shippingMethods": [],
       "paymentMethods": [],
       "linkedCampaignId": null,
-      "createdAt": "2024-11-15T18:45:00Z"
+      "createdAt": "2024-11-15T18:45:00Z",
+      "type": "equipment",
+      "category": "hobbies"
     },
     {
       "id": 105,
@@ -147,16 +212,24 @@
       "price": 700,
       "currency": "грн",
       "donationPercentage": 20,
-      "images": ["/uploads/products/item_painting.png"],
+      "images": [
+        "/uploads/products/item_painting.png"
+      ],
       "status": "ACTIVE",
-      "categoryId": 2,
-      "condition": "Новий",
+      "categoryId": 7,
+      "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Повна передплата"],
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Повна передплата"
+      ],
       "linkedCampaignId": null,
-      "createdAt": "2024-11-01T09:00:00Z"
+      "createdAt": "2024-11-01T09:00:00Z",
+      "type": "other",
+      "category": "art-craft"
     },
     {
       "id": 106,
@@ -166,16 +239,24 @@
       "price": 230,
       "currency": "грн",
       "donationPercentage": 10,
-      "images": ["/uploads/products/item_paintbrush.png"],
+      "images": [
+        "/uploads/products/item_paintbrush.png"
+      ],
       "status": "DRAFT",
-      "categoryId": 2,
-      "condition": "Новий",
+      "categoryId": 7,
+      "condition": "new",
       "location": "м. Львів",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Онлайн-оплата карткою"],
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою"
+      ],
       "linkedCampaignId": null,
-      "createdAt": "2024-11-05T12:00:00Z"
+      "createdAt": "2024-11-05T12:00:00Z",
+      "type": "equipment",
+      "category": "art-craft"
     },
     {
       "id": 107,
@@ -185,16 +266,24 @@
       "price": 350,
       "currency": "грн",
       "donationPercentage": 5,
-      "images": ["/uploads/products/item_massage_ball.png"],
+      "images": [
+        "/uploads/products/item_massage_ball.png"
+      ],
       "status": "SOLD",
-      "categoryId": 4,
-      "condition": "Новий",
+      "categoryId": 2,
+      "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Укрпошта"],
-      "paymentMethods": ["Готівка"],
+      "shippingMethods": [
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Готівка"
+      ],
       "linkedCampaignId": null,
-      "createdAt": "2024-10-20T14:15:00Z"
+      "createdAt": "2024-10-20T14:15:00Z",
+      "type": "equipment",
+      "category": "health-beauty"
     },
     {
       "id": 108,
@@ -204,16 +293,24 @@
       "price": 1200,
       "currency": "грн",
       "donationPercentage": 0,
-      "images": ["/uploads/products/item_sport_suite.png"],
+      "images": [
+        "/uploads/products/item_sport_suite.png"
+      ],
       "status": "SOLD",
-      "categoryId": 4,
-      "condition": "Вживаний",
+      "categoryId": 3,
+      "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Самовивіз"],
-      "paymentMethods": ["Готівка"],
+      "shippingMethods": [
+        "Самовивіз"
+      ],
+      "paymentMethods": [
+        "Готівка"
+      ],
       "linkedCampaignId": null,
-      "createdAt": "2024-10-21T11:00:00Z"
+      "createdAt": "2024-10-21T11:00:00Z",
+      "type": "clothes",
+      "category": "clothes"
     },
     {
       "id": 109,
@@ -223,18 +320,364 @@
       "price": 450,
       "currency": "грн",
       "donationPercentage": 0,
-      "images": ["/uploads/products/item_lamp.png"],
+      "images": [
+        "/uploads/products/item_lamp.png"
+      ],
       "status": "SOLD",
-      "categoryId": 2,
-      "condition": "Новий",
+      "categoryId": 1,
+      "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Онлайн-оплата карткою"],
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою"
+      ],
       "linkedCampaignId": null,
-      "createdAt": "2024-10-22T16:30:00Z"
+      "createdAt": "2024-10-22T16:30:00Z",
+      "type": "other",
+      "category": "home"
+    },
+
+    {
+      "id": 202,
+      "sellerId": 1,
+      "title": "Обтяжувачі для рук та ніг Sister’s Aroma",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 400,
+      "currency": "грн",
+      "donationPercentage": 25,
+      "images": ["/src/assets/images/weights.png"],
+      "status": "ACTIVE",
+      "categoryId": 6,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "equipment",
+      "category": "hobbies"
+    },
+    {
+      "id": 203,
+      "sellerId": 1,
+      "title": "Комплект термобілизни ESDY чорний",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 700,
+      "currency": "грн",
+      "donationPercentage": 75,
+      "images": ["/src/assets/images/thermal-underwear.png"],
+      "status": "ACTIVE",
+      "categoryId": 6,
+      "condition": "new",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "clothes",
+      "category": "hobbies"
+    },
+    {
+      "id": 204,
+      "sellerId": 1,
+      "title": "Незавершені дерев'яні кубики для моделювання",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 62,
+      "currency": "грн",
+      "donationPercentage": 25,
+      "images": ["/src/assets/images/cubes.png"],
+      "status": "ACTIVE",
+      "categoryId": 6,
+      "condition": "restored",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "other",
+      "category": "hobbies"
+    },
+    {
+      "id": 205,
+      "sellerId": 1,
+      "title": "Набір зі створення 5-ти соєвих ароматичних свічок",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 650,
+      "currency": "грн",
+      "donationPercentage": 15,
+      "images": ["/src/assets/images/candles.png"],
+      "status": "ACTIVE",
+      "categoryId": 6,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "other",
+      "category": "hobbies"
+    },
+    {
+      "id": 206,
+      "sellerId": 1,
+      "title": "Крафтові стікери ручної роботи 5 шт. в наборі",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 250,
+      "currency": "грн",
+      "donationPercentage": 100,
+      "images": ["/src/assets/images/stickers.jpg"],
+      "status": "ACTIVE",
+      "categoryId": 6,
+      "condition": "restored",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "other",
+      "category": "hobbies"
+    },
+    {
+      "id": 207,
+      "sellerId": 1,
+      "title": "Перший мʼяч Олександра Зінченка",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 50000,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/football.jpg"],
+      "status": "ACTIVE",
+      "categoryId": 6,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "equipment",
+      "category": "hobbies"
+    },
+    {
+      "id": 208,
+      "sellerId": 1,
+      "title": "Заглушка дім",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 100,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/vector.svg"],
+      "status": "ACTIVE",
+      "categoryId": 1,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "test",
+      "category": "home"
+    },
+    {
+      "id": 209,
+      "sellerId": 1,
+      "title": "Заглушка краса здоров'я",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 100,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/vector.svg"],
+      "status": "ACTIVE",
+      "categoryId": 2,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "test",
+      "category": "health-beauty"
+    },
+    {
+      "id": 210,
+      "sellerId": 1,
+      "title": "Заглушка одяг та аксесуари",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 100,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/vector.svg"],
+      "status": "ACTIVE",
+      "categoryId": 3,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "test",
+      "category": "clothes"
+    },
+    {
+      "id": 211,
+      "sellerId": 1,
+      "title": "Заглушка дитячі товари",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 100,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/vector.svg"],
+      "status": "ACTIVE",
+      "categoryId": 4,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "test",
+      "category": "kids"
+    },
+    {
+      "id": 212,
+      "sellerId": 1,
+      "title": "Заглушка зоотовари",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 100,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/vector.svg"],
+      "status": "ACTIVE",
+      "categoryId": 5,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "test",
+      "category": "pets"
+    },
+    {
+      "id": 213,
+      "sellerId": 1,
+      "title": "Заглушка хобі та розваги",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 100,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/vector.svg"],
+      "status": "ACTIVE",
+      "categoryId": 6,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "test",
+      "category": "hobbies"
+    },
+    {
+      "id": 214,
+      "sellerId": 1,
+      "title": "Заглушка мистецтво та творчість",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 100,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/vector.svg"],
+      "status": "ACTIVE",
+      "categoryId": 7,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "test",
+      "category": "art-craft"
+    },
+    {
+      "id": 215,
+      "sellerId": 1,
+      "title": "Заглушка послуги",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 100,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/vector.svg"],
+      "status": "ACTIVE",
+      "categoryId": 8,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "test",
+      "category": "services"
+    },
+    {
+      "id": 216,
+      "sellerId": 1,
+      "title": "Заглушка книги та освітні матеріали",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 100,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/vector.svg"],
+      "status": "ACTIVE",
+      "categoryId": 9,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "test",
+      "category": "books"
+    },
+    {
+      "id": 217,
+      "sellerId": 1,
+      "title": "Заглушка електроніка та техніка",
+      "description": "Місткий туристичний рюкзак для походів і поїздок на природу. Купуючи цей рюкзак, ви підтримуєте збір на закупівлю дронів і тактичного спорядження для наших військових, які захищають Україну на передовій. Давайте разом забезпечимо їх усім необхідним!",
+      "price": 100,
+      "currency": "грн",
+      "donationPercentage": 50,
+      "images": ["/src/assets/images/vector.svg"],
+      "status": "ACTIVE",
+      "categoryId": 10,
+      "condition": "used",
+      "location": "м. Київ",
+      "attributes": {},
+      "shippingMethods": ["Нова Пошта", "Укрпошта"],
+      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
+      "linkedCampaignId": null,
+      "createdAt": "2024-11-20T10:00:00Z",
+      "type": "test",
+      "category": "electronics"
     }
   ],
+
   "campaigns": [
     {
       "id": 201,
@@ -253,16 +696,128 @@
       "gatheredAmount": 47558379,
       "imageUrl": "/assets/campaigns/cars.jpg",
       "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 203,
+      "title": "Зброєносці",
+      "organizationId": 302,
+      "targetAmount": 7568879,
+      "gatheredAmount": 7568879,
+      "imageUrl": "/assets/campaigns/zbroyenostsi.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 204,
+      "title": "Почуй своїх",
+      "organizationId": 303,
+      "targetAmount": 14200000,
+      "gatheredAmount": 8594029,
+      "imageUrl": "/assets/campaigns/pochuy-svoyikh.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 205,
+      "title": "Блискавки ССО",
+      "organizationId": 303,
+      "targetAmount": "Безперервно",
+      "gatheredAmount": 7568879,
+      "imageUrl": "/assets/campaigns/blyskavky-sso.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 206,
+      "title": "Зимовий збір на такмед",
+      "organizationId": 303,
+      "targetAmount": "Доки стане грошей",
+      "gatheredAmount": 3458879,
+      "imageUrl": "/assets/campaigns/takmed.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 207,
+      "title": "ОКО ЗА ОКО 3",
+      "organizationId": 302,
+      "targetAmount": "Перемога",
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/oko-za-oko-3.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 208,
+      "title": "Адвент календар",
+      "organizationId": 303,
+      "targetAmount": "Скільки зможемо",
+      "gatheredAmount": 7568879,
+      "imageUrl": "/assets/campaigns/advent-calendar.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 209,
+      "title": "Формула зв'язку",
+      "organizationId": 302,
+      "targetAmount": 20000000,
+      "gatheredAmount": 1100,
+      "imageUrl": "/assets/campaigns/formula-zviazku.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 210,
+      "title": "Бережи тебе РЕБ!",
+      "organizationId": 303,
+      "targetAmount": "До перемоги",
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/reb.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 211,
+      "title": "Почуй своїх: збір на радіозв'язок",
+      "organizationId": 303,
+      "targetAmount": 7658879,
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/radio.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 212,
+      "title": "Почуй своїх: збір на радіозв'язок",
+      "organizationId": 303,
+      "targetAmount": 7658879,
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/radio.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 213,
+      "title": "Почуй своїх: збір на радіозв'язок",
+      "organizationId": 303,
+      "targetAmount": 7658879,
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/radio.jpg",
+      "tag": "Технічне забезпечення"
+    },
+    {
+      "id": 214,
+      "title": "Почуй своїх: збір на радіозв'язок",
+      "organizationId": 303,
+      "targetAmount": 7658879,
+      "gatheredAmount": 7658879,
+      "imageUrl": "/assets/campaigns/radio.jpg",
+      "tag": "Технічне забезпечення"
     }
   ],
   "organizations": [
     {
       "id": 301,
-      "name": "Фонд Сергія Prituli"
+      "name": "Фонд Добрі Серця"
     },
     {
       "id": 302,
       "name": "Фонд \"Повернись живим\""
+    },
+    {
+      "id": 303,
+      "name": "Фонд \"Сергія Притули\""
     }
   ],
   "categories": [
@@ -285,10 +840,50 @@
       "id": 4,
       "name": "Спорт",
       "parentId": null
+    },
+    {
+      "id": 5,
+      "name": "Одяг та аксесуари",
+      "parentId": null
+    },
+    {
+      "id": 6,
+      "name": "Електроніка та техніка",
+      "parentId": null
+    },
+    {
+      "id": 7,
+      "name": "Книги та освітні матеріали",
+      "parentId": null
+    },
+    {
+      "id": 8,
+      "name": "Товари для дому",
+      "parentId": null
+    },
+    {
+      "id": 9,
+      "name": "Здоров'я та краса",
+      "parentId": null
+    },
+    {
+      "id": 10,
+      "name": "Мистецтво та творчість",
+      "parentId": null
+    },
+    {
+      "id": 11,
+      "name": "Зоотовари",
+      "parentId": null
+    },
+    {
+      "id": 12,
+      "name": "Послуги",
+      "parentId": null
     }
   ],
   "reports": {
-    "googleDriveUrl": "https://drive.google.com/drive/folders/1PhsrX6FgzQ8aDZ6MnKkZhFZ6c7Y0ZxgE?usp=sharing", 
+    "googleDriveUrl": "https://drive.google.com/drive/folders/1PhsrX6FgzQ8aDZ6MnKkZhFZ6c7Y0ZxgE?usp=sharing",
     "reportList": [
       {
         "id": 1,
@@ -338,7 +933,11 @@
     {
       "id": 1001,
       "buyerId": 2,
-      "items": [101, 102, 103],
+      "items": [
+        101,
+        102,
+        103
+      ],
       "campaignId": 201,
       "totalAmount": 450,
       "createdAt": "2024-11-16T10:00:00Z"
@@ -346,10 +945,31 @@
     {
       "id": 1002,
       "buyerId": 1,
-      "items": [107, 108, 109],
+      "items": [
+        107,
+        108,
+        109
+      ],
       "campaignId": null,
       "totalAmount": 2000,
       "createdAt": "2024-10-21T09:00:00Z"
+    }
+  ],
+  "aiDescriptions": [
+    {
+      "id": 1,
+      "improvedDescription": "Червона новорічна ваза від бренду JUSK, висотою 30 см. Виготовлена з кераміки та чудово доповнить святковий інтер'єр.",
+      "manufacturerDescription": "Ваза JUSK виготовлена з високоякісної кераміки з глянцевим покриттям. Висота: 30 см."
+    },
+    {
+      "id": 2,
+      "improvedDescription": "Стильна декоративна ваза насиченого червоного кольору. Ідеально підходить для святкового декору або подарунка.",
+      "manufacturerDescription": "Керамічна ваза для декору інтер'єру. Стійка конструкція та якісне покриття."
+    },
+    {
+      "id": 3,
+      "improvedDescription": "Святкова керамічна ваза JUSK у новому стані. Має елегантний дизайн і чудово виглядає в сучасному інтер'єрі.",
+      "manufacturerDescription": "Матеріал: кераміка. Колір: червоний. Призначення: декоративне оформлення приміщень."
     }
   ]
 }

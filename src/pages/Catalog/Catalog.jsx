@@ -1,43 +1,57 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import "./Catalog.css";
 import ProductCard from "/src/components/ProductCard/ProductCard.jsx";
 import MoreButton from "/src/components/MoreButton/MoreButton.jsx";
 import ArrowDownIcon from "/src/assets/images/arrow_down.svg?react";
 
 import Filters from "./Filters/Filters";
-import PaginationButtons from "./PaginationButtons/PaginationButtons";
 import PageSwitcher from "../../components/PageSwitcher/PageSwitcher";
 import { useParams, useSearchParams } from "react-router";
 import HeroSection from "/src/components/HeroSection/HeroSection.jsx";
 import Breadcrumbs from "/src/components/Breadcrumbs/Breadcrumbs.jsx";
 
-import { products } from "./db.js";
+import { getProductsByCategory } from "/src/services/products";
+
+const PAGE_SIZE = 9;
 
 export default function Catalog(props) {
   const params = useParams();
-
-  let productsCategory = products.filter((x) => x.category === params.category);
-  // let productsCategory = products.filter((x) => true);
-
   let [searchParams, setSearchParams] = useSearchParams();
 
-  // {
-  //     type: [],
-  //     donationPercentage: [],
-  //     condition: [],
-  //   }
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // const [filters, setFilters] = useState({
-  //   type: [],
-  //   donationPercentage: [],
-  //   condition: [],
-  // });
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pagesToShow, setPagesToShow] = useState(1);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      setIsLoading(true);
+      try {
+        const data = await getProductsByCategory(params.category);
+        setProducts(data);
+        setCurrentPage(1);
+        setPagesToShow(1);
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchProducts();
+  }, [params.category]);
+
+  const handleFilterChange = (newParams) => {
+    setSearchParams(newParams, { preventScrollReset: true });
+    setCurrentPage(1);
+    setPagesToShow(1);
+  };
 
   function filterProducts(searchParams, productArr) {
     const filters = ["type", "donationPercentage", "condition"];
 
     let filteredProducts = productArr;
-
     let filterValues;
     for (let filterName of filters) {
       filterValues = searchParams.getAll(filterName);
@@ -50,6 +64,31 @@ export default function Catalog(props) {
 
     return filteredProducts;
   }
+
+  const filteredProducts = useMemo(() => {
+    return filterProducts(searchParams, products);
+  }, [searchParams, products]);
+
+  const totalPages = useMemo(() => {
+    if (filteredProducts.length === 0) return 1;
+    return Math.ceil(filteredProducts.length / PAGE_SIZE);
+  }, [filteredProducts.length]);
+
+  const visibleProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * PAGE_SIZE;
+    const endIndex = startIndex + pagesToShow * PAGE_SIZE;
+    return filteredProducts.slice(startIndex, endIndex);
+  }, [filteredProducts, currentPage, pagesToShow]);
+
+  const onLoadMore = () => {
+    setPagesToShow((prev) => prev + 1);
+  };
+
+  const onPageChange = (page) => {
+    const nextPage = Math.min(Math.max(page, 1), totalPages);
+    setCurrentPage(nextPage);
+    setPagesToShow(1);
+  };
 
   const catalogCategories = {
     home: "Товари для дому",
@@ -70,6 +109,11 @@ export default function Catalog(props) {
     { label: `${catalogCategories[params.category]}`, current: true },
   ];
 
+  const hasEnoughItemsForPagination = filteredProducts.length > PAGE_SIZE;
+  const startIndex = (currentPage - 1) * PAGE_SIZE;
+  const showMoreButton =
+    startIndex + pagesToShow * PAGE_SIZE < filteredProducts.length;
+
   return (
     <>
       <Breadcrumbs className="Catalog-breadcrumbs" items={breadcrumbItems} />
@@ -85,37 +129,65 @@ export default function Catalog(props) {
       <div className="Catalog-wrapper">
         <Filters
           searchParams={searchParams}
-          setSearchParams={setSearchParams}
+          setSearchParams={handleFilterChange}
         />
 
         <div className="Catalog-listAndButton-wrapper">
           <div className="Catalog-ProductCardList-wrapper">
-            {filterProducts(searchParams, productsCategory).map((product) => (
-              <ProductCard
-                key={product.id}
-                imgUrl={product.url}
-                name={product.name}
-                price={product.price}
-                percentNumber={product.donationPercentage}
-                type={product.type}
-                condition={product.condition}
-                category={product.category}
-                id={product.id}
+            {isLoading ? (
+              <p>Завантаження товарів...</p>
+            ) : visibleProducts.length > 0 ? (
+              visibleProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  imgUrl={
+                    product.images && product.images[0]
+                      ? product.images[0]
+                      : "/src/assets/images/vector.svg"
+                  }
+                  name={product.title}
+                  price={product.price}
+                  percentNumber={product.donationPercentage}
+                  type={product.type}
+                  condition={product.condition}
+                  category={product.category}
+                  id={product.id}
+                />
+              ))
+            ) : (
+              <p className="Catalog-empty">
+                За цими фільтрами товарів не знайдено.
+              </p>
+            )}
+          </div>
 
-                // alt = "testAlt"
-              ></ProductCard>
-            ))}
-          </div>
-          <div>
-            <MoreButton className="Catalog-moreButton-products" rightIcon={<ArrowDownIcon />}>
-                Показати ще
-              </MoreButton>
-          </div>
-          <PageSwitcher
-            // currentPage={currentPage}
-            totalPages={10}
-            // onPageChange={setCurrentPage}
-          />
+          {hasEnoughItemsForPagination && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "20px",
+              }}
+            >
+              {showMoreButton && (
+                <div>
+                  <MoreButton
+                    className="Catalog-moreButton-products"
+                    rightIcon={<ArrowDownIcon />}
+                    onClick={onLoadMore}
+                  >
+                    Показати ще
+                  </MoreButton>
+                </div>
+              )}
+              <PageSwitcher
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={onPageChange}
+              />
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ImpactStatsSection from "../../components/ImpactStatsSection/ImpactStatsSection.jsx";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs.jsx";
-import ReportsSection from "./components/ReportsSection.jsx";
+import ReportsSection from "./components/ReportsSection/ReportsSection.jsx";
 import "./StatisticsPage.css";
 import { getReports } from "../../services/reports.js";
 
@@ -46,7 +46,7 @@ export default function StatisticsPage() {
         />
       </div>
 
-      <ImpactStatsSection />
+      <ImpactStatsSection showDetailsButton={false} />
 
       <ReportsSection reports={reportsData.reportList} googleDriveUrl={reportsData.googleDriveUrl} />
     </main>

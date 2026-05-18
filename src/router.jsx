@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import App from "./App.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import DonationsPage from "./pages/DonationsPage/DonationsPage.jsx";
+import AnnouncementSuccess from "./pages/CreateAnnouncementPage/AnnouncementSuccess.jsx";
 import CreateAnnouncementPage from "./pages/CreateAnnouncementPage/CreateAnnouncementPage.jsx";
 import CatalogOverview from "./pages/Catalog/CatalogOverview/CatalogOverview.jsx";
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage.jsx";
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
           {
             path: "create-announcement",
             element: <CreateAnnouncementPage />,
+          },
+          {
+            path: "announcement-success",
+            element: <AnnouncementSuccess />,
           },
           {
             path: "catalog",
