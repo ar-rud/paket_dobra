@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./FilterItem.css";
+import PriceFilter from "/src/pages/Catalog/Filters/PriceFilter/PriceFilter.jsx";
 
 export default function FilterItem(props) {
   // props
@@ -56,5 +57,15 @@ export default function FilterItem(props) {
       </details>
     );
   }
-  return <></>;
+  if (props.type === "price-range") {
+    return (
+      <PriceFilter
+        name={props.name}
+        searchParams={props.searchParams}
+        setSearchParams={props.setSearchParams}
+      />
+    );
+  }
+
+  return null;
 }

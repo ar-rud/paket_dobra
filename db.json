@@ -110,11 +110,7 @@
         "Матеріал": "Водонепроникна нейлонова тканина",
         "Особливості": "Багато кишень, відділ для гідратора"
       },
-      "shippingMethods": [
-        "Нова Пошта",
-        "Укрпошта",
-        "Самовивіз"
-      ],
+      "shippingMethods": ["Нова Пошта", "Укрпошта", "Самовивіз"],
       "paymentMethods": [
         "Онлайн-оплата карткою (Visa/MasterCard)",
         "Оплата при отриманні"
@@ -122,7 +118,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-10T08:00:00Z",
       "type": "equipment",
-      "category": "hobbies"
+      "category": "hobbies",
+      "serviceType": null
     },
     {
       "id": 102,
@@ -142,16 +139,13 @@
         "Матеріал": "Кераміка",
         "Особливості": "Ручна робота, можна мити в ПМ"
       },
-      "shippingMethods": [
-        "Нова Пошта"
-      ],
-      "paymentMethods": [
-        "Повна передплата"
-      ],
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Повна передплата"],
       "linkedCampaignId": 201,
       "createdAt": "2024-11-12T10:30:00Z",
       "type": "other",
-      "category": "home"
+      "category": "home",
+      "serviceType": null
     },
     {
       "id": 103,
@@ -170,18 +164,13 @@
         "Матеріал": "Дерево",
         "Вік": "Від 1 року"
       },
-      "shippingMethods": [
-        "Укрпошта",
-        "Самовивіз"
-      ],
-      "paymentMethods": [
-        "Готівка",
-        "Безпечна оплата на сайті"
-      ],
+      "shippingMethods": ["Укрпошта", "Самовивіз"],
+      "paymentMethods": ["Готівка", "Безпечна оплата на сайті"],
       "linkedCampaignId": null,
       "createdAt": "2024-10-20T14:15:00Z",
       "type": "other",
-      "category": "kids"
+      "category": "kids",
+      "serviceType": null
     },
     {
       "id": 104,
@@ -202,7 +191,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-15T18:45:00Z",
       "type": "equipment",
-      "category": "hobbies"
+      "category": "hobbies",
+      "serviceType": null
     },
     {
       "id": 105,
@@ -212,24 +202,19 @@
       "price": 700,
       "currency": "грн",
       "donationPercentage": 20,
-      "images": [
-        "/uploads/products/item_painting.png"
-      ],
+      "images": ["/uploads/products/item_painting.png"],
       "status": "ACTIVE",
       "categoryId": 7,
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта"
-      ],
-      "paymentMethods": [
-        "Повна передплата"
-      ],
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Повна передплата"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-01T09:00:00Z",
       "type": "other",
-      "category": "art-craft"
+      "category": "art-craft",
+      "serviceType": null
     },
     {
       "id": 106,
@@ -239,24 +224,19 @@
       "price": 230,
       "currency": "грн",
       "donationPercentage": 10,
-      "images": [
-        "/uploads/products/item_paintbrush.png"
-      ],
+      "images": ["/uploads/products/item_paintbrush.png"],
       "status": "DRAFT",
       "categoryId": 7,
       "condition": "new",
       "location": "м. Львів",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою"
-      ],
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Онлайн-оплата карткою"],
       "linkedCampaignId": null,
       "createdAt": "2024-11-05T12:00:00Z",
       "type": "equipment",
-      "category": "art-craft"
+      "category": "art-craft",
+      "serviceType": null
     },
     {
       "id": 107,
@@ -266,24 +246,19 @@
       "price": 350,
       "currency": "грн",
       "donationPercentage": 5,
-      "images": [
-        "/uploads/products/item_massage_ball.png"
-      ],
+      "images": ["/uploads/products/item_massage_ball.png"],
       "status": "SOLD",
       "categoryId": 2,
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Укрпошта"
-      ],
-      "paymentMethods": [
-        "Готівка"
-      ],
+      "shippingMethods": ["Укрпошта"],
+      "paymentMethods": ["Готівка"],
       "linkedCampaignId": null,
       "createdAt": "2024-10-20T14:15:00Z",
       "type": "equipment",
-      "category": "health-beauty"
+      "category": "health-beauty",
+      "serviceType": null
     },
     {
       "id": 108,
@@ -293,24 +268,19 @@
       "price": 1200,
       "currency": "грн",
       "donationPercentage": 0,
-      "images": [
-        "/uploads/products/item_sport_suite.png"
-      ],
+      "images": ["/uploads/products/item_sport_suite.png"],
       "status": "SOLD",
       "categoryId": 3,
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Самовивіз"
-      ],
-      "paymentMethods": [
-        "Готівка"
-      ],
+      "shippingMethods": ["Самовивіз"],
+      "paymentMethods": ["Готівка"],
       "linkedCampaignId": null,
       "createdAt": "2024-10-21T11:00:00Z",
       "type": "clothes",
-      "category": "clothes"
+      "category": "clothes",
+      "serviceType": null
     },
     {
       "id": 109,
@@ -320,26 +290,20 @@
       "price": 450,
       "currency": "грн",
       "donationPercentage": 0,
-      "images": [
-        "/uploads/products/item_lamp.png"
-      ],
+      "images": ["/uploads/products/item_lamp.png"],
       "status": "SOLD",
       "categoryId": 1,
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": [
-        "Нова Пошта"
-      ],
-      "paymentMethods": [
-        "Онлайн-оплата карткою"
-      ],
+      "shippingMethods": ["Нова Пошта"],
+      "paymentMethods": ["Онлайн-оплата карткою"],
       "linkedCampaignId": null,
       "createdAt": "2024-10-22T16:30:00Z",
       "type": "other",
-      "category": "home"
+      "category": "home",
+      "serviceType": null
     },
-
     {
       "id": 202,
       "sellerId": 1,
@@ -359,7 +323,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "equipment",
-      "category": "hobbies"
+      "category": "hobbies",
+      "serviceType": null
     },
     {
       "id": 203,
@@ -380,7 +345,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "clothes",
-      "category": "hobbies"
+      "category": "hobbies",
+      "serviceType": null
     },
     {
       "id": 204,
@@ -401,7 +367,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "other",
-      "category": "hobbies"
+      "category": "hobbies",
+      "serviceType": null
     },
     {
       "id": 205,
@@ -422,7 +389,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "other",
-      "category": "hobbies"
+      "category": "hobbies",
+      "serviceType": null
     },
     {
       "id": 206,
@@ -443,7 +411,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "other",
-      "category": "hobbies"
+      "category": "hobbies",
+      "serviceType": null
     },
     {
       "id": 207,
@@ -464,7 +433,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "equipment",
-      "category": "hobbies"
+      "category": "hobbies",
+      "serviceType": null
     },
     {
       "id": 208,
@@ -485,7 +455,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
-      "category": "home"
+      "category": "home",
+      "serviceType": null
     },
     {
       "id": 209,
@@ -506,7 +477,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
-      "category": "health-beauty"
+      "category": "health-beauty",
+      "serviceType": null
     },
     {
       "id": 210,
@@ -527,7 +499,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
-      "category": "clothes"
+      "category": "clothes",
+      "serviceType": null
     },
     {
       "id": 211,
@@ -548,7 +521,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
-      "category": "kids"
+      "category": "kids",
+      "serviceType": null
     },
     {
       "id": 212,
@@ -569,7 +543,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
-      "category": "pets"
+      "category": "pets",
+      "serviceType": null
     },
     {
       "id": 213,
@@ -590,7 +565,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
-      "category": "hobbies"
+      "category": "hobbies",
+      "serviceType": null
     },
     {
       "id": 214,
@@ -611,7 +587,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
-      "category": "art-craft"
+      "category": "art-craft",
+      "serviceType": null
     },
     {
       "id": 215,
@@ -632,7 +609,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
-      "category": "services"
+      "category": "services",
+      "serviceType": "consultation"
     },
     {
       "id": 216,
@@ -653,7 +631,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
-      "category": "books"
+      "category": "books",
+      "serviceType": null
     },
     {
       "id": 217,
@@ -674,7 +653,8 @@
       "linkedCampaignId": null,
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
-      "category": "electronics"
+      "category": "electronics",
+      "serviceType": null
     }
   ],
 
@@ -933,11 +913,7 @@
     {
       "id": 1001,
       "buyerId": 2,
-      "items": [
-        101,
-        102,
-        103
-      ],
+      "items": [101, 102, 103],
       "campaignId": 201,
       "totalAmount": 450,
       "createdAt": "2024-11-16T10:00:00Z"
@@ -945,11 +921,7 @@
     {
       "id": 1002,
       "buyerId": 1,
-      "items": [
-        107,
-        108,
-        109
-      ],
+      "items": [107, 108, 109],
       "campaignId": null,
       "totalAmount": 2000,
       "createdAt": "2024-10-21T09:00:00Z"

@@ -1,10 +1,7 @@
 import "./Filters.css";
 import FilterItem from "./FilterItem/FilterItem.jsx";
-import { useSearchParams } from "react-router";
 
 export default function Filters(props) {
-  // let [searchParams, setSearchParams] = useSearchParams();
-
   const onFilterChange = (filterName) => (event) => {
     let updatedSearchParams;
     if (event.target.checked) {
@@ -25,14 +22,9 @@ export default function Filters(props) {
       newParams.append(filterName, val);
     });
 
-    // newParams.append(filterName, updatedSearchParams.join(","));
-
-    props.setSearchParams(newParams, { preventScrollReset: true });
+    props.setSearchParams(newParams);
   };
 
-  const onTypeChange = onFilterChange("type");
-  const onDonationPercentageChange = onFilterChange("donationPercentage");
-  const onConditionChange = onFilterChange("condition");
   return (
     <section className="Filters-wrapper">
       <h4 className="Filters-heading">Фільтри</h4>
@@ -41,7 +33,7 @@ export default function Filters(props) {
           name="Категорія товарів"
           filterKey="type"
           type="checkbox-list"
-          onChange={onTypeChange}
+          onChange={onFilterChange("type")}
           options={{
             clothes: "Одяг",
             equipment: "Спорядження",
@@ -50,20 +42,31 @@ export default function Filters(props) {
           searchParams={props.searchParams}
         />
 
-        <details className="Filters-item">
-          <summary className="Filters-item-name">Тип послуг</summary>
-          test
-        </details>
+        <FilterItem
+          name="Тип послуг"
+          filterKey="serviceType"
+          type="checkbox-list"
+          onChange={onFilterChange("serviceType")}
+          options={{
+            consultation: "Консультація",
+            training: "Тренування",
+            other: "Інше", // The new "Other" option
+          }}
+          searchParams={props.searchParams}
+        />
 
-        <details className="Filters-item">
-          <summary className="Filters-item-name">Розмір донату</summary>
-        </details>
+        <FilterItem
+          name="Розмір донату"
+          type="price-range"
+          searchParams={props.searchParams}
+          setSearchParams={props.setSearchParams}
+        />
 
         <FilterItem
           name="%, який піде на донат"
           filterKey="donationPercentage"
           type="checkbox-list"
-          onChange={onDonationPercentageChange}
+          onChange={onFilterChange("donationPercentage")}
           options={{
             100: "100%",
             75: "75%",
@@ -78,7 +81,7 @@ export default function Filters(props) {
           name="Стан товару"
           filterKey="condition"
           type="checkbox-list"
-          onChange={onConditionChange}
+          onChange={onFilterChange("condition")}
           options={{
             new: "Нове",
             used: "Вживане",
@@ -87,21 +90,59 @@ export default function Filters(props) {
           searchParams={props.searchParams}
         />
 
-        <details className="Filters-item">
-          <summary className="Filters-item-name">Завершення збору</summary>
-        </details>
+        <FilterItem
+          name="Завершення збору"
+          filterKey="campaignStatus"
+          type="checkbox-list"
+          onChange={onFilterChange("campaignStatus")}
+          options={{
+            active: "Активні",
+            closed: "Завершені",
+          }}
+          searchParams={props.searchParams}
+        />
 
-        <details className="Filters-item">
-          <summary className="Filters-item-name">Тип проєкту</summary>
-        </details>
+        <FilterItem
+          name="Тип проєкту"
+          filterKey="projectType"
+          type="checkbox-list"
+          onChange={onFilterChange("projectType")}
+          options={{
+            tech: "Технічне забезпечення",
+            medicine: "Медицина",
+            transport: "Транспорт",
+          }}
+          searchParams={props.searchParams}
+        />
 
-        <details className="Filters-item">
-          <summary className="Filters-item-name">Організація</summary>
-        </details>
+        <FilterItem
+          name="Організація"
+          filterKey="organization"
+          type="checkbox-list"
+          onChange={onFilterChange("organization")}
+          options={{
+            savelife: "Повернись живим",
+            prytula: "Фонд Притули",
+            dobrisertsya: "Добрі Серця", // Updated English key for clarity
+            none: "Без фонду",
+          }}
+          searchParams={props.searchParams}
+        />
 
-        <details className="Filters-item">
-          <summary className="Filters-item-name">Регіон</summary>
-        </details>
+        <FilterItem
+          name="Регіон"
+          filterKey="region"
+          type="checkbox-list"
+          onChange={onFilterChange("region")}
+          options={{
+            online: "Онлайн",
+            kyiv: "Київ",
+            lviv: "Львів",
+            odesa: "Одеса",
+            other: "Інше місто",
+          }}
+          searchParams={props.searchParams}
+        />
       </form>
     </section>
   );
