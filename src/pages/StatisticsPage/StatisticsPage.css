@@ -42,8 +42,12 @@
 }
 
 @media (max-width: 480px) {
+  .statistics-page__breadcrumbs-wrap {
+    display: none;
+  }
+
   .statistics-page .impact-stats--stats-only .impact-stats__inner {
-    width: 240px;
-    max-width: calc(100% - 20px);
+    width: calc(100% - 24px);
+    max-width: none;
   }
 }

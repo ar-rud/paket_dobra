@@ -55,7 +55,7 @@ export default function ReportsSection({ reports, googleDriveUrl }) {
             rel="noopener noreferrer"
             aria-label="Перейти на диск"
           >
-            Перейти на диск
+            На диск
             <TriangleRifht className="reports-section__link-icon" aria-hidden="true" />
           </a>
         </div>

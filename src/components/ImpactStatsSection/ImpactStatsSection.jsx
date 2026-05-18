@@ -9,14 +9,14 @@ export default function ImpactStatsSection({ detailsHref = "/statistics", showDe
   return (
     <section className={`impact-stats${showDetailsButton ? "" : " impact-stats--stats-only"}`}>
       <div className="impact-stats__inner">
-        {showDetailsButton && (
-          <div className="impact-stats__intro">
-            <h2 className="impact-stats__title">
-              <span>І допомагай</span>
-              <span>тим, кому дуже</span>
-              <span>потрібно</span>
-            </h2>
+        <div className="impact-stats__intro">
+          <h2 className="impact-stats__title">
+            <span>І допомагай</span>
+            <span>тим, кому дуже</span>
+            <span>потрібно</span>
+          </h2>
 
+          {showDetailsButton && (
             <MoreButton
               className="impact-stats__details-btn"
               onClick={() => {
@@ -26,8 +26,8 @@ export default function ImpactStatsSection({ detailsHref = "/statistics", showDe
             >
               Детальніше
             </MoreButton>
-          </div>
-        )}
+          )}
+        </div>
 
         <div className="impact-stats__white-card">
           <p className="impact-stats__label">
