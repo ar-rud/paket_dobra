@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import MoreButton from "../MoreButton/MoreButton.jsx";
 import PixelHeart from "../PixelHeart/PixelHeart.jsx";
-import Header from "../Header/Header.jsx";
 import { useNavigate } from "react-router";
 import { getRandomCampaigns } from "../../services/campaigns.js";
 import "./HomeHeroSection.css";
@@ -134,7 +133,6 @@ export default function HomeHeroSection({ onCartOpen = () => {} }) {
 
   return (
     <section className="home-hero">
-      <Header topInfoText="" overlay onCartOpen={onCartOpen} />
       <div className="home-hero__layout">
         <div className="home-hero__content">
           <div className="home-hero__intro">
