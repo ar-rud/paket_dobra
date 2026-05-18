@@ -94,10 +94,10 @@
       "currency": "грн",
       "donationPercentage": 15,
       "images": [
-        "/assets/products/backpack_main.jpg",
-        "/assets/products/backpack_side.jpg",
-        "/assets/products/backpack_strap.jpg",
-        "/assets/products/backpack_back.jpg"
+        "/uploads/products/backpack_main.png",
+        "/uploads/products/backpack_side.png",
+        "/uploads/products/backpack_strap.png",
+        "/uploads/products/backpack_back.png"
       ],
       "status": "ACTIVE",
       "categoryId": 6,

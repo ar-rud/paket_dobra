@@ -20,12 +20,15 @@ export default function ProductPage(props) {
   const [product, setProduct] = useState(null)
   const [campaigns, setCampaigns] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [selectedFoundationId, setSelectedFoundationId] = useState('')
+
+  // NEW: State to track which image is currently displayed in the main view
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true)
       try {
-        // Fetch product and use your existing getCampaigns service
         const [productData, campaignsData] = await Promise.all([
           getProductById(productId),
           getCampaigns(),
@@ -61,12 +64,21 @@ export default function ProductPage(props) {
 
   const productPriceAddPercent = 10 ** Math.floor(product.price / 100).toString().length
 
-  const mainImage =
-    product.images && product.images.length > 0
-      ? product.images[0]
-      : '/src/assets/images/vector.svg'
+  // Ensure we always have an array of images to work with
+  const allImages =
+    product.images && product.images.length > 0 ? product.images : ['/src/assets/images/vector.svg']
 
-  const extraImages = product.images || []
+  // The main image is now driven by the state index
+  const mainImage = allImages[currentImageIndex]
+
+  // Navigation handlers for the carousel
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? allImages.length - 1 : prevIndex - 1))
+  }
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex === allImages.length - 1 ? 0 : prevIndex + 1))
+  }
 
   const conditionMap = {
     new: 'Новий',
@@ -109,7 +121,7 @@ export default function ProductPage(props) {
           ? '*При оформленні оберіть фонд на який піде донат.'
           : null,
     })
-    handleCartOpen() // відкрити кошик
+    handleCartOpen()
   }
 
   return (
@@ -120,14 +132,51 @@ export default function ProductPage(props) {
         <aside className="product-page-aisde-wrapper">
           <div className="product-page-images-top">
             <div className="product-page-image-main-wrapper">
+              {/* Left Arrow Button (Only show if there's more than 1 image) */}
+              {allImages.length > 1 && (
+                <button className="product-page-carousel-btn prev" onClick={handlePrevImage}>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+              )}
+
               <img className="product-page-image-main" src={mainImage} alt="product img" />
+
+              {/* Right Arrow Button */}
+              {allImages.length > 1 && (
+                <button className="product-page-carousel-btn next" onClick={handleNextImage}>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              )}
             </div>
           </div>
 
-          {extraImages.length > 1 && (
+          {allImages.length > 1 && (
             <div className="product-page-images-bottom">
-              {extraImages.map((url, i) => (
-                <div key={i} className="product-page-image-extra-wrapper">
+              {allImages.map((url, i) => (
+                <div
+                  key={i}
+                  className={`product-page-image-extra-wrapper ${i === currentImageIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentImageIndex(i)} // Make thumbnails clickable!
+                  style={{ cursor: 'pointer' }}
+                >
                   <img
                     className="product-page-image-extra"
                     src={url}
@@ -138,6 +187,7 @@ export default function ProductPage(props) {
             </div>
           )}
         </aside>
+
         <section className="product-page-section-wrapper">
           <header className="product-page-section-header">
             <section className="product-page-main-info">
@@ -181,6 +231,9 @@ export default function ProductPage(props) {
                   className="product-page-section-foundation-select"
                   id="product-page-foundation-select"
                   name="foundations"
+                  required
+                  value={selectedFoundationId}
+                  onChange={(e) => setSelectedFoundationId(e.target.value)}
                 >
                   <option value="">Благодійні організації</option>
                   {campaigns.map((campaign) => (
@@ -206,7 +259,6 @@ export default function ProductPage(props) {
                 Основна інформація
               </span>
               <ul className="product-page-info-list product-page-section-text">
-                {/* Map dynamic attributes from DB */}
                 {product.attributes &&
                   Object.entries(product.attributes).map(([key, value]) => (
                     <li key={key} className="product-page-info-item">
