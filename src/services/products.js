@@ -1,6 +1,6 @@
 /**
  * Products Service
- * 
+ *
  * Handles all product-related operations:
  * - Fetch all products / by category / by ID
  * - Create new product (announcement)
@@ -9,7 +9,7 @@
  * - Search and filter products
  */
 
-import apiCall from './api';
+import apiCall from "./api";
 
 /**
  * Fetch products belonging to a specific seller.
@@ -17,11 +17,11 @@ import apiCall from './api';
  * @returns {Promise<object[]>}
  */
 export async function getProductsBySellerId(sellerId) {
-	if (sellerId == null) {
-		throw new Error('getProductsBySellerId: sellerId is required');
-	}
+  if (sellerId == null) {
+    throw new Error("getProductsBySellerId: sellerId is required");
+  }
 
-	return apiCall(`/products?sellerId=${sellerId}`);
+  return apiCall(`/products?sellerId=${sellerId}`);
 }
 
 /**
@@ -31,13 +31,28 @@ export async function getProductsBySellerId(sellerId) {
  */
 export async function getProductById(productId) {
   if (productId == null) {
-    throw new Error('getProductById: productId is required');
+    throw new Error("getProductById: productId is required");
   }
 
   return apiCall(`/products/${productId}`);
 }
 
 /**
+ * Fetch products belonging to a specific category.
+ * @param {string} category
+ * @returns {Promise<object[]>}
+ */
+export async function getProductsByCategory(category) {
+  if (!category) {
+    throw new Error("getProductsByCategory: category is required");
+  }
+  return apiCall(`/products?category=${category}`);
+}
+
+export default {
+  getProductsBySellerId,
+  getProductById,
+  getProductsByCategory,
  * Create or update a draft product.
  * If `product.id` is present, performs PUT /products/:id, otherwise POST /products.
  */

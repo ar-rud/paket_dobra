@@ -66,6 +66,8 @@
 
   padding-left: 56px;
   padding-right: 56px;
+  padding-top: 48px;
+  padding-bottom: 120px;
 }
 
 /* MARK: SECTION STYLES */
@@ -269,7 +271,7 @@
     0px 4px 4px -1px #00000033;
 }
 
-.product-page-description-span {
+.product-page-section-span {
   font-weight: 500;
   font-size: 14px;
   line-height: 130%;
@@ -278,11 +280,16 @@
   display: block;
 }
 
-.product-page-description-text {
+.product-page-section-text {
   font-weight: 300;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0px;
   vertical-align: middle;
   color: #121800;
+}
+
+.product-page-breadcrumbs {
+  padding-left: 56px;
+  padding-top: 20px;
 }
