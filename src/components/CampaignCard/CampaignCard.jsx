@@ -15,9 +15,13 @@ function CampaignCard({ title, category, foundation, collected, goal, image }) {
       <div className="campaign-card__content">
         <span className="campaign-card__tag">{category}</span>
 
-        <h3 className="campaign-card__title">{title}</h3>
+        <a href="#" onClick={(e) => e.preventDefault()} className="campaign-card__title">
+          {title}
+        </a>
 
-        <p className="campaign-card__foundation">{foundation}</p>
+        <a href="#" onClick={(e) => e.preventDefault()} className="campaign-card__foundation">
+          {foundation}
+        </a>
 
         <div className="campaign-card__stats">
           <div>

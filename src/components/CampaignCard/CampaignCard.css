@@ -9,6 +9,11 @@
   flex-direction: column;
   box-sizing: border-box;
   container-type: inline-size;
+  transition: border 0.3s ease;
+}
+
+.campaign-card:hover {
+  border: 2px solid #d7e361;
 }
 
 .campaign-card__image-wrapper {
@@ -63,6 +68,15 @@
   letter-spacing: 0;
   max-width: none;
   width: 100%;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease, text-decoration 0.3s ease;
+  transform-origin: left center;
+}
+
+.campaign-card:hover .campaign-card__title {
+  transform: scale(1.02);
+  text-decoration: underline;
 }
 
 .campaign-card__foundation {
@@ -70,6 +84,14 @@
   font-size: clamp(15px, 4cqi, 18px);
   line-height: 1.5;
   color: #2b3a00;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease;
+  transform-origin: left center;
+}
+
+.campaign-card:hover .campaign-card__foundation {
+  transform: scale(1.02);
 }
 
 .campaign-card__stats {
