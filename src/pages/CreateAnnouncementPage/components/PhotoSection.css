@@ -92,3 +92,36 @@
   line-height: 1;
   cursor: pointer;
 }
+
+@media (max-width: 480px) {
+  .section-card.photo-section {
+    gap: 24px;
+    padding: 24px 16px 28px;
+  }
+
+  .section-card.photo-section .section-card__title.photo-section__title {
+    font-size: 18px;
+  }
+
+  .section-card.photo-section .section-card__body.photo-section__body {
+    gap: 20px;
+  }
+
+  .photo-section__hint {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .photo-section__grid {
+    gap: 12px;
+  }
+
+  .photo-section__slot {
+    width: 68px;
+    height: 68px;
+  }
+
+  .photo-section__plus {
+    font-size: 40px;
+  }
+}

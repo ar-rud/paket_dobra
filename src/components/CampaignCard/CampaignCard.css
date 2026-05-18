@@ -122,3 +122,51 @@
     font-size: 14px;
   }
 }
+
+@media (max-width: 480px) {
+  .campaign-card {
+    box-shadow: 0 8px 18px rgba(18, 24, 0, 0.12);
+  }
+
+  .campaign-card__image-wrapper {
+    min-height: 176px;
+  }
+
+  .campaign-card__content {
+    padding: 12px 14px 14px;
+  }
+
+  .campaign-card__tag {
+    min-width: 0;
+    min-height: 34px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .campaign-card__title {
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .campaign-card__foundation {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .campaign-card__stats {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-size: 10px;
+    gap: 12px;
+  }
+
+  .campaign-card__stats strong {
+    font-size: 14px;
+  }
+
+  .campaign-card__progress {
+    height: 12px;
+  }
+}

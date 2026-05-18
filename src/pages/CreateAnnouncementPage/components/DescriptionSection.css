@@ -71,3 +71,30 @@
   height: 20px;
   object-fit: contain;
 }
+
+@media (max-width: 480px) {
+  .section-card.description-section {
+    gap: 24px;
+    padding: 24px 16px 28px;
+  }
+
+  .section-card.description-section .section-card__title.description-section__title {
+    font-size: 18px;
+  }
+
+  .description-section__stack {
+    width: 100%;
+    gap: 16px;
+  }
+
+  .description-section__textarea {
+    width: 100%;
+    height: 180px;
+  }
+
+  .description-section__improve {
+    width: 100%;
+    min-width: 0;
+    padding: 0 16px;
+  }
+}

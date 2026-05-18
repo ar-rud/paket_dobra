@@ -26,6 +26,7 @@ function DonationsPage() {
   const [campaigns, setCampaigns] = useState([]);
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [appliedFilters, setAppliedFilters] = useState(DEFAULT_FILTERS);
+  const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -119,12 +120,14 @@ function DonationsPage() {
   const onApplyFilters = () => {
     setAppliedFilters({ ...filters });
     setCurrentPage(1);
+    setIsMobileFiltersOpen(false);
   };
 
   const onResetFilters = () => {
     setFilters({ ...DEFAULT_FILTERS });
     setAppliedFilters({ ...DEFAULT_FILTERS });
     setCurrentPage(1);
+    setIsMobileFiltersOpen(false);
   };
 
   const hasEnoughItemsForPagination = filteredCampaigns.length > PAGE_SIZE;
@@ -139,6 +142,21 @@ function DonationsPage() {
           buttonText="Підтримати"
         />
 
+        <div className="donations-page__mobile-heading">
+          <h1 className="donations-page__mobile-title">Усі збори</h1>
+          <button
+            type="button"
+            className="donations-page__mobile-filter-toggle"
+            aria-label={isMobileFiltersOpen ? "Закрити фільтри" : "Відкрити фільтри"}
+            aria-expanded={isMobileFiltersOpen}
+            onClick={() => setIsMobileFiltersOpen((prev) => !prev)}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              <path d="M4 6h16l-6.2 7.1v4.7l-3.6 1.8V13.1L4 6Z" />
+            </svg>
+          </button>
+        </div>
+
         <div className="donations-page__container donations-page__filters-strip">
           <div className="donations-page__filters">
             <FiltersBar
@@ -152,6 +170,20 @@ function DonationsPage() {
             />
           </div>
         </div>
+
+        {isMobileFiltersOpen ? (
+          <div className="donations-page__mobile-filters">
+            <FiltersBar
+              typeOptions={typeOptions}
+              statusOptions={statusOptions}
+              organizationOptions={organizationOptions}
+              filters={filters}
+              onFilterChange={onFilterChange}
+              onApply={onApplyFilters}
+              onReset={onResetFilters}
+            />
+          </div>
+        ) : null}
       </section>
 
       <section className="donations-page__content">
