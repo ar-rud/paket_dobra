@@ -40,3 +40,10 @@
     width: min(100% - 24px, 1240px);
   }
 }
+
+@media (max-width: 480px) {
+  .statistics-page .impact-stats--stats-only .impact-stats__inner {
+    width: 240px;
+    max-width: calc(100% - 20px);
+  }
+}
