@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Header.css";
 import { Link } from "react-router";
 import LogoIcon from "../../assets/images/logo.svg?react";
@@ -25,6 +25,35 @@ export default function Header({
   onCartOpen = () => {},
 }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const headerElement = headerRef.current;
+
+    if (!headerElement) return undefined;
+
+    const updateHeaderOffset = () => {
+      document.documentElement.style.setProperty(
+        "--header-offset",
+        `${Math.ceil(headerElement.getBoundingClientRect().height)}px`,
+      );
+    };
+
+    updateHeaderOffset();
+
+    if (typeof ResizeObserver !== "undefined") {
+      const resizeObserver = new ResizeObserver(updateHeaderOffset);
+      resizeObserver.observe(headerElement);
+
+      return () => {
+        resizeObserver.disconnect();
+      };
+    }
+
+    window.addEventListener("resize", updateHeaderOffset);
+    return () => window.removeEventListener("resize", updateHeaderOffset);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,15 +76,25 @@ export default function Header({
     };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <header
-      className={`header ${transparent ? "header--transparent" : ""} ${
-        overlay ? "header--overlay" : ""
-      }`.trim()}
+      ref={headerRef}
+      className={`header${
+        transparent ? " header--transparent" : ""
+      }${overlay ? " header--overlay" : ""}${scrolled ? " header--scrolled" : ""}`.trim()}
     >
-      {topInfoText ? <div className="header__top">{topInfoText}</div> : null}
+      {topInfoText && topInfoText.trim() !== "" ? <div className="header__top">{topInfoText}</div> : null}
 
       <div className="header__bar">
         <button
