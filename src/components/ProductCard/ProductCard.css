@@ -11,8 +11,8 @@
   gap: 32px;
   justify-content: space-between;
   padding-top: 16px;
-  padding-right: 24px;
-  padding-left: 24px;
+  /* padding-right: 24px;
+  padding-left: 24px; */
   padding-bottom: 24px;
   /* width: max-content; */
   border-style: solid;
@@ -57,4 +57,9 @@
 
 .ProductCard-container:hover .ProductInfo-name {
   text-decoration: underline;
+}
+
+.ProductCard-container > * {
+  margin-left: 24px;
+  margin-right: 24px;
 }
