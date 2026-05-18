@@ -1,7 +1,9 @@
 .checkout-container {
-  max-width: 1200px;
+  position: relative;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 40px 20px;
+  margin-left: 0;
 }
 
 .back-link {
@@ -352,8 +354,9 @@
 
 /* RIGHT PANEL */
 .product-summary-card {
-  padding: 20px 0;
-  border-bottom: 1px solid #e5e5e5;
+  margin-left: -10px;
+  padding: 20px 40px;
+  border-bottom: 1px solid #E5E5E5;
 }
 
 .product-summary-card:last-child {
@@ -367,6 +370,8 @@
   padding: 4px 8px;
   font-size: 12px;
   margin-bottom: 10px;
+  margin-left: 15px;
+  padding-left: 15px;
 }
 
 .product-summary-name {
@@ -379,5 +384,31 @@
 .product-summary-price {
   font-size: 15px;
   color: #333;
-  margin: 0;
+  margin-left: 15px;
+}
+
+
+
+
+
+
+.back-to-home-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 12px;
+  color: #b8c1b0;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+  margin-left: 180px;
+  z-index: 30;
+}
+
+.back-to-home-btn:hover {
+  opacity: 0.8;
 }

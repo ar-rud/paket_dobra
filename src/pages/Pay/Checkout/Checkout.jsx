@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router'
-import './Checkout.css'
+import React from "react";
+import { useNavigate } from 'react-router';
+import "./Checkout.css";
+import { useCart } from "/src/contexts/CartContext";
+import { useState, useEffect } from "react";
+import { getProducts } from "/src/services/products";
 
 import novaposhta from './img/novaposhta.svg'
 import ukrposhta from './img/ukrposhta.svg'
@@ -51,7 +54,26 @@ const formatPhone = (raw) => {
 }
 
 const Checkout = ({ onNext, onBack }) => {
-  const navigate = useNavigate()
+
+  const [adProducts, setAdProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts().then((all) => {
+      const active = all.filter((p) => p.status === "ACTIVE");
+      const shuffled = active.sort(() => Math.random() - 0.5).slice(0, 2);
+      setAdProducts(shuffled);
+    });
+  }, []);
+
+  const { items } = useCart();
+
+  const navigate = useNavigate();
+
+  const { cities, branches, loadingCities, loadingBranches, searchCities, fetchBranches } = useNovaPoshtaAPI();
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [selectedDelivery, setSelectedDelivery] = useState(null);
+
+
 
   const { cities, branches, loadingCities, loadingBranches, searchCities, fetchBranches } =
     useNovaPoshtaAPI()
@@ -122,223 +144,231 @@ const Checkout = ({ onNext, onBack }) => {
     return errors[name] ? 'input-error' : 'input-success'
   }
 
+
   return (
-    <div className="page-wrapper">
-      <div className="checkout-container">
-        <div className="back-link" onClick={onBack}>
-          ‹ Повернутись
-        </div>
+    <>  
 
-        <h1 className="page-title">Оформлення замовлення</h1>
+      <div className="page-wrapper">
+        <button className="back-to-home-btn" onClick={() => navigate('/')}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          Повернутись
+        </button>
+        <div className="checkout-container">
 
-        <div className="checkout-content">
-          {/* LEFT */}
-          <div className="checkout-left">
-            {/* DELIVERY */}
-            <div className="section-card">
-              <h3 className="section-title">Служба доставки</h3>
-              <p className="section-subtitle">Оберіть спосіб отримання замовлення</p>
 
-              {DELIVERY_OPTIONS.map((option) => (
-                <div
-                  key={option.id}
-                  className={`delivery-option ${selectedDelivery === option.id ? 'delivery-option--selected' : ''}`}
-                  onClick={() => setSelectedDelivery(option.id)}
+          <h1 className="page-title">Оформлення замовлення</h1>
+
+          <div className="checkout-content">
+
+            {/* LEFT */}
+            <div className="checkout-left">
+
+              {/* DELIVERY */}
+              <div className="section-card">
+                <h3 className="section-title">Служба доставки</h3>
+                <p className="section-subtitle">Оберіть спосіб отримання замовлення</p>
+
+                {DELIVERY_OPTIONS.map((option) => (
+                  <div
+                    key={option.id}
+                    className={`delivery-option ${selectedDelivery === option.id ? "delivery-option--selected" : ""}`}
+                    onClick={() => setSelectedDelivery(option.id)}
+                  >
+                    <div className="radio-circle">
+                      {selectedDelivery === option.id && <div className="radio-dot" />}
+                    </div>
+                    <img src={option.icon} alt={option.name} className="delivery-icon" />
+                    <div className="delivery-info">
+                      <p className="delivery-name">{option.name}</p>
+                      <p className="delivery-days">{option.days}</p>
+                    </div>
+                    <span className="delivery-price">{option.price}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CONTACT FORM */}
+              <div className="section-card">
+                <h3 className="section-title">Контактні дані</h3>
+                <p className="section-subtitle">Заповніть контактні дані отримувача</p>
+
+                <div className="form-group">
+                  <label className="field-label">Вкажіть імʼя</label>
+                  <input
+                    name="firstName"
+                    placeholder="Василь"
+                    value={form.firstName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={getInputClass("firstName")}
+                  />
+                  {touched.firstName && errors.firstName && (
+                    <span className="field-error">{errors.firstName}</span>
+                  )}
+                </div>
+
+                <div className="form-group">
+                  <label className="field-label">Вкажіть прізвище</label>
+                  <input
+                    name="lastName"
+                    placeholder="Симоненко"
+                    value={form.lastName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={getInputClass("lastName")}
+                  />
+                  {touched.lastName && errors.lastName && (
+                    <span className="field-error">{errors.lastName}</span>
+                  )}
+                </div>
+
+                <div className="form-group">
+                  <label className="field-label">Вкажіть по-батькові</label>
+                  <input
+                    name="patronymic"
+                    placeholder="Степанович"
+                    value={form.patronymic}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={getInputClass("patronymic")}
+                  />
+                  {touched.patronymic && errors.patronymic && (
+                    <span className="field-error">{errors.patronymic}</span>
+                  )}
+                </div>
+
+                <div className="form-group">
+                  <label className="field-label">Номер телефону</label>
+                  <div className={`phone-wrapper ${getInputClass("phone")}`}>
+                    <div className="phone-prefix">
+                      {/*<span className="flag">🇺🇦</span>*/}
+                      <span className="country-code">UKR</span>
+                      <span className="prefix-chevron">∨</span>
+                    </div>
+                    <input
+                      name="phone"
+                      placeholder="+380 97 978 9876"
+                      value={form.phone}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className="phone-input"
+                    />
+                  </div>
+                  {touched.phone && errors.phone && (
+                    <span className="field-error">{errors.phone}</span>
+                  )}
+                </div>
+
+                <div className="form-group">
+                  <label className="field-label">Вкажіть пошту</label>
+                  <div className={`email-wrapper ${getInputClass("email")}`}>
+                    <span className="email-icon">✉</span>
+                    <input
+                      name="email"
+                      placeholder="Email address"
+                      value={form.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className="email-input"
+                    />
+                  </div>
+                  {touched.email && errors.email && (
+                    <span className="field-error">{errors.email}</span>
+                  )}
+                </div>
+
+                {/* МІСТО  */}
+                <div className="form-group">
+                  <label className="field-label">Місто</label>
+                  <input
+                    name="city"
+                    placeholder="Введіть місто..."
+                    value={form.city}
+                    onChange={handleCitySearch}
+                    onBlur={() => setTouched((prev) => ({ ...prev, city: true }))}
+                    className={getInputClass("city")}
+                    autoComplete="off"
+                  />
+                  {loadingCities && <span className="field-hint">Пошук...</span>}
+                  {cities.length > 0 && !selectedCity && (
+                    <div className="autocomplete-list">
+                      {cities.map((c) => (
+                        <div
+                          key={c.Ref}
+                          className="autocomplete-item"
+                          onMouseDown={() => handleCitySelect(c)}
+                        >
+                          {c.Present}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {touched.city && errors.city && (
+                    <span className="field-error">{errors.city}</span>
+                  )}
+                </div>
+
+                {/* ВІДДІЛЕННЯ */}
+                <div className="form-group">
+                  <label className="field-label">Відділення</label>
+                  <div className={`select-wrapper ${getInputClass("branch")} ${!selectedCity ? "select-disabled" : ""}`}>
+                    <select
+                      name="branch"
+                      value={form.branch}
+                      onChange={handleBranchSelect}
+                      onBlur={() => setTouched((prev) => ({ ...prev, branch: true }))}
+                      disabled={!selectedCity}
+                    >
+                      <option value="">
+                        {loadingBranches ? "Завантаження..." : "Оберіть відділення"}
+                      </option>
+                      {branches.map((b) => (
+                        <option key={b.Ref} value={b.Description}>
+                          {b.Description}
+                        </option>
+                      ))}
+                    </select>
+                    <span className="select-chevron">∨</span>
+                  </div>
+                  {touched.branch && errors.branch && (
+                    <span className="field-error">{errors.branch}</span>
+                  )}
+                </div>
+
+              </div>
+
+              {/* FOOTER */}
+              <div className="checkout-footer">
+                <button className="btn-cancel" onClick={() => navigate('/catalog')}>Скасувати</button>
+                <button
+                  className="btn-pay"
+                  disabled={!selectedDelivery || !formValid}
+                  onClick={() => navigate('/payment')}
                 >
-                  <div className="radio-circle">
-                    {selectedDelivery === option.id && <div className="radio-dot" />}
-                  </div>
-                  <img src={option.icon} alt={option.name} className="delivery-icon" />
-                  <div className="delivery-info">
-                    <p className="delivery-name">{option.name}</p>
-                    <p className="delivery-days">{option.days}</p>
-                  </div>
-                  <span className="delivery-price">{option.price}</span>
+                  Оплатити
+                </button>
+              </div>
+
+            </div>
+
+            {/* RIGHT */}
+            <div className="checkout-right">
+              {adProducts.map((product) => (
+                <div key={product.id} className="product-summary-card">
+                  <span className="badge">{product.donationPercentage}% донату</span>
+                  <h4 className="h4">{product.title}</h4>
+                  <p className="price">{product.price} грн</p>
                 </div>
               ))}
             </div>
 
-            {/* CONTACT FORM */}
-            <div className="section-card">
-              <h3 className="section-title">Контактні дані</h3>
-              <p className="section-subtitle">Заповніть контактні дані отримувача</p>
-
-              <div className="form-group">
-                <label className="field-label">Вкажіть імʼя</label>
-                <input
-                  name="firstName"
-                  placeholder="Василь"
-                  value={form.firstName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getInputClass('firstName')}
-                />
-                {touched.firstName && errors.firstName && (
-                  <span className="field-error">{errors.firstName}</span>
-                )}
-              </div>
-
-              <div className="form-group">
-                <label className="field-label">Вкажіть прізвище</label>
-                <input
-                  name="lastName"
-                  placeholder="Симоненко"
-                  value={form.lastName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getInputClass('lastName')}
-                />
-                {touched.lastName && errors.lastName && (
-                  <span className="field-error">{errors.lastName}</span>
-                )}
-              </div>
-
-              <div className="form-group">
-                <label className="field-label">Вкажіть по-батькові</label>
-                <input
-                  name="patronymic"
-                  placeholder="Степанович"
-                  value={form.patronymic}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getInputClass('patronymic')}
-                />
-                {touched.patronymic && errors.patronymic && (
-                  <span className="field-error">{errors.patronymic}</span>
-                )}
-              </div>
-
-              <div className="form-group">
-                <label className="field-label">Номер телефону</label>
-                <div className={`phone-wrapper ${getInputClass('phone')}`}>
-                  <div className="phone-prefix">
-                    {/*<span className="flag">🇺🇦</span>*/}
-                    <span className="country-code">UKR</span>
-                    <span className="prefix-chevron">∨</span>
-                  </div>
-                  <input
-                    name="phone"
-                    placeholder="+380 97 978 9876"
-                    value={form.phone}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className="phone-input"
-                  />
-                </div>
-                {touched.phone && errors.phone && (
-                  <span className="field-error">{errors.phone}</span>
-                )}
-              </div>
-
-              <div className="form-group">
-                <label className="field-label">Вкажіть пошту</label>
-                <div className={`email-wrapper ${getInputClass('email')}`}>
-                  <span className="email-icon">✉</span>
-                  <input
-                    name="email"
-                    placeholder="Email address"
-                    value={form.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className="email-input"
-                  />
-                </div>
-                {touched.email && errors.email && (
-                  <span className="field-error">{errors.email}</span>
-                )}
-              </div>
-
-              {/* МІСТО — автокомпліт */}
-              <div className="form-group">
-                <label className="field-label">Місто</label>
-                <input
-                  name="city"
-                  placeholder="Введіть місто..."
-                  value={form.city}
-                  onChange={handleCitySearch}
-                  onBlur={() => setTouched((prev) => ({ ...prev, city: true }))}
-                  className={getInputClass('city')}
-                  autoComplete="off"
-                />
-                {loadingCities && <span className="field-hint">Пошук...</span>}
-                {cities.length > 0 && !selectedCity && (
-                  <div className="autocomplete-list">
-                    {cities.map((c) => (
-                      <div
-                        key={c.Ref}
-                        className="autocomplete-item"
-                        onMouseDown={() => handleCitySelect(c)}
-                      >
-                        {c.Present}
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {touched.city && errors.city && <span className="field-error">{errors.city}</span>}
-              </div>
-
-              {/* ВІДДІЛЕННЯ — селект з НП */}
-              <div className="form-group">
-                <label className="field-label">Відділення</label>
-                <div
-                  className={`select-wrapper ${getInputClass('branch')} ${!selectedCity ? 'select-disabled' : ''}`}
-                >
-                  <select
-                    name="branch"
-                    value={form.branch}
-                    onChange={handleBranchSelect}
-                    onBlur={() => setTouched((prev) => ({ ...prev, branch: true }))}
-                    disabled={!selectedCity}
-                  >
-                    <option value="">
-                      {loadingBranches ? 'Завантаження...' : 'Оберіть відділення'}
-                    </option>
-                    {branches.map((b) => (
-                      <option key={b.Ref} value={b.Description}>
-                        {b.Description}
-                      </option>
-                    ))}
-                  </select>
-                  <span className="select-chevron">∨</span>
-                </div>
-                {touched.branch && errors.branch && (
-                  <span className="field-error">{errors.branch}</span>
-                )}
-              </div>
-            </div>
-
-            {/* FOOTER */}
-            <div className="checkout-footer">
-              <button className="btn-cancel" onClick={() => navigate('/catalog')}>
-                Скасувати
-              </button>
-              <button
-                className="btn-pay"
-                disabled={!selectedDelivery || !formValid}
-                onClick={() => navigate('/payment')}
-              >
-                Оплатити
-              </button>
-            </div>
-          </div>
-
-          {/* RIGHT */}
-          <div className="checkout-right">
-            {[
-              { name: 'Рюкзак для походів NEO tools 30L', price: 460 },
-              { name: 'Бездротова портативна Bluetooth колонка', price: 700 },
-            ].map((item, idx) => (
-              <div key={idx} className="product-summary-card">
-                <span className="badge">100% донату</span>
-                <h4 className="product-summary-name">{item.name}</h4>
-                <p className="product-summary-price">{item.price} грн</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 
 export default Checkout

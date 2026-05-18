@@ -1,4 +1,5 @@
 .success-page-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,10 +7,10 @@
   min-height: 950px;
   background-color: #ffffff;
   padding: 0 20px 100px 20px;
-  overflow: hidden;
+  overflow: visible;
 }
 
-/* СІТКА МОЗАЇКИ*/
+/* MOSAIC GRID */
 .grid-mosaic-container {
   position: relative;
   display: grid;
@@ -22,9 +23,8 @@
   height: max-content; */
 
   gap: 2px;
-
-  /* Підтягуємо сітку вгору під хедер, щоб верхні плитки зайшли під нього */
-  margin-top: -140px;
+  
+  margin-top: -140px; 
 }
 
 .tile {
@@ -33,32 +33,23 @@
   z-index: 1;
 }
 
-/* Кольори плиток */
-.tile-lime {
-  background-color: #c9e13b;
-}
-.tile-lime-dark {
-  background-color: #bed92a;
-}
-.tile-lime-light {
-  background-color: #e4ee92;
-}
-.tile-khaki {
-  background-color: #737e55;
-}
-.tile-gray {
-  background-color: #b8c1b0;
-}
+/* Colors */
+.tile-lime { background-color: #c9e13b; }
+.tile-lime-dark { background-color: #bed92a; }
+.tile-lime-light { background-color: #e4ee92; }
+.tile-khaki { background-color: #737e55; }
+.tile-gray { background-color: #b8c1b0; }
 
-/* КАРТКА ПОДЯКИ */
+/* THANK YOU CARD */
 .success-card {
-  grid-column: 3 / 8;
-  grid-row: 3 / 6;
-
+  position : relative;
+  grid-column: 3 / 8; 
+  grid-row: 3 / 6;    
+  
   background: #ffffff;
   padding: 60px 40px;
   text-align: center;
-  z-index: 2; /* Лягає поверх фону */
+  z-index: 2;
   box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.05);
 
   display: flex;
@@ -83,7 +74,7 @@
   max-width: 500px;
 }
 
-/* ЦЕНТРОВАНА ФОРМА EMAIL */
+/* EMAIL FORM */
 .email-form-container {
   width: 100%;
   max-width: 450px;
@@ -139,8 +130,16 @@
   cursor: pointer;
 }
 
-.success-page-container {
-  position: relative;
+
+
+
+
+
+
+
+
+/* .success-page-container {
+  position: relative; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,28 +148,32 @@
   background-color: #ffffff;
   padding: 0 20px 100px 20px;
   overflow: hidden;
-}
+} */
 
 .back-to-home-btn {
-  position: absolute;
-  top: 5px;
-  left: 40px;
-  background: none;
-  border: none;
-  padding: 0;
-
-  color: #b8c1b0;
-
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
-  z-index: 10;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  color: #b8c1b0;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
   transition: opacity 0.2s;
+  z-index: 30;
+  position: absolute;
+  top: 16px;
+  left: 20px;
+
+  margin-left: -10px;
+  margin-top: 60px;
 }
 
 .back-to-home-btn:hover {
   opacity: 0.8;
 }
+
+
+

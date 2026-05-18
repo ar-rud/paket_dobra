@@ -10,6 +10,7 @@ html {
 }
 
 .payment-container {
+  position: relative;
   max-width: none;
   margin: 0 auto;
   padding: 40px 20px;
@@ -40,11 +41,9 @@ html {
 }
 
 .product-summary-card {
-  background: white;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
   padding: 20px;
   margin-bottom: 16px;
-  width: calc(100% - 40px); /* враховує padding батька */
+  width: calc(100% - 40px);
   margin-left: auto;
   margin-right: auto;
 }
@@ -52,8 +51,9 @@ html {
 .badge {
   background: #faffd1;
   border: 1px solid #d4e05b;
-  padding: 4px 8px;
+  padding: 4px 8px 40px 8px;
   font-size: 12px;
+  margin-left: 15px;
 }
 
 .payment-footer {
@@ -126,3 +126,40 @@ body {
 .method-item.selected {
   border: 1px solid #0a4e1f;
 }
+
+
+
+
+
+.product-summary-card h4 {
+  margin-left: 15px;
+}
+
+.product-summary-card .price {
+  margin-left: 15px;
+}
+
+
+
+
+
+.back-to-home-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 12px;
+  color: #b8c1b0;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+  margin-left: -10px;
+}
+
+.back-to-home-btn:hover {
+  opacity: 0.8;
+}
+
