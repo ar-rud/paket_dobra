@@ -366,5 +366,5 @@
 /* 3. Focus State (Green border when clicked/active) */
 .product-page-section-foundation-select:focus {
   border-color: #556133; /* Darker green from your design */
-  box-shadow: 0 0 0 1px #BDC2B0; /* Gives it that bold, slightly thicker look on focus */
+  box-shadow: 0 0 0 1px #bdc2b0; /* Gives it that bold, slightly thicker look on focus */
 }
