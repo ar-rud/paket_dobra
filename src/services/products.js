@@ -1,14 +1,3 @@
-/**
- * Products Service
- *
- * Handles all product-related operations:
- * - Fetch all products / by category / by ID
- * - Create new product (announcement)
- * - Update product
- * - Delete product
- * - Search and filter products
- */
-
 import apiCall from './api'
 
 /**
@@ -49,9 +38,6 @@ export async function getProductsByCategory(category) {
   return apiCall(`/products?category=${category}`)
 }
 
-/* Create or update a draft product.
- * If `product.id` is present, performs PUT /products/:id, otherwise POST /products.
- */
 export async function saveDraft(product) {
   if (!product) throw new Error('saveDraft: product required')
 
@@ -70,9 +56,6 @@ export async function saveDraft(product) {
   })
 }
 
-/**
- * Create or update a product with the provided status and full payload.
- */
 export async function saveProduct(product) {
   if (!product) throw new Error('saveProduct: product required')
 
