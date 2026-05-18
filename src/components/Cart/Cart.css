@@ -9,22 +9,27 @@
   display: inline-block;
 }
 
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
 /* Дропдаун-панель */
 .cart-dropdown {
-  
-  
-  
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 340px;
+  height: 100vh;
   background: #fff;
-  border: 0.5px solid #e0e0d8;
-  /* border-radius: 0; */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border-left: 0.5px solid #e0e0d8;
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   z-index: 1000;
-  animation: dropDown 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideInRight 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  max-height: 80vh;
 }
 
 /* Стрілка-трикутник вгорі */

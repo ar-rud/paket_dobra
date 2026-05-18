@@ -1,3 +1,7 @@
+import { useCart } from "/src/contexts/CartContext";
+import { useOutletContext } from "react-router";
+
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import "./ProductPage.css";
@@ -8,6 +12,10 @@ import Breadcrumbs from "/src/components/Breadcrumbs/Breadcrumbs.jsx";
 
 
 export default function ProductPage(props) {
+
+  const { addItem } = useCart();
+  const { handleCartOpen } = useOutletContext();
+
   const params = useParams();
   const productId = params.id;
 
@@ -91,6 +99,24 @@ export default function ProductPage(props) {
     },
     { label: `${product.title}`, current: true },
   ];
+
+
+
+  const handleAddToCart = () => {
+    addItem({
+      id: product.id,
+      name: product.title,
+      price: product.price,
+      donation: productPriceAddPercent,
+      image: mainImage,
+      note: product.linkedCampaignId === null
+        ? "*При оформленні оберіть фонд на який піде донат."
+        : null,
+    });
+    handleCartOpen(); // відкрити кошик
+  };
+
+
 
   return (
     <>
@@ -177,7 +203,7 @@ export default function ProductPage(props) {
                 </select>
               </section>
             )}
-            <button className="product-page-button-buy">
+            <button className="product-page-button-buy" onClick={handleAddToCart}>
               Додати до корзини
             </button>
           </header>

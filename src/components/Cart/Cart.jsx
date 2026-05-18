@@ -1,27 +1,7 @@
 import { useNavigate } from "react-router";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useCart } from "/src/contexts/CartContext";
 import "./Cart.css";
-
-const images = import.meta.glob("../../assets/images/*", { eager: true });
-
-const initialItems = [
-  {
-    id: 1,
-    name: "Рюкзак для походів NEO tools 30L",
-    price: 450,
-    donation: 10,
-    note: "*При оформленні цього товару вам буде потрібно обрати фонд на який піде донат.",
-    image: images["../../assets/images/backpack.png"].default,
-  },
-  {
-    id: 2,
-    name: "Свічки ароматичні 6шт",
-    price: 450,
-    donation: 10,
-    note: null,
-    image: images["../../assets/images/candles.png"].default,
-  },
-];
 
 const TrashIcon = () => (
   <svg width="15" height="17" viewBox="0 0 18 20" fill="none">
@@ -35,12 +15,11 @@ const TrashIcon = () => (
   </svg>
 );
 
-export default function Cart({ onClose, onCheckout, anchorStyle }) {
-  const [items, setItems] = useState(initialItems);
+export default function Cart({ onClose, onCheckout }) {
+  const { items, removeItem } = useCart();
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
-  const removeItem = (id) => setItems((prev) => prev.filter((i) => i.id !== id));
   const total = items.reduce((sum, i) => sum + i.price + i.donation, 0);
 
   useEffect(() => {
@@ -58,7 +37,9 @@ export default function Cart({ onClose, onCheckout, anchorStyle }) {
   }, [onClose]);
 
   return (
-    <div className="cart-dropdown" ref={dropdownRef} style={anchorStyle}>
+
+ 
+      <div className="cart-dropdown" ref={dropdownRef}>
 
       <div className="cart-header">
         <span className="cart-title">У вашій корзині:</span>
