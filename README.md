@@ -51,3 +51,17 @@ To check formatting without changing files, run:
 ```bash
 npm run format:check
 ```
+
+## Script for placeholders generation
+
+Run in the terminal
+
+```bash
+node generate-images.js
+```
+
+### Remarks
+
+In catalog most populated category of products is "Хобі та розваги".
+
+It displayes 6 items per page to demonstrate the pagination functionality and in the same time not clutter db with too much products.
