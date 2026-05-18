@@ -5,7 +5,7 @@ import "./Catalog.css";
 import ProductCard from "/src/components/ProductCard/ProductCard.jsx";
 import MoreButton from "/src/components/MoreButton/MoreButton.jsx";
 import ArrowDownIcon from "/src/assets/images/arrow_down.svg?react";
-import Filters from "./Filters/Filters";
+import Filters from "./components/Filters/Filters.jsx";
 import PageSwitcher from "../../components/PageSwitcher/PageSwitcher";
 import HeroSection from "/src/components/HeroSection/HeroSection.jsx";
 import Breadcrumbs from "/src/components/Breadcrumbs/Breadcrumbs.jsx";

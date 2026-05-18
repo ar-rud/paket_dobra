@@ -7,7 +7,7 @@ import Header from "./components/Header/Header.jsx";
 import Catalog from "./pages/Catalog/Catalog.jsx";
 import "./App.css";
 import Footer from "./components/Footer/Footer.jsx";
-import CatalogOverview from "./pages/Catalog/CatalogOverview/CatalogOverview.jsx";
+import CatalogOverview from "./pages/Catalog/components/CatalogOverview/CatalogOverview.jsx";
 
 import { Outlet, ScrollRestoration } from "react-router";
 import { useState } from "react";

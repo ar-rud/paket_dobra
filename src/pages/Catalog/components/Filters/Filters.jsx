@@ -1,5 +1,5 @@
 import "./Filters.css";
-import FilterItem from "./FilterItem/FilterItem.jsx";
+import FilterItem from "../FilterItem/FilterItem.jsx";
 
 export default function Filters(props) {
   const onFilterChange = (filterName) => (event) => {

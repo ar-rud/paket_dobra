@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./FilterItem.css";
-import PriceFilter from "/src/pages/Catalog/Filters/PriceFilter/PriceFilter.jsx";
+import PriceFilter from "/src/pages/Catalog/components/PriceFilter/PriceFilter.jsx";
 
 export default function FilterItem(props) {
   // props

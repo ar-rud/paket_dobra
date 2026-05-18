@@ -12,7 +12,7 @@ import "./HomePage.css";
 
 import Footer from "../../components/Footer/Footer.jsx";
 
-import CatalogOverview from "../Catalog/CatalogOverview/CatalogOverview.jsx";
+import CatalogOverview from "../Catalog/components/CatalogOverview/CatalogOverview.jsx";
 
 const featuredProducts = [
   {

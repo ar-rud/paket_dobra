@@ -4,11 +4,11 @@ import HomePage from "./pages/HomePage/HomePage.jsx";
 import DonationsPage from "./pages/DonationsPage/DonationsPage.jsx";
 import AnnouncementSuccess from "./pages/CreateAnnouncementPage/AnnouncementSuccess.jsx";
 import CreateAnnouncementPage from "./pages/CreateAnnouncementPage/CreateAnnouncementPage.jsx";
-import CatalogOverview from "./pages/Catalog/CatalogOverview/CatalogOverview.jsx";
+import CatalogOverview from "/src/pages/Catalog/components/CatalogOverview/CatalogOverview.jsx";
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Catalog from "./pages/Catalog/Catalog.jsx";
-import ProductPage from "./pages/Catalog/ProductPage/ProductPage.jsx";
+import ProductPage from "/src/pages/Catalog/components/ProductPage/ProductPage.jsx";
 
 import CardPayment from "./pages/Pay/Card/CardPayment.jsx";
 import Checkout from "./pages/Pay/Checkout/Checkout.jsx";
