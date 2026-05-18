@@ -39,14 +39,15 @@ export default function Profile() {
   const [activeTabId, setActiveTabId] = useState(PROFILE_TABS[0].id);
 
   const [userIdentity, setUserIdentity] = useState({
-    avatarSrc: defaultAvatar,
-    avatarAlt: "Користувач",
-    name: "Завантаження...",
-    username: "",
-    levelLabel: "",
-    messageLabel: "Повідомлення",
-    messageIcon: <MessagesIcon />,
-  });
+      avatarSrc: defaultAvatar,
+      avatarAlt: "Користувач",
+      name: "Завантаження...",
+      username: "",
+      levelLabel: "",
+      messageLabel: "Повідомлення",
+      messageIcon: <MessagesIcon />,
+      levelProgress: 0,
+    });
 
   const [impactStats, setImpactStats] = useState({
     title: "Ваша допомога:",
@@ -83,6 +84,7 @@ export default function Profile() {
           name: profileData.userIdentity.name,
           username: profileData.userIdentity.username,
           levelLabel: profileData.userIdentity.levelLabel,
+          levelProgress: profileData.userIdentity.levelProgress,
           messageLabel: "Повідомлення",
           messageIcon: <MessagesIcon />,
         });

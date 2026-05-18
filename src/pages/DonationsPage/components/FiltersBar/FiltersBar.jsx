@@ -1,4 +1,48 @@
+import { useState, useRef, useEffect } from "react";
 import "./FiltersBar.css";
+import ArrowDownIcon from "../../../../assets/images/triangle_down.svg?react";
+
+function CustomSelect({ options, value, onChange }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const selectRef = useRef(null);
+
+  const selectedOption = options?.find((opt) => opt.value === value) || options?.[0];
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (selectRef.current && !selectRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div className="custom-select" ref={selectRef}>
+      <div className="custom-select__control" onClick={() => setIsOpen(!isOpen)}>
+        <span className="custom-select__value">{selectedOption?.label}</span>
+        <ArrowDownIcon className={`custom-select__arrow ${isOpen ? "open" : ""}`} />
+      </div>
+      {isOpen && (
+        <div className="custom-select__menu">
+          {options?.map((option) => (
+            <div
+              key={option.value}
+              className={`custom-select__option ${option.value === value ? "selected" : ""}`}
+              onClick={() => {
+                onChange(option.value);
+                setIsOpen(false);
+              }}
+            >
+              {option.label}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 function FiltersBar({
   typeOptions,
@@ -12,41 +56,21 @@ function FiltersBar({
   return (
     <div className="filters-bar">
       <div className="filters-bar__left">
-        <select
-          className="filters-bar__select"
+        <CustomSelect
+          options={typeOptions}
           value={filters.category}
-          onChange={(event) => onFilterChange("category", event.target.value)}
-        >
-          {typeOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-
-        <select
-          className="filters-bar__select"
+          onChange={(val) => onFilterChange("category", val)}
+        />
+        <CustomSelect
+          options={statusOptions}
           value={filters.status}
-          onChange={(event) => onFilterChange("status", event.target.value)}
-        >
-          {statusOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-
-        <select
-          className="filters-bar__select"
+          onChange={(val) => onFilterChange("status", val)}
+        />
+        <CustomSelect
+          options={organizationOptions}
           value={filters.foundation}
-          onChange={(event) => onFilterChange("foundation", event.target.value)}
-        >
-          {organizationOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+          onChange={(val) => onFilterChange("foundation", val)}
+        />
       </div>
 
       <div className="filters-bar__right">

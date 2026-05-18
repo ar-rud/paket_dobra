@@ -8,6 +8,7 @@ export default function UserIdentity({
   name,
   username,
   levelLabel,
+  levelProgress = 0,
 }) {
   const [src, setSrc] = useState(avatarSrc || defaultAvatar);
 
@@ -15,15 +16,42 @@ export default function UserIdentity({
     setSrc(avatarSrc || defaultAvatar);
   }, [avatarSrc]);
 
+  const size = 122;
+  const strokeWidth = 6;
+  const radius = (size - strokeWidth) / 2; 
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (levelProgress / 100) * circumference;
+
   return (
     <div className="user-identity">
       <div className="user-identity__avatar-frame">
+        <svg
+          className="progress-ring"
+          viewBox={`0 0 ${size} ${size}`}
+        >
+          <circle
+            className="progress-ring__background"
+            r={radius}
+            cx={size / 2}
+            cy={size / 2}
+          />
+          <circle
+            className="progress-ring__progress"
+            r={radius}
+            cx={size / 2}
+            cy={size / 2}
+            style={{
+              strokeDasharray: circumference,
+              strokeDashoffset: strokeDashoffset,
+            }}
+          />
+        </svg>
+
         <img
           src={src}
           alt={avatarAlt}
           className="user-identity__avatar"
           onError={(e) => {
-            console.warn('UserIdentity: avatar failed to load, falling back to default:', e.currentTarget.src);
             setSrc(defaultAvatar);
           }}
         />
