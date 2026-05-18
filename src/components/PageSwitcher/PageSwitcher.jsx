@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./PageSwitcher.css";
 import ArrowLeftIcon from "../../assets/images/arrow_left.svg?react";
 import ArrowRightIcon from "../../assets/images/arrow_right.svg?react";
@@ -16,22 +16,48 @@ function PageSwitcher({
   disableScrollOnDesktop = false
 }) {
   const switcherRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 480px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleResize = (e) => {
+      setIsMobile(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleResize);
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }, []);
+
   const computedTotalPages = totalItems ? Math.max(1, Math.ceil(totalItems / pageSize)) : Math.max(1, totalPages || 1);
   const pages = [];
 
-  if (computedTotalPages < 8) {
+  const threshold = isMobile ? 7 : 8;
+
+  if (computedTotalPages < threshold) {
     for (let page = 1; page <= computedTotalPages; page += 1) {
       pages.push(page);
     }
   } else {
-    for (let page = 1; page <= computedTotalPages; page += 1) {
-      if (page <= 3 || page > computedTotalPages - 3) {
-        pages.push(page);
-        continue;
+    if (isMobile) {
+      if (currentPage <= 3) {
+        pages.push(1, 2, 3, "dots", computedTotalPages - 1, computedTotalPages);
+      } else if (currentPage >= computedTotalPages - 2) {
+        pages.push(1, 2, "dots", computedTotalPages - 2, computedTotalPages - 1, computedTotalPages);
+      } else {
+        pages.push(1, "dots", currentPage, "dots", computedTotalPages);
       }
+    } else {
+      for (let page = 1; page <= computedTotalPages; page += 1) {
+        if (page <= 3 || page > computedTotalPages - 3) {
+          pages.push(page);
+          continue;
+        }
 
-      if (pages[pages.length - 1] !== 'dots') {
-        pages.push('dots');
+        if (pages[pages.length - 1] !== 'dots') {
+          pages.push('dots');
+        }
       }
     }
   }
@@ -42,9 +68,9 @@ function PageSwitcher({
       
       if (disableScroll) return;
 
-      const isMobile = window.matchMedia("(max-width: 480px)").matches;
+      const isMobileSize = window.matchMedia("(max-width: 480px)").matches;
       
-      if (disableScrollOnDesktop && !isMobile) {
+      if (disableScrollOnDesktop && !isMobileSize) {
         return;
       }
 
@@ -83,7 +109,6 @@ function PageSwitcher({
               });
             }
           } else {
-            // Document top fallback
             window.scrollTo({ top: 0, behavior: "smooth" });
           }
         }
@@ -107,7 +132,7 @@ function PageSwitcher({
         type="button"
       >
         <ArrowLeftIcon className="page-switcher__nav-icon" aria-hidden="true" />
-        Попередня
+        <span className="page-switcher__nav-text">Попередня</span>
       </button>
 
       <div className="page-switcher__pages">
@@ -139,7 +164,7 @@ function PageSwitcher({
         disabled={currentPage === computedTotalPages}
         type="button"
       >
-        Наступна
+        <span className="page-switcher__nav-text">Наступна</span>
         <ArrowRightIcon className="page-switcher__nav-icon" aria-hidden="true" />
       </button>
     </div>
