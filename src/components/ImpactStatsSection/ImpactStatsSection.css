@@ -228,8 +228,6 @@
   overflow: hidden;
 }
 
-
-
 .impact-stats__rate-card .impact-stats__label,
 .impact-stats__rate-card .impact-stats__value {
   position: absolute;
@@ -344,8 +342,6 @@
   color: #fafceb;
 }
 
-/* HEART */
-
 .impact-stats__heart-card {
   grid-area: heart;
   width: 100%;
@@ -417,7 +413,6 @@
   background:
     url("../../assets/images/impact-mini-hearts.svg")
       center center / 92% auto no-repeat,
-
     #2b3a00;
 
   position: relative;
@@ -555,8 +550,6 @@
     font-size: clamp(14px, 4.5cqi, 17px);
   }
 }
-
-/* TABLET */
 
 @media (max-width: 1700px) {
   .impact-stats__title {

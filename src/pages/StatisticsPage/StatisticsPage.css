@@ -16,8 +16,27 @@
   padding: 18px 0 28px;
 }
 
+.statistics-page .impact-stats__inner {
+  width: min(100% - 72px, 1120px);
+}
+
+@media (max-width: 1320px) {
+  .statistics-page .impact-stats__inner {
+    width: min(100% - 72px, 1120px);
+  }
+}
+
+@media (max-width: 720px) {
+  .statistics-page .impact-stats__inner {
+    width: min(100% - 72px, 1120px);
+  }
+}
+
 @media (max-width: 680px) {
   .statistics-page__container {
+    width: min(100% - 24px, 1240px);
+  }
+  .statistics-page .impact-stats__inner {
     width: min(100% - 24px, 1240px);
   }
 }

@@ -46,7 +46,7 @@ export default function StatisticsPage() {
         />
       </div>
 
-      <ImpactStatsSection />
+      <ImpactStatsSection showDetailsButton={false} />
 
       <ReportsSection reports={reportsData.reportList} googleDriveUrl={reportsData.googleDriveUrl} />
     </main>
