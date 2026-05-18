@@ -11,13 +11,14 @@ export default function SidebarWrapper({ className = '', userIdentity, impactSta
   return (
     <aside className={rootClassName}>
       <div className="sidebar-wrapper__section sidebar-wrapper__section--identity">
-        <UserIdentity
-          avatarSrc={userIdentity.avatarSrc}
-          avatarAlt={userIdentity.avatarAlt}
-          name={userIdentity.name}
-          username={userIdentity.username}
-          levelLabel={userIdentity.levelLabel}
-        />
+      <UserIdentity
+        avatarSrc={userIdentity?.avatarSrc}
+        avatarAlt={userIdentity?.avatarAlt}
+        name={userIdentity?.name}
+        username={userIdentity?.username}
+        levelLabel={userIdentity?.levelLabel}
+        levelProgress={userIdentity?.levelProgress}
+      />
       </div>
 
       <div className="sidebar-wrapper__section sidebar-wrapper__section--message">

@@ -15,7 +15,8 @@ function mapUserIdentity(user) {
 		avatarAlt: `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'Користувач',
 		name: `${user.firstName || ''} ${user.lastName || ''}`.trim() || user.username || 'Користувач',
 		username: user.username || '',
-		levelLabel: user.level ? `${user.level} level` : '',
+		levelLabel: user.level ? `${user.level} рівень` : '',
+		levelProgress: user.levelProgress || 0,
 	};
 }
 
