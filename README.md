@@ -37,3 +37,17 @@ Start and the Vite dev server and the JSON Server.
 ```bash
 npm run dev:full
 ```
+
+## Format code
+
+Use Prettier to format the whole repository:
+
+```bash
+npm run format
+```
+
+To check formatting without changing files, run:
+
+```bash
+npm run format:check
+```
