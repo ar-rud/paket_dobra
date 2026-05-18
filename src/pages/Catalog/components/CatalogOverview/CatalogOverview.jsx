@@ -2,7 +2,8 @@ import './CatalogOverview.css'
 import { Link } from 'react-router'
 
 export default function CatalogOverview({ variant = 'catalog', fillerHoverColor }) {
-  const decoratingBlocks = [
+  // Original desktop filler positions
+  const desktopBlocks = [
     [1, 1],
     [1, 5],
     [1, 6],
@@ -32,6 +33,16 @@ export default function CatalogOverview({ variant = 'catalog', fillerHoverColor 
     [5, 9],
   ]
 
+  // Mapped based on your 3-column narrow image design
+  const mobileBlocks = [
+    [1, 3],
+    [3, 1],
+    [5, 3],
+    [6, 2],
+    [7, 1],
+    [7, 3],
+  ]
+
   return (
     <div
       className={`CatalogOverview-wrapper CatalogOverview-wrapper--${variant}`}
@@ -46,6 +57,7 @@ export default function CatalogOverview({ variant = 'catalog', fillerHoverColor 
             У нас ти можеш знайти багато речей, але якщо не підбереш, все одно повертайся!
           </p>
         </section>
+
         <Link className="CatalogOverview-item CatalogOverview-home-product" to="/catalog/home">
           Товари для дому
         </Link>
@@ -79,18 +91,24 @@ export default function CatalogOverview({ variant = 'catalog', fillerHoverColor 
         <Link className="CatalogOverview-item CatalogOverview-applience" to="/catalog/electronics">
           Електроніка та техніка
         </Link>
-        {decoratingBlocks.map(([row, col]) => {
-          return (
-            <div
-              key={((row + col) * (row + col + 1)) / 2 + col}
-              className="CatalogOverview-filler"
-              style={{
-                gridRow: row,
-                gridColumn: col,
-              }}
-            ></div>
-          )
-        })}
+
+        {/* Desktop Fillers */}
+        {desktopBlocks.map(([row, col]) => (
+          <div
+            key={`desktop-${row}-${col}`}
+            className="CatalogOverview-filler CatalogOverview-filler--desktop"
+            style={{ gridRow: row, gridColumn: col }}
+          />
+        ))}
+
+        {/* Mobile Fillers */}
+        {mobileBlocks.map(([row, col]) => (
+          <div
+            key={`mobile-${row}-${col}`}
+            className="CatalogOverview-filler CatalogOverview-filler--mobile"
+            style={{ gridRow: row, gridColumn: col }}
+          />
+        ))}
       </div>
     </div>
   )

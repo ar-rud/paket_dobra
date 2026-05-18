@@ -215,15 +215,18 @@ export default function Catalog(props) {
   return (
     <>
       <Breadcrumbs className="Catalog-breadcrumbs" items={breadcrumbItems} />
-      <HeroSection
-        title={
-          <>
-            Рій помсти 24/7: <br /> б'ємо ворога вдень <br /> та вночі
-          </>
-        }
-        description="Залишилось зібрати зовсім трохи. Без тебе не впораємось!"
-        buttonText="Підтримати"
-      />
+      <div className="Catalog-hero-wrapper">
+        <HeroSection
+          title={
+            <>
+              Рій помсти 24/7: <br /> б'ємо ворога вдень <br /> та вночі
+            </>
+          }
+          description="Залишилось зібрати зовсім трохи. Без тебе не впораємось!"
+          buttonText="Підтримати"
+        />
+      </div>
+
       <div className="Catalog-wrapper">
         <Filters searchParams={searchParams} setSearchParams={handleFilterChange} />
 

@@ -50,3 +50,32 @@
   padding-left: 56px;
   padding-top: 20px;
 }
+
+@media (max-width: 480px) {
+  .Catalog-wrapper {
+    flex-direction: column;
+    padding: 24px;
+    align-items: center;
+  }
+
+  .Catalog-ProductCardList-wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* .Catalog-ProductCardList-wrapper {
+    grid-template-columns: 1fr; 
+    gap: 16px; 
+  } */
+
+  .Catalog-breadcrumbs {
+    padding-left: 24px;
+    padding-top: 12px;
+    background-color: #ffffff;
+    width: 90%;
+  }
+
+  .Catalog-hero-wrapper {
+    display: none;
+  }
+}
