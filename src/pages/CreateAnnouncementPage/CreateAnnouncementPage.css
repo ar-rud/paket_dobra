@@ -67,3 +67,41 @@
   border-color: #121800;
   color: #ffffff;
 }
+
+@media (max-width: 480px) {
+  .create-announcement-page__container {
+    padding: 20px 12px 24px;
+  }
+
+  .create-announcement-page__title {
+    margin: 0 0 24px;
+    font-size: 28px;
+    line-height: 1.12;
+  }
+
+  .create-announcement-page__sections {
+    gap: 12px;
+  }
+
+  .create-announcement-page__actions {
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .create-announcement-page__actions-left {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .create-announcement-page__action,
+  .create-announcement-page__action--draft,
+  .create-announcement-page__action--cancel,
+  .create-announcement-page__action--publish {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+}

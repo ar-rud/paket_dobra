@@ -172,3 +172,57 @@
 .description-section__result--selected {
   background: #fafceb;
 }
+
+@media (max-width: 480px) {
+  .section-card.donation-help {
+    gap: 24px;
+    padding: 24px 16px 28px;
+  }
+
+  .section-card.donation-help .section-card__body.donation-help__body {
+    gap: 20px;
+  }
+
+  .donation-help__heading {
+    font-size: 18px;
+  }
+
+  .donation-help__stack {
+    width: 100%;
+  }
+
+  .donation-help__hint,
+  .donation-help__checkbox-label,
+  .description-section__label {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .donation-help__checkbox-row {
+    padding: 8px 0;
+  }
+
+  .description-section__ai,
+  .description-section__ai-row,
+  .description-section__ai-column,
+  .description-section__actions {
+    width: 100%;
+  }
+
+  .description-section__ai-row,
+  .description-section__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .description-section__result,
+  .description-section__textarea {
+    width: 100%;
+    height: 180px;
+  }
+
+  .description-section__actions .description-section__improve {
+    width: 100%;
+    min-width: 0;
+  }
+}

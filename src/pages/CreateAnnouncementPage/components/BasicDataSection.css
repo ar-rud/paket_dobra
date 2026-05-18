@@ -86,3 +86,34 @@
   background-size: 18px 18px;
   padding-right: 44px;
 }
+
+@media (max-width: 480px) {
+  .section-card.basic-data-section {
+    padding: 24px 16px 28px;
+  }
+
+  .section-card.basic-data-section .section-card__title {
+    margin: 0 0 20px;
+    font-size: 18px;
+  }
+
+  .basic-data-section__fields,
+  .basic-data-section__input {
+    width: 100%;
+  }
+
+  .basic-data-section__fields {
+    gap: 18px;
+  }
+
+  .basic-data-section__group--name,
+  .basic-data-section__group--category {
+    height: auto;
+  }
+
+  .basic-data-section__label,
+  .basic-data-section__hint {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}

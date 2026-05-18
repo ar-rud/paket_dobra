@@ -196,6 +196,15 @@ export default function HomeHeroSection({ onCartOpen = () => {} }) {
               </article>
             ))}
           </div>
+
+          <div className="home-hero__mobile-cta">
+            <p className="home-hero__hint home-hero__hint--mobile">
+              Переглянь інші збори, які чекають на твою допомогу
+            </p>
+            <MoreButton className="home-hero__button home-hero__button--mobile" onClick={goToDonations}>
+              Переглянути
+            </MoreButton>
+          </div>
         </div>
       </div>
     </section>
