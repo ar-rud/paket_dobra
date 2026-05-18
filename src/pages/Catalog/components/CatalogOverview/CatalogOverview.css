@@ -1,8 +1,10 @@
 .CatalogOverview-wrapper {
-  /*placeholder*/
-  /* height: 500px; */
-  /* background-color: lightblue; */
-  /*placeholder*/
+  --catalog-overview-filler-color: #f0f4c2;
+  --catalog-overview-filler-hover-color: var(--color-catalog-page-background, #edf0d6);
+  --catalog-overview-item-color: #2b3a00;
+  --catalog-overview-item-text-color: #ffffff;
+  --catalog-overview-item-hover-color: var(--color-hover-primary, #99a235);
+  --catalog-overview-item-hover-text-color: var(--catalog-overview-item-color);
 
   margin-top: 75px;
   margin-bottom: 75px;
@@ -14,15 +16,19 @@
   justify-content: center;
 }
 
+.CatalogOverview-wrapper--home {
+  --catalog-overview-filler-hover-color: var(--color-home-page-background, #eaebe6);
+}
+
+.CatalogOverview-wrapper--catalog {
+  --catalog-overview-filler-hover-color: var(--color-catalog-page-background, #edf0d6);
+}
+
 .CatalogOverview-grid {
   display: grid;
   grid-template-columns: repeat(11, 146px);
   grid-template-rows: repeat(5, 146px);
   gap: 1px;
-}
-
-.CatalogOverview-grid > * {
-  /* background-color: lightpink; */
 }
 
 .CatalogOverview-section {
@@ -104,16 +110,32 @@
 }
 
 .CatalogOverview-filler {
-  background-color: #f0f4c2;
+  background-color: var(--catalog-overview-filler-color);
+  transition: background-color 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.CatalogOverview-filler:hover {
+  background-color: var(--catalog-overview-filler-hover-color);
+}
 
 .CatalogOverview-item {
-    background-color: #2B3A00;
-    color: #FFFFFF;
-    padding: 24px 16px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 24px 16px;
+  background-color: var(--catalog-overview-item-color);
+  color: var(--catalog-overview-item-text-color);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  transition: background-color 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.CatalogOverview-item:hover,
+.CatalogOverview-item:focus-visible {
+  background-color: var(--catalog-overview-item-hover-color);
+  color: var(--catalog-overview-item-hover-text-color);
 }

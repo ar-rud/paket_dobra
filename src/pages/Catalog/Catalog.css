@@ -46,7 +46,7 @@
 }
 
 .Catalog-breadcrumbs {
-  background-color: #edf0d6;
+  background-color: var(--color-catalog-page-background, #edf0d6);
   padding-left: 56px;
   padding-top: 20px;
 }

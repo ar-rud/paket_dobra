@@ -1,8 +1,11 @@
 import "./CatalogOverview.css";
 import { Link } from "react-router";
 
-export default function CatalogOverview(props) {
-  let decoratingBlocks = [
+export default function CatalogOverview({
+  variant = "catalog",
+  fillerHoverColor,
+}) {
+  const decoratingBlocks = [
     [1, 1],
     [1, 5],
     [1, 6],
@@ -33,7 +36,14 @@ export default function CatalogOverview(props) {
   ];
 
   return (
-    <div className="CatalogOverview-wrapper">
+    <div
+      className={`CatalogOverview-wrapper CatalogOverview-wrapper--${variant}`}
+      style={
+        fillerHoverColor
+          ? { "--catalog-overview-filler-hover-color": fillerHoverColor }
+          : undefined
+      }
+    >
       <div className="CatalogOverview-grid">
         <section className="CatalogOverview-section">
           <h2 className="CatalogOverview-section-heading">
@@ -101,8 +111,6 @@ export default function CatalogOverview(props) {
         >
           Електроніка та техніка
         </Link>
-        {/*https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n*/}
-        {/*https://math.stackexchange.com/questions/23503/create-unique-number-from-2-numbers*/}
         {decoratingBlocks.map(([row, col]) => {
           return (
             <div

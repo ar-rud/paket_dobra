@@ -146,7 +146,10 @@ export default function HomePage() {
   return (
     <main className="home-page">
       <HomeHeroSection onCartOpen={handleCartOpen} />
-      <CatalogOverview />
+      <CatalogOverview
+        variant="home"
+        fillerHoverColor="var(--color-home-page-background, #eaebe6)"
+      />
       <ImpactStatsSection detailsHref="/statistics" />
 
       <section className="home-page__products">

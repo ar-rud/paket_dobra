@@ -17,6 +17,9 @@ body {
   width: 100%;
   min-height: 100vh;
   --color-hover-primary: #99a235;
+  --color-home-page-background: #eaebe6;
+  --color-catalog-page-background: #edf0d6;
+  --color-background-muted: var(--color-home-page-background);
 }
 
 @font-face {
@@ -25,12 +28,14 @@ body {
   font-weight: 400;
   font-style: regular;
 }
+
 @font-face {
   font-family: "e-Ukraine";
   src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Medium.otf) format("opentype");
   font-weight: 500;
   font-style: medium;
 }
+
 @font-face {
   font-family: "e-Ukraine";
   src: url(/src/assets/fonts/e-Ukraine/e-Ukraine-Bold.otf) format("opentype");

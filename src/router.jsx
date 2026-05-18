@@ -55,7 +55,15 @@ export const router = createBrowserRouter([
             path: "catalog",
             // element: <CatalogOverview />,
             children: [
-              { index: true, element: <CatalogOverview /> },
+              {
+                index: true,
+                element: (
+                  <CatalogOverview
+                    variant="catalog"
+                    fillerHoverColor="var(--color-catalog-page-background, #edf0d6)"
+                  />
+                ),
+              },
               {
                 path: ":category",
                 element: <Catalog />,
