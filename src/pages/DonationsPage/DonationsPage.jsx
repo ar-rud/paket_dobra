@@ -23,6 +23,7 @@ const DEFAULT_FILTERS = {
 
 function DonationsPage() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [pagesShown, setPagesShown] = useState(1);
   const [campaigns, setCampaigns] = useState([]);
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [appliedFilters, setAppliedFilters] = useState(DEFAULT_FILTERS);
@@ -38,6 +39,7 @@ function DonationsPage() {
 
         setCampaigns(data);
         setCurrentPage(1);
+        setPagesShown(1);
       } catch (error) {
         console.error("Failed to load campaigns:", error);
       }
@@ -98,18 +100,20 @@ function DonationsPage() {
 
   const visibleCampaigns = useMemo(() => {
     const startIndex = (currentPage - 1) * PAGE_SIZE;
-    return filteredCampaigns.slice(startIndex, startIndex + PAGE_SIZE);
-  }, [filteredCampaigns, currentPage]);
+    const endIndex = startIndex + pagesShown * PAGE_SIZE;
+    return filteredCampaigns.slice(startIndex, endIndex);
+  }, [filteredCampaigns, currentPage, pagesShown]);
 
   const onLoadMore = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage((prev) => prev + 1);
+    if (currentPage + pagesShown - 1 < totalPages) {
+      setPagesShown((prev) => prev + 1);
     }
   };
 
   const onPageChange = (page) => {
     const nextPage = Math.min(Math.max(page, 1), totalPages);
     setCurrentPage(nextPage);
+    setPagesShown(1);
   };
 
   const onFilterChange = (field, value) => {
@@ -119,16 +123,18 @@ function DonationsPage() {
   const onApplyFilters = () => {
     setAppliedFilters({ ...filters });
     setCurrentPage(1);
+    setPagesShown(1);
   };
 
   const onResetFilters = () => {
     setFilters({ ...DEFAULT_FILTERS });
     setAppliedFilters({ ...DEFAULT_FILTERS });
     setCurrentPage(1);
+    setPagesShown(1);
   };
 
   const hasEnoughItemsForPagination = filteredCampaigns.length > PAGE_SIZE;
-  const showMoreButton = currentPage < totalPages;
+  const showMoreButton = (currentPage + pagesShown - 1) < totalPages;
 
   return (
     <>
